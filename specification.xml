@@ -3019,7 +3019,7 @@
     <properties xmi:id="_JX428etLEeOfBpI40-y9Mg" key="usedVersion" value="17.0.5"/>
     <properties xmi:id="_JX428utLEeOfBpI40-y9Mg" key="LOCAL_PROJECT_ID" value="PROJECT-877558e9224f114d50dea1f39a1c119"/>
   </projectUsages>
-  <projectUsages xmi:id="_lsD3MOtLEeOfBpI40-y9Mg" usedProjectURI="file:/Volumes/SamsungSSD/git/AML/org.xml" reshared="true" readonly="true" loadedAutomatically="true">
+  <projectUsages xmi:id="_lsD3MOtLEeOfBpI40-y9Mg" usedProjectURI="org.xml" reshared="true" readonly="true" loadedAutomatically="true">
     <usedProject href="PROJECT-c7002c83-dfa2-4712-a1fe-37af2cc51458?resource=com.nomagic.ci.metamodel.project#_YxCyQOtLEeOfBpI40-y9Mg"/>
     <mountPoints xmi:id="_l4DEwOtLEeOfBpI40-y9Mg" sharePointID="_YyJlgOtLEeOfBpI40-y9Mg" containmentFeatureID="59" featureName="UML Model" containmentIndex="-1" containmentFeatureName="packagedElement">
       <mountedPoint href="PROJECT-c7002c83-dfa2-4712-a1fe-37af2cc51458?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_2AgofbqaEeOtXIKgzWpK_g"/>
