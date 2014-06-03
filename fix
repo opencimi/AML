@@ -1,0 +1,2 @@
+#! /bin/bash
+sed -i '' '/Applications/! s/usedProjectURI="file:.*AML\//usedProjectURI="/' *.xml
