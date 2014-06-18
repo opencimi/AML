@@ -2062,7 +2062,7 @@
     <properties xmi:id="_1lP1EetZEeOBZ9Z9qGXe_Q" key="usedVersion" value="17.0.5"/>
     <properties xmi:id="_1lP1EutZEeOBZ9Z9qGXe_Q" key="LOCAL_PROJECT_ID" value="PROJECT-877558e9224f114d50dea1f39a1c119"/>
   </projectUsages>
-  <projectUsages xmi:id="_1mzUQOtZEeOBZ9Z9qGXe_Q" usedProjectURI="file:/Volumes/SamsungSSD/Downloads/CIMIOrg/AMLModified/AMLObjectModel.xml" reshared="true" readonly="true" loadedAutomatically="true">
+  <projectUsages xmi:id="_1mzUQOtZEeOBZ9Z9qGXe_Q" usedProjectURI="AMLObjectModel.xml" reshared="true" readonly="true" loadedAutomatically="true">
     <usedProject href="PROJECT-c7002c83-dfa2-4712-a1fe-37af2cc51458?resource=com.nomagic.ci.metamodel.project#_YxCyQOtLEeOfBpI40-y9Mg"/>
     <mountPoints xmi:id="_R9JSoPcqEeOHj8D4LwDibw" sharePointID="_nXgp0PcnEeO2HaNPXueeAQ" featureName="UML Model">
       <mountedPoint href="PROJECT-dfd1e812-a118-4286-a4a3-c41d92afe64e?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_2AgogbqaEeOtXIKgzWpK_g"/>
@@ -2072,7 +2072,7 @@
     <properties xmi:id="_1mzUQetZEeOBZ9Z9qGXe_Q" key="loadIndex" value="true"/>
     <properties xmi:id="_1mzUQutZEeOBZ9Z9qGXe_Q" key="LOCAL_PROJECT_ID" value="PROJECT-c7002c83-dfa2-4712-a1fe-37af2cc51458"/>
   </projectUsages>
-  <projectUsages xmi:id="_axj6sOtaEeOBZ9Z9qGXe_Q" usedProjectURI="file:/Volumes/SamsungSSD/Downloads/CIMIOrg/AMLModified/examples.xml" readonly="true" loadedAutomatically="true">
+  <projectUsages xmi:id="_axj6sOtaEeOBZ9Z9qGXe_Q" usedProjectURI="examples.xml" readonly="true" loadedAutomatically="true">
     <usedProject href="PROJECT-726e5fd2-3d90-455e-86ab-d27fb3ee2a70?resource=com.nomagic.ci.metamodel.project#_eGzNoOtZEeOBZ9Z9qGXe_Q"/>
     <mountPoints xmi:id="_a_PxYOtaEeOBZ9Z9qGXe_Q" sharePointID="_eH_gcOtZEeOBZ9Z9qGXe_Q" containmentFeatureID="59" featureName="UML Model" containmentIndex="-1" containmentFeatureName="packagedElement">
       <mountedPoint href="PROJECT-726e5fd2-3d90-455e-86ab-d27fb3ee2a70?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4_2_9cd0221_1396467104117_64117_4122"/>
@@ -2137,7 +2137,7 @@
     <properties xmi:id="_ndA04fcnEeO2HaNPXueeAQ" key="usedVersion" value="17.0.5"/>
     <properties xmi:id="_ndA04vcnEeO2HaNPXueeAQ" key="LOCAL_PROJECT_ID" value="PROJECT-877558e9224f114d50dea1f39a1c119"/>
   </projectUsages>
-  <projectUsages xmi:id="_nipi0PcnEeO2HaNPXueeAQ" usedProjectURI="file:/Volumes/SamsungSSD/Downloads/CIMIOrg/AMLModified/examples.xml" reshared="true" readonly="true" automatic="true" resharedAutomatically="true">
+  <projectUsages xmi:id="_nipi0PcnEeO2HaNPXueeAQ" usedProjectURI="examples.xml" reshared="true" readonly="true" automatic="true" resharedAutomatically="true">
     <usedProject href="PROJECT-726e5fd2-3d90-455e-86ab-d27fb3ee2a70?resource=com.nomagic.ci.metamodel.project#_eGzNoOtZEeOBZ9Z9qGXe_Q"/>
     <mountPoints xmi:id="_niqJ4PcnEeO2HaNPXueeAQ" sharePointID="_eH_gcOtZEeOBZ9Z9qGXe_Q" containmentFeatureID="59" featureName="UML Model" containmentFeatureName="packagedElement">
       <mountedPoint href="PROJECT-726e5fd2-3d90-455e-86ab-d27fb3ee2a70?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4_2_9cd0221_1396467104117_64117_4122"/>
@@ -2147,7 +2147,7 @@
     <properties xmi:id="_nipi0fcnEeO2HaNPXueeAQ" key="loadIndex" value="true"/>
     <properties xmi:id="_nipi0vcnEeO2HaNPXueeAQ" key="LOCAL_PROJECT_ID" value="PROJECT-726e5fd2-3d90-455e-86ab-d27fb3ee2a70"/>
   </projectUsages>
-  <projectUsages xmi:id="_niyFsPcnEeO2HaNPXueeAQ" usedProjectURI="file:/Volumes/SamsungSSD/Downloads/CIMIOrg/AMLModified/TerminologyBindingProfile.xml" reshared="true" readonly="true" automatic="true" resharedAutomatically="true">
+  <projectUsages xmi:id="_niyFsPcnEeO2HaNPXueeAQ" usedProjectURI="TerminologyBindingProfile.xml" reshared="true" readonly="true" automatic="true" resharedAutomatically="true">
     <usedProject href="PROJECT-0bb67f2d-219b-4f70-90e5-ea40790e5ea6?resource=com.nomagic.ci.metamodel.project#_1iQLcOtZEeOBZ9Z9qGXe_Q"/>
     <mountPoints xmi:id="_niyFs_cnEeO2HaNPXueeAQ" sharePointID="_1i2BUOtZEeOBZ9Z9qGXe_Q" containmentFeatureID="59" featureName="UML Model" containmentFeatureName="packagedElement">
       <mountedPoint href="PROJECT-0bb67f2d-219b-4f70-90e5-ea40790e5ea6?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4_2_9cd0221_1396467706587_522195_4135"/>
@@ -2157,7 +2157,7 @@
     <properties xmi:id="_niyFsfcnEeO2HaNPXueeAQ" key="loadIndex" value="true"/>
     <properties xmi:id="_niyFsvcnEeO2HaNPXueeAQ" key="LOCAL_PROJECT_ID" value="PROJECT-0bb67f2d-219b-4f70-90e5-ea40790e5ea6"/>
   </projectUsages>
-  <projectUsages xmi:id="_ni8dwPcnEeO2HaNPXueeAQ" usedProjectURI="file:/Volumes/SamsungSSD/Downloads/CIMIOrg/AMLModified/AMLObjectModel.xml" reshared="true" loadedAutomatically="true">
+  <projectUsages xmi:id="_ni8dwPcnEeO2HaNPXueeAQ" usedProjectURI="AMLObjectModel.xml" reshared="true" loadedAutomatically="true">
     <usedProject href="PROJECT-c7002c83-dfa2-4712-a1fe-37af2cc51458?resource=com.nomagic.ci.metamodel.project#_YxCyQOtLEeOfBpI40-y9Mg"/>
     <mountPoints xmi:id="_8Ds6IPcpEeOHj8D4LwDibw" sharePointID="_nXgp0PcnEeO2HaNPXueeAQ" featureName="UML Model" mountedSharePoint="_nXgp0fcnEeO2HaNPXueeAQ">
       <mountedPoint href="PROJECT-dfd1e812-a118-4286-a4a3-c41d92afe64e?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_2AgogbqaEeOtXIKgzWpK_g"/>
@@ -2205,7 +2205,7 @@
     <properties xmi:id="_qKKiMfcoEeO2HaNPXueeAQ" key="usedVersion" value="17.0.5"/>
     <properties xmi:id="_qKKiMvcoEeO2HaNPXueeAQ" key="LOCAL_PROJECT_ID" value="PROJECT-877558e9224f114d50dea1f39a1c119"/>
   </projectUsages>
-  <projectUsages xmi:id="_qOFY4PcoEeO2HaNPXueeAQ" usedProjectURI="file:/Volumes/SamsungSSD/Downloads/CIMIOrg/AMLModified/AMLObjectModel.xml" reshared="true" readonly="true" automatic="true" resharedAutomatically="true">
+  <projectUsages xmi:id="_qOFY4PcoEeO2HaNPXueeAQ" usedProjectURI="AMLObjectModel.xml" reshared="true" readonly="true" automatic="true" resharedAutomatically="true">
     <usedProject href="PROJECT-dfd1e812-a118-4286-a4a3-c41d92afe64e?resource=com.nomagic.ci.metamodel.project#_nWgkQPcnEeO2HaNPXueeAQ"/>
     <mountPoints xmi:id="_qOF_8fcoEeO2HaNPXueeAQ" sharePointID="_nXgp0PcnEeO2HaNPXueeAQ" featureName="UML Model">
       <mountedPoint href="PROJECT-dfd1e812-a118-4286-a4a3-c41d92afe64e?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_2AgogbqaEeOtXIKgzWpK_g"/>
@@ -2215,12 +2215,12 @@
     <properties xmi:id="_qOFY4fcoEeO2HaNPXueeAQ" key="loadIndex" value="true"/>
     <properties xmi:id="_qOF_8PcoEeO2HaNPXueeAQ" key="LOCAL_PROJECT_ID" value="PROJECT-dfd1e812-a118-4286-a4a3-c41d92afe64e"/>
   </projectUsages>
-  <projectUsages xmi:id="_qONUsPcoEeO2HaNPXueeAQ" usedProjectURI="file:/Volumes/SamsungSSD/Downloads/CIMIOrg/AMLModified/specification.xml" reshared="true" readonly="true" automatic="true" resharedAutomatically="true">
+  <projectUsages xmi:id="_qONUsPcoEeO2HaNPXueeAQ" usedProjectURI="specification.xml" reshared="true" readonly="true" automatic="true" resharedAutomatically="true">
     <usedProject href="PROJECT-6e89e2b8-9b50-4ee7-8a33-670e9283f287?resource=com.nomagic.ci.metamodel.project#_JT8LEetLEeOfBpI40-y9Mg"/>
     <properties xmi:id="_qONUsfcoEeO2HaNPXueeAQ" key="loadIndex" value="true"/>
     <properties xmi:id="_qON7wPcoEeO2HaNPXueeAQ" key="LOCAL_PROJECT_ID" value="PROJECT-6e89e2b8-9b50-4ee7-8a33-670e9283f287"/>
   </projectUsages>
-  <projectUsages xmi:id="_qOTbUPcoEeO2HaNPXueeAQ" usedProjectURI="file:/Volumes/SamsungSSD/Downloads/CIMIOrg/AMLModified/CIMI%20RM%201.0.10.xml" reshared="true" readonly="true" automatic="true" resharedAutomatically="true">
+  <projectUsages xmi:id="_qOTbUPcoEeO2HaNPXueeAQ" usedProjectURI="CIMI%20RM%201.0.10.xml" reshared="true" readonly="true" automatic="true" resharedAutomatically="true">
     <usedProject href="PROJECT-97b6b1c4-752d-4753-84c0-06081f8bfe8c?resource=com.nomagic.ci.metamodel.project#_7AE20fF_EeO0ittO67aM_w"/>
     <mountPoints xmi:id="_qOUCYPcoEeO2HaNPXueeAQ" sharePointID="_7Aj_APF_EeO0ittO67aM_w" featureName="UML Model">
       <mountedPoint href="PROJECT-97b6b1c4-752d-4753-84c0-06081f8bfe8c?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#EAPK_1148FB8E_8C81_404b_9A50_99B686EE3D27"/>
@@ -3798,7 +3798,7 @@ com.nomagic.magicdraw.uml_model.shared_model=BINARY-5a38e4cf-e4cc-42cf-8f7c-0355
     <properties xmi:id="__Cl0gfcmEeO2HaNPXueeAQ" key="usedVersion" value="17.0.5"/>
     <properties xmi:id="__Cl0gvcmEeO2HaNPXueeAQ" key="LOCAL_PROJECT_ID" value="PROJECT-877558e9224f114d50dea1f39a1c119"/>
   </projectUsages>
-  <projectUsages xmi:id="__NF0UPcmEeO2HaNPXueeAQ" usedProjectURI="file:/Volumes/SamsungSSD/Downloads/CIMIOrg/AMLModified/AMLObjectModel.xml" reshared="true" loadedAutomatically="true">
+  <projectUsages xmi:id="__NF0UPcmEeO2HaNPXueeAQ" usedProjectURI="AMLObjectModel.xml" reshared="true" loadedAutomatically="true">
     <usedProject href="PROJECT-dfd1e812-a118-4286-a4a3-c41d92afe64e?resource=com.nomagic.ci.metamodel.project#_nWgkQPcnEeO2HaNPXueeAQ"/>
     <mountPoints xmi:id="_8DnakPcpEeOHj8D4LwDibw" sharePointID="_nXgp0PcnEeO2HaNPXueeAQ" containmentFeatureID="59" featureName="UML Model" containmentIndex="-1" containmentFeatureName="packagedElement">
       <mountedPoint href="PROJECT-dfd1e812-a118-4286-a4a3-c41d92afe64e?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_2AgogbqaEeOtXIKgzWpK_g"/>
@@ -3809,7 +3809,7 @@ com.nomagic.magicdraw.uml_model.shared_model=BINARY-5a38e4cf-e4cc-42cf-8f7c-0355
     <properties xmi:id="__NF0UfcmEeO2HaNPXueeAQ" key="loadIndex" value="true"/>
     <properties xmi:id="__NF0UvcmEeO2HaNPXueeAQ" key="LOCAL_PROJECT_ID" value="PROJECT-dfd1e812-a118-4286-a4a3-c41d92afe64e"/>
   </projectUsages>
-  <projectUsages xmi:id="_IKJukPcqEeOHj8D4LwDibw" usedProjectURI="file:/Volumes/SamsungSSD/Downloads/CIMIOrg/AMLModified/examples.xml" loadedAutomatically="true">
+  <projectUsages xmi:id="_IKJukPcqEeOHj8D4LwDibw" usedProjectURI="examples.xml" loadedAutomatically="true">
     <usedProject href="PROJECT-726e5fd2-3d90-455e-86ab-d27fb3ee2a70?resource=com.nomagic.ci.metamodel.project#_eGzNoOtZEeOBZ9Z9qGXe_Q"/>
     <mountPoints xmi:id="_Ik04YPcqEeOHj8D4LwDibw" sharePointID="_eH_gcOtZEeOBZ9Z9qGXe_Q" containmentFeatureID="59" featureName="UML Model" containmentIndex="-1" containmentFeatureName="packagedElement">
       <mountedPoint href="PROJECT-726e5fd2-3d90-455e-86ab-d27fb3ee2a70?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4_2_9cd0221_1396467104117_64117_4122"/>
@@ -3820,7 +3820,7 @@ com.nomagic.magicdraw.uml_model.shared_model=BINARY-5a38e4cf-e4cc-42cf-8f7c-0355
     <properties xmi:id="_IKJukfcqEeOHj8D4LwDibw" key="loadIndex" value="true"/>
     <properties xmi:id="_Ik0RUPcqEeOHj8D4LwDibw" key="LOCAL_PROJECT_ID" value="PROJECT-726e5fd2-3d90-455e-86ab-d27fb3ee2a70"/>
   </projectUsages>
-  <projectUsages xmi:id="_R2XVMPcqEeOHj8D4LwDibw" usedProjectURI="file:/Volumes/SamsungSSD/Downloads/CIMIOrg/AMLModified/TerminologyBindingProfile.xml" loadedAutomatically="true">
+  <projectUsages xmi:id="_R2XVMPcqEeOHj8D4LwDibw" usedProjectURI="TerminologyBindingProfile.xml" loadedAutomatically="true">
     <usedProject href="PROJECT-0bb67f2d-219b-4f70-90e5-ea40790e5ea6?resource=com.nomagic.ci.metamodel.project#_1iQLcOtZEeOBZ9Z9qGXe_Q"/>
     <mountPoints xmi:id="_R9Ck8PcqEeOHj8D4LwDibw" sharePointID="_1i2BUOtZEeOBZ9Z9qGXe_Q" containmentFeatureID="59" featureName="UML Model" containmentIndex="-1" containmentFeatureName="packagedElement">
       <mountedPoint href="PROJECT-0bb67f2d-219b-4f70-90e5-ea40790e5ea6?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_4_2_9cd0221_1396467706587_522195_4135"/>
@@ -3831,7 +3831,7 @@ com.nomagic.magicdraw.uml_model.shared_model=BINARY-5a38e4cf-e4cc-42cf-8f7c-0355
     <properties xmi:id="_R2XVMfcqEeOHj8D4LwDibw" key="loadIndex" value="true"/>
     <properties xmi:id="_R9B94PcqEeOHj8D4LwDibw" key="LOCAL_PROJECT_ID" value="PROJECT-0bb67f2d-219b-4f70-90e5-ea40790e5ea6"/>
   </projectUsages>
-  <projectUsages xmi:id="_VuGbwfcqEeOHj8D4LwDibw" usedProjectURI="file:/Volumes/SamsungSSD/Downloads/CIMIOrg/AMLModified/CIMI%20RM%201.0.10.xml" readonly="true" loadedAutomatically="true" withPrivateDependencies="true">
+  <projectUsages xmi:id="_VuGbwfcqEeOHj8D4LwDibw" usedProjectURI="CIMI%20RM%201.0.10.xml" readonly="true" loadedAutomatically="true" withPrivateDependencies="true">
     <usedProject href="PROJECT-97b6b1c4-752d-4753-84c0-06081f8bfe8c?resource=com.nomagic.ci.metamodel.project#_7AE20fF_EeO0ittO67aM_w"/>
     <mountPoints xmi:id="_WBB-0PcqEeOHj8D4LwDibw" sharePointID="_7AjX8PF_EeO0ittO67aM_w" containmentFeatureID="59" featureName="UML Model" containmentIndex="-1" containmentFeatureName="packagedElement">
       <mountedPoint href="PROJECT-97b6b1c4-752d-4753-84c0-06081f8bfe8c?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#EAPrimitiveTypesPackage"/>
@@ -3866,7 +3866,7 @@ com.nomagic.magicdraw.uml_model.shared_model=BINARY-5a38e4cf-e4cc-42cf-8f7c-0355
     <properties xmi:id="_VuGbwvcqEeOHj8D4LwDibw" key="loadIndex" value="true"/>
     <properties xmi:id="_WBAwsPcqEeOHj8D4LwDibw" key="LOCAL_PROJECT_ID" value="PROJECT-97b6b1c4-752d-4753-84c0-06081f8bfe8c"/>
   </projectUsages>
-  <projectUsages xmi:id="_Y9skQfcqEeOHj8D4LwDibw" usedProjectURI="file:/Volumes/SamsungSSD/Downloads/CIMIOrg/AMLModified/CIMI%20RM%202.0.0.xml" readonly="true" loadedAutomatically="true">
+  <projectUsages xmi:id="_Y9skQfcqEeOHj8D4LwDibw" usedProjectURI="CIMI%20RM%202.0.0.xml" readonly="true" loadedAutomatically="true">
     <usedProject href="PROJECT-e605ec94-f207-4f11-9253-4000af0da801?resource=com.nomagic.ci.metamodel.project#_qEkQgPcoEeO2HaNPXueeAQ"/>
     <mountPoints xmi:id="_ZTkGkPcqEeOHj8D4LwDibw" sharePointID="_qFbzMPcoEeO2HaNPXueeAQ" containmentFeatureID="59" featureName="UML Model" containmentIndex="-1" containmentFeatureName="packagedElement">
       <mountedPoint href="PROJECT-e605ec94-f207-4f11-9253-4000af0da801?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_5_1_9cd0221_1402329993432_880608_5257"/>
@@ -3877,7 +3877,7 @@ com.nomagic.magicdraw.uml_model.shared_model=BINARY-5a38e4cf-e4cc-42cf-8f7c-0355
     <properties xmi:id="_Y9skQvcqEeOHj8D4LwDibw" key="loadIndex" value="true"/>
     <properties xmi:id="_ZTi4cPcqEeOHj8D4LwDibw" key="LOCAL_PROJECT_ID" value="PROJECT-e605ec94-f207-4f11-9253-4000af0da801"/>
   </projectUsages>
-  <projectUsages xmi:id="_eGVSAfcqEeOHj8D4LwDibw" usedProjectURI="file:/Volumes/SamsungSSD/Downloads/CIMIOrg/AMLModified/UMLExamples.xml" loadedAutomatically="true">
+  <projectUsages xmi:id="_eGVSAfcqEeOHj8D4LwDibw" usedProjectURI="UMLExamples.xml" loadedAutomatically="true">
     <usedProject href="PROJECT-74a7349d-1e2b-4214-945c-03a1a50378ed?resource=com.nomagic.ci.metamodel.project#_4T8gUPcoEeO2HaNPXueeAQ"/>
     <mountPoints xmi:id="_eTp8UPcqEeOHj8D4LwDibw" sharePointID="_4UcPkPcoEeO2HaNPXueeAQ" containmentFeatureID="59" featureName="UML Model" containmentIndex="-1" containmentFeatureName="packagedElement">
       <mountedPoint href="PROJECT-74a7349d-1e2b-4214-945c-03a1a50378ed?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_17_0_5_1_9cd0221_1402501783187_936258_6425"/>
@@ -4041,7 +4041,7 @@ com.nomagic.magicdraw.uml_model.shared_model=BINARY-5a38e4cf-e4cc-42cf-8f7c-0355
     <properties xmi:id="_4aB6MfcoEeO2HaNPXueeAQ" key="usedVersion" value="17.0.5"/>
     <properties xmi:id="_4aB6MvcoEeO2HaNPXueeAQ" key="LOCAL_PROJECT_ID" value="PROJECT-877558e9224f114d50dea1f39a1c119"/>
   </projectUsages>
-  <projectUsages xmi:id="_4dsSMPcoEeO2HaNPXueeAQ" usedProjectURI="file:/Volumes/SamsungSSD/Downloads/CIMIOrg/AMLModified/CIMI%20RM%201.0.10.xml" reshared="true" readonly="true" loadedAutomatically="true">
+  <projectUsages xmi:id="_4dsSMPcoEeO2HaNPXueeAQ" usedProjectURI="CIMI%20RM%201.0.10.xml" reshared="true" readonly="true" loadedAutomatically="true">
     <usedProject href="PROJECT-97b6b1c4-752d-4753-84c0-06081f8bfe8c?resource=com.nomagic.ci.metamodel.project#_7AE20fF_EeO0ittO67aM_w"/>
     <mountPoints xmi:id="_4dsSM_coEeO2HaNPXueeAQ" sharePointID="_7Aj_APF_EeO0ittO67aM_w" featureName="UML Model">
       <mountedPoint href="PROJECT-97b6b1c4-752d-4753-84c0-06081f8bfe8c?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#EAPK_1148FB8E_8C81_404b_9A50_99B686EE3D27"/>
@@ -4108,7 +4108,7 @@ com.nomagic.magicdraw.uml_model.shared_model=BINARY-5a38e4cf-e4cc-42cf-8f7c-0355
     <properties xmi:id="_eJDQYOtZEeOBZ9Z9qGXe_Q" key="usedVersion" value="17.0.5"/>
     <properties xmi:id="_eJDQYetZEeOBZ9Z9qGXe_Q" key="LOCAL_PROJECT_ID" value="PROJECT-877558e9224f114d50dea1f39a1c119"/>
   </projectUsages>
-  <projectUsages xmi:id="_eO2WYOtZEeOBZ9Z9qGXe_Q" usedProjectURI="file:/Volumes/SamsungSSD/Downloads/CIMIOrg/AMLModified/AMLObjectModel.xml" reshared="true" readonly="true" loadedAutomatically="true">
+  <projectUsages xmi:id="_eO2WYOtZEeOBZ9Z9qGXe_Q" usedProjectURI="AMLObjectModel.xml" reshared="true" readonly="true" loadedAutomatically="true">
     <usedProject href="PROJECT-c7002c83-dfa2-4712-a1fe-37af2cc51458?resource=com.nomagic.ci.metamodel.project#_YxCyQOtLEeOfBpI40-y9Mg"/>
     <mountPoints xmi:id="_Ik7mEPcqEeOHj8D4LwDibw" sharePointID="_nXgp0PcnEeO2HaNPXueeAQ" featureName="UML Model">
       <mountedPoint href="PROJECT-dfd1e812-a118-4286-a4a3-c41d92afe64e?resource=com.nomagic.magicdraw.uml_umodel.shared_umodel#_2AgogbqaEeOtXIKgzWpK_g"/>
