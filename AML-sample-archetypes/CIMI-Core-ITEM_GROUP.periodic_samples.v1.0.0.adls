@@ -1,0 +1,54 @@
+archetype (adl_version=1.5.1)
+	CIMI-Core-ITEM_GROUP.periodic_samples.v1.0.0
+
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["name"] = <"Harold Solbrig">
+		["organisation"] = <"MAYO CLINIC">
+		["email"] = <"solbrig.harold@mayo.edu">
+		["date"] = <"16/02/2014">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"4.3.7.1 Path Formation">
+		>
+	>
+	lifecycle_state = <"unmanaged">
+
+definition
+
+	ITEM_GROUP[id1] occurrences matches {1} matches {	-- periodic samples
+		item cardinality matches {1..*} matches {
+			ELEMENT[id2] occurrences matches {0..1}	 -- 1 min sample
+			ELEMENT[id3] occurrences matches {0..1}  -- 2 min sample
+			ELEMENT[id4] occurrences matches {0..1}  -- 3 min sample
+		}
+	}
+
+terminology
+	term_definitions = <
+		["en"] = <
+			["id1"] = <
+				text = <"periodic samples">
+				description = <"periodic samples">
+			>
+			["id2"] = <
+				text = <"1 min sample">
+				description = <"1 min sample">
+			>
+			["id3"] = <
+				text = <"2 min sample">
+				description = <"2 min sample">
+			>["id4"] = <
+				text = <"3 min sample">
+				description = <"3 min sample">
+			>
+		>
+	>
+
+

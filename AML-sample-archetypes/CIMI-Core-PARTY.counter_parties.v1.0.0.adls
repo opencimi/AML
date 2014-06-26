@@ -1,0 +1,58 @@
+archetype (adl_version=1.5.1)
+	CIMI-Core-PARTY.counter_parties.v1.0.0
+
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["name"] = <"Harold Solbrig">
+		["organisation"] = <"MAYO CLINIC">
+		["email"] = <"solbrig.harold@mayo.edu">
+		["date"] = <"16/02/2014">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"4.3.6.1 Narrowed Subtype Constraints">
+		>
+	>
+	lifecycle_state = <"unmanaged">
+
+definition
+
+	PARTY[id1] matches {	-- Counter Party Source
+		relationship matches {
+			PARTY_RELATIONSHIP[id2] matches {	-- Actor Relationships
+				target matches {
+					ACTOR[id3]	-- Counter Party Target Actors
+					ROLE[id4]	-- Counter Party Target Roles
+				}
+			}  
+		}
+	}
+
+terminology
+	term_definitions = <
+		["en"] = <
+			["id1"] = <
+				text = <"Counter Party Source">
+				description = <"Counter Party Source">
+			>
+			["id2"] = <
+				text = <"Actor Relationships">
+				description = <"Actor Relationships">
+			>
+			["id3"] = <
+				text = <"Counter Party Target Actors">
+				description = <"Counter Party Target Actors">
+			>
+			["id4"] = <
+				text = <"Counter Party Target Roles">
+				description = <"Counter Party Target Roles">
+			>
+		>
+	>
+
+

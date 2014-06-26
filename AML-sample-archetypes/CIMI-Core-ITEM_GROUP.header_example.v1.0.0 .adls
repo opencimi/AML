@@ -1,0 +1,53 @@
+archetype (adl_version=1.5.1; controlled; generated;uid=9F471377-61D0-455E-8AA5-0AAC846398B8)
+	aml.opencimi.org::CIMI-Core-ITEM_GROUP.header_example.v1.0.0
+
+specialise
+	CIMI-Core-ITEM_GROUP.periodic_samples.v1.0.0
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["de"] = <
+			language = <[iso_639-1::de]>
+			author = <
+				["name"] = <"Frederik Tyler">
+				["email"] = <"freddy@something.somewhere.co.uk">
+			>
+			accreditation = <"British Medical Translator id 00400595">
+		>
+	>
+
+description
+	original_author = <
+		["name"] = <"Harold Solbrig">
+		["organisation"] = <"MAYO CLINIC">
+		["email"] = <"solbrig.harold@mayo.edu">
+		["date"] = <"16/02/2014">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"4.3.7.3 Runtime Paths">
+		>
+	>
+	lifecycle_state = <"unmanaged">
+	resource_package_uri = 
+		<"informatics.mayo.edu/aml/sample_archetypes.html">
+
+definition
+	ITEM_GROUP[id1.1] -- header test
+	
+
+terminology
+	term_definitions = <
+		["en"] = <
+			["id1.1"] = <
+				text = <"header test">
+			>
+		>
+		["de"] = <
+			["id1.1"] = <
+				text = <"Überschrift Probe">
+			>
+		>
+	>
