@@ -26,7 +26,6 @@ definition
 		relationship matches {
 			PARTY_RELATIONSHIP[id2] matches {	-- Actor Relationships
 				target matches {
-					ACTOR[id3]	-- Counter Party Target Actors
 					ROLE[id4] occurrences matches {0}
 				}
 			}  
@@ -38,19 +37,15 @@ terminology
 		["en"] = <
 			["id1"] = <
 				text = <"Counter Party Source">
-				description = <"Counter Party Source">
 			>
 			["id2"] = <
 				text = <"Actor Relationships">
-				description = <"Actor Relationships">
 			>
 			["id3"] = <
-				text = <"Counter Party Target Actors">
-				description = <"Counter Party Target Actors">
+				text = <"Counter Party Target Actor">
 			>
 			["id4"] = <
-				text = <"Counter Party Target Roles">
-				description = <"Counter Party Target Roles">
+				text = <"Role">
 			>
 		>
 	>
