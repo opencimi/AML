@@ -1,0 +1,63 @@
+archetype (adl_version=1.5.1)
+   CIMI-Core-ITEM_GROUP.laboratory-thyorid.v1.0.0
+
+specialise
+   CIMI-Core-ITEM_GROUP.laboratory.v1.0.0
+
+language
+   original_language = <[ISO_639-1::en]>
+
+description
+   original_author = <
+      ["name"] = <"Harold Solbrig">
+      ["organisation"] = <"MAYO CLINIC">
+      ["email"] = <"solbrig.harold@mayo.edu">
+      ["date"] = <"16/02/2014">
+   >
+   details = <
+      ["en"] = <
+         language = <[ISO_639-1::en]>
+         purpose = <"4.3.10 Slots">
+      >
+   >
+   lifecycle_state = <"unmanaged">
+
+
+definition
+   	ITEM_GROUP[id1.1] matches {
+   		/item[id2]/item[id3]/item[id4]/item matches {   -- Thyroid function tests
+   			ELEMENT[id7.2] occurrences matches {0..1} matches { -- TSH
+   				value matches {
+   					QUANTITY[id0.17] matches {
+   						value matches {|0.0..100.0|}
+   						units matches {[local::at0.26]}
+   					}
+   				}
+   			}
+   			ELEMENT[id7.3] occurrences matches {0..1}   -- Free T3
+            allow_archetype ELEMENT[id7] closed
+   		}
+   	}
+   
+   		
+   			
+terminology
+	term_definitions = <
+		["en"] = <
+			["id1.1"] = <
+				text = <"Thyroid function tests">
+			>
+			["id7.2"] = <
+				text = <"TSH">
+			>
+			["id7.3"] = <
+				text = <"Free t3">
+			>
+			["id0.17"] = <
+				text = <"result">
+			>
+         ["at0.26"] = <
+            text = <"mIU/l">
+         >
+		>
+	>
