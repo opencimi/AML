@@ -772,7 +772,7 @@
 					</importedPackage>
 				</packageImport>
 				<packageImport xmi:type='uml:PackageImport' xmi:id='_TEQpINHZEeKOA5eUaeTS7A' importedPackage='_nUkQALgDEeKOEba36PuqPw'/>
-				<packagedElement xmi:type='uml:Class' xmi:id='_IeB_sLgOEeKOEba36PuqPw' name='DesignatableItem' isAbstract='true'>
+				<packagedElement xmi:type='uml:Stereotype' xmi:id='_IeB_sLgOEeKOEba36PuqPw' name='DesignatableItem' isAbstract='true'>
 					<ownedAttribute xmi:type='uml:Property' xmi:id='_EEw3YLgkEeKOEba36PuqPw' name='designation' visibility='public' aggregation='composite' type='_1sDscLgjEeKOEba36PuqPw' association='_17_0_5_1_eb20357_1401826272236_712292_4500'>
 						<lowerValue xmi:type='uml:LiteralInteger' xmi:id='_HVdzIbgkEeKOEba36PuqPw'/>
 						<upperValue xmi:type='uml:LiteralUnlimitedNatural' xmi:id='_HVdzILgkEeKOEba36PuqPw' value='*'/>
@@ -917,7 +917,7 @@
 					<ownedLiteral xmi:type='uml:EnumerationLiteral' xmi:id='_fzsYYLgrEeKOEba36PuqPw' name='obsolete'/>
 					<ownedLiteral xmi:type='uml:EnumerationLiteral' xmi:id='_kn4gILgrEeKOEba36PuqPw' name='superseded'/>
 				</packagedElement>
-				<packagedElement xmi:type='uml:Class' xmi:id='_epoHELgtEeKOEba36PuqPw' name='IdentifiedItem' isAbstract='true'>
+				<packagedElement xmi:type='uml:Stereotype' xmi:id='_epoHELgtEeKOEba36PuqPw' name='IdentifiedItem' isAbstract='true'>
 					<ownedAttribute xmi:type='uml:Property' xmi:id='_Mj5CALgzEeKOEba36PuqPw' name='identifier' visibility='public' aggregation='composite' type='_J-QcgLgzEeKOEba36PuqPw' association='_17_0_5_1_eb20357_1401826117046_868388_4473'>
 						<xmi:Extension extender='MagicDraw UML 17.0.5'>
 							<modelExtension>
@@ -1041,7 +1041,7 @@
 						</xmi:Extension>
 					</ownedAttribute>
 				</packagedElement>
-				<packagedElement xmi:type='uml:Class' xmi:id='_MKe3UARBEeOogeFqSlWlmQ' name='IdentifiedDesignatableItem' isAbstract='true'>
+				<packagedElement xmi:type='uml:Stereotype' xmi:id='_MKe3UARBEeOogeFqSlWlmQ' name='IdentifiedDesignatableItem' isAbstract='true'>
 					<generalization xmi:type='uml:Generalization' xmi:id='_SR-aAARBEeOogeFqSlWlmQ' general='_epoHELgtEeKOEba36PuqPw'/>
 					<generalization xmi:type='uml:Generalization' xmi:id='_TkB3wARBEeOogeFqSlWlmQ' general='_IeB_sLgOEeKOEba36PuqPw'/>
 				</packagedElement>
