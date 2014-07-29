@@ -1,0 +1,75 @@
+archetype (adl_version=1.5.1)
+	CIMI-Core-ITEM_GROUP.state.v1.0.0
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["name"] = <"Harold Solbrig">
+		["organisation"] = <"MAYO CLINIC">
+		["email"] = <"solbrig.harold@mayo.edu">
+		["date"] = <"16/02/2014">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"4.3.6.1 Narrowed Subtype Constraints">
+		>
+	>
+	lifecycle_state = <"unmanaged">
+
+definition
+	ITEM_GROUP[id1] matches {	-- state
+		item matches {
+			ELEMENT[id2] occurrences matches {1} matches { -- Body exposure
+				value matches {
+					CODED_TEXT[id3] matches {
+						code matches { 
+							[local::
+								at1, 	-- Naked
+								at2, 	-- Reduced clothing/bedding
+								at3, 	-- Appropriate clothing/bedding
+								at4; 	-- Increased clothing/bedding
+								at3]	-- assumed value
+						}
+	
+					}
+				}
+			}
+		}
+	}
+
+terminology
+	term_definitions = <
+		["en"] = <
+			["id1"] = <
+				text = <"state">
+				description = <"Exposure state">
+			>
+			["id2"] = <
+				text = <"Body exposure">
+				description = <"Descripton of relative body exposure">
+			>
+			["id3"] = <
+				text = <"Possible Body Positions">
+			>
+			["at1"] = <
+				text = <"Naked">
+				description = <"No clothing, bedding or covering.">
+			>
+			["at2"] = <
+				text = <"Reduced clothing/bedding">
+				description = <"The person is covered by a lesser amount of clothing or bedding than deemed appropriate for the environmental circumstances.">
+			>
+			["at3"] = <
+				text = <"Appropriate clothing/bedding">
+				description = <"The person is covered by an amount of clothing or bedding deemed appropriate for the environmental circumstances.">
+			>
+			["at4"] = <
+				text = <"Increased clothing/bedding">
+				description = <"The person is covered by an increased amount of clothing or bedding than deemed appropriate for the environmental circumstances.">
+			>
+
+		>
+	>
