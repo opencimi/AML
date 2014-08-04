@@ -1,0 +1,34 @@
+archetype (adl_version=1.5.1; uid=15E82D77-7DB7-4F70-8D8E-EED6FF241B2D; controlled; generated; some_flag=true; some_key=some_value; another_key=another_value)
+	org.openehr::CIMI-CORE-PARTY.archetype_header.v1.3.15+47
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["organisation"] = <"Mayo Clinic">
+		["name"] = <"Harold Solbrig">
+		["date"] = <"04/08/2014">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Example ADL header for AML validation">
+		>
+	>
+	lifecycle_state = <"unmanaged">
+	other_details = <
+		["regression"] = <"PASS">
+	>
+
+definition
+	PARTY[id1] -- placeholder
+
+terminology
+	term_definitions = <
+		["en"] = <
+			["id1"] = <
+				text = <"placeholder">
+			>
+		>
+	>
