@@ -1,5 +1,5 @@
 archetype (adl_version=1.5.1; uid=15E82D77-7DB7-4F70-8D8E-EED6FF241B2D; controlled; generated; some_flag=true; some_key=some_value; another_key=another_value)
-	org.openehr::CIMI-CORE-PARTY.archetype_header.v1.3.15+47
+	org.opencimi::CIMI-CORE-PARTY.archetype_header.v1.3.15+47
 
 language
 	original_language = <[ISO_639-1::en]>
