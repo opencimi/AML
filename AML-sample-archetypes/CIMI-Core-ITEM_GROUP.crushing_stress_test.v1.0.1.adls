@@ -1,5 +1,5 @@
 archetype (adl_version=1.5.1)
-	CIMI-Core-ITEM_GROUP.crushing_stress_test.v1.0.0
+	CIMI-Core-ITEM_GROUP.crushing_stress_test.v1.0.1
 
 language
 	original_language = <[ISO_639-1::en]>
@@ -14,7 +14,7 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"4.3.8 Internal References">
+			purpose = <"version example">
 		>
 	>
 	lifecycle_state = <"unmanaged">
@@ -25,7 +25,7 @@ definition
 		item matches {
 			ITEM_GROUP[id2] matches {  	-- before crushing height and weight
 				item matches {
-					ELEMENT[id3] matches {		-- height
+					ELEMENT[id3] matches {		-- patient height
 						value matches {
 							QUANTITY[id6]
 						}
@@ -52,7 +52,7 @@ terminology
 				text = <"before crushing height and weight">
 			>
 			["id3"] = <
-				text = <"height">
+				text = <"patient height">
 			>
 			["id4"] = <
 				text = <"weight">

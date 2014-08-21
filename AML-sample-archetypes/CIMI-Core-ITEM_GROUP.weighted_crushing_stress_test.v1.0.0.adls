@@ -23,14 +23,10 @@ definition
 
 	ITEM_GROUP[id1]  matches {	-- weighted crushing stress test
 		item matches {
-			ELEMENT[id2] matches {		-- weight of crushign object
-				value existence matches {1} matches {
-					QUANTITY[id3]
-				}
-			}
-			use_archetype ITEM_GROUP[CIMI-Core-ITEM_GROUP.crushing_stress_test.v1]
-			use_archetype ITEM_GROUP[CIMI-Core-ITEM_GROUP.crushing_stress_test.v1.0.0]
+                 use_archetype ITEM_GROUP  [id4, CIMI-Core-ITEM_GROUP.crushing_stress_test.v1]         -- actual test
+                 use_archetype ITEM_GROUP  [id5, CIMI-Core-ITEM_GROUP.crushing_stress_test.v1.0.0]   -- actual test specific version
 		}
+		
 	}
 			
 terminology
@@ -45,6 +41,12 @@ terminology
 			>
 			["id3"] = <
 				text = <"unwanted id">
+			>
+			["id4"] = <
+				text = <"actual test">
+			>
+                   ["id5"] = <
+				text = <"actual test specific version">
 			>
 		>
 	>
