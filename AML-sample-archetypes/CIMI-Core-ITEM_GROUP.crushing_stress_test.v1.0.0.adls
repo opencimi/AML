@@ -37,7 +37,7 @@ definition
 					}
 				}
 			}
-			use_node ITEM_GROUP[id5] occurrences matches{1} /item[id2]		-- after crushing height and weight
+			use_node ITEM_GROUP[id5] occurrences matches{1} /item[id2]	{ }	-- after crushing height and weight
 		}
 	}
 			
