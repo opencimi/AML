@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<diagram abbreviation="AML" baseType="Class Diagram" type="Archetype Modeling Language" version="7">
+    <toolbarConfiguration>
+        <category expandedByDefault="true" id="action_category_1409773494849_262196_451" name="Archetype Modeling Language">
+            <actions>
+                <custom description="ArchetypeLibrary" id="IDaction_1409773631813_46042_0" listAsElement="false" opposite="false" type="com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Package">
+                    <defaults>
+                        <PropertyVisitorAcceptor xmlns:xmi="http://www.omg.org/spec/XMI/20131001">
+                            <mdElement elementClass="PropertyManager">
+                                <propertyManagerID>_18_0_1_9cd0221_1410293519257_378117_6118</propertyManagerID>
+                            </mdElement>
+                        </PropertyVisitorAcceptor>
+                    </defaults>
+                </custom>
+                <custom description="Archetype" id="IDaction_1410293402953_34200_0" listAsElement="false" opposite="false" type="com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Package">
+                    <stereotype id="_18_0_1_9cd0221_1410212014464_198798_5722"/>
+                    <defaults>
+                        <PropertyVisitorAcceptor xmlns:xmi="http://www.omg.org/spec/XMI/20131001">
+                            <mdElement elementClass="PropertyManager">
+                                <propertyManagerID>_18_0_1_9cd0221_1410293519257_872274_6119</propertyManagerID>
+                            </mdElement>
+                        </PropertyVisitorAcceptor>
+                    </defaults>
+                </custom>
+                <custom description="ArchetypeVersion" id="IDaction_1410293446538_208321_0" listAsElement="false" opposite="false" type="com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Class">
+                    <defaults>
+                        <PropertyVisitorAcceptor xmlns:xmi="http://www.omg.org/spec/XMI/20131001">
+                            <mdElement elementClass="PropertyManager">
+                                <propertyManagerID>_18_0_1_9cd0221_1410293519258_150088_6120</propertyManagerID>
+                            </mdElement>
+                        </PropertyVisitorAcceptor>
+                    </defaults>
+                </custom>
+                <custom description="referenceModel" id="IDaction_1410294714460_506368_0" listAsElement="false" opposite="false" type="com.nomagic.uml2.ext.magicdraw.classes.mdkernel.PackageImport">
+                    <stereotype id="_18_0_1_9cd0221_1410212156127_267115_5776"/>
+                    <defaults>
+                        <PropertyVisitorAcceptor xmlns:xmi="http://www.omg.org/spec/XMI/20131001">
+                            <mdElement elementClass="PropertyManager">
+                                <propertyManagerID>_18_0_1_9cd0221_1410294821330_414926_11283</propertyManagerID>
+                            </mdElement>
+                        </PropertyVisitorAcceptor>
+                    </defaults>
+                </custom>
+            </actions>
+        </category>
+        <baseCategory expandedByDefault="false" id="CLASS_DIAGRAM_ELEMENTS" parentCategoryID="CLASS_DIAGRAM_ELEMENTS"/>
+        <baseCategory expandedByDefault="false" id="OBJECT_DIAGRAM_ELEMENTS" parentCategoryID="OBJECT_DIAGRAM_ELEMENTS"/>
+    </toolbarConfiguration>
+    <module location="/Users/mrf7578/a/git/openCIMI/AML/ArchetypeProfile.mdzip" name="ArchetypeProfile.mdzip">
+        <root id="_18_0_1_9cd0221_1410211315525_783039_3985"/>
+    </module>
+    <module location="/Applications/MagicDraw/profiles/UML_Standard_Profile.mdzip" name="UML_Standard_Profile.mdzip">
+        <root id="magicdraw_uml_standard_profile_v_0001"/>
+    </module>
+</diagram>
+
