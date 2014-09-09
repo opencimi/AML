@@ -3,6 +3,16 @@
     <toolbarConfiguration>
         <category expandedByDefault="true" id="action_category_1409773494849_262196_451" name="Archetype Modeling Language">
             <actions>
+                <custom description="ArchetypeSourceInformation" id="IDaction_1410295576402_785929_0" listAsElement="false" opposite="false" type="com.nomagic.uml2.ext.magicdraw.components.mdbasiccomponents.Component">
+                    <stereotype id="_18_0_1_9cd0221_1410294990148_348806_4080"/>
+                    <defaults>
+                        <PropertyVisitorAcceptor xmlns:xmi="http://www.omg.org/spec/XMI/20131001">
+                            <mdElement elementClass="PropertyManager">
+                                <propertyManagerID>_18_0_1_9cd0221_1410295819253_180912_15341</propertyManagerID>
+                            </mdElement>
+                        </PropertyVisitorAcceptor>
+                    </defaults>
+                </custom>
                 <custom description="ArchetypeLibrary" id="IDaction_1409773631813_46042_0" listAsElement="false" opposite="false" type="com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Package">
                     <defaults>
                         <PropertyVisitorAcceptor xmlns:xmi="http://www.omg.org/spec/XMI/20131001">
@@ -52,5 +62,58 @@
     <module location="/Applications/MagicDraw/profiles/UML_Standard_Profile.mdzip" name="UML_Standard_Profile.mdzip">
         <root id="magicdraw_uml_standard_profile_v_0001"/>
     </module>
+    <manipulators>
+        <element>com.nomagic.uml2.ext.magicdraw.activities.mdfundamentalactivities.Activity</element>
+        <path action="ADD_GENERALIZATION">
+            <target>ADD_CLASS</target>
+        </path>
+        <path action="ADD_GENERALIZATION_OPPOSITE">
+            <target>ADD_CLASS</target>
+        </path>
+        <path action="ADD_INTERFACE_REALIZATION">
+            <target>ADD_INTERFACE</target>
+        </path>
+        <path action="ADD_USAGE">
+            <target>ADD_INTERFACE</target>
+        </path>
+        <path action="ADD_DIRECTED_ASSOCIATION">
+            <target>ADD_CLASS</target>
+            <target>ADD_INTERFACE</target>
+            <target>ADD_ENUMERATION</target>
+        </path>
+        <path action="ADD_DIRECTED_AGGREGATION">
+            <target>ADD_CLASS</target>
+            <target>ADD_INTERFACE</target>
+            <target>ADD_ENUMERATION</target>
+        </path>
+        <path action="ADD_DIRECTED_COMPOSITION">
+            <target>ADD_CLASS</target>
+            <target>ADD_INTERFACE</target>
+            <target>ADD_ENUMERATION</target>
+        </path>
+        <path action="ADD_DEPENDENCY">
+            <target>ADD_CLASS</target>
+            <target>ADD_INTERFACE</target>
+            <target>ADD_ENUMERATION</target>
+            <target>ADD_PACKAGE</target>
+        </path>
+        <path action="ADD_NOTE_ANCHOR">
+            <target>ADD_NOTE</target>
+            <target>ADD_HTML_NOTE</target>
+            <target>ADD_COMMENT</target>
+            <target>ADD_HTML_COMMENT</target>
+        </path>
+        <path action="MENU_SEPARATOR"/>
+        <path action="ADD_PORT"/>
+    </manipulators>
+    <manipulators>
+        <stereotype id="_18_0_1_9cd0221_1410211985474_396120_5695" name="Archetype Library"/>
+        <path action="IDaction_1410294714460_506368_0">
+            <target>IDaction_1410293402953_34200_0</target>
+        </path>
+    </manipulators>
+    <manipulators>
+        <stereotype id="_18_0_1_9cd0221_1410212014464_198798_5722" name="Archetype"/>
+    </manipulators>
 </diagram>
 
