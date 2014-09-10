@@ -37,9 +37,9 @@ FOPL rules for non-hierarchical constraints (Future)
 
 ### Metadata Profile
 Identification, Description, Definition and the 5 W's
-* [SimplifiedMDRProfile](SimplifiedMDRProfile.mdzip) -- The Designation and Identification profiles based on a simplified ISO 11179 MDR model
-* [SMPCustomization](SMPCustomization.mdzip) -- Magic Draw Customizations for the MDR profile
-* [SMPExamples](SMPExamples.mdzip) -- MDR examples
+* [IdentificationAndDesignation](IdentificationAndDesignation.mdzip) -- The Identification and Designation profiles based on a simplified ISO 11179 MDR model
+* [IDDCustomization](IDDCustomization.mdzip) -- Magic Draw Customizations for the Identification and Designation profile
+* [IDDExamples](IDDExamples.mdzip) -- IDD examples
 * [ArchetypeMetadataProfile](ArchetypeMetadataProfile.mdzip) -- Metadata about archetypes and related archetypes
 * [AMPCustomization](AMCustomization.mdzip) -- Magic Draw Customizations for the Archetype Metatdata Profile
 * [AMPExamples](AMPExamples.mdzip) -- Examples of Archetype Metadata
@@ -52,3 +52,4 @@ The complete specification as a UML model.
 * [Images](images) -- Images used in the various customizations
 * [report](report) -- submission template
 * [archive](archive) -- historical relics and anciallary resources
+* [ReferenceDocuments](ReferenceDocuments) -- Copies of useful reference documents
