@@ -4,7 +4,6 @@
         <category expandedByDefault="true" id="action_category_1409773494849_262196_451" name="Archetype Modeling Language">
             <actions>
                 <custom description="ArchetypeSourceInformation" id="IDaction_1410295576402_785929_0" listAsElement="false" opposite="false" type="com.nomagic.uml2.ext.magicdraw.components.mdbasiccomponents.Component">
-                    <stereotype id="_18_0_1_9cd0221_1410294990148_348806_4080"/>
                     <defaults>
                         <PropertyVisitorAcceptor xmlns:xmi="http://www.omg.org/spec/XMI/20131001">
                             <mdElement elementClass="PropertyManager">
@@ -22,6 +21,16 @@
                         </PropertyVisitorAcceptor>
                     </defaults>
                 </custom>
+                <custom description="referenceModel" id="IDaction_1410294714460_506368_0" listAsElement="false" opposite="false" type="com.nomagic.uml2.ext.magicdraw.classes.mdkernel.PackageImport">
+                    <stereotype id="_18_0_1_9cd0221_1410212156127_267115_5776"/>
+                    <defaults>
+                        <PropertyVisitorAcceptor xmlns:xmi="http://www.omg.org/spec/XMI/20131001">
+                            <mdElement elementClass="PropertyManager">
+                                <propertyManagerID>_18_0_1_9cd0221_1410294821330_414926_11283</propertyManagerID>
+                            </mdElement>
+                        </PropertyVisitorAcceptor>
+                    </defaults>
+                </custom>
                 <custom description="Archetype" id="IDaction_1410293402953_34200_0" listAsElement="false" opposite="false" type="com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Package">
                     <stereotype id="_18_0_1_9cd0221_1410212014464_198798_5722"/>
                     <defaults>
@@ -33,20 +42,21 @@
                     </defaults>
                 </custom>
                 <custom description="ArchetypeVersion" id="IDaction_1410293446538_208321_0" listAsElement="false" opposite="false" type="com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Class">
+                    <stereotype id="_18_0_1_9cd0221_1410212046336_17366_5749"/>
                     <defaults>
                         <PropertyVisitorAcceptor xmlns:xmi="http://www.omg.org/spec/XMI/20131001">
                             <mdElement elementClass="PropertyManager">
-                                <propertyManagerID>_18_0_1_9cd0221_1410293519258_150088_6120</propertyManagerID>
+                                <propertyManagerID>_18_0_1_9cd0221_1410298047057_455584_6827</propertyManagerID>
                             </mdElement>
                         </PropertyVisitorAcceptor>
                     </defaults>
                 </custom>
-                <custom description="referenceModel" id="IDaction_1410294714460_506368_0" listAsElement="false" opposite="false" type="com.nomagic.uml2.ext.magicdraw.classes.mdkernel.PackageImport">
-                    <stereotype id="_18_0_1_9cd0221_1410212156127_267115_5776"/>
+                <custom description="Constrains" id="IDaction_1410813341667_285950_0" listAsElement="false" opposite="false" type="com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Generalization">
+                    <stereotype id="_17_0_5_1_9cd0221_1407426093274_186347_3683"/>
                     <defaults>
                         <PropertyVisitorAcceptor xmlns:xmi="http://www.omg.org/spec/XMI/20131001">
                             <mdElement elementClass="PropertyManager">
-                                <propertyManagerID>_18_0_1_9cd0221_1410294821330_414926_11283</propertyManagerID>
+                                <propertyManagerID>_18_0_1_9cd0221_1410813625227_492800_7867</propertyManagerID>
                             </mdElement>
                         </PropertyVisitorAcceptor>
                     </defaults>
@@ -105,6 +115,10 @@
         </path>
         <path action="MENU_SEPARATOR"/>
         <path action="ADD_PORT"/>
+    </manipulators>
+    <manipulators>
+        <stereotype id="_18_0_1_9cd0221_1410212046336_17366_5749" name="Archetype Version"/>
+        <stereotype id="_17_0_5_1_eb20357_1403652467895_321913_3429" name="Complex Object Constraint"/>
     </manipulators>
     <manipulators>
         <stereotype id="_18_0_1_9cd0221_1410211985474_396120_5695" name="Archetype Library"/>
