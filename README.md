@@ -72,6 +72,9 @@ The heart of the matter, constraints, which specify the actual archetypes
 Connecting enumerations, identifiers, value sets, etc. to terminological resources. *Note:* This package still has corresponding profiles for each of the classes below.  The should be removed as soon as the class/stereotyped element issue is addressed.
 * [TerminologyProfile.mdzip](TerminologyProfile.mdzip) 
  * **TerminologyProfile diagram** -- the *ResourceReference* class and its specializations, *ConceptReference*, *CodeSystemReference*, *CodeSystemVersionReference*, *ValueSetReference* and *ValueSetDefinitionReference*
+  * *DesignatableItem*, *IdentifiedItem* and *DescribedItem* stereotypes for the ADL identifiers and term/description tuples.
+ * *ScopedIdentifier*, *KnownNamespace*, *NamespaceInstance*, *Language* and *ArchetypeType* stereotypes for scoping namespaces for identifiers and terminology items.
+ * *PermissibleValue* and *EnumeratedValueDomain* stereotypes for terminology binding sections
  * **URI diagram** -- an excerpt from the CTS2 URI model, identifying the *PersistentURI* types
 * [TBCustomization](TBCustomization.mdzip)
 * [TBExamples](TBExamples.mdzip)
@@ -89,9 +92,7 @@ Metadata profile specifically for ADL.  *Note:* We still need to create abstract
 This profile implements the ADL *terminology* section.
 
 * [IdentificationAndDesignation.mdzip](IdentificationAndDesignation.mdzip)
- * *DesignatableItem*, *IdentifiedItem* and *DescribedItem* stereotypes for the ADL identifiers and term/description tuples.
- * *ScopedIdentifier*, *KnownNamespace*, *NamespaceInstance*, *Language* and *ArchetypeType* stereotypes for scoping namespaces for identifiers and terminology items.
- * *PermissibleValue* and *EnumeratedValueDomain* stereotypes for terminology binding sections
+
 * [IDDCustomization.mdzip](IDDCustomization.mdzip)
 * [IDDExamples](IDDExamples.mdzip)
 
