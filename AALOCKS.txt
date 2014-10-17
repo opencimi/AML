@@ -1,0 +1,3 @@
+Resource				Locked By		Date
+--------------------------------------------
+specification.mdzip		Harold Solbrig	10/16
