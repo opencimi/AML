@@ -1,0 +1,6 @@
+Resource				Locked By		Date
+--------------------------------------------
+specification.mdzip		Harold Solbrig	10/16
+ConstraintProfile.mdzip	Harold Solbrig	10/16
+ProfileChapters/9.3.1 Archetypes.mdzip	Harold Solbrig	10/16
+ProfileChapters/9.3.3 Object and Property Constraints.mdzip	Harold Solbrig	10/16
