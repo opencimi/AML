@@ -1,0 +1,399 @@
+
+		
+		
+													
+		
+																
+		
+													
+		
+																
+		
+																
+		
+																																true
+																																																																																																																																																											true
+																							true
+																																																																																																																																		true
+																																													true
+																																			true
+																																																																																																																																																																																																																																																																																																																																																										true
+																																																																																																																																																																																										true
+																																																																																																																																																																																																																																																																																																																																																														true
+																																														true
+																																																																	true
+																																																																																																																																																																																true
+																							true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																		true
+																																																																																																																																																			
+		
+													
+		
+																
+		
+													
+		
+																
+		
+																			
+		
+																
+		
+																																																																														true
+																																																																											true
+																														true
+																																																																																																																																									true
+																																																																																																																																			true
+																																			true
+																														true
+																																																																																																																																true
+																																																																																true
+																																																																																																																																																																																																																																																																																																																																																																																																																																																					true
+																																																																																																																																																																																true
+																																																																																																				true
+																																																																																																																																																																																																								true
+																																																																																																																	true
+																																																																																												true
+																																																																	true
+																																																																						true
+																									true
+																																																							true
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																															true
+																																													true
+																																																																																true
+																																																																			
+		
+													
+		
+													
+		
+																
+		
+																			
+		
+													
+		
+																
+		
+																
+		
+																			
+		
+													
+		
+																
+		
+																
+		
+																
+		
+																			
+		
+																
+		
+																																																															true
+																																																																	true
+																																																																																																		true
+																																																																																																																																									true
+																																																																																								true
+																																																													true
+																																																																																																																																																							true
+																									true
+																																																																																																																																		true
+																																																			true
+																																																																																																true
+																																																																																																						true
+																																																								true
+																																																																																																																true
+																																																																																																																				true
+																														true
+																																																																																																																																																																																																																																																		true
+																																																																		true
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																				true
+																														true
+																														true
+																																																																		true
+																														true
+																																								true
+																																																		true
+																																														true
+																														true
+																																																		true
+																																																																																																																true
+																																																												true
+																																																																																													true
+																																																																																															true
+																														true
+																																																																	true
+																														true
+																																																		true
+																																																			true
+																																																																																																	true
+																																																																												true
+																																																																																																						true
+																																																																											true
+																																																												true
+																														true
+																																																																																																																				true
+																														true
+																																								true
+																																																																																																																																																																												true
+																																																																																																																																true
+																																																																
+		
+													
+		
+													
+		
+																
+		
+																
+		
+																			
+		
+													
+		
+																
+		
+																
+		
+																
+		
+																
+		
+																
+		
+																
+		
+																
+		
+																			
+		
+													
+		
+																
+		
+																
+		
+																
+		
+													
+		
+																			
+		
+																			
+		
+													
+		
+																
+		
+													
+		
+																
+		
+													
+		
+																
+		
+																						
+		
+															
+		
+													
+		
+													
+		
+																
+		
+																
+		
+													135
+ReferenceModelProfile::Runtime [ref-0]
+ReferenceModelProfile::DV_DateTime [ref-1]
+ [ref-2]
+ReferenceModelProfile::ReferenceModel [ref-3]
+ReferenceModelProfile::MappedDataType [ref-4]
+ReferenceModelProfile::DV_Time [ref-5]
+ReferenceModelProfile::DV_Date [ref-6]
+ReferenceModelProfile::Infrastructure [ref-7]
+ReferenceModelProfile::TerminologyCode [ref-8]
+ReferenceModelProfile::DataBinding [ref-9]
+ReferenceModelProfile::DV_Duration [ref-10]
+XMLPrimitiveTypes [ref-11]
+XMLPrimitiveTypes::duration [ref-12]
+XMLPrimitiveTypes::dayTimeDuration [ref-13]
+XMLPrimitiveTypes::byte [ref-14]
+XMLPrimitiveTypes::gMonth [ref-15]
+XMLPrimitiveTypes::anySimpleType [ref-16]
+XMLPrimitiveTypes::anyAtomicType [ref-17]
+XMLPrimitiveTypes::gYearMonth [ref-18]
+XMLPrimitiveTypes::dateTimeStamp [ref-19]
+XMLPrimitiveTypes::ENTITIES [ref-20]
+XMLPrimitiveTypes::ID [ref-21]
+XMLPrimitiveTypes::NMTOKENS [ref-22]
+XMLPrimitiveTypes::unsignedLong [ref-23]
+XMLPrimitiveTypes::nonNegativeInteger [ref-24]
+XMLPrimitiveTypes::hexBinary [ref-25]
+XMLPrimitiveTypes::negativeInteger [ref-26]
+XMLPrimitiveTypes::NCName [ref-27]
+XMLPrimitiveTypes::ENTITIESBase [ref-28]
+XMLPrimitiveTypes::normalizedString [ref-29]
+XMLPrimitiveTypes::NMTOKEN [ref-30]
+XMLPrimitiveTypes::language [ref-31]
+XMLPrimitiveTypes::time [ref-32]
+XMLPrimitiveTypes::IDREFS [ref-33]
+XMLPrimitiveTypes::IDREF [ref-34]
+XMLPrimitiveTypes::date [ref-35]
+XMLPrimitiveTypes::string [ref-36]
+XMLPrimitiveTypes::gDay [ref-37]
+XMLPrimitiveTypes::boolean [ref-38]
+XMLPrimitiveTypes::NOTATION [ref-39]
+XMLPrimitiveTypes::integer [ref-40]
+XMLPrimitiveTypes::QName [ref-41]
+XMLPrimitiveTypes::unsignedShort [ref-42]
+XMLPrimitiveTypes::Name [ref-43]
+XMLPrimitiveTypes::unsignedByte [ref-44]
+XMLPrimitiveTypes::yearMonthDuration [ref-45]
+XMLPrimitiveTypes::decimal [ref-46]
+XMLPrimitiveTypes::gMonthDay [ref-47]
+XMLPrimitiveTypes::dateTime [ref-48]
+XMLPrimitiveTypes::base64Binary [ref-49]
+XMLPrimitiveTypes::IDREFSBase [ref-50]
+XMLPrimitiveTypes::long [ref-51]
+XMLPrimitiveTypes::float [ref-52]
+XMLPrimitiveTypes::unsignedInt [ref-53]
+XMLPrimitiveTypes::nonPositiveInteger [ref-54]
+XMLPrimitiveTypes::token [ref-55]
+XMLPrimitiveTypes::ENTITY [ref-56]
+XMLPrimitiveTypes::NMTOKENSBase [ref-57]
+XMLPrimitiveTypes::gYear [ref-58]
+XMLPrimitiveTypes::positiveInteger [ref-59]
+XMLPrimitiveTypes::longObject [ref-60]
+XMLPrimitiveTypes::short [ref-61]
+XMLPrimitiveTypes::int [ref-62]
+XMLPrimitiveTypes::double [ref-63]
+XMLPrimitiveTypes::anyURI [ref-64]
+TerminologyProfile::ConceptReference [ref-65]
+TerminologyProfile::ValueSetDefinitionReference [ref-66]
+TerminologyProfile::PossibleValue [ref-67]
+TerminologyProfile::IdentifiedItem [ref-68]
+TerminologyProfile::Language [ref-69]
+TerminologyProfile::DesignatableItem [ref-70]
+TerminologyProfile::ValueSetReference [ref-71]
+TerminologyProfile::ConceptReferenceInstance [ref-72]
+TerminologyProfile::CodeSystemVersionReference [ref-73]
+TerminologyProfile::ScopedIdentifier [ref-74]
+TerminologyProfile::KnownNamespace [ref-75]
+TerminologyProfile::AssumedValue [ref-76]
+TerminologyProfile::ResourceReferenceInstance [ref-77]
+TerminologyProfile::ResourceReference [ref-78]
+TerminologyProfile::CodeSystemReference [ref-79]
+TerminologyProfile::PermissibleValue [ref-80]
+TerminologyProfile::NamespaceInstance [ref-81]
+TerminologyProfile::ArchetypeType [ref-82]
+TerminologyProfile::CodeSystemReferenceInstance [ref-83]
+TerminologyProfile::DescribedItem [ref-84]
+TerminologyProfile::EnumeratedValueDomain [ref-85]
+TerminologyProfile::ValueSetReferenceInstance [ref-86]
+ConstraintProfile::StringConstraint [ref-87]
+ConstraintProfile::AMLType [ref-88]
+ConstraintProfile::ArchetypeRootConstraint [ref-89]
+ConstraintProfile::RealInterval [ref-90]
+ConstraintProfile::ArchetypeType [ref-91]
+ConstraintProfile::AttributeCollectionConstraint [ref-92]
+ConstraintProfile::ComplexObjectConstraint [ref-93]
+ConstraintProfile::ArchetypeLibrary [ref-94]
+ConstraintProfile::DateTimeMatchPattern [ref-95]
+ConstraintProfile::DurationInterval [ref-96]
+ConstraintProfile::DurationMatchPattern [ref-97]
+ConstraintProfile::DateInterval [ref-98]
+ConstraintProfile::DateMatchPattern [ref-99]
+ConstraintProfile::ObjectConstraintProxy [ref-100]
+ConstraintProfile::ArchetypeRootProxy [ref-101]
+ConstraintProfile::IntegerInterval [ref-102]
+ConstraintProfile::TranslationDetails [ref-103]
+ConstraintProfile::DateTimeInterval [ref-104]
+ConstraintProfile::AuthoredResource [ref-105]
+ConstraintProfile::BooleanConstraint [ref-106]
+ConstraintProfile::ReferenceModelImport [ref-107]
+ConstraintProfile::ArchetypeVersion [ref-108]
+ConstraintProfile::ReferenceModel [ref-109]
+ConstraintProfile::ResourceTranslation [ref-110]
+ConstraintProfile::Constrains [ref-111]
+ConstraintProfile::PrimitiveObjectConstraint [ref-112]
+ConstraintProfile::TerminologyCodeConstraint [ref-113]
+ConstraintProfile::DurationConstraint [ref-114]
+ConstraintProfile::EnumerationConstraint [ref-115]
+ConstraintProfile::ArchetypeCurrentVersion [ref-116]
+ConstraintProfile::ArchetypeVersionId [ref-117]
+ConstraintProfile::Archetype [ref-118]
+ConstraintProfile::IntegerConstraint [ref-119]
+ConstraintProfile::DateConstraint [ref-120]
+ConstraintProfile::ResourceDescription [ref-121]
+ConstraintProfile::RegularExpression [ref-122]
+ConstraintProfile::TargetConstraint [ref-123]
+ConstraintProfile::TimeMatchPattern [ref-124]
+ConstraintProfile::TimeInterval [ref-125]
+ConstraintProfile::AttributeConstraint [ref-126]
+ConstraintProfile::SingularAttributeConstraint [ref-127]
+ConstraintProfile::DateTimeConstraint [ref-128]
+ConstraintProfile::Interval [ref-129]
+ConstraintProfile::ObjectConstraint [ref-130]
+ConstraintProfile::EnumeratedValueDomainConstraint [ref-131]
+ConstraintProfile::TimeConstraint [ref-132]
+ConstraintProfile::RealConstraint [ref-133]
+ConstraintProfile::ArchetypeId [ref-134]
+
+
+
