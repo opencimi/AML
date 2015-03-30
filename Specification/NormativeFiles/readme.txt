@@ -1,0 +1,1 @@
+This folder contains the RFP Response Document plus folders for the OMG-compliant form of the UML Profiles and the QVT Transformations.

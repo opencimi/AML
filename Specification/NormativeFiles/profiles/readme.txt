@@ -1,0 +1,1 @@
+This folder contains the OMG-compliant form of the UML Profiles.

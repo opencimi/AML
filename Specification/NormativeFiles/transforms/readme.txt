@@ -1,0 +1,1 @@
+This folder contains the platform-independent QVT Transformations.
