@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2"
+	xsi:schemaLocation="
+		http://schemas.openehr.org/v1 OpenehrProfile.xsd
+		">
+	<translations id="ru">
+		<language>ISO_639-1::ru</language>
+		<author>Art Latyp Латыпов Артур Шамилевич</author>
+		<author>RusBITech РусБИТех, Москва</author>
+		<accreditation>hmm</accreditation>
+	</translations>
+	<description>
+		<lifecycle_state>unmanaged</lifecycle_state>
+		<original_author>Heather Leslie</original_author>
+		<original_author>Ocean Informatics</original_author>
+		<original_author>heather.leslie@oceaninformatics.com</original_author>
+		<original_author>7/03/2010</original_author>
+		<copyright>© openEHR Foundation</copyright>
+		<details id="en">
+			<language>ISO_639-1::en</language>
+			<purpose>To demonstrate a design pattern for representation of a List of Diagnostic Reports.</purpose>
+			<use>Use to support the representation of diagnostic reports that have been recorded.</use>
+			<keywords>diagnostic</keywords>
+			<keywords>report</keywords>
+			<keywords>laboratory</keywords>
+			<keywords>imaging</keywords>
+			<keywords>radiology</keywords>
+			<keywords>pathology</keywords>
+			<keywords>list</keywords>
+			<misuse></misuse>
+		</details>
+		<details id="ru">
+			<language>ISO_639-1::ru</language>
+			<purpose>Дизайн представления списка обоснования диагнозов</purpose>
+			<use>Используется для поддержки представления списка обоснований диагноза</use>
+			<keywords>диагностический</keywords>
+			<keywords>список</keywords>
+			<keywords>обоснование</keywords>
+			<keywords>уточненный</keywords>
+			<keywords>лаборатория</keywords>
+			<keywords>визуализация</keywords>
+			<keywords>радиология</keywords>
+			<keywords>патоморфология</keywords>
+			<keywords>диагноз</keywords>
+			<keywords>окончательный</keywords>
+			<keywords>предварительный</keywords>
+			<keywords>рабочий</keywords>
+			<misuse></misuse>
+		</details>
+		<other_contributors>Ian McNicoll, Ocean Informatics, Australia</other_contributors>
+		<other_contributors>Heath Frankel, Ocean Informatics, Australia</other_contributors>
+		<other_details></other_details>
+		<other_details>EE922E416EC2C85EE6DF568D33B963CB</other_details>
+	</description>
+	<original_language>ISO_639-1::en</original_language>
+	<artefact_type>archetype</artefact_type>
+	<artefact_object_type>AUTHORED_ARCHETYPE</artefact_object_type>
+	<archetype_id>
+		<physical_id>openEHR-EHR-SECTION.diagnostic_reports.v1.0.0</physical_id>
+		<rm_publisher>openEHR</rm_publisher>
+		<rm_package>EHR</rm_package>
+		<rm_class>SECTION</rm_class>
+		<concept_id>diagnostic_reports</concept_id>
+		<release_version>1.0.0</release_version>
+		<version_status>0</version_status>
+		<build_count>0</build_count>
+	</archetype_id>
+	<definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="SECTION">
+		<attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items">
+			<children xsi:type="P_ARCHETYPE_SLOT" node_id="id2" rm_type_name="OBSERVATION">
+				<includes>
+					<type>Boolean</type>
+					<expression xsi:type="EXPR_BINARY_OPERATOR">
+						<type>Boolean</type>
+						<operator>
+							<value>2007</value>
+						</operator>
+						<left_operand xsi:type="EXPR_MODEL_REF">
+							<type>String</type>
+							<reference_type>attribute</reference_type>
+							<item>archetype_id/value</item>
+						</left_operand>
+						<right_operand xsi:type="EXPR_ARCHETYPE_ID_CONSTRAINT">
+							<type>C_STRING</type>
+							<reference_type>constraint</reference_type>
+							<item>
+								<rm_type_name>STRING</rm_type_name>
+								<constraint>/openEHR-EHR-OBSERVATION\.lab_test(-a-zA-Z0-9_]+)*\.v1/</constraint>
+								<is_path_compressible>false</is_path_compressible>
+								<is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+							</item>
+						</right_operand>
+						<precedence_overridden>false</precedence_overridden>
+					</expression>
+				</includes>
+				<is_closed>false</is_closed>
+			</children>
+			<children xsi:type="P_ARCHETYPE_SLOT" node_id="id3" rm_type_name="OBSERVATION">
+				<includes>
+					<type>Boolean</type>
+					<expression xsi:type="EXPR_BINARY_OPERATOR">
+						<type>Boolean</type>
+						<operator>
+							<value>2007</value>
+						</operator>
+						<left_operand xsi:type="EXPR_MODEL_REF">
+							<type>String</type>
+							<reference_type>attribute</reference_type>
+							<item>archetype_id/value</item>
+						</left_operand>
+						<right_operand xsi:type="EXPR_ARCHETYPE_ID_CONSTRAINT">
+							<type>C_STRING</type>
+							<reference_type>constraint</reference_type>
+							<item>
+								<rm_type_name>STRING</rm_type_name>
+								<constraint>/openEHR-EHR-OBSERVATION\.imaging(-a-zA-Z0-9_]+)*\.v1/</constraint>
+								<is_path_compressible>false</is_path_compressible>
+								<is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+							</item>
+						</right_operand>
+						<precedence_overridden>false</precedence_overridden>
+					</expression>
+				</includes>
+				<is_closed>false</is_closed>
+			</children>
+			<children xsi:type="P_ARCHETYPE_SLOT" node_id="id4" rm_type_name="EVALUATION">
+				<includes>
+					<type>Boolean</type>
+					<expression xsi:type="EXPR_BINARY_OPERATOR">
+						<type>Boolean</type>
+						<operator>
+							<value>2007</value>
+						</operator>
+						<left_operand xsi:type="EXPR_MODEL_REF">
+							<type>String</type>
+							<reference_type>attribute</reference_type>
+							<item>archetype_id/value</item>
+						</left_operand>
+						<right_operand xsi:type="EXPR_ARCHETYPE_ID_CONSTRAINT">
+							<type>C_STRING</type>
+							<reference_type>constraint</reference_type>
+							<item>
+								<rm_type_name>STRING</rm_type_name>
+								<constraint>/openEHR-EHR-EVALUATION\.clinical_synopsis(-a-zA-Z0-9_]+)*\.v1/</constraint>
+								<is_path_compressible>false</is_path_compressible>
+								<is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+							</item>
+						</right_operand>
+						<precedence_overridden>false</precedence_overridden>
+					</expression>
+				</includes>
+				<is_closed>false</is_closed>
+			</children>
+			<is_multiple>true</is_multiple>
+		</attributes>
+	</definition>
+	<terminology>
+		<original_language>ISO_639-1::en</original_language>
+		<term_definitions id="en">
+			<items id="id1">
+				<text>Diagnostic Reports</text>
+				<description>Suggested design pattern for including Diagnostic Reports in a template.</description>
+			</items>
+			<items id="id2">
+				<text>Laboratory reports</text>
+				<description>Slot constrained to specifically include archetypes representing reports/results of laboratory tests.</description>
+			</items>
+			<items id="id3">
+				<text>Imaging reports</text>
+				<description>Slot constrained to specifically include archetypes representing reports/results of imaging tests.</description>
+			</items>
+			<items id="id4">
+				<text>Diagnostic report synopsis</text>
+				<description>Slot constrained to include archetypes representing narrative synopses of laboratory and/or imaging test results.</description>
+			</items>
+		</term_definitions>
+		<term_definitions id="ru">
+			<items id="id1">
+				<text>Обоснование диагноза</text>
+				<description>Предлагаемый дизайн для включения в шаблон обоснований диагнозов</description>
+			</items>
+			<items id="id2">
+				<text>Отчеты о лабораторных данных</text>
+				<description>Слот, включающий архетипы результатов лабораторных тестов</description>
+			</items>
+			<items id="id3">
+				<text>Отчеты по методам визуализации</text>
+				<description>Слот, включающий архетипы визуализационных обследований</description>
+			</items>
+			<items id="id4">
+				<text>Эпикриз с обоснованием диагноза</text>
+				<description>Слот, включающий архетипы для краткого описания лабораторных и других параклинических результатов</description>
+			</items>
+		</term_definitions>
+	</terminology>
+	<adl_version>2.0.5</adl_version>
+	<rm_release>1.0.2</rm_release>
+	<is_controlled>false</is_controlled>
+	<is_generated>true</is_generated>
+</archetype>
