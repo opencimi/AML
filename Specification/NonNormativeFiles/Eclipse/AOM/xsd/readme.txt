@@ -1,0 +1,1 @@
+This folder contains the AOM 2.0 schemas.

@@ -1,0 +1,1 @@
+This folder contains eclipse emf/ecore models derived from the AOM schemas.
