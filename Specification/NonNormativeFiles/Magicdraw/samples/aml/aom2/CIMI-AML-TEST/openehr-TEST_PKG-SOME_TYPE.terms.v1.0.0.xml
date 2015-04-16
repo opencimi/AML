@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Thomas Beale</original_author>
+  <copyright>copyright (c) 2004 The openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Test terms expressed both as vanilla C_CODE_PHRASEs and as syntax equivalents</purpose>
+   <keywords>ADL</keywords>
+   <keywords>test</keywords>
+  </details>
+  <other_details id="regression">PASS</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openehr" rm_package="TEST_PKG" rm_class="SOME_TYPE" release_version="1.0.0" version_status="0" build_count="0" physical_id="openehr-TEST_PKG-SOME_TYPE.terms.v1.0.0">
+  <concept_id>terms</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="SOME_TYPE" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="standard_coded_text_attr" is_multiple="false">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="terminology_id" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="TERMINOLOGY_ID" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>local</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="code_string" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at112</constraint>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="terminology_id" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="TERMINOLOGY_ID" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>local</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="code_string" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at113</constraint>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="terminology_id" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10" rm_type_name="TERMINOLOGY_ID" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>local</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="code_string" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at114</constraint>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="terminology_id" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id11" rm_type_name="TERMINOLOGY_ID" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>local</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="code_string" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at115</constraint>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="terminology_id" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id12" rm_type_name="TERMINOLOGY_ID" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>local</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="code_string" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at116</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="standard_coded_text_attr_2" is_multiple="false">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id13" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="terminology_id" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id14" rm_type_name="TERMINOLOGY_ID" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>local</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="code_string" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at112</constraint>
+        <constraint>at13</constraint>
+        <constraint>at14</constraint>
+        <constraint>at15</constraint>
+        <constraint>at16</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="clinical_coded_text_attr_1" is_multiple="false">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id15" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <assumed_value>at112</assumed_value>
+      <constraint>ac1</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Test</text>
+    <description>Test</description>
+   </items>
+   <items id="id2">
+    <text>coded node</text>
+    <description>coded node</description>
+   </items>
+   <items id="id3">
+    <text>coded node</text>
+    <description>coded node</description>
+   </items>
+   <items id="id4">
+    <text>coded node</text>
+    <description>coded node</description>
+   </items>
+   <items id="id5">
+    <text>coded node</text>
+    <description>coded node</description>
+   </items>
+   <items id="id6">
+    <text>coded node</text>
+    <description>coded node</description>
+   </items>
+   <items id="at112">
+    <text>Anus</text>
+    <description>Site</description>
+   </items>
+   <items id="at113">
+    <text>Rectum</text>
+    <description>Site</description>
+   </items>
+   <items id="at114">
+    <text>Sigmoid</text>
+    <description>Site</description>
+   </items>
+   <items id="at115">
+    <text>Descending</text>
+    <description>Site</description>
+   </items>
+   <items id="at116">
+    <text>Splenic</text>
+    <description>Site</description>
+   </items>
+   <items id="ac1">
+    <text>Test</text>
+    <description>Test</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac1">
+   <members>at112</members>
+   <members>at113</members>
+   <members>at114</members>
+   <members>at115</members>
+   <members>at116</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

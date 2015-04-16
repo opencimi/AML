@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <translations id="de">
+  <language>ISO_639-1::de</language>
+  <author id="name">Hans Demski</author>
+  <author id="organisation">Helmholtz Zentrum München</author>
+  <author id="email">demski@helmholtz-muenchen.de</author>
+ </translations>
+ <translations id="el">
+  <language>ISO_639-1::el</language>
+  <author id="name">Spiros Denaxas</author>
+  <author id="organisation">University College London, Institute of Health Informatics</author>
+  <author id="email">s.denaxas@ucl.ac.uk</author>
+  <accreditation>Royal College of Online Gaming</accreditation>
+ </translations>
+ <translations id="ar-sy">
+  <language>ISO_639-1::ar-sy</language>
+  <author id="name">Mona Saleh</author>
+ </translations>
+ <translations id="es-ar">
+  <language>ISO_639-1::es-ar</language>
+  <author id="name">Alan March</author>
+  <author id="organisation">Hospital Universitario Austral, Pilar, Buenos Aires, Argentina</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Ian McNicoll</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="date">2007-11-11</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="de">
+   <language>ISO_639-1::de</language>
+   <purpose>Zur Dokumentation einer oder mehrerer Adressen einer Person oder Einrichtung.</purpose>
+   <use></use>
+   <keywords>Adresse</keywords>
+   <misuse></misuse>
+  </details>
+  <details id="es-ar">
+   <language>ISO_639-1::es-ar</language>
+   <purpose>Registrar los detalles de uno o mas domicilios personales de un individuo.</purpose>
+   <use></use>
+   <keywords>domicilio</keywords>
+   <keywords>dirección</keywords>
+   <misuse></misuse>
+  </details>
+  <details id="ar-sy">
+   <language>ISO_639-1::ar-sy</language>
+   <purpose>لتسجيل تفاصيل عنوان شخصي أو أكثر الخاص بشخص ما</purpose>
+   <use></use>
+   <keywords>العنوان</keywords>
+   <misuse></misuse>
+  </details>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record details of one or more personal addresses for an individual.</purpose>
+   <use></use>
+   <keywords>address</keywords>
+   <misuse></misuse>
+  </details>
+  <details id="el">
+   <language>ISO_639-1::el</language>
+   <purpose>Γιά την καταγραφή λεπτομερειών μίας ή περισσoτέρων προσωπικών διευθύνσεων για ένα άτομο.</purpose>
+   <use></use>
+   <keywords>διεύθυνση</keywords>
+   <misuse></misuse>
+  </details>
+  <other_details id="references">From NHS Scotland SCI-XML messaging standards http://www.isdscotland.org/isd/files/general-v2-7.xsd NHS Scotland Interoperability Working Group http://www.isdscotland.org/isd/5194.htm originally based on: Postal address of person.  ENV 13606 - 4:2000 7.11.13</other_details>
+  <other_details id="MD5-CAM-1.0.1">18D2B0E9FACF5C8F0094A5EDDFC97B09</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.address.v1.0.0">
+  <concept_id>address</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id17" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac1</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id18" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id19" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10" rm_type_name="ELEMENT" occurrences="0..4" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id20" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id21" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id16" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id22" rm_type_name="DV_DATE_TIME" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id23" rm_type_name="DV_DATE_TIME" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Address</text>
+    <description>To record details of one or more personal addresses.</description>
+   </items>
+   <items id="id2">
+    <text>Address</text>
+    <description>One or more adresses for an individual.</description>
+   </items>
+   <items id="id3">
+    <text>Unstructured address</text>
+    <description>A postal address expressed in an unstructured format. ENV 13606 - 4:2000 7.11.15.</description>
+   </items>
+   <items id="id4">
+    <text>Structured address</text>
+    <description>The structure of a postal address representing the residence of a patient or the physical location of an organisation.  ENV 13606-4:2000 7.11.1.</description>
+   </items>
+   <items id="id5">
+    <text>Post code</text>
+    <description>Post code.</description>
+   </items>
+   <items id="id6">
+    <text>Property number</text>
+    <description>The number of the property.</description>
+   </items>
+   <items id="id7">
+    <text>Address Type</text>
+    <description>The type of address.</description>
+   </items>
+   <items id="id8">
+    <text>Valid from</text>
+    <description>The start of the period for which this address is valid.</description>
+   </items>
+   <items id="id9">
+    <text>Valid to</text>
+    <description>Date from which the Address is no longer valid.</description>
+   </items>
+   <items id="id10">
+    <text>Address line</text>
+    <description>A series of address lines.</description>
+   </items>
+   <items id="at12">
+    <text>Residential</text>
+    <description>Address of place of residence.</description>
+   </items>
+   <items id="at13">
+    <text>Correspondence</text>
+    <description>Address for correspondence.</description>
+   </items>
+   <items id="at14">
+    <text>Business</text>
+    <description>Address of place of business.</description>
+   </items>
+   <items id="at15">
+    <text>Temporary</text>
+    <description>Temporary address.</description>
+   </items>
+   <items id="id16">
+    <text>AddressValid Period</text>
+    <description>The period during which the associated address is applicable to the person / organisation.  ENV 13606 - 4:2000 7.11.11.  This describes the actual period.</description>
+   </items>
+   <items id="ac1">
+    <text>Address Type (synthesised)</text>
+    <description>The type of address. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="de">
+   <items id="id1">
+    <text>Adresse</text>
+    <description>Zur Dokumentation einer oder mehrerer Postadressen einer Person oder Einrichtung</description>
+   </items>
+   <items id="id2">
+    <text>Adresse</text>
+    <description>Eine oder mehrere Adressen einer Person oder Einrichtung</description>
+   </items>
+   <items id="id3">
+    <text>Unstrukturierte Adresse</text>
+    <description>Eine Postadresse in unstrukturiertem Format. ENV 13606 - 4:2000 7.11.15</description>
+   </items>
+   <items id="id4">
+    <text>Strukturierte Adresse</text>
+    <description>Struktur zur Aufnahme der Postadresse einer Person oder Einrichtung.  ENV 13606-4:2000 7.11.1</description>
+   </items>
+   <items id="id5">
+    <text>Postleitzahl</text>
+    <description>Postleitzahl</description>
+   </items>
+   <items id="id6">
+    <text>Hausnummer</text>
+    <description>Hausnummer</description>
+   </items>
+   <items id="id7">
+    <text>Art</text>
+    <description>Art der Adresse</description>
+   </items>
+   <items id="id8">
+    <text>Gültig seit</text>
+    <description>Das Datum seit dem die Adresse gültig ist</description>
+   </items>
+   <items id="id9">
+    <text>Gültig bis</text>
+    <description>Das Datum an dem die Adresse ungültig wurde</description>
+   </items>
+   <items id="id10">
+    <text>Adresse</text>
+    <description>Eine Reihe von Adresszeilen</description>
+   </items>
+   <items id="at12">
+    <text>Privat</text>
+    <description>*</description>
+   </items>
+   <items id="at13">
+    <text>Schriftverkehr</text>
+    <description>*</description>
+   </items>
+   <items id="at14">
+    <text>Geschäftlich</text>
+    <description>*</description>
+   </items>
+   <items id="at15">
+    <text>Vorläufig</text>
+    <description>*</description>
+   </items>
+   <items id="id16">
+    <text>Gültigkeitszeitraum</text>
+    <description>Der Zeitraum in dem die Adresse gültig ist.  ENV 13606 - 4:2000 7.11.11.</description>
+   </items>
+   <items id="ac1">
+    <text>Art (synthesised)</text>
+    <description>Art der Adresse (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="es-ar">
+   <items id="id1">
+    <text>domicilio</text>
+    <description>Registrar los detalles de uno o mas domicilios personales de un individuo.</description>
+   </items>
+   <items id="id2">
+    <text>domicilio</text>
+    <description>Uno o mas domicilios personales de un individuo.</description>
+   </items>
+   <items id="id3">
+    <text>Domicilio no estructurado</text>
+    <description>Un domicilio postal expresado en formato no estructurado. ENV 13606 - 4:2000 7.11.15.</description>
+   </items>
+   <items id="id4">
+    <text>Domicilio estructurado</text>
+    <description>La estructura de un domicilio postal que representa la residencia de un paciente o la localización física de una organización. ENV 13606-4:2000 7.11.1.</description>
+   </items>
+   <items id="id5">
+    <text>Código postal</text>
+    <description>Código postal.</description>
+   </items>
+   <items id="id6">
+    <text>Número de la propiedad</text>
+    <description>El número de la propiedad.</description>
+   </items>
+   <items id="id7">
+    <text>Tipo de domicilio</text>
+    <description>El tipo de domicilio.</description>
+   </items>
+   <items id="id8">
+    <text>Valido desde</text>
+    <description>El comienzo del período durante el cual el domicilio es válido.</description>
+   </items>
+   <items id="id9">
+    <text>Valido hasta</text>
+    <description>La fecha a partir de la cual el domicilio deja de ser válido.</description>
+   </items>
+   <items id="id10">
+    <text>Linea de domicilio.</text>
+    <description>Una serie de lineas de domicilio.</description>
+   </items>
+   <items id="at12">
+    <text>Residencial</text>
+    <description>Domicilio del lugar de residencia.</description>
+   </items>
+   <items id="at13">
+    <text>Correspondencia</text>
+    <description>Domicilio para correspondencia.</description>
+   </items>
+   <items id="at14">
+    <text>Laboral</text>
+    <description>Domicilio laboral.</description>
+   </items>
+   <items id="at15">
+    <text>Temporario</text>
+    <description>Domicilio temporario.</description>
+   </items>
+   <items id="id16">
+    <text>Período de validez del domicilio</text>
+    <description>El período durante el cual el domicilio asociado es aplicable a una persona / organización. ENV 13606 - 4:2000 7.11.11.  Esto describe el período actual.</description>
+   </items>
+   <items id="ac1">
+    <text>Tipo de domicilio (synthesised)</text>
+    <description>El tipo de domicilio. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="ar-sy">
+   <items id="id1">
+    <text>العنوان</text>
+    <description>لتسجيل تفاصيل عنوان شخصي واحد أو أكثر</description>
+   </items>
+   <items id="id2">
+    <text>العنوان</text>
+    <description>عنوان واحد أو أكثر بالنسبة لفرد ما</description>
+   </items>
+   <items id="id3">
+    <text>عنوان غير مركب</text>
+    <description>عنوان بريدي يتم التعبير عنه بتصميم غير مركب. 
+مثلا: ENV 13606 - 4:2000 7.11.15.</description>
+   </items>
+   <items id="id4">
+    <text>العنوان المركب</text>
+    <description>تركيب العنوان البريدي الذي يمثل مكان إقامة المريض أو المكان الفيزيائي لمؤسسة ما.  ENV 13606-4:2000 7.11.1.</description>
+   </items>
+   <items id="id5">
+    <text>الرمز البريدي</text>
+    <description>الرمز البريدي</description>
+   </items>
+   <items id="id6">
+    <text>رقم العقار</text>
+    <description>رقم العقار</description>
+   </items>
+   <items id="id7">
+    <text>نوع العنوان</text>
+    <description>نوع العنوان</description>
+   </items>
+   <items id="id8">
+    <text>صالح من</text>
+    <description>نقطة بداية الفترة التي يكون فيها العنوان صالحا</description>
+   </items>
+   <items id="id9">
+    <text>صالح حتى</text>
+    <description>التاريخ الذي يكون فيه العنوان غير صالح</description>
+   </items>
+   <items id="id10">
+    <text>خط العنوان</text>
+    <description>سلسلة من خطوط العنوان</description>
+   </items>
+   <items id="at12">
+    <text>مكان الإقامة</text>
+    <description>عنوان مكان الإقامة</description>
+   </items>
+   <items id="at13">
+    <text>عنوان المراسلة</text>
+    <description>عنوان المراسلة</description>
+   </items>
+   <items id="at14">
+    <text>العمل</text>
+    <description>عنوان مكان العمل</description>
+   </items>
+   <items id="at15">
+    <text>مؤقت</text>
+    <description>العنوان المؤقت</description>
+   </items>
+   <items id="id16">
+    <text>فترة صلاحية العنوان</text>
+    <description>الفترة التي يكون فيها العنوان المصاحب قابلا للتطبيق. 
+ENV 13606 - 4:2000 7.11.11. 
+و هذا يصف الفترة الحقيقية.</description>
+   </items>
+   <items id="ac1">
+    <text>نوع العنوان (synthesised)</text>
+    <description>نوع العنوان (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="el">
+   <items id="id1">
+    <text>Διεύθυνση</text>
+    <description>Γιά την καταγραφή λεπτομερειών μίας ή περισσότερων προσωπικών διευθύνσεων.</description>
+   </items>
+   <items id="id2">
+    <text>Διεύθυνση</text>
+    <description>Μία ή περισσότερες προσωπικές διευθύνσεις για ένα άτομο.</description>
+   </items>
+   <items id="id3">
+    <text>Μη-δομημένη διεύθυνση</text>
+    <description>Ταχυδρομική διέυθυνση σε μη-δομημένη μορφή ENV 13606 - 4:2000 7.11.15.</description>
+   </items>
+   <items id="id4">
+    <text>Δομημένη διεύθυνση</text>
+    <description>Η δομή μιας ταχυδρομικής διεύθυνσης της οικιας ενός ασθενή ή ενός οργανισμου ENV 13606-4:2000 7.11.1</description>
+   </items>
+   <items id="id5">
+    <text>Tαχυδρομικός κώδικας</text>
+    <description>Tαχυδρομικός κώδικας</description>
+   </items>
+   <items id="id6">
+    <text>Νούμερο σπιτιού</text>
+    <description>Αριθμός σπιτιού</description>
+   </items>
+   <items id="id7">
+    <text>Τύπος διεύθυνσης</text>
+    <description>Τύπος διεύθυνσης</description>
+   </items>
+   <items id="id8">
+    <text>Έγκυρη απο</text>
+    <description>Ημερομηνία από την οποία η διέυθυνση είναι έγκυρη</description>
+   </items>
+   <items id="id9">
+    <text>Έγκυρη μέχρι</text>
+    <description>Ημερομηνία μετά την οποία η διέυθυνση δεν είναι έγκυρη</description>
+   </items>
+   <items id="id10">
+    <text>Γραμμή διεύθυνσης</text>
+    <description>Γραμμές διεύθυνσης</description>
+   </items>
+   <items id="at12">
+    <text>Οικίας</text>
+    <description>Διεύθυνση οικίας</description>
+   </items>
+   <items id="at13">
+    <text>Αλληλογραφίας</text>
+    <description>Διεύθυνση αλληλογραφίας</description>
+   </items>
+   <items id="at14">
+    <text>Εργασίας</text>
+    <description>Διεύθυνση εργασίας</description>
+   </items>
+   <items id="at15">
+    <text>Προσωρινή</text>
+    <description>Προσωρινή διεύθυνση</description>
+   </items>
+   <items id="id16">
+    <text>Περίοδος εγκυρότητας</text>
+    <description>Η περίοδος για την οποία η διέυθυνση είναι έγκυρη για το άτομο ή τον οργανισμό ENV 13606 - 4:2000 7.11.11. Το πεδίο περιγράφει την περίοδο.</description>
+   </items>
+   <items id="ac1">
+    <text>Τύπος διεύθυνσης (synthesised)</text>
+    <description>Τύπος διεύθυνσης (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac1">
+   <members>at12</members>
+   <members>at13</members>
+   <members>at14</members>
+   <members>at15</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

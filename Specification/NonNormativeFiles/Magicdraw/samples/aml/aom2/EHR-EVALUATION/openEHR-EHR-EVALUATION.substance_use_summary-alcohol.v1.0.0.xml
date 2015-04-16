@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Heather Leslie</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">heather.leslie@oceaninformatics.com</original_author>
+  <original_author id="date">21/06/2009</original_author>
+  <copyright>copyright (c) 2009 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>This archetype is used to record an ongoing and persistent summary of the consumption of any and all types of alcohol.</purpose>
+   <use>Used to record an ongoing and persistent summary of the use or consumption of alcohol.  </use>
+   <keywords>consumption</keywords>
+   <keywords>substance</keywords>
+   <keywords>use</keywords>
+   <keywords>usage</keywords>
+   <keywords>dependence</keywords>
+   <keywords>alcohol</keywords>
+   <misuse>Not to be used for recording actual details about the use of the substance and event-related data - this should be captured using the OBSERVATION.substance_use-alcohol archetype. 
+Not to be used for recording data about substances other than alcohol. </misuse>
+  </details>
+  <other_contributors>Sam Heard, Ocean Informatics, Australia</other_contributors>
+  <other_details id="references"></other_details>
+  <other_details id="MD5-CAM-1.0.1">97C5C34A373038B9243AFEDE78BBDE97</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="EVALUATION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-EVALUATION.substance_use_summary-alcohol.v1.0.0">
+  <concept_id>substance_use_summary-alcohol</concept_id>
+ </archetype_id>
+ <parent_archetype_id>openEHR-EHR-EVALUATION.substance_use_summary.v1</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="EVALUATION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/data[id2]/items[id6]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id17.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>at0.17</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/data[id2]/items[id8]/items[id9]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id19.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.1</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="at0.17">
+    <text>Alcohol</text>
+    <description>Alcohol use</description>
+   </items>
+   <items id="at0.18">
+    <text>All alcohol</text>
+    <description>All alcohol consumed</description>
+   </items>
+   <items id="at0.19">
+    <text>All beer</text>
+    <description>All beer consumed</description>
+   </items>
+   <items id="at0.20">
+    <text>All wine</text>
+    <description>All wine consumed</description>
+   </items>
+   <items id="at0.21">
+    <text>All spirits</text>
+    <description>All spirits consumed</description>
+   </items>
+   <items id="at0.22">
+    <text>Full strength beer</text>
+    <description>Full strength beer consumed</description>
+   </items>
+   <items id="at0.23">
+    <text>Light beer</text>
+    <description>Light beer consumed</description>
+   </items>
+   <items id="at0.24">
+    <text>Red wine</text>
+    <description>Red wine consumed</description>
+   </items>
+   <items id="at0.25">
+    <text>White wine</text>
+    <description>White wine consumed</description>
+   </items>
+   <items id="at0.26">
+    <text>Fortified wine</text>
+    <description>Fortified wine consumed</description>
+   </items>
+   <items id="id1.1">
+    <text>Alcohol Use Summary</text>
+    <description>Record a persisting summary or overview of use or consumption of alcohol over time.</description>
+   </items>
+   <items id="ac0.1">
+    <text>Form (synthesised)</text>
+    <description>Identify the form of alcohol (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac0.1">
+   <members>at0.18</members>
+   <members>at0.19</members>
+   <members>at0.20</members>
+   <members>at0.21</members>
+   <members>at0.22</members>
+   <members>at0.23</members>
+   <members>at0.24</members>
+   <members>at0.25</members>
+   <members>at0.26</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

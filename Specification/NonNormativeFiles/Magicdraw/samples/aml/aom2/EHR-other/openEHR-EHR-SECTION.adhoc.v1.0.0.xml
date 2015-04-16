@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <translations id="ru">
+  <language>ISO_639-1::ru</language>
+  <author id="name">Art Latyp Латыпов Артур Шамилевич</author>
+  <author id="organisation">RusBITech РусБИТех, Москва</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Dr Ian McNicoll</original_author>
+  <original_author id="organisation">Ocean Informatics, United Kingdom</original_author>
+  <original_author id="email">ian.mcnicoll@oceaninformatics.com</original_author>
+  <original_author id="date">2010-07-03</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To provide a generic section header which will be renamed in a template to suit a specific clinical context.</purpose>
+   <use>Use to construct a section heading in a template that will be renamed to suit the specific clinical context. For example: &quot;Ad hoc heading&quot; renamed to &quot;Examination findings&quot;.</use>
+   <misuse>Not to be left unchanged in a template.</misuse>
+  </details>
+  <details id="ru">
+   <language>ISO_639-1::ru</language>
+   <purpose>Базовый заголовок раздела, должен быть переименован в локальном шаблоне </purpose>
+   <use>используется для создания и именования разделов в локальных шаблонах</use>
+   <keywords>раздел</keywords>
+   <keywords>шаблон</keywords>
+   <keywords>заготовка</keywords>
+   <keywords>название</keywords>
+   <keywords>образец</keywords>
+   <misuse></misuse>
+  </details>
+  <other_contributors>Tomas Alme, DIPS, Norway</other_contributors>
+  <other_contributors>Koray Atalag, University of Auckland, New Zealand</other_contributors>
+  <other_contributors>Silje Bakke, Bergen Hospital Trust, Norway</other_contributors>
+  <other_contributors>Rong Chen, Cambio Healthcare Systems, Sweden</other_contributors>
+  <other_contributors>Stephen Chu, NeHTA, Australia</other_contributors>
+  <other_contributors>Konstantinos Kalliamvakos, Cambio Healthcare Systems, Sweden</other_contributors>
+  <other_contributors>Lars Karlsen, DIPS ASA, Norway</other_contributors>
+  <other_contributors>Heather Leslie, Ocean Informatics, Australia (Editor)</other_contributors>
+  <other_contributors>Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (Editor)</other_contributors>
+  <other_details id="current_contact">Ian McNicoll, freshEHR Clinical Informatics UK, ian@freshEHR.com</other_details>
+  <other_details id="MD5-CAM-1.0.1">0ED4043FE0A9454B90C864F88B512011</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="SECTION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-SECTION.adhoc.v1.0.0">
+  <concept_id>adhoc</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="SECTION" is_deprecated="false" is_frozen="false">
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Ad hoc heading</text>
+    <description>A generic section header which should be renamed in a template to suit a specific clinical context.</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="ru">
+   <items id="id1">
+    <text>*Ad hoc heading(en)</text>
+    <description>*A generic section header which should be renamed in a template to suit a specific clinical context.(en)</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

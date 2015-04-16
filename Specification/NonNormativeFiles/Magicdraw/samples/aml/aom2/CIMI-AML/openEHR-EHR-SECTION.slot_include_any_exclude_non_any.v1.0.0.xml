@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Thomas Beale</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">thomas.beale@oceaninformatics.com</original_author>
+  <original_author id="date">14/03/2010</original_author>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Test slot with any include and non-any exclude</purpose>
+  </details>
+  <other_details id="regression">PASS</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="SECTION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-SECTION.slot_include_any_exclude_non_any.v1.0.0">
+  <concept_id>slot_include_any_exclude_non_any</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="SECTION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" cardinality="1..*; unordered" is_multiple="true">
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id2" rm_type_name="OBSERVATION" occurrences="0..1" is_deprecated="false" is_closed="false">
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/.*/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+    <excludes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/openEHR-EHR-OBSERVATION\.blood_pressure([a-zA-Z0-9_]+)*\.v1/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </excludes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Slot section</text>
+    <description>Slot section</description>
+   </items>
+   <items id="id2">
+    <text>Vital signs</text>
+    <description>Vital signs observations.</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

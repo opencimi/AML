@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Gustavo M Bacelar-Silva</original_author>
+  <original_author id="email">mail@gustavobacelar.com</original_author>
+  <original_author id="date">2012-09-10</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record details of ocular refraction applied either as part of visual acuity testing, to report a subject&apos;s current correction of spectacles or contact lenses, or to request a new ocular prescription.</purpose>
+   <use>This archetype is normally used within the OBSERVATION.visual_acuity archetype to record a refraction applied as part of measurement or within INSTRUCTION and ACTION archetypes where a prescription order and supply process is being modelled.</use>
+   <keywords>eye</keywords>
+   <keywords>correction</keywords>
+   <misuse></misuse>
+  </details>
+  <other_contributors>Gustavo Bacelar-Silva, Brazil (Editor)</other_contributors>
+  <other_contributors>Mike Mair, Timaru Eye Clinic, New Zealand</other_contributors>
+  <other_contributors>Ian McNicoll, Ocean Informatics, United Kingdom (Editor)</other_contributors>
+  <other_details id="current_contact">Gustavo M Bacelar-Silva, mail@gustavobacelar.com</other_details>
+  <other_details id="references">IHE Eye Care Domain. General Eye Evaluation (GEE) [Internet]. IHE; 2012. Available from: http://www.ihe.net/Technical_Framework/upload/IHE_EyeCare_Supp_GEE_Rev1-1_TI_2012-06-29.pdf
+
+Royal College of Opthalmologists. Cataract National Dataset for Adults [Internet]. 2011. Available from: http://www.rcophth.ac.uk/page.asp?section=583&amp;amp;sectionTitle=Cataract+National+Data+Set+for+Adults
+
+CfH, UK. Do Once &amp;amp; Share - Glaucoma [Internet]. [cited 2012 Sep 26]. Available from: http://www.doasglaucoma.org/
+
+DICOM Supplement 30 [Internet]. [cited 2012 Sep 26]. Available from: http://medical.nema.org/</other_details>
+  <other_details id="MD5-CAM-1.0.1">4B259AEE31FB4F6D8630D61477395668</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.refraction_details.v1.0.0">
+  <concept_id>refraction_details</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id18" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at15</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+       <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>-100.0</lower>
+         <upper>100.0</upper>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="precision" is_multiple="false">
+       <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>2</lower>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>dioptre</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id19" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at15</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+       <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>-100.0</lower>
+         <upper>100.0</upper>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="precision" is_multiple="false">
+       <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>2</lower>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>dioptre</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id20" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at16</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+       <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0.0</lower>
+         <upper>180.0</upper>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="precision" is_multiple="false">
+       <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>1</lower>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>°</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id21" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at15</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>dioptre</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id22" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id23" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at16</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+       <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0.0</lower>
+         <upper>360.0</upper>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>°</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id15" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id24" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at15</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="precision" is_multiple="false">
+       <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>2</lower>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>dioptre</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id16" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id25" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at15</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="precision" is_multiple="false">
+       <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>2</lower>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>dioptre</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id17" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id26" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at17</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+       <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0.0</lower>
+         <upper>500.0</upper>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="precision" is_multiple="false">
+       <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>1</lower>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>mm</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Refraction Details</text>
+    <description>Details of ocular refraction for both measurement and therapetic purposes.</description>
+   </items>
+   <items id="id5">
+    <text>Power of Sphere</text>
+    <description>Correction of the sphere,  the base correction upon which cylinder, reading addition and prism may be superimposed.</description>
+   </items>
+   <items id="id6">
+    <text>Power of Cylinder</text>
+    <description>Correction of the cylinder.</description>
+   </items>
+   <items id="id7">
+    <text>Axis of Cylinder</text>
+    <description>Correction of the axis.</description>
+   </items>
+   <items id="id8">
+    <text>Prism Strength</text>
+    <description>Strength of the prism.</description>
+   </items>
+   <items id="id9">
+    <text>Prism Base Direction</text>
+    <description>Prism base direction expressed as a numeric angle or as coded text.</description>
+   </items>
+   <items id="at10">
+    <text>Base in</text>
+    <description>The prism base is directed inwards.</description>
+   </items>
+   <items id="at11">
+    <text>Base out</text>
+    <description>The prism base is directed outwards.</description>
+   </items>
+   <items id="at12">
+    <text>Base up</text>
+    <description>The prism base is directed upwards.</description>
+   </items>
+   <items id="at13">
+    <text>Base down</text>
+    <description>The prism base is directed downwards.</description>
+   </items>
+   <items id="at14">
+    <text>Base oblique</text>
+    <description>The prism base is directed obliquely.</description>
+   </items>
+   <items id="id15">
+    <text>Reading Addition Power</text>
+    <description>The difference in spherical power between distance and near corrections.</description>
+   </items>
+   <items id="id16">
+    <text>Intermediate Distance Power</text>
+    <description>The intermediate distance power applied to the correction.</description>
+   </items>
+   <items id="id17">
+    <text>Interpupillary Distance</text>
+    <description>The distance between the center of the pupils of the two eyes.</description>
+   </items>
+   <items id="at15">
+    <text>Refractive power</text>
+    <description>Refractive power</description>
+   </items>
+   <items id="at16">
+    <text>Angle, plane</text>
+    <description>Angle, plane</description>
+   </items>
+   <items id="at17">
+    <text>Length</text>
+    <description>Length</description>
+   </items>
+   <items id="ac1">
+    <text>Prism Base Direction (synthesised)</text>
+    <description>Prism base direction expressed as a numeric angle or as coded text. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="SNOMED-CT">
+   <items id="id5">http://snomed.info/id/251795007</items>
+   <items id="id6">http://snomed.info/id/251797004</items>
+   <items id="id7">http://snomed.info/id/251799001</items>
+   <items id="id8">http://snomed.info/id/251762001</items>
+   <items id="id9">http://snomed.info/id/246223004</items>
+   <items id="id15">http://snomed.info/id/397282003</items>
+   <items id="id16">http://snomed.info/id/251802005</items>
+   <items id="id17">http://snomed.info/id/397258008</items>
+  </term_bindings>
+  <term_bindings id="openehr">
+   <items id="at15">http://openehr.org/id/685</items>
+   <items id="at16">http://openehr.org/id/497</items>
+   <items id="at17">http://openehr.org/id/122</items>
+  </term_bindings>
+  <value_sets id="ac1">
+   <members>at10</members>
+   <members>at11</members>
+   <members>at12</members>
+   <members>at13</members>
+   <members>at14</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

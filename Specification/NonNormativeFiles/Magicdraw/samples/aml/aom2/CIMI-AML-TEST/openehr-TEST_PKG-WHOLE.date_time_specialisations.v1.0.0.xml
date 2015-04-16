@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Thomas Beale</original_author>
+  <copyright>copyright (c) 2012 The openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Test specialisation of ISO8601_DURATION primitive type.</purpose>
+   <keywords>ADL</keywords>
+   <keywords>test</keywords>
+  </details>
+  <other_details id="regression">PASS</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openehr" rm_package="TEST_PKG" rm_class="WHOLE" release_version="1.0.0" version_status="0" build_count="0" physical_id="openehr-TEST_PKG-WHOLE.date_time_specialisations.v1.0.0">
+  <concept_id>date_time_specialisations</concept_id>
+ </archetype_id>
+ <parent_archetype_id>openehr-TEST_PKG-WHOLE.basic_types.v1.0.0</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="WHOLE" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="duration_attr36" is_multiple="false">
+   <children xsi:type="P_C_DURATION" node_id="id9999" rm_type_name="ISO8601_DURATION" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+    <constraint>
+     <lower>P1D</lower>
+    </constraint>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1.1">
+    <text>Specialised duration</text>
+    <description>Specialised duration</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

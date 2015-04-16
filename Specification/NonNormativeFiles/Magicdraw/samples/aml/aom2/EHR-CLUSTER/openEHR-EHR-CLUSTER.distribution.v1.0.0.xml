@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <translations id="sl">
+  <language>ISO_639-1::sl</language>
+  <author id="name">Uroš Rajkovič, Biljana Prinčič</author>
+  <author id="organisation">Slovenia</author>
+  <author id="email">uros.rajkovic@fov.uni-mb.si, biljana.princic@marand.si</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">D B Hutchinson</original_author>
+  <original_author id="organisation">NHS CFH UK</original_author>
+  <original_author id="date">2008-07-07</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="sl">
+   <language>ISO_639-1::sl</language>
+   <purpose>Skupina naslovnikov, seznam prejemnikov</purpose>
+   <use></use>
+   <keywords>cc</keywords>
+   <keywords>distribution list</keywords>
+   <keywords>prejemnik</keywords>
+   <keywords>naslovnik</keywords>
+   <keywords>skupina naslovnikov</keywords>
+   <keywords>seznam prejemnikov</keywords>
+   <misuse></misuse>
+  </details>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record the details of the target of a distribution or notification. This may be to a named group or category or to individual persons or organisations.</purpose>
+   <use>Normally used within the context of a service request, report or other communication which is intended to be distributed to other parties. May be used as part of a request or other instruction to specify other parties who should be included or &apos;cced&apos; in the response, and to indicate which other parties were actually notified in the response.</use>
+   <keywords>cc</keywords>
+   <keywords>notification</keywords>
+   <misuse></misuse>
+  </details>
+  <other_contributors>Ian McNicoll, Ocean Informatics, UK</other_contributors>
+  <other_contributors>Heather Leslie, Ocean Informatics, UK</other_contributors>
+  <other_details id="MD5-CAM-1.0.1">05215C0E56E3A4AC741B1484E4108B08</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.distribution.v1.0.0">
+  <concept_id>distribution</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id14" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id15" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id13" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id16" rm_type_name="DV_BOOLEAN" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_BOOLEAN" node_id="id9999" rm_type_name="BOOLEAN" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>true</constraint>
+        <constraint>false</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id17" rm_type_name="DV_DATE_TIME" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id12" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id11" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id18" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id19" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false">
+      <target_path>/items[id4]</target_path>
+     </children>
+     <children xsi:type="P_ARCHETYPE_SLOT" node_id="id8" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_closed="false">
+      <includes type="Boolean">
+       <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+        <operator value="2007">
+        </operator>
+        <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+         <item>archetype_id/value</item>
+        </left_operand>
+        <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+         <item>
+          <rm_type_name>STRING</rm_type_name>
+          <constraint>/openEHR-EHR-CLUSTER\.individual_professional(-a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.individual_personal(-a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.organisation(-a-zA-Z0-9_]+)*\.v1/</constraint>
+          <is_path_compressible>false</is_path_compressible>
+          <is_deprecated>false</is_deprecated>
+          <is_frozen>false</is_frozen>
+          <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+         </item>
+        </right_operand>
+       </expression>
+      </includes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Distribution</text>
+    <description>Details of the target of communication distribution, whether to identified individual parties or as a category.</description>
+   </items>
+   <items id="id4">
+    <text>Communication mode</text>
+    <description>The communications mode by which the distribution is to be made.</description>
+   </items>
+   <items id="id7">
+    <text>Date sent</text>
+    <description>Date that the distribution was sent.</description>
+   </items>
+   <items id="id8">
+    <text>Recipient details</text>
+    <description>An individual person or organisation to whom the distribution applies.</description>
+   </items>
+   <items id="id9">
+    <text>Group category</text>
+    <description>A named category of group e.g. Social work, patient representatives to whom the distribution applies.</description>
+   </items>
+   <items id="id11">
+    <text>Recipient identifier</text>
+    <description>Unique identifier for an individual recipient.</description>
+   </items>
+   <items id="id12">
+    <text>Individual recipient</text>
+    <description>Distribution details for an individual recipient.</description>
+   </items>
+   <items id="id13">
+    <text>Urgent</text>
+    <description>If true the notification should be distributed made as a matter of urgency.</description>
+   </items>
+   <items id="id19">
+    <text>(added by post-parse processor)</text>
+    <description>(added by post-parse processor)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="sl">
+   <items id="id1">
+    <text>Obveščanje</text>
+    <description>Seznam prejemnikov - skupina posameznikov, ki so naslovniki sporočila</description>
+   </items>
+   <items id="id4">
+    <text>Način komunikacija</text>
+    <description>Način obveščanja</description>
+   </items>
+   <items id="id7">
+    <text>Datum odpošiljanja</text>
+    <description>Datum obveščanja - distribuiranja sporočila</description>
+   </items>
+   <items id="id8">
+    <text>Podrobnosti o prejemniku</text>
+    <description>Posameznik ali organizacija, na koga je naslovljeno sporočilo</description>
+   </items>
+   <items id="id9">
+    <text>Skupina</text>
+    <description>Ime skupine prejemnikov, npr. &apos;zdravniki predstojniki oddelkov&apos;</description>
+   </items>
+   <items id="id11">
+    <text>ID prejemnika</text>
+    <description>Unikatni identifikator posameznika (primarni ključ, ki določa posameznika)</description>
+   </items>
+   <items id="id12">
+    <text>Posamezni prejemnik</text>
+    <description>Podatki o posameznem prejemniku</description>
+   </items>
+   <items id="id13">
+    <text>Nujno</text>
+    <description>Če potrebna nujna obravnava?</description>
+   </items>
+   <items id="id19">
+    <text>*(added by post-parse processor)(en)</text>
+    <description>*(added by post-parse processor)(en)</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

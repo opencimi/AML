@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Heather Leslie</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">heather.leslie@oceaninformatics.com</original_author>
+  <original_author id="date">6/05/2009</original_author>
+  <copyright>copyright (c) 2009 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>This is an archetype used to record details of the use of all common forms of tobacco. </purpose>
+   <use>Use to record details of the use of all common forms of tobacco.  This includes use at specific point in time, over intervals of time, and use of mathematical functions such as average or minimum eg average consumption over a week.  
+Other types of tobacco use are not included here, but may be added added as a revision as required, or added via a specialisation for groups with need for additional choices.  
+A typical use would be to record usage in an tobacco usage diary.</use>
+   <keywords>substance</keywords>
+   <keywords>addiction</keywords>
+   <keywords>consumption</keywords>
+   <keywords>use</keywords>
+   <keywords>tobacco</keywords>
+   <keywords>cigarette</keywords>
+   <keywords>cigar</keywords>
+   <keywords>smoking</keywords>
+   <keywords>chewing</keywords>
+   <keywords>pipe</keywords>
+   <misuse>Not to be used for recording persistent and summary details about the use of the substance - this should be captured using the EVALUATION.substance_use_summary-tobacco archetype.  </misuse>
+  </details>
+  <other_contributors>Sam Heard, Ocean Informatics, Australia</other_contributors>
+  <other_details id="references"></other_details>
+  <other_details id="MD5-CAM-1.0.1">50856E4B402C962DC96B02F1C81BA2FB</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="OBSERVATION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-OBSERVATION.substance_use-tobacco.v1.0.0">
+  <concept_id>substance_use-tobacco</concept_id>
+ </archetype_id>
+ <parent_archetype_id>openEHR-EHR-OBSERVATION.substance_use.v1</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="OBSERVATION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/data[id2]/events[id3]/data[id4]/items[id5]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id20.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>at0.2</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/data[id2]/events[id3]/data[id4]/items[id11]/items[id12]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id21.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.1</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <differential_path>/data[id2]/events[id3]/data[id4]/items[id11]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id13" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id13.1" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.1" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at0.7</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>/h</constraint>
+        <constraint>/d</constraint>
+        <constraint>/wk</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id13.2" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.2" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at0.8</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>gm/d</constraint>
+        <constraint>gm/wk</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="at0.2">
+    <text>Tobacco</text>
+    <description>Tobacco used</description>
+   </items>
+   <items id="at0.3">
+    <text>Cigarettes - manufactured</text>
+    <description>Commercial, manufactured cigarettes</description>
+   </items>
+   <items id="at0.4">
+    <text>Cigarettes - roll-your-own</text>
+    <description>Home-made, roll-your-own cigarettes</description>
+   </items>
+   <items id="at0.5">
+    <text>Cigars</text>
+    <description>Commercial cigars</description>
+   </items>
+   <items id="at0.6">
+    <text>Pipe</text>
+    <description>Tobacco smoked within a pipe</description>
+   </items>
+   <items id="id1.1">
+    <text>Tobacco Use</text>
+    <description>Archetype to record the actual use or consumption of a tobacco at the present time, a specific time or over a period of time. </description>
+   </items>
+   <items id="id13.1">
+    <text>Number smoked</text>
+    <description>Number of units containing tobacco consumed eg cigarettes or cigars</description>
+   </items>
+   <items id="id13.2">
+    <text>Grams of tobacco</text>
+    <description>Weight of tobacco consumed eg in a pipe</description>
+   </items>
+   <items id="at0.7">
+    <text>Frequency</text>
+    <description>Frequency</description>
+   </items>
+   <items id="at0.8">
+    <text>Flow rate, mass</text>
+    <description>Flow rate, mass</description>
+   </items>
+   <items id="ac0.1">
+    <text>Form (synthesised)</text>
+    <description>Form of tobacco used (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="openehr">
+   <items id="at0.7">http://openehr.org/id/382</items>
+   <items id="at0.8">http://openehr.org/id/347</items>
+  </term_bindings>
+  <value_sets id="ac0.1">
+   <members>at0.3</members>
+   <members>at0.4</members>
+   <members>at0.5</members>
+   <members>at0.6</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

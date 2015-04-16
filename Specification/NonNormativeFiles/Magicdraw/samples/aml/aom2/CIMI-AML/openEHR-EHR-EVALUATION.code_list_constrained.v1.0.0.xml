@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Thomas Beale</original_author>
+  <original_author id="date">20/02/2013</original_author>
+  <copyright>copyright (c) 2013 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Legal constraining of codes list from parent</purpose>
+  </details>
+  <other_details id="regression">PASS</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="EVALUATION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-EVALUATION.code_list_constrained.v1.0.0">
+  <concept_id>code_list_constrained</concept_id>
+ </archetype_id>
+ <parent_archetype_id>openEHR-EHR-EVALUATION.code_list_parent.v1.0.0</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="EVALUATION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+   <differential_path>/data[id2]/items[id3]/value</differential_path>
+   <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+    <constraint>ac1.1</constraint>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1.1">
+    <text>Adverse reaction exclusions</text>
+    <description>A category of conditions or states which have been excluded as cause of adverse reaction</description>
+   </items>
+   <items id="ac1.1">
+    <text>(added by post-parse processor)</text>
+    <description>(added by post-parse processor)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac1.1">
+   <members>at6</members>
+   <members>at7</members>
+   <members>at10</members>
+   <members>at13</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

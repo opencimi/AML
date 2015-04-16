@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Dr Ian McNicoll</original_author>
+  <original_author id="organisation">Ocean Informatics Scotland</original_author>
+  <original_author id="email">ian.mcnicoll@oceaninformatics.com</original_author>
+  <original_author id="date">27/07/2009</original_author>
+  <copyright>copyright (c) 2010 openEHR foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>A framework archetype for the recording of classification and grading of malignancies using the TNM classification 7th Edition. Each malignancy has a unique TNM staging classification and it would be normal to further constrain this archetype to reflect these individual requirements.</purpose>
+   <use>May be specialised or template-constrained for each particular tumour. e.g. TNM classification for bronchial carcinoma</use>
+   <keywords>tumour</keywords>
+   <keywords>TNM</keywords>
+   <keywords>malignancy</keywords>
+   <keywords>cancer</keywords>
+   <keywords>staging</keywords>
+   <keywords>classification</keywords>
+   <keywords>grade</keywords>
+   <keywords>grading</keywords>
+   <keywords>stage</keywords>
+   <keywords>lymph node</keywords>
+   <keywords>metastasis</keywords>
+   <misuse>Should not normally be used for TNM classification without specialisation or template-constraints</misuse>
+  </details>
+  <other_contributors>Heather Leslie Ocean Informatics Australia</other_contributors>
+  <other_contributors>Sam Heard Ocean Informatics Australia</other_contributors>
+  <other_contributors>Koray Atalag, University of Auckland, New Zealand</other_contributors>
+  <other_details id="references">Sobin LH. TNM Classification of Malignant Tumours 7th Edition.  John Wiley and Sons; 2009.</other_details>
+  <other_details id="MD5-CAM-1.0.1">DDDA3560727BB4E2A3373FACF8F9C61B</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.tnm_staging_7th.v1.0.0">
+  <concept_id>tnm_staging_7th</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id55" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id56" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id57" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id26" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id58" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id47" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id59" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id11" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id60" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id53" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id54" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id61" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id15" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id62" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id13" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id63" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Tumour - TNM Cancer staging 7th Edition</text>
+    <description>A framework for the classification and grading of malignancies using the TNM classification system 7th Edition.</description>
+   </items>
+   <items id="id4">
+    <text>Primary tumour (T)</text>
+    <description>Assessment of the primary tumour.</description>
+   </items>
+   <items id="id5">
+    <text>Regional lymph nodes (N)</text>
+    <description>Assessment of the regional lymph nodes.</description>
+   </items>
+   <items id="id6">
+    <text>Distant metastasis (M)</text>
+    <description>Assessment of distant metastasis.</description>
+   </items>
+   <items id="id11">
+    <text>Overall staging</text>
+    <description>The overall staging derived from each T, N and M component e.g T1aM0NX. May include additional TNM descriptors.</description>
+   </items>
+   <items id="id13">
+    <text>Comment</text>
+    <description>A text comment on the staging.</description>
+   </items>
+   <items id="id15">
+    <text>Stage grouping</text>
+    <description>The TNM Stage grouping.</description>
+   </items>
+   <items id="id26">
+    <text>Residual tumour (R)</text>
+    <description>Assessment of post-treatment residual tumour.</description>
+   </items>
+   <items id="id47">
+    <text>Histopathological grading (G)</text>
+    <description>TNM histopathological grading classification. </description>
+   </items>
+   <items id="at48">
+    <text>GX</text>
+    <description>Grade of differentiation cannot be assessed.</description>
+   </items>
+   <items id="at49">
+    <text>G1</text>
+    <description>Well differentiated.</description>
+   </items>
+   <items id="at50">
+    <text>G2</text>
+    <description>Moderately differentiated.</description>
+   </items>
+   <items id="at51">
+    <text>G3</text>
+    <description>Poorly differentiated.</description>
+   </items>
+   <items id="at52">
+    <text>G4</text>
+    <description>Undifferentiated.</description>
+   </items>
+   <items id="id53">
+    <text>Descriptors</text>
+    <description>Additional tumour specific TNM descriptors.</description>
+   </items>
+   <items id="id54">
+    <text>Descriptor</text>
+    <description>Additional tumour specific TNM descriptor.</description>
+   </items>
+   <items id="ac1">
+    <text>Histopathological grading (G) (synthesised)</text>
+    <description>TNM histopathological grading classification.  (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac1">
+   <members>at48</members>
+   <members>at49</members>
+   <members>at50</members>
+   <members>at51</members>
+   <members>at52</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

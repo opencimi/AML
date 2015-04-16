@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Dr Ian McNicoll</original_author>
+  <original_author id="organisation">Ocean Informatics, Scotland</original_author>
+  <original_author id="email">ian.mcnicoll@oceaninformatics.com</original_author>
+  <original_author id="date">17/05/2009</original_author>
+  <copyright>copyright (c) 2010 openEHR foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record detailed findings of lymph node metastases as part of microscopic histopathological examination of tissue. </purpose>
+   <use>To record detailed findings about lymph node metastases as part of microscopic examination of tissue. 
+Use as a component archetype in the context of a suite of archetypes that make up a histopathology report ie OBSERVATION.lab_test.histopathology.</use>
+   <keywords>tumour</keywords>
+   <keywords>lymph node</keywords>
+   <keywords>metastases</keywords>
+   <keywords>pathology</keywords>
+   <keywords>histopathology</keywords>
+   <keywords>cancer</keywords>
+   <keywords>malignancy</keywords>
+   <misuse>Not designed to be used within any other archetype other than OBSERVATION.lab_test.histopathology.</misuse>
+  </details>
+  <other_details id="references"></other_details>
+  <other_details id="MD5-CAM-1.0.1">D90E73A53BAC2504891ADC7C748B3DF4</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.lymph_node_metastases.v1.0.0">
+  <concept_id>lymph_node_metastases</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id42" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id54" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id11" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_closed="false">
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/openEHR-EHR-CLUSTER\.anatomical_location-precise\.v1/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+    <excludes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/.*/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </excludes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id45" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id55" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id26" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id56" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac2</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id12" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id57" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac3</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id47" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id58" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac4</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id59" rm_type_name="DV_COUNT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+       <children  xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0</lower>
+        </constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id60" rm_type_name="DV_COUNT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+       <children  xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0</lower>
+        </constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id61" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at52</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+       <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0.0</lower>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>mm</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id40" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id35" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id62" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac5</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id15" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id63" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at52</constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+         <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0.0</lower>
+          </constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>mm</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id41" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id64" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id52" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id65" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id46" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/openEHR-EHR-CLUSTER\.lymph_node_metastases\.v1/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+    <excludes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/.*/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </excludes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id53" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id66" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at53</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+       <children  xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0.0</lower>
+        </constraint>
+       </children>
+       <children  xsi:type="P_C_REAL" node_id="id99992" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0.0</lower>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>/s</constraint>
+       </children>
+       <children xsi:type="P_C_STRING" node_id="id99992" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>/min</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="precision" is_multiple="false">
+       <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0</lower>
+        </constraint>
+       </children>
+       <children xsi:type="P_C_INTEGER" node_id="id99992" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0</lower>
+        </constraint>
+       </children>
+      </attributes>
+      <attribute_tuples>
+       <members>magnitude</members>
+       <members>units</members>
+       <members>precision</members>
+      </attribute_tuples>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Tumour- Lymph node metastases</text>
+    <description>To record findings of tumour metastases in lymph nodes.</description>
+   </items>
+   <items id="id2">
+    <text>Number of nodes examined</text>
+    <description>Number of nodes examined.</description>
+   </items>
+   <items id="id3">
+    <text>Number of nodes with tumour</text>
+    <description>Number of nodes which show tumour involvement.</description>
+   </items>
+   <items id="id10">
+    <text>Extent of tumour</text>
+    <description>Extent of tumour expressed as a maximum length. Applies only to an individual node.</description>
+   </items>
+   <items id="id11">
+    <text>Lymph node site location     </text>
+    <description>The anatomical location of the lymph node or site being reported.</description>
+   </items>
+   <items id="id12">
+    <text>Nature of involvement</text>
+    <description>Nature or grade of the tumour, if present.</description>
+   </items>
+   <items id="at13">
+    <text>Focal</text>
+    <description>The tumour is of a focal nature.</description>
+   </items>
+   <items id="at14">
+    <text>Diffuse</text>
+    <description>The tumour is of a diffuse nature.</description>
+   </items>
+   <items id="id15">
+    <text>Extent of extranodal tumour</text>
+    <description>Extent of extranodal tumour expressed as a maximum length.</description>
+   </items>
+   <items id="at25">
+    <text>Complete</text>
+    <description>The node is completely invaded by tumour.</description>
+   </items>
+   <items id="id26">
+    <text>Tumour involvement</text>
+    <description>Findings of lymph node involvement with tumour.</description>
+   </items>
+   <items id="at27">
+    <text>Present - left side nodes only</text>
+    <description>Tumour is present in left sided nodes only.</description>
+   </items>
+   <items id="at28">
+    <text>Present - right side nodes only</text>
+    <description>Tumour is present in right side nodes only.</description>
+   </items>
+   <items id="at29">
+    <text>Present - bilateral nodes</text>
+    <description>Tumour is present in nodes on both sides.</description>
+   </items>
+   <items id="at30">
+    <text>Absent</text>
+    <description>Tumour is absent from the lymph node site.</description>
+   </items>
+   <items id="at31">
+    <text>Equivocal</text>
+    <description>Lymph node involvement by tumour is equivocal.</description>
+   </items>
+   <items id="at32">
+    <text>Indeterminate</text>
+    <description>Llymph node involvement by tumour has not been determined.</description>
+   </items>
+   <items id="at34">
+    <text>Indeterminate</text>
+    <description>The nature of tumour has not been determnined.</description>
+   </items>
+   <items id="id35">
+    <text>Extra-capsular extension</text>
+    <description>Findings of extension of tumour beyond a node capsule.</description>
+   </items>
+   <items id="at36">
+    <text>Present</text>
+    <description>Extra-capsular involvement by tumour is present.</description>
+   </items>
+   <items id="at37">
+    <text>Absent</text>
+    <description>Extra-capsular involvement by tumour is absent.</description>
+   </items>
+   <items id="at38">
+    <text>Equivocal</text>
+    <description>Extra-capsular involvement by tumour is equivocal.</description>
+   </items>
+   <items id="at39">
+    <text>Indeterminate</text>
+    <description>Extra-capsular involvement by tumour has not been determined.</description>
+   </items>
+   <items id="id40">
+    <text>Extra-nodal extension</text>
+    <description>Findings related to extension of tumour external to the nodal capsule.</description>
+   </items>
+   <items id="id41">
+    <text>Description</text>
+    <description>A text description of lymph node involvement by tumour.</description>
+   </items>
+   <items id="id42">
+    <text>Lymph node site name</text>
+    <description>The name for the lymph node site being reported. May be a general location e.g. &apos;Axillary nodes&apos;, a relative site e.g. &apos;Sentinel nodes&apos; or a individual node.</description>
+   </items>
+   <items id="at43">
+    <text>Present</text>
+    <description>Lymph node involvement with tumour is present.</description>
+   </items>
+   <items id="id45">
+    <text>Tissue available</text>
+    <description>Has the appropriate lymph node tissue been made available for examination?</description>
+   </items>
+   <items id="id46">
+    <text>Lymph node details</text>
+    <description>Further details of lymph node metastasis at this site e.g individual nodes or further levels</description>
+   </items>
+   <items id="id47">
+    <text>Route of involvement</text>
+    <description>The route by which the tumour became involved in lymph node tissue.</description>
+   </items>
+   <items id="at48">
+    <text>Direct spread</text>
+    <description>The tumour involved the lymph node by direct spread.</description>
+   </items>
+   <items id="at49">
+    <text>Metastasis</text>
+    <description>The tumour involved the lymph node by metastasis.</description>
+   </items>
+   <items id="at50">
+    <text>Present</text>
+    <description>Lymph node tissue is present.</description>
+   </items>
+   <items id="at51">
+    <text>Absent</text>
+    <description>Lymph node tissue is absent.</description>
+   </items>
+   <items id="id52">
+    <text>Marker dye uptake</text>
+    <description>Findings of whether marker dye has been taken up by the lymph node or lymph node group.</description>
+   </items>
+   <items id="id53">
+    <text>Radioactivity count</text>
+    <description>Radioactivity count measured after use of radiocolloid. </description>
+   </items>
+   <items id="at52">
+    <text>Length</text>
+    <description>Length</description>
+   </items>
+   <items id="at53">
+    <text>Frequency</text>
+    <description>Frequency</description>
+   </items>
+   <items id="ac1">
+    <text>Tissue available (synthesised)</text>
+    <description>Has the appropriate lymph node tissue been made available for examination? (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Tumour involvement (synthesised)</text>
+    <description>Findings of lymph node involvement with tumour. (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>Nature of involvement (synthesised)</text>
+    <description>Nature or grade of the tumour, if present. (synthesised)</description>
+   </items>
+   <items id="ac4">
+    <text>Route of involvement (synthesised)</text>
+    <description>The route by which the tumour became involved in lymph node tissue. (synthesised)</description>
+   </items>
+   <items id="ac5">
+    <text>Extra-capsular extension (synthesised)</text>
+    <description>Findings of extension of tumour beyond a node capsule. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="openehr">
+   <items id="at52">http://openehr.org/id/122</items>
+   <items id="at53">http://openehr.org/id/382</items>
+  </term_bindings>
+  <value_sets id="ac1">
+   <members>at50</members>
+   <members>at51</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at43</members>
+   <members>at27</members>
+   <members>at28</members>
+   <members>at29</members>
+   <members>at30</members>
+   <members>at31</members>
+   <members>at32</members>
+  </value_sets>
+  <value_sets id="ac3">
+   <members>at13</members>
+   <members>at14</members>
+   <members>at25</members>
+   <members>at34</members>
+  </value_sets>
+  <value_sets id="ac4">
+   <members>at48</members>
+   <members>at49</members>
+  </value_sets>
+  <value_sets id="ac5">
+   <members>at36</members>
+   <members>at37</members>
+   <members>at38</members>
+   <members>at39</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Heather Leslie</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">heather.leslie@oceaninformatics.com</original_author>
+  <original_author id="date">2013-02-05</original_author>
+  <copyright>© National E-Health Transition Authority</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>For recording a narrative description, structured details and clinical interpretation of the findings observed during the physical examination of an identified pinnae and presence of scars in the adjacent peri-auricular region.</purpose>
+   <use>Use to record findings observed during the physical examination of a specified pinna and associated scars.
+
+Use to incorporate the narrative descriptions of clinical findings within existing or legacy clinical systems into an archetyped format, using the &apos;Clinical Description&apos; data element.
+
+Specifically designed to be used within the CLUSTER.exam_ears archetype, but may be used within any clinically appropriate ENTRY or CLUSTER archetype related to physical examination of the ear.</use>
+   <keywords>examination</keywords>
+   <keywords>physical</keywords>
+   <keywords>clinical</keywords>
+   <keywords>findings</keywords>
+   <keywords>exam</keywords>
+   <keywords>pinna</keywords>
+   <keywords>ear</keywords>
+   <keywords>external</keywords>
+   <keywords>auricle</keywords>
+   <misuse>Not to be used for recording the clinical history - use specific OBSERVATION and CLUSTER archetypes. For example OBSERVATION.story and CLUSTER.symptom.
+
+Not to be used to record stand-alone clinical observations or measurements - use specific OBSERVATION archetypes. For example OBSERVATION.blood_pressure, OBSERVATION.body_weight, or OBSERVATION.height.</misuse>
+  </details>
+  <other_contributors>Stephen Chu, NEHTA, Australia</other_contributors>
+  <other_contributors>Harvey Coates, UWA, Australia</other_contributors>
+  <other_contributors>Marissa Cookson, Dept of Health, Australia</other_contributors>
+  <other_contributors>Kimberley Crebbin, NT Hearing Services, Australia</other_contributors>
+  <other_contributors>Kathy Currie, Northern Territory Health, Australia</other_contributors>
+  <other_contributors>Jade Frederiksen, Hearing Health Program, DoH, Australia</other_contributors>
+  <other_contributors>Sam Heard, Ocean Informatics, Australia</other_contributors>
+  <other_contributors>Paul Hickey, Hearing Health Program, Australia</other_contributors>
+  <other_contributors>Oliver Hosking, Remote Health NT, Australia</other_contributors>
+  <other_contributors>Anthony Leech, Hearing Health, Australia</other_contributors>
+  <other_contributors>Kerrie Lee, Ngaanyatjarra Health Service, Australia (Editor)</other_contributors>
+  <other_contributors>Heather Leslie, Ocean Informatics, Australia (Editor)</other_contributors>
+  <other_contributors>Ian McNicoll, Ocean Informatics UK, United Kingdom</other_contributors>
+  <other_contributors>Mark Ramjan, NT Department of Health, Australia</other_contributors>
+  <other_contributors>Kelly Simmons, Department of Health, Australia</other_contributors>
+  <other_contributors>Fiona Wake, RAHC, Australia</other_contributors>
+  <other_contributors>Christine Wigger, Menzies School of Health Research, Australia</other_contributors>
+  <other_details id="current_contact">Heather Leslie, Ocean Informatics, heather.leslie@oceaninformatics.com</other_details>
+  <other_details id="references">Examination - Pinnae, draft archetype, National eHealth Transition Authority [Internet]. NEHTA Clinical Knowledge Manager. Authored: 09 Oct 2012. Available at: http://dcm.nehta.org.auhttp://dcm.nehta.org.au/ckm/OKM.html#showarchetype_1013.1.1095 (accessed 05 Feb 2013).
+
+Communication with clinical domain experts associated with Australia&apos;s Northern Territory Hearing Health Program.
+
+Northern Territory Government, Department of Health: Hearing Health Program ENT Specialist Consultation Form 2011 12 07.
+
+Northern Territory Government, Department of Health: Northern Territory Hearing Health Program Teleotology Nurse Consultation Form 2011 12 07.
+
+Northern Territory Government, Department of Health: Northern Territory Hearing Health Program Audiologist Consultation Form 2011 12 07.
+
+OATSIH: The Recommendations for Clinical Care Guidelines on the Management of Otitis Media in Aboriginal and Torres Strait Islander Populations (2010). Available at: http://www.health.gov.au/internet/publications/publishing.nsf/Content/CA2578620005D57ACA25792800821BE8?OpenDocument.</other_details>
+  <other_details id="MD5-CAM-1.0.1">BDE448E3CAD2FE81A91FE03BEBD0EF9C</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.exam_pinna.v1.0.0">
+  <concept_id>exam_pinna</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id11" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id24" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id19" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id25" rm_type_name="DV_BOOLEAN" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_BOOLEAN" node_id="id9999" rm_type_name="BOOLEAN" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>true</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id26" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id16" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id20" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id27" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac2</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id17" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id28" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id18" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id29" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id3" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/.*/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id30" rm_type_name="DV_MULTIMEDIA" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="media_type" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac3</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id31" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id23" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/openEHR-EHR-CLUSTER\.exclusion_exam(-a-zA-Z0-9_]+)*\.v1/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Examination of Pinna</text>
+    <description>Findings observed during the physical examination of the external structure of the ears, and scars in the adjacent periauricular region.</description>
+   </items>
+   <items id="id2">
+    <text>Clinical description</text>
+    <description>Narrative description of the findings observed during a physical examination of a single identified pinna, including size, shape and position.</description>
+   </items>
+   <items id="id3">
+    <text>Pinna details</text>
+    <description>Structured details of physical examination findings for the specific parts of the identified pinna or related structures.</description>
+   </items>
+   <items id="id4">
+    <text>Clinical interpretation</text>
+    <description>Single word, phrase or brief description represents the clinical meaning and significance of the physical examination findings.</description>
+   </items>
+   <items id="id6">
+    <text>Multimedia representation</text>
+    <description>Digital image or video taken, or a diagram drawn, during the physical examination of the body system or anatomical structure.</description>
+   </items>
+   <items id="id11">
+    <text>Pinna examined</text>
+    <description>Identification of the pinna examined.</description>
+   </items>
+   <items id="at12">
+    <text>Left pinna</text>
+    <description>Examination findings for the left pinna.</description>
+   </items>
+   <items id="at13">
+    <text>Right pinna</text>
+    <description>Examination findings for the right pinna.</description>
+   </items>
+   <items id="id16">
+    <text>Surgical scar</text>
+    <description>Findings about surgical scars identified on, or related to the identified pinna.</description>
+   </items>
+   <items id="id17">
+    <text>Site of scar</text>
+    <description>Identification of the the specific anatomical structure of the pinna or related anatomical region examined.</description>
+   </items>
+   <items id="id18">
+    <text>Scar description</text>
+    <description>Narrative description of the scar, including likely aetiology and state of healing.</description>
+   </items>
+   <items id="id19">
+    <text>No abnormality detected</text>
+    <description>Statement that no abnormality was detected on examination.</description>
+   </items>
+   <items id="id20">
+    <text>Present?</text>
+    <description>Is a scar present in the periaural region?</description>
+   </items>
+   <items id="at21">
+    <text>Present</text>
+    <description>A post-surgical scar is present.</description>
+   </items>
+   <items id="at22">
+    <text>Absent</text>
+    <description>A post-surgical scar is not present.</description>
+   </items>
+   <items id="id23">
+    <text>Exam not done</text>
+    <description>Details to explicitly record that this examination was not performed.</description>
+   </items>
+   <items id="ac1">
+    <text>Pinna examined (synthesised)</text>
+    <description>Identification of the pinna examined. (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Present? (synthesised)</text>
+    <description>Is a scar present in the periaural region? (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>Multimedia representation (synthesised)</text>
+    <description>Digital image or video taken, or a diagram drawn, during the physical examination of the body system or anatomical structure. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac1">
+   <members>at12</members>
+   <members>at13</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at21</members>
+   <members>at22</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

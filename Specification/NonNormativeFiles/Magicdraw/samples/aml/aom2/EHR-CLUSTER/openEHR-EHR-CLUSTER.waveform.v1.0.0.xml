@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <translations id="ar-sy">
+  <language>ISO_639-1::ar-sy</language>
+  <author id="name">Mona Saleh</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Dr Ian McNicoll</original_author>
+  <original_author id="organisation">Ocean Informatics, United Kingdom</original_author>
+  <original_author id="email">ian.mcnicoll@oceaninformatics.com</original_author>
+  <original_author id="date">2010-01-28</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="ar-sy">
+   <language>ISO_639-1::ar-sy</language>
+   <purpose>لتسجيل سلسلة من الملاحظات المفصولة بفترات زمنية متساوية و التي يمكن أن يتم تمثيلها على هيئة شكل موجي, مثلا: الحصول على شكل موجي plesmythography خاص بالنبض باستخدام مقياس التأكسج عند النبض.</purpose>
+   <use>يستخدم كجزء من نموذج الملاحظة, مثل: ملاحظة.معدل القلب - النبض, أو ملاحظة. قياس التأكسج غير المباشر.
+
+و ينبغي حفظ/تخزين تفاصيل توقيت بداية و مدة/الفاصل الزمني بين الأشكال الموجية في ملاحظة كبيرة تحتويها.
+
+قد يستخدم لتقييم جودة قياس معين, مثل استخدام شكل موجي بتخطيط النبض لتقييم دقة قياس التشبع الكسجيني للدم الطرفي باستخدام قياس التأكسج عند النبض.
+
+قد يستخدم أيضا كجزء من التقييم المباشر للمريض, مثل استخدام شكل موجي بتخطيط النبض لتقدير الناتج القلبي.</use>
+   <keywords>*plesmythography(en)</keywords>
+   <keywords>*plesmythogram(en)</keywords>
+   <keywords>مقياس التأكسج</keywords>
+   <keywords>النبض</keywords>
+   <keywords>قياس التأكسج</keywords>
+   <misuse>لا يستخدم في مكان غير كونه جزءا من نموذج ملاحظة.</misuse>
+  </details>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record a series of equidistant time-spaced observations that can be represented as a waveform e.g. a pulse plesmythography waveform from a pulse oximeter.</purpose>
+   <use>Used within an OBSERVATION archetype e.g. OBSERVATION.heart_rate-pulse or OBSERVATION.indirect_oximetry.
+
+Details of the waveform start time and duration/interval should be stored in the parent OBSERVATION.
+
+May be used to assess the quality of a measurement, as using a pulse plesmythography waveform to assess the accuracy of a pulse oximetry SpO2 measurement.
+May also be used as part of a direct patient assessment, e.g. using a pulse plesmythography waveform for cardiac output estimation.</use>
+   <keywords>oximeter</keywords>
+   <keywords>plesmythography</keywords>
+   <keywords>plesmythogram</keywords>
+   <keywords>pulse</keywords>
+   <keywords>oximetry</keywords>
+   <misuse>Should not normally be used other than within an OBSERVATION archetype.</misuse>
+  </details>
+  <other_details id="references">Michard F. Using Pulse Oximetry Waveform Analysis to Guide Fluid Therapy: Are We There Yet? [Internet]. Anesth Analg 2007 Jun;104(6):1606-1607.[cited 2010 Feb 3 ]
+Available from: http://www.anesthesia-analgesia.org
+
+Jubran A. Pulse oximetry [Internet]. Critical Care 1999;3(2):R11-R17.[cited 2009 Oct 29 ] 
+Available from: http://ccforum.com
+
+HL7 International, Implementation Guide for CDA Release 2.0 Personal Healthcare Monitoring Report (PHMR) (International Realm) Draft Standard for Trial Use Release 1. 2008;[cited 2010 Feb 2 ]</other_details>
+  <other_details id="MD5-CAM-1.0.1">7B07C0C45CE88B4912EA8C0CBCC35B54</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.waveform.v1.0.0">
+  <concept_id>waveform</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id12" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id13" rm_type_name="DV_MULTIMEDIA" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="media_type" is_multiple="false">
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id11" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id14" rm_type_name="DV_DURATION" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children  xsi:type="P_C_DURATION" node_id="id9999" rm_type_name="String" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>PT0S</lower>
+        </constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id15" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at1</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id16" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at1</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id17" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Waveform</text>
+    <description>A waveform of an equidistant series of time spaced measurements e.g. from a pulse oximeter.</description>
+   </items>
+   <items id="id2">
+    <text>Waveform name</text>
+    <description>The name of the waveform e.g. pulse plesmythograph.</description>
+   </items>
+   <items id="id3">
+    <text>Waveform image</text>
+    <description>The waveform as an image or other multimedia/binary type.</description>
+   </items>
+   <items id="id7">
+    <text>Waveform observation</text>
+    <description>Multiple waveform observations.</description>
+   </items>
+   <items id="id8">
+    <text>Origin</text>
+    <description>The origin of the waveform (typically 0).</description>
+   </items>
+   <items id="id9">
+    <text>Digits series</text>
+    <description>Inividual data points of a waveform as defined by the CDA-Continua Alliance PHMR documentation.</description>
+   </items>
+   <items id="id10">
+    <text>Scaling factor</text>
+    <description>The scaling factor of the waveform observation.</description>
+   </items>
+   <items id="id11">
+    <text>Sample period</text>
+    <description>The time between individual data points in the waveform.</description>
+   </items>
+   <items id="at1">
+    <text>(added by post-parse processor)</text>
+    <description>(added by post-parse processor)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="ar-sy">
+   <items id="id1">
+    <text>الشكل الموجي</text>
+    <description>شكل موجي لسلسلة من القياسات المتباعدة بفترات/فواصل زمنية متساوية, مثلا: من مقياس التأكسج عند النبض. </description>
+   </items>
+   <items id="id2">
+    <text>اسم الشكل الموجي</text>
+    <description>اسم الشكل الموجي, مثل: الـ plesmythograph عند النبض.</description>
+   </items>
+   <items id="id3">
+    <text>صورة الشكل الموجي</text>
+    <description>الشكل الموجي على هيئة صورة أو نوع من الوسائط المتعددة أو نوع البيانات الثنائي.</description>
+   </items>
+   <items id="id7">
+    <text>ملاحظة الشكل الموجي</text>
+    <description>ملاحظات متعددة للشكل الموجي.</description>
+   </items>
+   <items id="id8">
+    <text>الأصل</text>
+    <description>أصل الشكل الموجي - الشكل المثالي له = 0.</description>
+   </items>
+   <items id="id9">
+    <text>سلسلة الأرقام</text>
+    <description>نقاط البيانات المنفردة للشكل الموجي كما يتم تعريفها بواسطة هيكل الوثيقة السريرية - توثيق تحالف &quot;تواصل&quot; للسجل الطبي الصحي الشخصي.</description>
+   </items>
+   <items id="id10">
+    <text>عامل المقياس</text>
+    <description>عامل المقياس الخاص بملاحظة الشكل الموجي.</description>
+   </items>
+   <items id="id11">
+    <text>مدة العينة</text>
+    <description>الوقت بين نقاط البيانات المنفردة في الشكل الموجي.</description>
+   </items>
+   <items id="at1">
+    <text>*(added by post-parse processor)(en)</text>
+    <description>*(added by post-parse processor)(en)</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="openehr">
+   <items id="at1">http://openehr.org/id/118</items>
+  </term_bindings>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

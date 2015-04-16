@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Dr Ian McNicoll</original_author>
+  <original_author id="organisation">Ocean Informatics, United Kingdom</original_author>
+  <original_author id="email">ian.mcnicoll@oceaninformatics.com</original_author>
+  <original_author id="date">08/12/2009</original_author>
+  <copyright>copyright (c) 2010 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record details about the identification of a case.</purpose>
+   <use></use>
+   <misuse></misuse>
+  </details>
+  <other_details id="references">IHE, Laboratory Technical Framework, Volume 3 Content [Internet]. 2008;Available from: http://www.ihe.net/Technical_Framework/upload/ihe_lab_TF_rel2_1-Vol-3_FT_2008-08-08.pdf
+
+</other_details>
+  <other_details id="MD5-CAM-1.0.1">2FEB0E4952D5ADF9B30101F47D213876</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.case_identification.v1.0.0">
+  <concept_id>case_identification</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="DV_DATE_TIME" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id11" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Case Identification</text>
+    <description>To record Case identification details for public health purposes.</description>
+   </items>
+   <items id="id2">
+    <text>Case identifier</text>
+    <description>The identifier of this case.</description>
+   </items>
+   <items id="id3">
+    <text>Case started</text>
+    <description>The date that the case was commenced.</description>
+   </items>
+   <items id="id4">
+    <text>Status</text>
+    <description>The status of the case. A status of completed means the patient has been associated with the given case number.
+A status of aborted means the patient was associated with the case number in error.</description>
+   </items>
+   <items id="at5">
+    <text>Completed</text>
+    <description>The case has been associated with the given case identifier.</description>
+   </items>
+   <items id="at6">
+    <text>Aborted</text>
+    <description>The subject was associated with the case identifier in error.</description>
+   </items>
+   <items id="id7">
+    <text>Case identified</text>
+    <description>Text or coded description of the case identified.</description>
+   </items>
+   <items id="ac1">
+    <text>Status (synthesised)</text>
+    <description>The status of the case. A status of completed means the patient has been associated with the given case number.
+A status of aborted means the patient was associated with the case number in error. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac1">
+   <members>at5</members>
+   <members>at6</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

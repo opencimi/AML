@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::es</original_language>
+ <translations id="en">
+  <language>ISO_639-1::en</language>
+  <author id="name">?</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Aitor Eguzkitza</original_author>
+  <original_author id="organisation">Universidad Pública de Navarra - Complejo Hospitalario de Navarra</original_author>
+  <original_author id="email">aitor.eguzkiza@unavarra.es</original_author>
+  <original_author id="date">2013-04-22</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="es">
+   <language>ISO_639-1::es</language>
+   <purpose>Representación de la Clasificación de la retinopatía diabética según categoría 1 definida en las recomendaciones de la American Telemedicine Association (ATA).</purpose>
+   <use>Concretar el diagnóstico de la retinopatía diabética en circuitos de cribado.</use>
+   <keywords>retinopatía diabética</keywords>
+   <keywords>clasificación</keywords>
+   <misuse>Si se quiere especificar la gravedad de la retinopatía diabética.</misuse>
+  </details>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>*(es)</purpose>
+   <use>*(es)</use>
+   <misuse>*(es)</misuse>
+  </details>
+  <other_contributors>José Andonegui Navarro</other_contributors>
+  <other_contributors>Luis Serrano Arriezu</other_contributors>
+  <other_details id="current_contact">Aitor Eguzkitza, Universidad Pública de Navarra - Complejo Hospitalario de Navarra, aitor.eguzkiza@unavarra.es</other_details>
+  <other_details id="references">American Telemedicine Association. Telehealth Practice Recommendations for Diabetic Retinopathy (Category 1). February 2011. Available from: http://www.americantelemed.org/docs/default-source/standards/telehealth-practice-recommendations-for-diabetic-retinopathy.pdf?sfvrsn=10</other_details>
+  <other_details id="MD5-CAM-1.0.1">F9F94A2C31F765BF325CCDEBDC4E82A3</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.diabetic_retinopathy_screening_result.v1.0.0">
+  <concept_id>diabetic_retinopathy_screening_result</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::es">
+  <term_definitions id="es">
+   <items id="id1">
+    <text>Clasificación de la retinopatía diabética durante su cribado</text>
+    <description>Identificación de signos de retinopatía diabética objeto de llevar a cabo un cribado de la afección</description>
+   </items>
+   <items id="id2">
+    <text>Cribado de la RD</text>
+    <description>Identifica la presencia o ausencia de síntomas significativos de RD durante el cribado. La clasificación se ha elaborado considerando las características de la categoría 1 según las recomendaciones de la ATA. </description>
+   </items>
+   <items id="at3">
+    <text>No RD aparente</text>
+    <description>Niveles 10, 14, 15 en clasificación ETRDS de retinopatía diabética; Ausencia de RD</description>
+   </items>
+   <items id="at4">
+    <text>Retinopatía diabética aparente</text>
+    <description>Nivel superior a 20 en la clasificación ETRDS</description>
+   </items>
+   <items id="at5">
+    <text>No valorable</text>
+    <description>Las pruebas no son evaluables por la baja calidad de las capturas o por indecisión en el diagnóstico</description>
+   </items>
+   <items id="id6">
+    <text>Comentarios</text>
+    <description>Comentarios dirigidos a los revisores especializados en el cribado de la RD. Se pueden incluir particularidades de la prueba o cuestiones que provocaran incertidumbre al clasificar la afección. Sirve de canal de feedback para mejorar la calidad del servicio de cribado de la RD.</description>
+   </items>
+   <items id="ac1">
+    <text>Cribado de la RD (synthesised)</text>
+    <description>Identifica la presencia o ausencia de síntomas significativos de RD durante el cribado. La clasificación se ha elaborado considerando las características de la categoría 1 según las recomendaciones de la ATA.  (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Classification of diabetic retinopathy during its screening</text>
+    <description>Identifies presence or absence of signs for diabetic retinopathy to carry out a screening of the disease</description>
+   </items>
+   <items id="id2">
+    <text>DR screening</text>
+    <description>Identification of presence or absence of diabetic retinopathy during screening. This classification has been grounded considering the characteristics of category 1 regarding the recommendations provided by the ATA.</description>
+   </items>
+   <items id="at3">
+    <text>No apparent DR</text>
+    <description>ETDRS Levels of DR 10, 14, 15; DR absent </description>
+   </items>
+   <items id="at4">
+    <text>Diabetic retinopathy apparent </text>
+    <description>Level above 20 from the ETRDS classification</description>
+   </items>
+   <items id="at5">
+    <text>DR not assessable</text>
+    <description>The test is not assessable due to the low quality of acquisitions or uncertainty of the evaluator</description>
+   </items>
+   <items id="id6">
+    <text>Comments</text>
+    <description>Comments directed to reviewers specialized on DR screening. It may include test details or issues that provoke uncertainty while classifying the disease. It is useful as feedback channel  to improve the quality of the DR screening service.</description>
+   </items>
+   <items id="ac1">
+    <text>DR screening (synthesised)</text>
+    <description>Identification of presence or absence of diabetic retinopathy during screening. This classification has been grounded considering the characteristics of category 1 regarding the recommendations provided by the ATA. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="SNOMED-CT">
+   <items id="id2">http://snomed.info/id/134395001</items>
+   <items id="at3">http://snomed.info/id/201141000000103</items>
+   <items id="at4">http://snomed.info/id/4855003</items>
+  </term_bindings>
+  <value_sets id="ac1">
+   <members>at3</members>
+   <members>at4</members>
+   <members>at5</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

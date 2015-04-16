@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Ian McNicoll</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">ian.mcnicoll@oceaninformatics.com</original_author>
+  <original_author id="date">12/03/2010</original_author>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Test legal external reference</purpose>
+  </details>
+  <other_details id="regression">PASS</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="COMPOSITION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-COMPOSITION.ext_ref.v1.0.0">
+  <concept_id>ext_ref</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="COMPOSITION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="content" is_multiple="true">
+   <children xsi:type="P_C_ARCHETYPE_ROOT" node_id="id2" rm_type_name="SECTION" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <archetype_ref>openEHR-EHR-SECTION.section_parent.v1</archetype_ref>
+   </children>
+   <children xsi:type="P_C_ARCHETYPE_ROOT" node_id="id3" rm_type_name="OBSERVATION" occurrences="1" is_deprecated="false" is_frozen="false">
+    <archetype_ref>openEHR-EHR-OBSERVATION.spec_test_obs.v1</archetype_ref>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Composition</text>
+    <description>Composition</description>
+   </items>
+   <items id="id2">
+    <text>Section</text>
+    <description>Section</description>
+   </items>
+   <items id="id3">
+    <text>Observation</text>
+    <description>Observation</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

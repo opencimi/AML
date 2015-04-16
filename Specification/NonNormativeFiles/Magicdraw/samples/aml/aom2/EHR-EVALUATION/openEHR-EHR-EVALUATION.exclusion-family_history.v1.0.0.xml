@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Heather Leslie</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">heather.leslie@oceaninformatics.com</original_author>
+  <original_author id="date">2010-03-2</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To positively record statement/s about family history that need to be clinically excluded from the health record at a specific point in time.</purpose>
+   <use>Use to record positive statement/s about the absence or exclusion of family history information within the health record at a specific point in time. For example: to record that the subject does not have any significant family history; or that the subject has no family members with heart disease.
+
+This archetype has specifically been designed to avoid the need to use flags or terminology to express negation about any family history within the health record. 
+
+Exclusion statements can only be considered to be current and accurate at the time of recording. For example: recording an exclusion is only relevant at the time of recording and may be effectively obsolete immediately after the record is made if new information is discovered.</use>
+   <keywords>exclusion</keywords>
+   <keywords>family</keywords>
+   <misuse>Not to be used to record the exclusion or absence of adverse reactions, medication use, procedures, problems or diagnoses - use specific specialisations of this archetype for this purpose.</misuse>
+  </details>
+  <other_contributors>Sam Heard, Ocean Informatics, Australia</other_contributors>
+  <other_contributors>Ian McNicoll, Ocean Informatics, Australia</other_contributors>
+  <other_contributors>Stephen Chu, NEHTA, Australia</other_contributors>
+  <other_contributors>Stephen Royce, NEHTA, Australia</other_contributors>
+  <other_details id="current_contact">Heather Leslie, Ocean Informatics, heather.leslie@oceaninformatics.com</other_details>
+  <other_details id="references">Exclusion of Family History, draft archetype, NEHTA Clinical Knowledge Manager [Internet]. NEHTA. Authored: 02 Mar 2010. Available at: 
+http://dcm.nehta.org.au/ckm/#showArchetype_1013.1.1314_1(accessed 3 Sept 2013)</other_details>
+  <other_details id="MD5-CAM-1.0.1">A7EB66A13879B784929B4EA2915C38C9</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="EVALUATION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-EVALUATION.exclusion-family_history.v1.0.0">
+  <concept_id>exclusion-family_history</concept_id>
+ </archetype_id>
+ <parent_archetype_id>openEHR-EHR-EVALUATION.exclusion.v1</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="EVALUATION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/data[id2]/items[id4.1]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.1</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1.1">
+    <text>Exclusion of Family History</text>
+    <description>Positive statement/s about family history that need to be recorded as clinically excluded from the health record at a specific point in time.</description>
+   </items>
+   <items id="id4.1">
+    <text>Family History</text>
+    <description>Identification of the specific fanily history to which the Exclusion Statement applies.</description>
+   </items>
+   <items id="ac0.1">
+    <text>Family History</text>
+    <description>All possible findings of Family History</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

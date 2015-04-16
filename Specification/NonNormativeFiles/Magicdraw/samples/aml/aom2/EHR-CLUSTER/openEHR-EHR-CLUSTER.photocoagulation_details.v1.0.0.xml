@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <translations id="es">
+  <language>ISO_639-1::es</language>
+  <author id="name">?</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Aitor Eguzkitza</original_author>
+  <original_author id="organisation">Universidad Pública de Navarra - Complejo Hospitalario de Navarra</original_author>
+  <original_author id="email">aitor.eguzkiza@unavarra.es</original_author>
+  <original_author id="date">2014-05-23</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="es">
+   <language>ISO_639-1::es</language>
+   <purpose>Registro de detalles específicos acerca del procedimiento de fotocoagulación cuando éste se utiliza para tratar una enfermedad oftálmica concreta.</purpose>
+   <use>*(en)</use>
+   <misuse>*(en)</misuse>
+  </details>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Registering specific details about photocoagulation procedure when used to treat a specific ophthalmic disease.</purpose>
+   <use></use>
+   <keywords>Photocoagulation</keywords>
+   <misuse></misuse>
+  </details>
+  <other_details id="MD5-CAM-1.0.1">5DEB5263C2CADF8B8A5C981852B95CF1</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.photocoagulation_details.v1.0.0">
+  <concept_id>photocoagulation_details</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id11" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac2</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id12" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac3</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="es">
+   <items id="id1">
+    <text>Detalles acerca de fotocoagulación</text>
+    <description>Define los detalles específicos relativos a tratamientos oftálmicos que impliquen fotocoagulación.</description>
+   </items>
+   <items id="id2">
+    <text>Lateralidad</text>
+    <description>Ojos en los cuales se aplica el tratamiento por fotocoagulación.</description>
+   </items>
+   <items id="at3">
+    <text>Ojo izquierdo</text>
+    <description>Se observa el ojo izquierdo.</description>
+   </items>
+   <items id="at4">
+    <text>Ojo derecho</text>
+    <description>Se observa el ojo derecho.</description>
+   </items>
+   <items id="at5">
+    <text>Ambos ojos</text>
+    <description>La intervención se realiza en ambos ojos del paciente.</description>
+   </items>
+   <items id="id6">
+    <text>Método fotocoagulación</text>
+    <description>Método elegido para llevar a cabo la intervención por fotocoagulación en la retina.</description>
+   </items>
+   <items id="at7">
+    <text>Fotocoagulación panretiniana</text>
+    <description>**(en)</description>
+   </items>
+   <items id="at8">
+    <text>Laser macular</text>
+    <description>Fotocoagulación de drusas maculares.</description>
+   </items>
+   <items id="id9">
+    <text>Tipo de láser</text>
+    <description>Identifica el láser requerido para llevar a cabo la intervención.</description>
+   </items>
+   <items id="at10">
+    <text>Láser de colorante</text>
+    <description>*</description>
+   </items>
+   <items id="at11">
+    <text>Láser de gas</text>
+    <description>*</description>
+   </items>
+   <items id="at12">
+    <text>Láser de diodo</text>
+    <description>*</description>
+   </items>
+   <items id="ac1">
+    <text>Lateralidad (synthesised)</text>
+    <description>Ojos en los cuales se aplica el tratamiento por fotocoagulación. (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Método fotocoagulación (synthesised)</text>
+    <description>Método elegido para llevar a cabo la intervención por fotocoagulación en la retina. (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>Tipo de láser (synthesised)</text>
+    <description>Identifica el láser requerido para llevar a cabo la intervención. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Photocoagulation details</text>
+    <description>Specific details concerning ophthalmic treatments using photocoagulation.</description>
+   </items>
+   <items id="id2">
+    <text>Laterality</text>
+    <description>Eyes in which the treatment by photocoagulation is applied.</description>
+   </items>
+   <items id="at3">
+    <text>Left eye</text>
+    <description>Left eye observation.</description>
+   </items>
+   <items id="at4">
+    <text>Right eye</text>
+    <description>Right eye observation.</description>
+   </items>
+   <items id="at5">
+    <text>Both eyes</text>
+    <description>Treatment performed on both eyes of the patient.</description>
+   </items>
+   <items id="id6">
+    <text>Photocoagulation method</text>
+    <description>Method chosen to perform the treatment by photocoagulation within the retina.</description>
+   </items>
+   <items id="at7">
+    <text>Panretinal photocoagulation</text>
+    <description>*</description>
+   </items>
+   <items id="at8">
+    <text>Macular laser</text>
+    <description>Photocoagulation of macular drusen.</description>
+   </items>
+   <items id="id9">
+    <text>Type of laser</text>
+    <description>Identifies the type of laser device needed to perform the treatment.</description>
+   </items>
+   <items id="at10">
+    <text>Dye laser device</text>
+    <description>*</description>
+   </items>
+   <items id="at11">
+    <text>Gas laser device</text>
+    <description>*</description>
+   </items>
+   <items id="at12">
+    <text>Diode pumped laser device</text>
+    <description>*</description>
+   </items>
+   <items id="ac1">
+    <text>Laterality (synthesised)</text>
+    <description>Eyes in which the treatment by photocoagulation is applied. (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Photocoagulation method (synthesised)</text>
+    <description>Method chosen to perform the treatment by photocoagulation within the retina. (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>Type of laser (synthesised)</text>
+    <description>Identifies the type of laser device needed to perform the treatment. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="SNOMED-CT">
+   <items id="id2">http://snomed.info/id/272741003</items>
+   <items id="at3">http://snomed.info/id/362503005</items>
+   <items id="at4">http://snomed.info/id/362502000</items>
+   <items id="at5">http://snomed.info/id/362508001</items>
+   <items id="id6">http://snomed.info/id/231762005</items>
+   <items id="at7">http://snomed.info/id/312713003</items>
+   <items id="at8">http://snomed.info/id/440578004</items>
+   <items id="id9">http://snomed.info/id/122456005</items>
+   <items id="at10">http://snomed.info/id/118298002</items>
+   <items id="at11">http://snomed.info/id/118295004</items>
+   <items id="at12">http://snomed.info/id/118342000</items>
+  </term_bindings>
+  <value_sets id="ac1">
+   <members>at3</members>
+   <members>at4</members>
+   <members>at5</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at7</members>
+   <members>at8</members>
+  </value_sets>
+  <value_sets id="ac3">
+   <members>at10</members>
+   <members>at12</members>
+   <members>at11</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

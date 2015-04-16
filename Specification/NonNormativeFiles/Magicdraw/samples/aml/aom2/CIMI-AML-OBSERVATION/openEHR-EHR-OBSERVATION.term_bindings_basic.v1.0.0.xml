@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Sam Heard</original_author>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Test parsing of basic terminology bindings</purpose>
+  </details>
+  <other_details id="regression">PASS</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="OBSERVATION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-OBSERVATION.term_bindings_basic.v1.0.0">
+  <concept_id>term_bindings_basic</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="OBSERVATION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data" is_multiple="false">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="HISTORY" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="events" cardinality="1..*; unordered" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="POINT_EVENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ITEM_LIST" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" cardinality="1..6; ordered" is_multiple="true">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="POINT_EVENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id9" rm_type_name="ITEM_LIST" is_deprecated="false">
+        <target_path>/data[id3]/events[id4]/data[id2]</target_path>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Apgar score</text>
+    <description>Clinical score derived from assessment of respiratory effort, heart rate, reflex irritability, muscle tone and skin colour.</description>
+   </items>
+   <items id="id4">
+    <text>1 minute</text>
+    <description>Apgar score 1 minute after birth</description>
+   </items>
+   <items id="id5">
+    <text>Total</text>
+    <description>The sum of the 5 ordinal scores for each component parameter.</description>
+   </items>
+   <items id="id7">
+    <text>5 minute</text>
+    <description>Apgar score 5 minutes after birth</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="LNC205">
+   <items id="id5">http://LNC205.org/id/9272-6</items>
+   <items id="id7">http://LNC205.org/id/9271-8</items>
+  </term_bindings>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

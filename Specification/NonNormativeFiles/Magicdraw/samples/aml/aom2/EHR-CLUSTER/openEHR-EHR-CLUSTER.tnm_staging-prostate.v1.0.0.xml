@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Dr Ian McNicoll</original_author>
+  <original_author id="organisation">Ocean Informatics, United Kingdom</original_author>
+  <original_author id="email">ian.mcnicoll@oceaninformatics.com</original_author>
+  <original_author id="date">27/07/2009</original_author>
+  <copyright>copyright (c) 2009 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record the TNM staging classification for prostate cancer (Sixth Edition).</purpose>
+   <use>Use only for the Sixth edition of TNM prostate classification.</use>
+   <keywords>tumour</keywords>
+   <keywords>TNM</keywords>
+   <keywords>malignancy</keywords>
+   <keywords>cancer</keywords>
+   <keywords>staging</keywords>
+   <keywords>classification</keywords>
+   <keywords>grade</keywords>
+   <keywords>grading</keywords>
+   <keywords>stage</keywords>
+   <keywords>lymph node</keywords>
+   <keywords>metastasis</keywords>
+   <keywords>prostate</keywords>
+   <misuse>Not to be used for other editions of TNM classification.
+Not to be to stage transitional cell carcinoma of the prostate.</misuse>
+  </details>
+  <other_contributors>Heather Leslie Ocean Informatics Australia</other_contributors>
+  <other_contributors>Sam Heard Ocean Informatics Australia</other_contributors>
+  <other_contributors>Koray Atalag, University of Auckland, New Zealand</other_contributors>
+  <other_details id="references">American Joint Committee on Cancer. TNM schema files [Internet]. [cited 2009 Jul 27 ] 
+Available from: http://www.cancerstaging.org/education/tnmschema/tnmschema.html
+
+Greene FL, Page DL, Fleming ID. et al, eds, for the American Joint Committee on Cancer. AJCC Cancer Staging Manual. 6th ed. New York, NY: Springer-Verlag; 2002. 
+
+</other_details>
+  <other_details id="MD5-CAM-1.0.1">C01843F6E3EA9FAE62C779D985320584</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.tnm_staging-prostate.v1.0.0">
+  <concept_id>tnm_staging-prostate</concept_id>
+ </archetype_id>
+ <parent_archetype_id>openEHR-EHR-CLUSTER.tnm_staging.v1</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id3]/items[id4]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id37.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.2</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id3]/items[id5]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id38.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.3</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id3]/items[id6]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id39.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.4</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id3]/items[id15]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id42.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.5</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id7]/items[id8]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id44.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.6</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id7]/items[id9]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id45.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.7</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id7]/items[id10]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id46.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.8</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id7]/items[id12]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id49.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id7]/items[id16]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id50.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.9</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="at0.100">
+    <text>pM0</text>
+    <description>No distant metastasis.</description>
+   </items>
+   <items id="at0.101">
+    <text>pM1</text>
+    <description>Distant metastasis present.</description>
+   </items>
+   <items id="at0.102">
+    <text>pM1a</text>
+    <description>Metastasis to non-regional lymph nodes.</description>
+   </items>
+   <items id="at0.103">
+    <text>pM1b</text>
+    <description>Metastasis to bone(s).</description>
+   </items>
+   <items id="at0.104">
+    <text>pM1c</text>
+    <description>Metastasis to other site(s) with or without bone disease.</description>
+   </items>
+   <items id="at0.105">
+    <text>pN1mi</text>
+    <description>Metastasis to regional nodes no larger than 0.2cm.</description>
+   </items>
+   <items id="at0.106">
+    <text>Stage I</text>
+    <description>T1a,N0,M0,G1</description>
+   </items>
+   <items id="at0.107">
+    <text>Stage II</text>
+    <description>T1a,N0,M0,G2-4; T1b-c,N0,M0,AnyG; T1-2,N0,M0,AnyG</description>
+   </items>
+   <items id="at0.108">
+    <text>Stage III</text>
+    <description>T3,N0,M0,AnyG</description>
+   </items>
+   <items id="at0.109">
+    <text>Stage IV</text>
+    <description>T4,N0,M0,AnyG; AnyT,N1,M0,AnyG; AnyT,AnyN,M1,AnyG</description>
+   </items>
+   <items id="at0.110">
+    <text>Stage I</text>
+    <description>T1a,N0,M0,G1</description>
+   </items>
+   <items id="at0.111">
+    <text>Stage II</text>
+    <description>T1a,N0,M0,G2-4; T1b-c,N0,M0,AnyG; T1-2,N0,M0,AnyG</description>
+   </items>
+   <items id="at0.112">
+    <text>Stage III</text>
+    <description>T3,N0,M0,AnyG</description>
+   </items>
+   <items id="at0.113">
+    <text>Stage IV</text>
+    <description>T4,N0,M0,AnyG; AnyT,N1,M0,AnyG; AnyT,AnyN,M1,AnyG</description>
+   </items>
+   <items id="at0.43">
+    <text>TX</text>
+    <description>Primary tumour cannot be assessed.</description>
+   </items>
+   <items id="at0.44">
+    <text>T0</text>
+    <description>No evidence of primary tumour.</description>
+   </items>
+   <items id="at0.45">
+    <text>T1</text>
+    <description>Clinically inapparent tumour not palpable or visible by imaging.</description>
+   </items>
+   <items id="at0.46">
+    <text>T1a</text>
+    <description>Tumour incidental histological finding in 5% or less of tissue resected.</description>
+   </items>
+   <items id="at0.47">
+    <text>T1b</text>
+    <description>Tumour incidental histological finding in more than 5% of tissue resected.</description>
+   </items>
+   <items id="at0.48">
+    <text>T1c</text>
+    <description>Tumour identified by needle biopsy.</description>
+   </items>
+   <items id="at0.49">
+    <text>T2</text>
+    <description>Tumour confined within prostate.</description>
+   </items>
+   <items id="at0.50">
+    <text>T2a</text>
+    <description>Tumour involves one half of one lobe or less.</description>
+   </items>
+   <items id="at0.51">
+    <text>T2b</text>
+    <description>Tumour involves more than half of one lobe, but not both lobes.</description>
+   </items>
+   <items id="at0.52">
+    <text>T2c</text>
+    <description>Tumour involves both lobes.</description>
+   </items>
+   <items id="at0.53">
+    <text>T3</text>
+    <description>Tumour extends through the prostatic capsule.</description>
+   </items>
+   <items id="at0.54">
+    <text>T3a</text>
+    <description>Extracapsular extension (unilateral or bilateral).</description>
+   </items>
+   <items id="at0.55">
+    <text>T3b</text>
+    <description>Tumour invades seminal vesicle(s).</description>
+   </items>
+   <items id="at0.56">
+    <text>T4</text>
+    <description>Tumour is fixed or invades adjacent structures other than seminal vesicles: bladder neck, external sphincter, rectum, levator muscles, or pelvic wall.</description>
+   </items>
+   <items id="at0.57">
+    <text>pTX</text>
+    <description>Primary tumour cannot be assessed.</description>
+   </items>
+   <items id="at0.58">
+    <text>pT0</text>
+    <description>No evidence of primary tumour.</description>
+   </items>
+   <items id="at0.63">
+    <text>pT2</text>
+    <description>Tumour confined within prostate.</description>
+   </items>
+   <items id="at0.64">
+    <text>pT2a</text>
+    <description>Tumour involves one half of one lobe or less.</description>
+   </items>
+   <items id="at0.65">
+    <text>pT2b</text>
+    <description>Tumour involves more than half of one lobe, but not both lobes.</description>
+   </items>
+   <items id="at0.66">
+    <text>pT2c</text>
+    <description>Tumour involves both lobes.</description>
+   </items>
+   <items id="at0.67">
+    <text>pT3</text>
+    <description>Tumour extends through the prostatic capsule.</description>
+   </items>
+   <items id="at0.68">
+    <text>pT3a</text>
+    <description>Extracapsular extension (unilateral or bilateral).</description>
+   </items>
+   <items id="at0.69">
+    <text>pT3b</text>
+    <description>Tumour invades seminal vesicle(s).</description>
+   </items>
+   <items id="at0.70">
+    <text>pT4</text>
+    <description>Tumour is fixed or invades adjacent structures other than seminal vesicles: bladder neck, external sphincter, rectum, levator muscles, or pelvic wall.</description>
+   </items>
+   <items id="at0.85">
+    <text>NX</text>
+    <description>Regional nodes cannot be assessed.</description>
+   </items>
+   <items id="at0.86">
+    <text>N0</text>
+    <description>No metastasis to regional lymph nodes.</description>
+   </items>
+   <items id="at0.87">
+    <text>N1</text>
+    <description>Metastasis in regional lymph nodes.</description>
+   </items>
+   <items id="at0.90">
+    <text>pNX</text>
+    <description>Regional nodes cannot be assessed.</description>
+   </items>
+   <items id="at0.91">
+    <text>pN0</text>
+    <description>No metastasis to regional lymph nodes.</description>
+   </items>
+   <items id="at0.92">
+    <text>pN1</text>
+    <description>Metastasis in regional lymph nodes.</description>
+   </items>
+   <items id="at0.93">
+    <text>MX</text>
+    <description>Distant metastasis cannot be assessed.</description>
+   </items>
+   <items id="at0.94">
+    <text>M0</text>
+    <description>No distant metastasis.</description>
+   </items>
+   <items id="at0.95">
+    <text>M1</text>
+    <description>Distant metastasis present.</description>
+   </items>
+   <items id="at0.96">
+    <text>M1a</text>
+    <description>Metastasis to non-regional lymph nodes.</description>
+   </items>
+   <items id="at0.97">
+    <text>M1b</text>
+    <description>Metastasis to bone(s).</description>
+   </items>
+   <items id="at0.98">
+    <text>M1c</text>
+    <description>Metastasis to other site(s) with or without bone disease.</description>
+   </items>
+   <items id="at0.99">
+    <text>pMX</text>
+    <description>Distant metastasis cannot be assessed.</description>
+   </items>
+   <items id="id1.1">
+    <text>TNM staging - Prostate cancer (Sixth edition)</text>
+    <description>TNM Staging classification for prostate cancer (Sixth edition).</description>
+   </items>
+   <items id="ac0.2">
+    <text>Primary tumour (T) (synthesised)</text>
+    <description>Clincal assessment of the primary tumour. (synthesised)</description>
+   </items>
+   <items id="ac0.3">
+    <text>Regional lymph nodes (N) (synthesised)</text>
+    <description>Clinical assessment of the regional lymph nodes. (synthesised)</description>
+   </items>
+   <items id="ac0.4">
+    <text>Distant metastasis (M) (synthesised)</text>
+    <description>Clinical assessment of distant metastasis. (synthesised)</description>
+   </items>
+   <items id="ac0.5">
+    <text>Clinical stage grouping (synthesised)</text>
+    <description>The TNM Clinical stage grouping. (synthesised)</description>
+   </items>
+   <items id="ac0.6">
+    <text>Primary tumour (pT) (synthesised)</text>
+    <description>Pathological assessment of the primary tumour. (synthesised)</description>
+   </items>
+   <items id="ac0.7">
+    <text>Regional lymph node (pN) (synthesised)</text>
+    <description>Pathological assessment of the regional lymph nodes. (synthesised)</description>
+   </items>
+   <items id="ac0.8">
+    <text>Distant metastasis (pM) (synthesised)</text>
+    <description>Pathological assessment of distant metastases. (synthesised)</description>
+   </items>
+   <items id="ac0.9">
+    <text>Pathological stage grouping (synthesised)</text>
+    <description>The TNM Pathological stage grouping. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac0.2">
+   <members>at0.43</members>
+   <members>at0.44</members>
+   <members>at0.45</members>
+   <members>at0.46</members>
+   <members>at0.47</members>
+   <members>at0.48</members>
+   <members>at0.49</members>
+   <members>at0.50</members>
+   <members>at0.51</members>
+   <members>at0.52</members>
+   <members>at0.53</members>
+   <members>at0.54</members>
+   <members>at0.55</members>
+   <members>at0.56</members>
+  </value_sets>
+  <value_sets id="ac0.3">
+   <members>at0.85</members>
+   <members>at0.86</members>
+   <members>at0.87</members>
+  </value_sets>
+  <value_sets id="ac0.4">
+   <members>at0.93</members>
+   <members>at0.94</members>
+   <members>at0.95</members>
+   <members>at0.96</members>
+   <members>at0.97</members>
+   <members>at0.98</members>
+  </value_sets>
+  <value_sets id="ac0.5">
+   <members>at0.106</members>
+   <members>at0.107</members>
+   <members>at0.108</members>
+   <members>at0.109</members>
+  </value_sets>
+  <value_sets id="ac0.6">
+   <members>at0.57</members>
+   <members>at0.58</members>
+   <members>at0.63</members>
+   <members>at0.64</members>
+   <members>at0.65</members>
+   <members>at0.66</members>
+   <members>at0.67</members>
+   <members>at0.68</members>
+   <members>at0.69</members>
+   <members>at0.70</members>
+  </value_sets>
+  <value_sets id="ac0.7">
+   <members>at0.90</members>
+   <members>at0.91</members>
+   <members>at0.92</members>
+   <members>at0.105</members>
+  </value_sets>
+  <value_sets id="ac0.8">
+   <members>at0.99</members>
+   <members>at0.100</members>
+   <members>at0.101</members>
+   <members>at0.102</members>
+   <members>at0.103</members>
+   <members>at0.104</members>
+  </value_sets>
+  <value_sets id="ac0.9">
+   <members>at0.110</members>
+   <members>at0.111</members>
+   <members>at0.112</members>
+   <members>at0.113</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

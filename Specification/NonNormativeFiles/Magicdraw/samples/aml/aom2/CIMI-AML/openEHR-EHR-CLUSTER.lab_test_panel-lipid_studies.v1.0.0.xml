@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Ian McNicoll</original_author>
+  <original_author id="organisation">freshEHR Clinical Informatics, UK</original_author>
+  <original_author id="email">ian@freshehr.com</original_author>
+  <original_author id="date">2014-04-18</original_author>
+  <copyright>(c) 2014 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Test flattening of overlays of new elements onto cloned structures.</purpose>
+  </details>
+  <other_details id="regression">PASS</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.lab_test_panel-lipid_studies.v1.0.0">
+  <concept_id>lab_test_panel-lipid_studies</concept_id>
+ </archetype_id>
+ <parent_archetype_id>openEHR-EHR-CLUSTER.lab_test_panel.v1</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <differential_path>/</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3.1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2.1" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.1" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at0.1</constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+         <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0.0</lower>
+          </constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>mmol/l</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3.2" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2.2" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.2" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at0.1</constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+         <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0.0</lower>
+          </constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>mmol/l</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3.3" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2.3" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.3" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at0.1</constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+         <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0.0</lower>
+          </constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>mmol/l</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3.4" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2.4" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.4" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at0.1</constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+         <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0.0</lower>
+          </constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>mosmol/l</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3.5" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2.5" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.5" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at0.1</constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+         <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0.0</lower>
+          </constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>mosmol/l</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3.6" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1.1">
+    <text>Lipid studies panel</text>
+    <description>Laboratory test results as a single value or in a panel/battery format common to clinical pathology testing.!</description>
+   </items>
+   <items id="id2.1">
+    <text>LDL Cholesterol</text>
+    <description>Actual value of the result.</description>
+   </items>
+   <items id="id2.2">
+    <text>HDL Cholesterol</text>
+    <description>Actual value of the result.</description>
+   </items>
+   <items id="id2.3">
+    <text>Ratio</text>
+    <description>Actual value of the result.</description>
+   </items>
+   <items id="id2.4">
+    <text>Triglyceride</text>
+    <description>Actual value of the result.</description>
+   </items>
+   <items id="id2.5">
+    <text>Total cholesterol</text>
+    <description>Actual value of the result.</description>
+   </items>
+   <items id="id3.1">
+    <text>LDL Cholesterol Result</text>
+    <description>Specific detailed result, including both the value of the result item, and additional information that may be useful for clinical interpretation.</description>
+   </items>
+   <items id="id3.2">
+    <text>HDL Cholesterol Result</text>
+    <description>Specific detailed result, including both the value of the result item, and additional information that may be useful for clinical interpretation.</description>
+   </items>
+   <items id="id3.3">
+    <text>Ratio Result</text>
+    <description>Specific detailed result, including both the value of the result item, and additional information that may be useful for clinical interpretation.</description>
+   </items>
+   <items id="id3.4">
+    <text>Triglyceride Result</text>
+    <description>Specific detailed result, including both the value of the result item, and additional information that may be useful for clinical interpretation.</description>
+   </items>
+   <items id="id3.5">
+    <text>Total Result</text>
+    <description>Specific detailed result, including both the value of the result item, and additional information that may be useful for clinical interpretation.</description>
+   </items>
+   <items id="id3.6">
+    <text>! - Laboratory Result</text>
+    <description>Specific detailed result, including both the value of the result item, and additional information that may be useful for clinical interpretation.</description>
+   </items>
+   <items id="at0.1">
+    <text>(added by post-parse processor)</text>
+    <description>(added by post-parse processor)</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Heather Leslie</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">heather.leslie@oceaninformatics.com</original_author>
+  <original_author id="date">2013-03-20</original_author>
+  <copyright>© National E-Health Transition Authority</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record examination findings of the middle ear, usually at operation.</purpose>
+   <use>Use to record examination findings of the middle ear, usually at operation.</use>
+   <keywords>operation</keywords>
+   <keywords>myringoplasty</keywords>
+   <misuse></misuse>
+  </details>
+  <other_details id="current_contact">Heather Leslie, Ocean Informatics, heather.leslie@oceaninformatics.com</other_details>
+  <other_details id="references">NT Health, Hearing Health Program, &quot;ENT Pre Op Exam &amp;amp; Surgical Procedure Form&quot;</other_details>
+  <other_details id="MD5-CAM-1.0.1">9728D9AA424EFF5D04644C42CC88D121</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.exam_middle_ear.v1.0.0">
+  <concept_id>exam_middle_ear</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id14" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id13" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id15" rm_type_name="DV_BOOLEAN" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_BOOLEAN" node_id="id9999" rm_type_name="BOOLEAN" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>true</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id16" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id17" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac2</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id18" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac3</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id12" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id19" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Examination of Middle Ear</text>
+    <description>Examination of the middle ear, usually at operation.</description>
+   </items>
+   <items id="id2">
+    <text>Ear Examined</text>
+    <description>Identification of the ear under examination.</description>
+   </items>
+   <items id="at3">
+    <text>Left</text>
+    <description>The left middle ear.</description>
+   </items>
+   <items id="at4">
+    <text>Right</text>
+    <description>The right middle ear.</description>
+   </items>
+   <items id="id5">
+    <text>Description</text>
+    <description>Narrative description of findings observed during examination of the middle ear.</description>
+   </items>
+   <items id="id6">
+    <text>Ossicular Chain State</text>
+    <description>Description of status of the ossicular chain.</description>
+   </items>
+   <items id="at7">
+    <text>Intact</text>
+    <description>Ossicular chain is intact.</description>
+   </items>
+   <items id="at8">
+    <text>Not Intact</text>
+    <description>Ossicular chain is not intact.</description>
+   </items>
+   <items id="id9">
+    <text>Ossicular Chain Mobility</text>
+    <description>Description of the mobility of the ossicular chain.</description>
+   </items>
+   <items id="at10">
+    <text>Mobile</text>
+    <description>Ossicular chain is mobile.</description>
+   </items>
+   <items id="at11">
+    <text>Immobile</text>
+    <description>Ossicular chain is not mobile.</description>
+   </items>
+   <items id="id12">
+    <text>Clinical Interpretation</text>
+    <description>Single word, phrase or brief description representing a summary of the examination findings.</description>
+   </items>
+   <items id="id13">
+    <text>No Abnormality Detected</text>
+    <description>Statement that no abnormality was detected on examination of the middle ear.</description>
+   </items>
+   <items id="ac1">
+    <text>Ear Examined (synthesised)</text>
+    <description>Identification of the ear under examination. (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Ossicular Chain State (synthesised)</text>
+    <description>Description of status of the ossicular chain. (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>Ossicular Chain Mobility (synthesised)</text>
+    <description>Description of the mobility of the ossicular chain. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac1">
+   <members>at3</members>
+   <members>at4</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at7</members>
+   <members>at8</members>
+  </value_sets>
+  <value_sets id="ac3">
+   <members>at10</members>
+   <members>at11</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

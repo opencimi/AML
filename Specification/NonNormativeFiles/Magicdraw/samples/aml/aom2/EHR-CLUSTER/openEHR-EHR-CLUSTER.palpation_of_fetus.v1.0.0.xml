@@ -1,0 +1,633 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Sam Heard</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">sam.heard@oceaninformatics.com</original_author>
+  <original_author id="date">2007-04-19</original_author>
+  <copyright>© National E-Health Transition Authority</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Record clinical examination findings on palpation of the fetus in utero, either from an abdominal or vaginal approach.</purpose>
+   <use>Use to record examination findings on palpation of the fetus while in utero. This archetype can be used to record either abdominal or vaginal examination findings, including during labor.
+
+This archetype has been designed to be nested inside the OBSERVATION.exam archetype or other relevant CLUSTER archetypes, for example providing specific detail about the fetus in CLUSTER.palpation_of_uterus.
+
+Record the details of only one fetus using this archetype. Recording details about multiple fetuses will require the multiple separate instances of this archetype.</use>
+   <keywords>uterus</keywords>
+   <keywords>fetus</keywords>
+   <keywords>foetus</keywords>
+   <misuse></misuse>
+  </details>
+  <other_contributors>Rita Apelt, Department of Health,NT, Australia</other_contributors>
+  <other_contributors>Stephen Chu, NEHTA, Australia</other_contributors>
+  <other_contributors>Tim Garden, NTG Department of Health, Australia</other_contributors>
+  <other_contributors>Sam Heard, Ocean Informatics, Australia (Editor)</other_contributors>
+  <other_contributors>Heather Leslie, Ocean Informatics, Australia (Editor)</other_contributors>
+  <other_contributors>Ian McNicoll, Ocean Informatics UK, United Kingdom</other_contributors>
+  <other_contributors>Jeremy Oats, NT Health, Australia</other_contributors>
+  <other_contributors>Jo Wright, NT Dept of Health, Australia (Editor)</other_contributors>
+  <other_details id="references">openEHR Clinical Knowledge Manager [Internet]. London: openEHR Foundation. [Draft CLUSTER archetype] Examination of the fetus; [authored 2007 Apr 19, cited 2011 Aug 12]. Available from : http://www.openehr.org/knowledge/OKM.html#showArchetype_1013.1.277_4.</other_details>
+  <other_details id="MD5-CAM-1.0.1">DDE1874AB473F41AC1044000DACE48FD</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.palpation_of_fetus.v1.0.0">
+  <concept_id>palpation_of_fetus</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id72" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id73" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac1</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id74" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac2</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id12" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id75" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac3</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id37" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id76" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac4</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id48" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id77" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac5</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id41" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id78" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac6</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id52" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id79" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac7</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id58" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id80" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at75</constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>kg</constraint>
+          <constraint>gm</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id59" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id60" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id81" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac8</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id65" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id82" rm_type_name="DV_BOOLEAN" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_BOOLEAN" node_id="id9999" rm_type_name="BOOLEAN" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>true</constraint>
+          <constraint>false</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id83" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false">
+      <target_path>/items[id3]/items[id12]</target_path>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id68" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id84" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at76</constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+         <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>-5.0</lower>
+           <upper>5.0</upper>
+          </constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>cm</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id85" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false">
+      <target_path>/items[id3]/items[id37]</target_path>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id69" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id86" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id70" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id87" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id71" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id88" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Palpation of Fetus</text>
+    <description>Examination of the fetus by palpation, using either an abdominal or vaginal approach.</description>
+   </items>
+   <items id="id2">
+    <text>Clinical Description</text>
+    <description>Narrative description of findings on examination of the fetus.</description>
+   </items>
+   <items id="id3">
+    <text>Abdominal Findings</text>
+    <description>Clinical findings on abdominal palpation.</description>
+   </items>
+   <items id="id4">
+    <text>Lie</text>
+    <description>Relationship of the longitudinal axis of the fetus to the long axis of the mother.</description>
+   </items>
+   <items id="at5">
+    <text>Longitudinal</text>
+    <description>The fetal longitudinal axis is in alignment with the mother&apos;s longitudinal axis.</description>
+   </items>
+   <items id="at6">
+    <text>Transverse</text>
+    <description>The fetal longitudinal axis is at right angles to the mother&apos;s longitudinal axis.</description>
+   </items>
+   <items id="at7">
+    <text>Oblique</text>
+    <description>The fetal longitudinal axis is at an oblique angle to the mother&apos;s longitudinal axis. Sometimes also referred to as &apos;Unstable Lie&apos;.</description>
+   </items>
+   <items id="id8">
+    <text>Abdominal Presentation</text>
+    <description>Identification of the part of the fetus lying in the lower part of the uterus.</description>
+   </items>
+   <items id="at9">
+    <text>Vertex</text>
+    <description>The vertex is lying in the lower part of the uterus.</description>
+   </items>
+   <items id="at10">
+    <text>Breech</text>
+    <description>The breech is lying in the lower part of the uterus.</description>
+   </items>
+   <items id="id12">
+    <text>Position</text>
+    <description>Relationship between the fetal denominator and the maternal pelvis.</description>
+   </items>
+   <items id="at13">
+    <text>Right Occipito-Transverse (ROT)</text>
+    <description>The fetal occiput is pointing towards the right. Also known as Right Occipito-Lateral (ROL).</description>
+   </items>
+   <items id="at14">
+    <text>Right Occipito-Anterior (ROA)</text>
+    <description>The fetal occiput is pointing anteriorly and towards the right.</description>
+   </items>
+   <items id="at15">
+    <text>Right Occipito-Posterior (ROP)</text>
+    <description>The fetal occiput is pointing posteriorly and towards the right.</description>
+   </items>
+   <items id="at16">
+    <text>Occipito-Anterior (OA)</text>
+    <description>The fetal occiput is pointing anteriorly, towards the pubic symphysis.</description>
+   </items>
+   <items id="at17">
+    <text>Occipito-Posterior (OP)</text>
+    <description>The fetal occiput is pointing posteriorly, towards the sacrum.</description>
+   </items>
+   <items id="at18">
+    <text>Left Occipito-Transverse (LOT)</text>
+    <description>The fetal occiput is pointing towards the left. Also known as Left Occcipito-Lateral (LOL).</description>
+   </items>
+   <items id="at19">
+    <text>Left Occipito-Anterior (LOA)</text>
+    <description>The fetal occiput is pointing anteriorly and towards the left.</description>
+   </items>
+   <items id="at20">
+    <text>Left Occipito-Posterior (LOP)</text>
+    <description>The fetal occiput is pointing posteriorly and towards the left.</description>
+   </items>
+   <items id="at21">
+    <text>Right Sacro-Transverse (RST)</text>
+    <description>The fetal sacrum is pointing towards the right.</description>
+   </items>
+   <items id="at22">
+    <text>Right Sacro-Anterior (RSA)</text>
+    <description>The fetal sacrum is pointing anteriorly and towards the right.</description>
+   </items>
+   <items id="at23">
+    <text>Right Sacro-Posterior (RSP)</text>
+    <description>The fetal sacrum is pointing posteriorly and towards the right.</description>
+   </items>
+   <items id="at24">
+    <text>Sacro-Anterior (SA)</text>
+    <description>The fetal sacrum is pointing anteriorly, towards the pubic symphysis.</description>
+   </items>
+   <items id="at25">
+    <text>Sacro-Posterior (SP)</text>
+    <description>The fetal sacrum is pointing posteriorly, towards the sacrum.</description>
+   </items>
+   <items id="at26">
+    <text>Left Sacro-transverse (LST)</text>
+    <description>The fetal sacrum is pointing towards the left.</description>
+   </items>
+   <items id="at27">
+    <text>Left Sacro-Anterior (LSA)</text>
+    <description>The fetal sacrum is pointing anteriorly and towards the left.</description>
+   </items>
+   <items id="at28">
+    <text>Left Sacro-Posterior (LSP)</text>
+    <description>The fetal sacrum is pointing posteriorly and towards the left.</description>
+   </items>
+   <items id="at29">
+    <text>Right Mento-Transverse (RMT)</text>
+    <description>The fetal chin is pointing towards the right.</description>
+   </items>
+   <items id="at30">
+    <text>Right Mento-Anterior (RMA)</text>
+    <description>The fetal chin is pointing anteriorly and towards the right.</description>
+   </items>
+   <items id="at31">
+    <text>Right Mento-Posterior (RMP)</text>
+    <description>The fetal chin is pointing posteriorly and towards the right.</description>
+   </items>
+   <items id="at32">
+    <text>Mento-Anterior (MA)</text>
+    <description>The fetal chin is pointing anteriorly, towards the pubic symphysis.</description>
+   </items>
+   <items id="at33">
+    <text>Mento-Posterior (MP)</text>
+    <description>The fetal chin is pointing posteriorly, towards the sacrum.</description>
+   </items>
+   <items id="at34">
+    <text>Left Mento-Transverse (LMT)</text>
+    <description>The fetal chin is pointing towards the left.</description>
+   </items>
+   <items id="at35">
+    <text>Left Mento-Anterior (LMA)</text>
+    <description>The fetal chin is pointing anteriorly and towards the left.</description>
+   </items>
+   <items id="at36">
+    <text>Left Mento-Posterior (LMP)</text>
+    <description>The fetal chin is pointing posteriorly and towards the left.</description>
+   </items>
+   <items id="id37">
+    <text>Attitude</text>
+    <description>Description of the relationship of the fetal head and limbs to the body of the fetus on palpation.</description>
+   </items>
+   <items id="at38">
+    <text>Flexed</text>
+    <description>The fetus is fully flexed.</description>
+   </items>
+   <items id="at39">
+    <text>Deflexed</text>
+    <description>The fetus is not flexed.</description>
+   </items>
+   <items id="at40">
+    <text>Extended</text>
+    <description>The fetus is extended.</description>
+   </items>
+   <items id="id41">
+    <text>Engagement estimation</text>
+    <description>The estimated proportion of the presenting part which is felt above the pelvic brim.</description>
+   </items>
+   <items id="at42">
+    <text>Not engaged (0/5)</text>
+    <description>The head is not engaged in the pelvis.</description>
+   </items>
+   <items id="at43">
+    <text>1/5</text>
+    <description>About 20% of the head is inside the pelvis.</description>
+   </items>
+   <items id="at44">
+    <text>2/5</text>
+    <description>About 40% of the head is inside the pelvis.</description>
+   </items>
+   <items id="at45">
+    <text>3/5</text>
+    <description>About 60% of the head is inside the pelvis.</description>
+   </items>
+   <items id="at46">
+    <text>4/5</text>
+    <description>About 80% of the head is inside the pelvis.</description>
+   </items>
+   <items id="at47">
+    <text>Fully engaged (5/5)</text>
+    <description>The head is inside the pelvis.</description>
+   </items>
+   <items id="id48">
+    <text>Engagement description</text>
+    <description>Description of engagement of fetal head.</description>
+   </items>
+   <items id="at49">
+    <text>High and mobile</text>
+    <description>The presenting part is high and mobile.</description>
+   </items>
+   <items id="at50">
+    <text>At pelvic brim</text>
+    <description>The presenting part is at the pelvic brim.</description>
+   </items>
+   <items id="at51">
+    <text>Engaged</text>
+    <description>The presenting part is engaged in the pelvis.</description>
+   </items>
+   <items id="id52">
+    <text>Relative size</text>
+    <description>The relative size of the baby compared to the normal for the estimated gestation.</description>
+   </items>
+   <items id="at53">
+    <text>Small for dates</text>
+    <description>The size of the fetus appears smaller than expected for estimaged gestation.</description>
+   </items>
+   <items id="at55">
+    <text>Normal</text>
+    <description>The size of the fetus appears as expected for the estimated gestation.</description>
+   </items>
+   <items id="at57">
+    <text>Large for dates</text>
+    <description>The size of the fetus appears larger than expected for the estimated gestation.</description>
+   </items>
+   <items id="id58">
+    <text>Estimated weight</text>
+    <description>The estimated weight of the fetus on palpation.</description>
+   </items>
+   <items id="id59">
+    <text>Vaginal Findings</text>
+    <description>Clinical findings on vaginal palpation.</description>
+   </items>
+   <items id="id60">
+    <text>Vaginal Presentation</text>
+    <description>Identification of the presenting part of the fetus.</description>
+   </items>
+   <items id="at61">
+    <text>Vertex</text>
+    <description>The vertex is the presenting part.</description>
+   </items>
+   <items id="at62">
+    <text>Shoulder</text>
+    <description>A fetal shoulder is the presenting part.</description>
+   </items>
+   <items id="at63">
+    <text>Foot</text>
+    <description>A fetal foot is the presenting part.</description>
+   </items>
+   <items id="at64">
+    <text>Arm</text>
+    <description>A fetal arm is the presenting part.</description>
+   </items>
+   <items id="id65">
+    <text>Cord presentation?</text>
+    <description>Is the umbilical cord presenting?</description>
+   </items>
+   <items id="at66">
+    <text>Face</text>
+    <description>The face is the presenting part.</description>
+   </items>
+   <items id="at67">
+    <text>Brow</text>
+    <description>The brow is the presenting part.</description>
+   </items>
+   <items id="id68">
+    <text>Station</text>
+    <description>Position of the presenting part relative to teh ischial spines.</description>
+   </items>
+   <items id="id69">
+    <text>Caput</text>
+    <description>Description of caput.</description>
+   </items>
+   <items id="id70">
+    <text>Moulding</text>
+    <description>Description of moulding.</description>
+   </items>
+   <items id="id71">
+    <text>Asynclitism</text>
+    <description>Description of asynclitism.</description>
+   </items>
+   <items id="at72">
+    <text>Brow</text>
+    <description>The brow is lying in the lower part of the uterus.</description>
+   </items>
+   <items id="at73">
+    <text>Face</text>
+    <description>The face is lying in the lower part of the uterus.</description>
+   </items>
+   <items id="at74">
+    <text>Shoulder</text>
+    <description>The shoulder is lying in the lower part of the uterus.</description>
+   </items>
+   <items id="at75">
+    <text>Mass</text>
+    <description>Mass</description>
+   </items>
+   <items id="at76">
+    <text>Length</text>
+    <description>Length</description>
+   </items>
+   <items id="id83">
+    <text>(added by post-parse processor)</text>
+    <description>(added by post-parse processor)</description>
+   </items>
+   <items id="id85">
+    <text>(added by post-parse processor)</text>
+    <description>(added by post-parse processor)</description>
+   </items>
+   <items id="ac1">
+    <text>Lie (synthesised)</text>
+    <description>Relationship of the longitudinal axis of the fetus to the long axis of the mother. (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Abdominal Presentation (synthesised)</text>
+    <description>Identification of the part of the fetus lying in the lower part of the uterus. (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>Position (synthesised)</text>
+    <description>Relationship between the fetal denominator and the maternal pelvis. (synthesised)</description>
+   </items>
+   <items id="ac4">
+    <text>Attitude (synthesised)</text>
+    <description>Description of the relationship of the fetal head and limbs to the body of the fetus on palpation. (synthesised)</description>
+   </items>
+   <items id="ac5">
+    <text>Engagement description (synthesised)</text>
+    <description>Description of engagement of fetal head. (synthesised)</description>
+   </items>
+   <items id="ac6">
+    <text>Engagement estimation (synthesised)</text>
+    <description>The estimated proportion of the presenting part which is felt above the pelvic brim. (synthesised)</description>
+   </items>
+   <items id="ac7">
+    <text>Relative size (synthesised)</text>
+    <description>The relative size of the baby compared to the normal for the estimated gestation. (synthesised)</description>
+   </items>
+   <items id="ac8">
+    <text>Vaginal Presentation (synthesised)</text>
+    <description>Identification of the presenting part of the fetus. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="openehr">
+   <items id="at75">http://openehr.org/id/124</items>
+   <items id="at76">http://openehr.org/id/122</items>
+  </term_bindings>
+  <value_sets id="ac5">
+   <members>at49</members>
+   <members>at50</members>
+   <members>at51</members>
+  </value_sets>
+  <value_sets id="ac1">
+   <members>at5</members>
+   <members>at7</members>
+   <members>at6</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at9</members>
+   <members>at72</members>
+   <members>at73</members>
+   <members>at10</members>
+   <members>at74</members>
+  </value_sets>
+  <value_sets id="ac3">
+   <members>at16</members>
+   <members>at19</members>
+   <members>at18</members>
+   <members>at20</members>
+   <members>at14</members>
+   <members>at13</members>
+   <members>at15</members>
+   <members>at17</members>
+   <members>at24</members>
+   <members>at27</members>
+   <members>at26</members>
+   <members>at28</members>
+   <members>at22</members>
+   <members>at21</members>
+   <members>at23</members>
+   <members>at25</members>
+   <members>at32</members>
+   <members>at35</members>
+   <members>at34</members>
+   <members>at36</members>
+   <members>at30</members>
+   <members>at29</members>
+   <members>at31</members>
+   <members>at33</members>
+  </value_sets>
+  <value_sets id="ac4">
+   <members>at38</members>
+   <members>at39</members>
+   <members>at40</members>
+  </value_sets>
+  <value_sets id="ac6">
+   <members>at42</members>
+   <members>at43</members>
+   <members>at44</members>
+   <members>at45</members>
+   <members>at46</members>
+   <members>at47</members>
+  </value_sets>
+  <value_sets id="ac7">
+   <members>at53</members>
+   <members>at55</members>
+   <members>at57</members>
+  </value_sets>
+  <value_sets id="ac8">
+   <members>at61</members>
+   <members>at10</members>
+   <members>at62</members>
+   <members>at66</members>
+   <members>at67</members>
+   <members>at63</members>
+   <members>at64</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

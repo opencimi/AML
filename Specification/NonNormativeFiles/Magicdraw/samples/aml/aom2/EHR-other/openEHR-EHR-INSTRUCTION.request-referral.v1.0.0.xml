@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Dr Ian McNicoll</original_author>
+  <original_author id="organisation">Ocean Informatics, United Kingdom</original_author>
+  <original_author id="email">ian.mcnicoll@oceaninformatics.com</original_author>
+  <original_author id="date">08/12/2009</original_author>
+  <copyright>copyright (c) 2010 openEHR foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To communicate details of a referral request to another healthcare provider or organisation for provision of a specified service.</purpose>
+   <use>Use to communicate the details of the request for provision of a specified service by another healthcare provider or organisation.  This request will usually be supported by additional information that provide clinical context about the patient using other archetypes.</use>
+   <keywords>request</keywords>
+   <keywords>refer</keywords>
+   <keywords>order</keywords>
+   <keywords>service</keywords>
+   <keywords>provide</keywords>
+   <misuse></misuse>
+  </details>
+  <other_contributors>Heather Leslie, Ocean Informatics, Australia</other_contributors>
+  <other_details id="references"></other_details>
+  <other_details id="MD5-CAM-1.0.1">25C16B28A60F9903D55831244227C979</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="INSTRUCTION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-INSTRUCTION.request-referral.v1.0.0">
+  <concept_id>request-referral</concept_id>
+ </archetype_id>
+ <parent_archetype_id>openEHR-EHR-INSTRUCTION.request.v1</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="INSTRUCTION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <differential_path>/protocol[id9]</differential_path>
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id0.5" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+    <sibling_order is_before="false">
+     <sibling_node_id>id129</sibling_node_id>
+    </sibling_order>
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/.*/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.2" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <sibling_order is_before="true">
+     <sibling_node_id>id113</sibling_node_id>
+    </sibling_order>
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.3" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.6" rm_type_name="DV_DURATION" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.4" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.7" rm_type_name="DV_BOOLEAN" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_BOOLEAN" node_id="id9999" rm_type_name="BOOLEAN" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>true</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id0.2">
+    <text>Duration</text>
+    <description>Length of time the referral is valid.</description>
+   </items>
+   <items id="id0.3">
+    <text>Duration</text>
+    <description>Duration for which the referral is valid.</description>
+   </items>
+   <items id="id0.4">
+    <text>Indefinite</text>
+    <description>If true, referral is for an indefinite period of time.</description>
+   </items>
+   <items id="id0.5">
+    <text>Contacts</text>
+    <description>A list of people or organisations who are relevant to this referral, including next of kin.</description>
+   </items>
+   <items id="id1.1">
+    <text>Referral request</text>
+    <description>Request for provision of a specified service by another healthcare provider or organisation.</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

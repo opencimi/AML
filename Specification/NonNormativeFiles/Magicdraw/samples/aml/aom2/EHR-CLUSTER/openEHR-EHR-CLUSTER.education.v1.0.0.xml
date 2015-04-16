@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Heather Leslie</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">heather.leslie@oceaninformatics.com</original_author>
+  <original_author id="date">2010-12-21</original_author>
+  <copyright>© National E-Health Transition Authority</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record an education and training summary about the subject, including current activity if still undergoing education and/or past achievements.</purpose>
+   <use>Use to record the current education status of the subject. This includes current activity if still undergoing education (such as school attendance status) and educational/training achievements to date. As the education status of the subject changes data can be updated or achievements added to create an evolving education summary held within a Persistent COMPOSITION record.
+
+Specifically designed to be used within the EVALUATION.social_summary archetype, but may be used within any clinically appropriate ENTRY or CLUSTER archetype related to recording social context.</use>
+   <keywords>education</keywords>
+   <keywords>school</keywords>
+   <keywords>university</keywords>
+   <keywords>secondary</keywords>
+   <keywords>tertiary</keywords>
+   <keywords>college</keywords>
+   <keywords>apprenticeship</keywords>
+   <keywords>training</keywords>
+   <keywords>needs</keywords>
+   <keywords>primary</keywords>
+   <misuse></misuse>
+  </details>
+  <other_contributors>John Bennett, NEHTA, Australia</other_contributors>
+  <other_contributors>Stephen Chu, NEHTA, Australia</other_contributors>
+  <other_contributors>Matthew Cordell, NEHTA, Australia</other_contributors>
+  <other_contributors>David Evans, Queensland Health, Australia</other_contributors>
+  <other_contributors>Andrew Goodchild, NEHTA, Australia</other_contributors>
+  <other_contributors>Mary Kelaher, NEHTA, Australia</other_contributors>
+  <other_contributors>Robert L&apos;egan, NEHTA, Australia</other_contributors>
+  <other_contributors>Heather Leslie, Ocean Informatics, Australia (Editor)</other_contributors>
+  <other_contributors>Ian McNicoll, Ocean Informatics UK, United Kingdom</other_contributors>
+  <other_contributors>Stewart Morrison, NEHTA, Australia</other_contributors>
+  <other_contributors>Jodie Pycroft, Adelaide Northern Division of General Practice Ltd, Australia</other_contributors>
+  <other_contributors>John Taylor, NEHTA, Australia</other_contributors>
+  <other_contributors>Gordon Tomes, National Disability Insurance Scheme Agency, Australia</other_contributors>
+  <other_contributors>Richard Townley-O&apos;Neill, NEHTA, Australia</other_contributors>
+  <other_details id="current_contact">Heather Leslie, Ocean Informatics, heather.leslie@oceaninformatics.com</other_details>
+  <other_details id="references">METeOR (Metadata Online Registry) [Internet]. Australia: Australian Institute of Health and Welfare. Person—school enrolment and attendance status. Available from: http://meteor.aihw.gov.au/content/index.phtml/itemId/401809 (accessed 2013 Mar 01).</other_details>
+  <other_details id="MD5-CAM-1.0.1">46E03B6737066C6037D81E0058F5BB86</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.education.v1.0.0">
+  <concept_id>education</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id19" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id22" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id23" rm_type_name="DV_DURATION" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_DURATION" node_id="id9999" rm_type_name="String" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <pattern_constraint>PYM</pattern_constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id21" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id24" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id12" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id25" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac2</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id26" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id27" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id20" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id28" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id29" rm_type_name="DV_DATE_TIME" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id30" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Education and Training</text>
+    <description>Summary of the educational and training background of the subject.</description>
+   </items>
+   <items id="id3">
+    <text>Highest Achieved</text>
+    <description>Description of highest level of education or training achieved to date.</description>
+   </items>
+   <items id="id4">
+    <text>Age Commenced Formal Education</text>
+    <description>Age when the individual commenced formal education.</description>
+   </items>
+   <items id="id5">
+    <text>Milestone</text>
+    <description>Name of the education or training milestone or academic qualification achieved.</description>
+   </items>
+   <items id="id6">
+    <text>Milestone Achieved</text>
+    <description>Identification of educational or training milestones acheived.</description>
+   </items>
+   <items id="id7">
+    <text>Date Achieved</text>
+    <description>Date that education milestone was achieved.</description>
+   </items>
+   <items id="id8">
+    <text>Comment</text>
+    <description>Overall comment about the individual&apos;s education.</description>
+   </items>
+   <items id="id12">
+    <text>Attendance</text>
+    <description>Description of attendance at educational facility/location.</description>
+   </items>
+   <items id="at13">
+    <text>Enrolled; Attending</text>
+    <description>The subject is currently enrolled and attending school regularly.</description>
+   </items>
+   <items id="at14">
+    <text>Enrolled; Not Always Attending</text>
+    <description>The subject is currently enrolled and is not attending school regularly.</description>
+   </items>
+   <items id="at15">
+    <text>Enrolled; Not Attending</text>
+    <description>The subject is currently enrolled and is not attending school at all.</description>
+   </items>
+   <items id="at16">
+    <text>Enrolled; Waiting to Commence</text>
+    <description>The subject is currently enrolled but is waiting to commence.</description>
+   </items>
+   <items id="at17">
+    <text>Home Education</text>
+    <description>The subject is currently educated at home.</description>
+   </items>
+   <items id="at18">
+    <text>Not Enrolled; Not Home Education</text>
+    <description>The subject is currently not enrolled and is not educated at home.</description>
+   </items>
+   <items id="id19">
+    <text>Description</text>
+    <description>Narrative description of education and training, including current activity and/or past experience.</description>
+   </items>
+   <items id="id20">
+    <text>Place</text>
+    <description>Facility or institution at which milestone was achieved.</description>
+   </items>
+   <items id="id21">
+    <text>Category</text>
+    <description>Category of education that is appropriate for a child subject to attend, based on age and ability.</description>
+   </items>
+   <items id="at22">
+    <text>Not Applicable</text>
+    <description>It is not appropriate for this subject to attend.</description>
+   </items>
+   <items id="at23">
+    <text>Childcare</text>
+    <description>The subject is of the appropriate age and ability to attend a Childcare facility.</description>
+   </items>
+   <items id="at24">
+    <text>Pre-school</text>
+    <description>The subject is of the appropriate age and ability to attend a Pre-school facility.</description>
+   </items>
+   <items id="at25">
+    <text>Primary School</text>
+    <description>The subject is of the appropriate age and ability to attend Primary School.</description>
+   </items>
+   <items id="at26">
+    <text>Secondary School</text>
+    <description>The subject is of the appropriate age and ability to attend Secondary School.</description>
+   </items>
+   <items id="ac1">
+    <text>Category (synthesised)</text>
+    <description>Category of education that is appropriate for a child subject to attend, based on age and ability. (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Attendance (synthesised)</text>
+    <description>Description of attendance at educational facility/location. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac1">
+   <members>at23</members>
+   <members>at24</members>
+   <members>at25</members>
+   <members>at26</members>
+   <members>at22</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at13</members>
+   <members>at14</members>
+   <members>at15</members>
+   <members>at16</members>
+   <members>at17</members>
+   <members>at18</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

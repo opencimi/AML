@@ -1,0 +1,1254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Heather Leslie</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">heather.leslie@oceaninformatics.com</original_author>
+  <original_author id="date">2012-09-03</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>For recording the findings on physical examination of the external auditory canal and tympanic membrane by a clinician.</purpose>
+   <use>Use to record the findings on physical examination of the external auditory canal and tympanic membrane by a clinician., including details of any perforation.
+
+Specifically designed to be used within the OBSERVATION.exam-ear archetype, but may be used within any clinically appropriate ENTRY or CLUSTER archetype.
+
+Please note: this archetype has been designed specifically to reflect current practice within the NT Hearing Health program. It is recognised that this is not currently reflecting a maximal dataset and may need to be extended in future revisions as more specific requirements are identified.</use>
+   <keywords>inspection</keywords>
+   <keywords>ear</keywords>
+   <keywords>tympanic</keywords>
+   <keywords>perforation</keywords>
+   <keywords>drum</keywords>
+   <keywords>canal</keywords>
+   <keywords>otoscopic</keywords>
+   <keywords>exam</keywords>
+   <keywords>examination</keywords>
+   <keywords>pneumatic</keywords>
+   <keywords>otoscopy</keywords>
+   <keywords>membrane</keywords>
+   <misuse>Not to be used to record findings of the physical examination of other parts of the ear, such as pinna and mastoid region - use other purpose-built archetypes for this purpose.</misuse>
+  </details>
+  <other_contributors>Anthony Leech, Hearing Health, Australia</other_contributors>
+  <other_contributors>Stephen Chu, NEHTA, Australia</other_contributors>
+  <other_contributors>Marissa Cookson, Dept of Health, Australia</other_contributors>
+  <other_contributors>Graeme Crossland, Northern Territory, Australia</other_contributors>
+  <other_contributors>Kathy Currie, Northern Territory Health, Australia</other_contributors>
+  <other_contributors>Jacques de Haan, Alice Springs Hospital, Australia</other_contributors>
+  <other_contributors>Jade Frederiksen, Hearing Health Program, DoH, Australia</other_contributors>
+  <other_contributors>Sam Heard, Ocean Informatics, Australia</other_contributors>
+  <other_contributors>Paul Hickey, Hearing Health Program, Australia</other_contributors>
+  <other_contributors>Oliver Hosking, Remote Health NT, Australia</other_contributors>
+  <other_contributors>Amanda Leach, Menzies School of Health Research, Australia</other_contributors>
+  <other_contributors>Kerrie Lee, Ngaanyatjarra Health Service, Australia (Editor)</other_contributors>
+  <other_contributors>Heather Leslie, Ocean Informatics, Australia (Editor)</other_contributors>
+  <other_contributors>Ian McNicoll, Ocean Informatics, United Kingdom</other_contributors>
+  <other_contributors>Hemi Patel, Royal Darwin Hospital, Australia</other_contributors>
+  <other_contributors>Fiona Wake, RAHC, Australia</other_contributors>
+  <other_contributors>Christine Wigger, Menzies School of Health Research, Australia</other_contributors>
+  <other_details id="references">Communication with clinical domain experts associated with Australia&apos;s Northern Territory Hearing Health Program.
+
+Northern Territory Government, Department of Health: Hearing Health Program ENT Specialist Consultation Form 2011 12 07.
+
+Northern Territory Government, Department of Health: Northern Territory Hearing Health Program Teleotology Nurse Consultation Form 2011 12 07.
+
+Northern Territory Government, Department of Health: Northern Territory Hearing Health Program Audiologist Consultation Form 2011 12 07.
+
+OATSIH:  The Recommendations for Clinical Care Guidelines on the Management of Otitis Media in Aboriginal and Torres Strait Islander Populations (2010). Available at: http://www.health.gov.au/internet/publications/publishing.nsf/Content/CA2578620005D57ACA25792800821BE8?OpenDocument.</other_details>
+  <other_details id="MD5-CAM-1.0.1">8F6D4152A87D3B1BC1640C989B5CC83C</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.exam_tympanic_membrane.v1.0.0">
+  <concept_id>exam_tympanic_membrane</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id98" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id175" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id176" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id107" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id177" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac2</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id110" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id178" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac3</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id179" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac4</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id180" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id140" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id181" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac5</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id133" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id182" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac6</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id125" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id183" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac7</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id144" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id184" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac8</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id158" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id185" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac9</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id152" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id186" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac10</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id157" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id187" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id167" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id188" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac11</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id65" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id113" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id189" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac12</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id148" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id190" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac13</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id160" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id191" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac14</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id164" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id192" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac15</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id105" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id193" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac16</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="null_flavour" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id194" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac17</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id19" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id195" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac18</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id12" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id196" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac19</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id23" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id197" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac20</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id29" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id198" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id11" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id15" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id199" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id16" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id200" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id17" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id201" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id18" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id202" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id62" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id203" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id61" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id204" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id35" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id205" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id36" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id206" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac21</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id41" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id207" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_ARCHETYPE_SLOT" node_id="id45" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+      <includes type="Boolean">
+       <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+        <operator value="2007">
+        </operator>
+        <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+         <item>archetype_id/value</item>
+        </left_operand>
+        <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+         <item>
+          <rm_type_name>STRING</rm_type_name>
+          <constraint>/openEHR-EHR-CLUSTER\.sade_classification(-a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.tos_classification(-a-zA-Z0-9_]+)*\.v1/</constraint>
+          <is_path_compressible>false</is_path_compressible>
+          <is_deprecated>false</is_deprecated>
+          <is_frozen>false</is_frozen>
+          <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+         </item>
+        </right_operand>
+       </expression>
+      </includes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id49" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id208" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac22</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id52" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id209" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id53" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id210" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac23</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id63" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id66" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id211" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>ac24</constraint>
+           </children>
+          </attributes>
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_ARCHETYPE_SLOT" node_id="id71" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+        <includes type="Boolean">
+         <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+          <operator value="2007">
+          </operator>
+          <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+           <item>archetype_id/value</item>
+          </left_operand>
+          <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+           <item>
+            <rm_type_name>STRING</rm_type_name>
+            <constraint>/openEHR-EHR-CLUSTER\.dimensions(-a-zA-Z0-9_]+)*\.v1/</constraint>
+            <is_path_compressible>false</is_path_compressible>
+            <is_deprecated>false</is_deprecated>
+            <is_frozen>false</is_frozen>
+            <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+           </item>
+          </right_operand>
+         </expression>
+        </includes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id75" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id212" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>ac25</constraint>
+           </children>
+          </attributes>
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id72" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id213" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>ac26</constraint>
+           </children>
+          </attributes>
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id77" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id214" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>ac27</constraint>
+           </children>
+          </attributes>
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id80" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id215" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id173" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id216" rm_type_name="DV_MULTIMEDIA" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="media_type" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac28</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id106" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id217" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id174" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id218" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Examination of External Auditory Canal and Tympanic Membrane</text>
+    <description>Physical examination of the external auditory canal and tympanic membrane
+ by a clinician.</description>
+   </items>
+   <items id="id2">
+    <text>Clinical Description</text>
+    <description>Narrative description of findings observed by a clinician during a physical examination of the external auditory canal and tympanic membrane.</description>
+   </items>
+   <items id="id3">
+    <text>View of Tympanic Membrane</text>
+    <description>View of the tympanic membrane.</description>
+   </items>
+   <items id="at4">
+    <text>Full view</text>
+    <description>All of the tympanic membrane was visualised.</description>
+   </items>
+   <items id="at5">
+    <text>Partial occlusion</text>
+    <description>Part of the tympanic membrane was not clearly visualised, but sufficient to permit a clinical opinion to be formed.</description>
+   </items>
+   <items id="at6">
+    <text>Total occlusion</text>
+    <description>None of the tympanic membrane visualised, such that a clinical opinion of the state of the tympanic membrane could not be formed.</description>
+   </items>
+   <items id="id7">
+    <text>Reason for Occlusion of View</text>
+    <description>Description of the reason for occlusion to the view of the tympanic membrane.</description>
+   </items>
+   <items id="id8">
+    <text>Membrane Intact?</text>
+    <description>Is the tympanic membrane intact?</description>
+   </items>
+   <items id="at9">
+    <text>Intact</text>
+    <description>The tympanic membrane appears intact.</description>
+   </items>
+   <items id="at10">
+    <text>Perforated</text>
+    <description>The tympanic membrane appears perforated.</description>
+   </items>
+   <items id="id11">
+    <text>Landmark Anatomy</text>
+    <description>Details about visibility of anatomical landmarks of the middle ear at the tympanic membrane.</description>
+   </items>
+   <items id="id12">
+    <text>Normal Light Reflex</text>
+    <description>Presence of a normal light reflex noted.</description>
+   </items>
+   <items id="at13">
+    <text>Present</text>
+    <description>A normal light reflex is visible.</description>
+   </items>
+   <items id="at14">
+    <text>Absent</text>
+    <description>A normal light reflex is not visible.</description>
+   </items>
+   <items id="id15">
+    <text>Annulus</text>
+    <description>Narrative description of the Annulus.</description>
+   </items>
+   <items id="id16">
+    <text>Malleus Handle</text>
+    <description>Narrative description of the Malleus Handle.</description>
+   </items>
+   <items id="id17">
+    <text>Malleus Head</text>
+    <description>Narrative description of the Malleus Head.</description>
+   </items>
+   <items id="id18">
+    <text>Umbo</text>
+    <description>Narrative description of the Umbo.</description>
+   </items>
+   <items id="id19">
+    <text>Appearance</text>
+    <description>Category describing the appearance of the tympanic membrane.</description>
+   </items>
+   <items id="at20">
+    <text>Translucent</text>
+    <description>The tympanic membrane appears healthy.</description>
+   </items>
+   <items id="at22">
+    <text>Opaque</text>
+    <description>The tympanic membrane appears dull and opaque.</description>
+   </items>
+   <items id="id23">
+    <text>Surface Features</text>
+    <description>Features observed on the surface of the tympanic membrane.</description>
+   </items>
+   <items id="at24">
+    <text>Blistering present</text>
+    <description>Blistering is observed on the surface of the tympanic membrane.</description>
+   </items>
+   <items id="at25">
+    <text>Scarring present</text>
+    <description>Scarring is observed on the surface of the tympanic membrane.</description>
+   </items>
+   <items id="at26">
+    <text>Granulation present</text>
+    <description>Granulation is observed on the surface of the tympanic membrane.</description>
+   </items>
+   <items id="at27">
+    <text>Thickening present</text>
+    <description>Thickening is observed on the surface of the tympanic membrane.</description>
+   </items>
+   <items id="id29">
+    <text>Colour</text>
+    <description>Description of the overall colour of the tympanic membrane.</description>
+   </items>
+   <items id="id35">
+    <text>Location of Tympanosclerosis</text>
+    <description>Description of the location of any tympanosclerosis observed on the tympanic membrane.</description>
+   </items>
+   <items id="id36">
+    <text>Position of Tympanic Membrane</text>
+    <description>Description of the position of the tympanic membrane.</description>
+   </items>
+   <items id="at37">
+    <text>Neutral</text>
+    <description>The tympanic membrane is in a normal, neutral position - neither bulging or retracted.</description>
+   </items>
+   <items id="at38">
+    <text>Bulging</text>
+    <description>The tympanic membrane appears to be bulging.</description>
+   </items>
+   <items id="at39">
+    <text>Retracted</text>
+    <description>The tympanic membrane appears to be retracted.</description>
+   </items>
+   <items id="id41">
+    <text>Description of Retraction</text>
+    <description>Description of retraction of the tympanic membrane.</description>
+   </items>
+   <items id="id45">
+    <text>Retraction Grade</text>
+    <description>Description of retraction using formal classification/grading.</description>
+   </items>
+   <items id="id49">
+    <text>Fluid Level Presence</text>
+    <description>Presence of a fluid level behind the tympanic membrane.</description>
+   </items>
+   <items id="at50">
+    <text>Present</text>
+    <description>A fluid level is observed behind the tympanic membrane.</description>
+   </items>
+   <items id="at51">
+    <text>Absent</text>
+    <description>A fluid level is not observed behind the tympanic membrane.</description>
+   </items>
+   <items id="id52">
+    <text>Fluid Level Description</text>
+    <description>Narrative description of the fluid level and other related features observed behind the tympanic membrane.</description>
+   </items>
+   <items id="id53">
+    <text>Mobility</text>
+    <description>Description of mobility of the tympanic membrane, usually as determined by pneumatic otoscopy.</description>
+   </items>
+   <items id="at54">
+    <text>Immobile</text>
+    <description>There is minimal or no movement of the tympanic membrane when positive pressure is applied.</description>
+   </items>
+   <items id="at55">
+    <text>Hypomobile</text>
+    <description>The tympanic membrane moves with less excursion and in a more sluggish fashion when positive pressure is applied.</description>
+   </items>
+   <items id="at56">
+    <text>Mobile</text>
+    <description>The tympanic membrane shows a crisp inward (medial) movement (approx 1mm) with positive pressure.</description>
+   </items>
+   <items id="at57">
+    <text>Hypermobile</text>
+    <description>There is exaggerated movement of the tympanic membrane when positive pressure is applied.</description>
+   </items>
+   <items id="id61">
+    <text>Stapes</text>
+    <description>Narrative description of the Stapes.</description>
+   </items>
+   <items id="id62">
+    <text>Incus</text>
+    <description>Narrative description of the Incus.</description>
+   </items>
+   <items id="id63">
+    <text>Perforation Details</text>
+    <description>Details about the tympanic membrane perforation.</description>
+   </items>
+   <items id="id65">
+    <text>Abnormal Features</text>
+    <description>Details about abnormal features noted during the examination of the external auditory canal.</description>
+   </items>
+   <items id="id66">
+    <text>Estimation of Size</text>
+    <description>Estimation of the size of the tympanic membrane perforation, based on anatomical landmarks.</description>
+   </items>
+   <items id="at67">
+    <text>Pinhole</text>
+    <description>A pinhole perforation is present in the tympanic membrane.</description>
+   </items>
+   <items id="at68">
+    <text>Intermediate</text>
+    <description>A perforation is present in the tympanic membrane, that is larger than a pinhole but smaller than a subtotal perforation.</description>
+   </items>
+   <items id="at69">
+    <text>Subtotal</text>
+    <description>A subtotal perforation is present in the tympanic membrane: the pars tensa is absent but the perforation does not include the annulus.</description>
+   </items>
+   <items id="at70">
+    <text>Total</text>
+    <description>A total perforation is present in the tympanic membrane; the tympanic membrane is essentially absent.</description>
+   </items>
+   <items id="id71">
+    <text>Measurement</text>
+    <description>Direct measurement of the size of the tympanic membrane perforation, usually using a photograph as the source for direct measurement.</description>
+   </items>
+   <items id="id72">
+    <text>Marginal?</text>
+    <description>Location of the tympanic membrane perforation.</description>
+   </items>
+   <items id="at73">
+    <text>Central</text>
+    <description>The perforation is not involving the annulus and is bounded on all sides by the remnant of the tympanic membrane.</description>
+   </items>
+   <items id="at74">
+    <text>Marginal</text>
+    <description>The perforation involves the annulus of the tympanic membrane.</description>
+   </items>
+   <items id="id75">
+    <text>Region</text>
+    <description>Description of the region of the tympanic membrane perforation.</description>
+   </items>
+   <items id="id77">
+    <text>Anterior?</text>
+    <description>Is an anterior perforation present?</description>
+   </items>
+   <items id="at78">
+    <text>Present</text>
+    <description>An anterior perforation is present in the pars tensa.</description>
+   </items>
+   <items id="at79">
+    <text>Absent</text>
+    <description>An anterior perforation is not present in the pars tensa.</description>
+   </items>
+   <items id="id80">
+    <text>Edge</text>
+    <description>Narrative description of the edge of the perforation.</description>
+   </items>
+   <items id="at91">
+    <text>Serous</text>
+    <description>The discharge appears to consist mostly of clear, watery fluid.</description>
+   </items>
+   <items id="at92">
+    <text>Bloody</text>
+    <description>The discharge appears to consist mostly of blood.</description>
+   </items>
+   <items id="at93">
+    <text>Purulent</text>
+    <description>The discharge appears to consist mostly of pus.</description>
+   </items>
+   <items id="at94">
+    <text>Mucous</text>
+    <description>The discharge appears to consist mostly of a thick, mucoid substance.</description>
+   </items>
+   <items id="at95">
+    <text>Mucopurulent</text>
+    <description>The discharge appears to consist of both mucous and pus.</description>
+   </items>
+   <items id="at96">
+    <text>Haemoserous</text>
+    <description>The discharge appears to consist of both blood and clear, watery fluid.</description>
+   </items>
+   <items id="id98">
+    <text>Ear Examined</text>
+    <description>Identification of the ear under examination.</description>
+   </items>
+   <items id="at99">
+    <text>Left</text>
+    <description>The left external auditory canal and tympanic membrane.</description>
+   </items>
+   <items id="at100">
+    <text>Right</text>
+    <description>The right external auditory canal and tympanic membrane.</description>
+   </items>
+   <items id="id105">
+    <text>Tympanic Membrane Details</text>
+    <description>Details about findings on examination of the tympanic membrane.</description>
+   </items>
+   <items id="id106">
+    <text>Clinical Interpretation</text>
+    <description>Single word, phrase or brief description representing a summary of the examination findings.</description>
+   </items>
+   <items id="id107">
+    <text>Consistency of Wax</text>
+    <description>Description of the type of wax in the external auditory canal.</description>
+   </items>
+   <items id="at108">
+    <text>Hard</text>
+    <description>The wax is hard.</description>
+   </items>
+   <items id="at109">
+    <text>Soft</text>
+    <description>The wax is soft.</description>
+   </items>
+   <items id="id110">
+    <text>State of Wax</text>
+    <description>Description of the state of the wax observed in the external auditory canal.</description>
+   </items>
+   <items id="at111">
+    <text>Impacted</text>
+    <description>Ear wax is tightly packed in the external auditory canal, such that it may be hard to remove or cause difficulty with hearing.</description>
+   </items>
+   <items id="at112">
+    <text>Not impacted</text>
+    <description>Ear wax is not tightly packed in the external auditory canal.</description>
+   </items>
+   <items id="id113">
+    <text>Polyps</text>
+    <description>Presence of polyp/polyps in the external auditory canal.</description>
+   </items>
+   <items id="at114">
+    <text>Present</text>
+    <description>Polyps are observed in the external auditory canal.</description>
+   </items>
+   <items id="at115">
+    <text>Absent</text>
+    <description>No polyps are observed in the external auditory canal.</description>
+   </items>
+   <items id="id125">
+    <text>Erythema of Canal</text>
+    <description>Presence of erythema or redness in the external auditory canal.</description>
+   </items>
+   <items id="at126">
+    <text>Present</text>
+    <description>Erythema, or redness, is observed in the wall of the external auditory canal.</description>
+   </items>
+   <items id="at127">
+    <text>Absent</text>
+    <description>There is no erythema or redness observed in the wall of the external auditory canal.</description>
+   </items>
+   <items id="id133">
+    <text>Oedema of Canal</text>
+    <description>Presence of oedema in the external auditory canal.</description>
+   </items>
+   <items id="at134">
+    <text>Present</text>
+    <description>Oedema is observed in the external auditory canal wall.</description>
+   </items>
+   <items id="at135">
+    <text>Absent</text>
+    <description>Oedema is not observed in the external auditory canal wall.</description>
+   </items>
+   <items id="id140">
+    <text>Tenderness of Canal</text>
+    <description>Presence of tenderness in the external auditory canal.</description>
+   </items>
+   <items id="at141">
+    <text>Present</text>
+    <description>Tenderness is noted in the external auditory canal wall.</description>
+   </items>
+   <items id="at142">
+    <text>Absent</text>
+    <description>Tenderness is not noted in the external auditory canal wall.</description>
+   </items>
+   <items id="id144">
+    <text>Offensive Odour</text>
+    <description>Presence of any offensive odour originating from the external auditory canal.</description>
+   </items>
+   <items id="at145">
+    <text>Absent</text>
+    <description>No odour is noted as originating from the external auditory canal.</description>
+   </items>
+   <items id="at146">
+    <text>Present</text>
+    <description>An offensive odour is noted as originating from the external auditory canal.</description>
+   </items>
+   <items id="id148">
+    <text>Fungal Spores</text>
+    <description>Presence of fungal spores in the external auditory canal.</description>
+   </items>
+   <items id="at149">
+    <text>Present</text>
+    <description>Fungal spores are observed in the external auditory canal.</description>
+   </items>
+   <items id="at150">
+    <text>Absent</text>
+    <description>No fungal spores are observed in the external auditory canal.</description>
+   </items>
+   <items id="id152">
+    <text>Discharge Amount</text>
+    <description>Amount of discharge observed in the external auditory canal or at the tympanic membrane perforation.</description>
+   </items>
+   <items id="at153">
+    <text>None</text>
+    <description>No discharge is observed in the external auditory canal.</description>
+   </items>
+   <items id="at154">
+    <text>Scant</text>
+    <description>A small amount of discharge is observed in the external auditory canal.</description>
+   </items>
+   <items id="at155">
+    <text>Moderate</text>
+    <description>A moderate amount of discharge is observed in the external auditory canal.</description>
+   </items>
+   <items id="at156">
+    <text>Profuse</text>
+    <description>A profuse amount of discharge is observed in the external auditory canal.</description>
+   </items>
+   <items id="id157">
+    <text>Discharge Description</text>
+    <description>Narrative description of the discharge observed in the external auditory canal or at the tympanic membrane perforation.</description>
+   </items>
+   <items id="id158">
+    <text>Discharge Type</text>
+    <description>Type of discharge observed in the external auditory canal or at the tympanic membrane perforation.</description>
+   </items>
+   <items id="id160">
+    <text>Foreign Body</text>
+    <description>Presence of a foreign body in the external auditory canal.</description>
+   </items>
+   <items id="at161">
+    <text>Present</text>
+    <description>A foreign body is present in the external auditory canal.</description>
+   </items>
+   <items id="at162">
+    <text>Absent</text>
+    <description>A foreign body is present in the external auditory canal.</description>
+   </items>
+   <items id="id164">
+    <text>Location of Foreign Body</text>
+    <description>Location of the foreign body within the external auditory canal.</description>
+   </items>
+   <items id="at165">
+    <text>Outer canal</text>
+    <description>The foreign body is located in the outer part of the external auditory canal.</description>
+   </items>
+   <items id="at166">
+    <text>Deep canal</text>
+    <description>The foreign body is located in the deep, inner part of the external auditory canal.</description>
+   </items>
+   <items id="id167">
+    <text>Ventilation Tube Position</text>
+    <description>Observed position of the ventilation tube (or grommet) in the tympanic membrane or the auditory canal.</description>
+   </items>
+   <items id="at168">
+    <text>In situ</text>
+    <description>The ventilation tube is located in situ in the tympanic membrane.</description>
+   </items>
+   <items id="at169">
+    <text>Partially extruded</text>
+    <description>The ventilation tube is partially extruded from it&apos;s original position in the tympanic membrane.</description>
+   </items>
+   <items id="at170">
+    <text>Extruded - remains in canal</text>
+    <description>The ventilation tube has been extruded from the tympanic membrane but is visualised within the external auditory canal.</description>
+   </items>
+   <items id="at171">
+    <text>Extruded - missing</text>
+    <description>The ventilation tube has been extruded from the tympanic membrane and is not visualised anywhere within the external auditory canal.</description>
+   </items>
+   <items id="at172">
+    <text>Unknown</text>
+    <description>The position of the ventilation tube cannot be determined because the tympanic membrane is obscured and the ventilation tube is not observed within the external auditory canal.</description>
+   </items>
+   <items id="id173">
+    <text>Image</text>
+    <description>Multimedia image taken during the physical examination of the external auditory canal and tympanic membrane.</description>
+   </items>
+   <items id="id174">
+    <text>Comments</text>
+    <description>Additional narrative about the physical examination findings of the external auditory canal and tympanic membrane, not captured in other fields.</description>
+   </items>
+   <items id="at176">
+    <text>Tympanosclerosis present</text>
+    <description>White patches, consistent with tympanosclerosis, are observed on surface of the tympanic membrane.</description>
+   </items>
+   <items id="at181">
+    <text>Pars flaccida</text>
+    <description>The tympanic membrane perforation is located in the pars flaccida.</description>
+   </items>
+   <items id="at182">
+    <text>Pars tensa</text>
+    <description>The tympanic membrane perforation is located in the pars tensa.</description>
+   </items>
+   <items id="at183">
+    <text>Indeterminate</text>
+    <description>It is not possible to tell if the tympanic membrane is intact or perforated.</description>
+   </items>
+   <items id="ac1">
+    <text>Ear Examined (synthesised)</text>
+    <description>Identification of the ear under examination. (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Consistency of Wax (synthesised)</text>
+    <description>Description of the type of wax in the external auditory canal. (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>State of Wax (synthesised)</text>
+    <description>Description of the state of the wax observed in the external auditory canal. (synthesised)</description>
+   </items>
+   <items id="ac4">
+    <text>View of Tympanic Membrane (synthesised)</text>
+    <description>View of the tympanic membrane. (synthesised)</description>
+   </items>
+   <items id="ac5">
+    <text>Tenderness of Canal (synthesised)</text>
+    <description>Presence of tenderness in the external auditory canal. (synthesised)</description>
+   </items>
+   <items id="ac6">
+    <text>Oedema of Canal (synthesised)</text>
+    <description>Presence of oedema in the external auditory canal. (synthesised)</description>
+   </items>
+   <items id="ac7">
+    <text>Erythema of Canal (synthesised)</text>
+    <description>Presence of erythema or redness in the external auditory canal. (synthesised)</description>
+   </items>
+   <items id="ac8">
+    <text>Offensive Odour (synthesised)</text>
+    <description>Presence of any offensive odour originating from the external auditory canal. (synthesised)</description>
+   </items>
+   <items id="ac9">
+    <text>Discharge Type (synthesised)</text>
+    <description>Type of discharge observed in the external auditory canal or at the tympanic membrane perforation. (synthesised)</description>
+   </items>
+   <items id="ac10">
+    <text>Discharge Amount (synthesised)</text>
+    <description>Amount of discharge observed in the external auditory canal or at the tympanic membrane perforation. (synthesised)</description>
+   </items>
+   <items id="ac11">
+    <text>Ventilation Tube Position (synthesised)</text>
+    <description>Observed position of the ventilation tube (or grommet) in the tympanic membrane or the auditory canal. (synthesised)</description>
+   </items>
+   <items id="ac12">
+    <text>Polyps (synthesised)</text>
+    <description>Presence of polyp/polyps in the external auditory canal. (synthesised)</description>
+   </items>
+   <items id="ac13">
+    <text>Fungal Spores (synthesised)</text>
+    <description>Presence of fungal spores in the external auditory canal. (synthesised)</description>
+   </items>
+   <items id="ac14">
+    <text>Foreign Body (synthesised)</text>
+    <description>Presence of a foreign body in the external auditory canal. (synthesised)</description>
+   </items>
+   <items id="ac15">
+    <text>Location of Foreign Body (synthesised)</text>
+    <description>Location of the foreign body within the external auditory canal. (synthesised)</description>
+   </items>
+   <items id="ac16">
+    <text>Membrane Intact? (synthesised)</text>
+    <description>Is the tympanic membrane intact? (synthesised)</description>
+   </items>
+   <items id="ac17">
+    <text>Membrane Intact? (synthesised)</text>
+    <description>Is the tympanic membrane intact? (synthesised)</description>
+   </items>
+   <items id="ac18">
+    <text>Appearance (synthesised)</text>
+    <description>Category describing the appearance of the tympanic membrane. (synthesised)</description>
+   </items>
+   <items id="ac19">
+    <text>Normal Light Reflex (synthesised)</text>
+    <description>Presence of a normal light reflex noted. (synthesised)</description>
+   </items>
+   <items id="ac20">
+    <text>Surface Features (synthesised)</text>
+    <description>Features observed on the surface of the tympanic membrane. (synthesised)</description>
+   </items>
+   <items id="ac21">
+    <text>Position of Tympanic Membrane (synthesised)</text>
+    <description>Description of the position of the tympanic membrane. (synthesised)</description>
+   </items>
+   <items id="ac22">
+    <text>Fluid Level Presence (synthesised)</text>
+    <description>Presence of a fluid level behind the tympanic membrane. (synthesised)</description>
+   </items>
+   <items id="ac23">
+    <text>Mobility (synthesised)</text>
+    <description>Description of mobility of the tympanic membrane, usually as determined by pneumatic otoscopy. (synthesised)</description>
+   </items>
+   <items id="ac24">
+    <text>Estimation of Size (synthesised)</text>
+    <description>Estimation of the size of the tympanic membrane perforation, based on anatomical landmarks. (synthesised)</description>
+   </items>
+   <items id="ac25">
+    <text>Region (synthesised)</text>
+    <description>Description of the region of the tympanic membrane perforation. (synthesised)</description>
+   </items>
+   <items id="ac26">
+    <text>Marginal? (synthesised)</text>
+    <description>Location of the tympanic membrane perforation. (synthesised)</description>
+   </items>
+   <items id="ac27">
+    <text>Anterior? (synthesised)</text>
+    <description>Is an anterior perforation present? (synthesised)</description>
+   </items>
+   <items id="ac28">
+    <text>Image (synthesised)</text>
+    <description>Multimedia image taken during the physical examination of the external auditory canal and tympanic membrane. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac9">
+   <members>at91</members>
+   <members>at92</members>
+   <members>at93</members>
+   <members>at94</members>
+   <members>at95</members>
+   <members>at96</members>
+  </value_sets>
+  <value_sets id="ac19">
+   <members>at13</members>
+   <members>at14</members>
+  </value_sets>
+  <value_sets id="ac1">
+   <members>at99</members>
+   <members>at100</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at108</members>
+   <members>at109</members>
+  </value_sets>
+  <value_sets id="ac3">
+   <members>at111</members>
+   <members>at112</members>
+  </value_sets>
+  <value_sets id="ac4">
+   <members>at4</members>
+   <members>at5</members>
+   <members>at6</members>
+  </value_sets>
+  <value_sets id="ac5">
+   <members>at141</members>
+   <members>at142</members>
+  </value_sets>
+  <value_sets id="ac6">
+   <members>at134</members>
+   <members>at135</members>
+  </value_sets>
+  <value_sets id="ac7">
+   <members>at126</members>
+   <members>at127</members>
+  </value_sets>
+  <value_sets id="ac8">
+   <members>at146</members>
+   <members>at145</members>
+  </value_sets>
+  <value_sets id="ac10">
+   <members>at153</members>
+   <members>at154</members>
+   <members>at155</members>
+   <members>at156</members>
+  </value_sets>
+  <value_sets id="ac11">
+   <members>at168</members>
+   <members>at169</members>
+   <members>at170</members>
+   <members>at171</members>
+   <members>at172</members>
+  </value_sets>
+  <value_sets id="ac12">
+   <members>at114</members>
+   <members>at115</members>
+  </value_sets>
+  <value_sets id="ac13">
+   <members>at149</members>
+   <members>at150</members>
+  </value_sets>
+  <value_sets id="ac14">
+   <members>at161</members>
+   <members>at162</members>
+  </value_sets>
+  <value_sets id="ac15">
+   <members>at165</members>
+   <members>at166</members>
+  </value_sets>
+  <value_sets id="ac16">
+   <members>at9</members>
+   <members>at10</members>
+   <members>at183</members>
+  </value_sets>
+  <value_sets id="ac18">
+   <members>at20</members>
+   <members>at22</members>
+  </value_sets>
+  <value_sets id="ac20">
+   <members>at24</members>
+   <members>at25</members>
+   <members>at26</members>
+   <members>at27</members>
+   <members>at176</members>
+  </value_sets>
+  <value_sets id="ac21">
+   <members>at38</members>
+   <members>at37</members>
+   <members>at39</members>
+  </value_sets>
+  <value_sets id="ac22">
+   <members>at50</members>
+   <members>at51</members>
+  </value_sets>
+  <value_sets id="ac23">
+   <members>at54</members>
+   <members>at55</members>
+   <members>at56</members>
+   <members>at57</members>
+  </value_sets>
+  <value_sets id="ac24">
+   <members>at67</members>
+   <members>at68</members>
+   <members>at69</members>
+   <members>at70</members>
+  </value_sets>
+  <value_sets id="ac25">
+   <members>at181</members>
+   <members>at182</members>
+  </value_sets>
+  <value_sets id="ac26">
+   <members>at73</members>
+   <members>at74</members>
+  </value_sets>
+  <value_sets id="ac27">
+   <members>at78</members>
+   <members>at79</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

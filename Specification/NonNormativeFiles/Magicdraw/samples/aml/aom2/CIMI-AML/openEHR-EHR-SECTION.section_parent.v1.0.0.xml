@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Thomas Beale</original_author>
+  <original_author id="email">thomas.beale@oceaninformatics.com</original_author>
+  <original_author id="date">8/04/2007</original_author>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To provide a root heading for physical examination in all structured recordings</purpose>
+  </details>
+  <other_details id="regression">PASS</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="SECTION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-SECTION.section_parent.v1.0.0">
+  <concept_id>section_parent</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="SECTION" is_deprecated="false" is_frozen="false">
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Physical examination</text>
+    <description>An open section for recording physical examination findings</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

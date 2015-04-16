@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype  xsi:schemaLocation="http://schemas.openehr.org/v1 P_Archetype.xsd" xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Heather Leslie</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">heather.leslie@oceaninformatics.com</original_author>
+  <original_author id="date">19/07/2008</original_author>
+  <copyright>copyright (c) 2009 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record the number of day&apos;s since the Last Normal Menstrual Period</purpose>
+   <use>To reuse within multiple archetypes - for example, the cluster recording the details about menstrual cycles, plus use in the temperature observation</use>
+   <keywords>menstrual</keywords>
+   <keywords>cycle</keywords>
+   <keywords>menstruation</keywords>
+   <keywords>day</keywords>
+   <keywords>woman</keywords>
+   <keywords>female</keywords>
+   <misuse></misuse>
+  </details>
+  <other_details id="references"></other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="ELEMENT" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-ELEMENT.menstrual_cycle_day.v1.0.0">
+  <concept_id>menstrual_cycle_day</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="DV_COUNT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+    <!-- 
+     <children upper_unbounded="true" xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+     -->
+     <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>
+       <lower>1</lower>
+      </constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Current Day of Menstrual cycle</text>
+    <description>Number of days since onset of last normal menstrual period</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

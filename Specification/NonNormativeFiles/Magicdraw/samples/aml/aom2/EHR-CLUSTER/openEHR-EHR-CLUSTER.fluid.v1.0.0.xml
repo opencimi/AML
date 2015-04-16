@@ -1,0 +1,637 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Dr Ian McNicoll</original_author>
+  <original_author id="organisation">Ocean Informatics, United Kingdom</original_author>
+  <original_author id="email">ian.mcnicoll@oceaninformatics.com</original_author>
+  <original_author id="date">12/06/2010</original_author>
+  <copyright>copyright (c) 2010 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To describe body fluids, secretions and substances.</purpose>
+   <use></use>
+   <keywords>fluid</keywords>
+   <keywords>solid</keywords>
+   <keywords>excretion</keywords>
+   <keywords>substance</keywords>
+   <keywords>secretion</keywords>
+   <misuse></misuse>
+  </details>
+  <other_contributors>Sebastian Garde, Ocean Informatics, Germany (Editor)</other_contributors>
+  <other_contributors>Omer Hotomaroglu, Turkey (Editor)</other_contributors>
+  <other_contributors>Heather Leslie, Ocean Informatics, Australia (Editor)</other_contributors>
+  <other_details id="references"></other_details>
+  <other_details id="MD5-CAM-1.0.1">97E67C46BE5BE2E9D5116E9DD44F2B9F</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.fluid.v1.0.0">
+  <concept_id>fluid</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id85" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id86" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id87" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id88" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id76" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id89" rm_type_name="DV_BOOLEAN" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_BOOLEAN" node_id="id9999" rm_type_name="BOOLEAN" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>true</constraint>
+          <constraint>false</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id26" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id90" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac1</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id91" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac2</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id92" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at84</constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+         <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0.0</lower>
+          </constraint>
+         </children>
+         <children  xsi:type="P_C_REAL" node_id="id99992" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0.0</lower>
+          </constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ml</constraint>
+         </children>
+         <children xsi:type="P_C_STRING" node_id="id99992" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>l</constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="precision" is_multiple="false">
+         <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>1</lower>
+          </constraint>
+         </children>
+         <children  xsi:type="P_C_INTEGER" node_id="id99992" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0</lower>
+          </constraint>
+         </children>
+        </attributes>
+        <attribute_tuples>
+         <members>magnitude</members>
+         <members>units</members>
+         <members>precision</members>
+        </attribute_tuples>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id72" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id93" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at85</constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+         <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0.0</lower>
+          </constraint>
+         </children>
+         <children  xsi:type="P_C_REAL" node_id="id99992" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0.0</lower>
+          </constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>gm</constraint>
+         </children>
+         <children xsi:type="P_C_STRING" node_id="id99992" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>kg</constraint>
+         </children>
+        </attributes>
+        <attribute_tuples>
+         <members>magnitude</members>
+         <members>units</members>
+        </attribute_tuples>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id69" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id94" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id70" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id95" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at86</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id71" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id96" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id14" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id97" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id68" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id98" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id82" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id99" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac3</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id73" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id15" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id100" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac4</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id21" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id101" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac5</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id38" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id102" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac6</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id74" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id75" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id103" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac7</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id33" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_ARCHETYPE_SLOT" node_id="id84" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_closed="false">
+      <includes type="Boolean">
+       <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+        <operator value="2007">
+        </operator>
+        <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+         <item>archetype_id/value</item>
+        </left_operand>
+        <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+         <item>
+          <rm_type_name>STRING</rm_type_name>
+          <constraint>/openEHR-EHR-CLUSTER\.fluid(-a-zA-Z0-9_]+)*\.v1/</constraint>
+          <is_path_compressible>false</is_path_compressible>
+          <is_deprecated>false</is_deprecated>
+          <is_frozen>false</is_frozen>
+          <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+         </item>
+        </right_operand>
+       </expression>
+      </includes>
+      <excludes type="Boolean">
+       <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+        <operator value="2007">
+        </operator>
+        <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+         <item>archetype_id/value</item>
+        </left_operand>
+        <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+         <item>
+          <rm_type_name>STRING</rm_type_name>
+          <constraint>/.*/</constraint>
+          <is_path_compressible>false</is_path_compressible>
+          <is_deprecated>false</is_deprecated>
+          <is_frozen>false</is_frozen>
+          <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+         </item>
+        </right_operand>
+       </expression>
+      </excludes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Body fluid or substance</text>
+    <description>Details of the findings relating to a bodily fluid, secretion or substance.</description>
+   </items>
+   <items id="id2">
+    <text>Substance</text>
+    <description>The fluid or substance.</description>
+   </items>
+   <items id="id3">
+    <text>Source</text>
+    <description>The source of the fluid or substance.</description>
+   </items>
+   <items id="id4">
+    <text>Normal statements</text>
+    <description>A statement about the normality of the fluid or substance.</description>
+   </items>
+   <items id="id6">
+    <text>Clinical description</text>
+    <description>A description of the fluid or substance.</description>
+   </items>
+   <items id="id7">
+    <text>Quantity</text>
+    <description>Statements about the quantity of fluid or secretion.</description>
+   </items>
+   <items id="id8">
+    <text>Volume</text>
+    <description>The volume of the fluid or secretion.</description>
+   </items>
+   <items id="id9">
+    <text>Change in amount</text>
+    <description>Statement about the change in volume of the fluid or secretion.</description>
+   </items>
+   <items id="at10">
+    <text>Increasing</text>
+    <description>Increasing volumes of fluid.</description>
+   </items>
+   <items id="at11">
+    <text>Stable</text>
+    <description>The volume of fluid or liquid is stable.</description>
+   </items>
+   <items id="at12">
+    <text>Decreasing</text>
+    <description>The volume of fluid is decreasing.</description>
+   </items>
+   <items id="at13">
+    <text>Ceased</text>
+    <description>The quantity of body fluid is now zero.</description>
+   </items>
+   <items id="id14">
+    <text>Colour</text>
+    <description>The colour of the fluid.</description>
+   </items>
+   <items id="id15">
+    <text>Turbidity</text>
+    <description>The degree of solid material suspended in the fluid.</description>
+   </items>
+   <items id="at16">
+    <text>Clear</text>
+    <description>The fluid or secretion is crystal clear.</description>
+   </items>
+   <items id="at17">
+    <text>Slightly cloudy</text>
+    <description>There is a small amount of solid suspended in the fluid.</description>
+   </items>
+   <items id="at18">
+    <text>Cloudy</text>
+    <description>There is a large amount of solid suspended but it still transmits light.</description>
+   </items>
+   <items id="at19">
+    <text>Opaque</text>
+    <description>There is so much solid suspended that the fluid does not transmit light.</description>
+   </items>
+   <items id="at20">
+    <text>Flocculent</text>
+    <description>The fluid is mostly composed of suspended solids.</description>
+   </items>
+   <items id="id21">
+    <text>Consistency</text>
+    <description>The consistency of the fluid.</description>
+   </items>
+   <items id="at22">
+    <text>Watery</text>
+    <description>The fluid flows like water.</description>
+   </items>
+   <items id="at23">
+    <text>Oily/viscous</text>
+    <description>The fluid flows like an oil.</description>
+   </items>
+   <items id="at24">
+    <text>Creamy/sticky</text>
+    <description>The fluid is quite thick and flows like cream.</description>
+   </items>
+   <items id="at25">
+    <text>Thick</text>
+    <description>The fluid does not flow.</description>
+   </items>
+   <items id="id26">
+    <text>Amount</text>
+    <description>The amount of substance as a category.</description>
+   </items>
+   <items id="at27">
+    <text>None</text>
+    <description>There is no longer any fluid /substance.</description>
+   </items>
+   <items id="at28">
+    <text>Scant</text>
+    <description>There is a small amount of fluid/substance.</description>
+   </items>
+   <items id="at29">
+    <text>Minimal</text>
+    <description>There is a minimal amount of fluid/substance.</description>
+   </items>
+   <items id="at30">
+    <text>Moderate</text>
+    <description>There is a moderate amount of fluid/ substance.</description>
+   </items>
+   <items id="at31">
+    <text>Heavy</text>
+    <description>There is a heavy amount of fluid/substance.</description>
+   </items>
+   <items id="at32">
+    <text>Large</text>
+    <description>There is a large amount of fluid or substance.</description>
+   </items>
+   <items id="id33">
+    <text>Contained substances</text>
+    <description>Other substances mixed within the main bodily substance being described.</description>
+   </items>
+   <items id="id38">
+    <text>Sediment</text>
+    <description>The amount of sediment in the fluid.</description>
+   </items>
+   <items id="at39">
+    <text>Scant</text>
+    <description>There is a very small amount of sediment in the fluid.</description>
+   </items>
+   <items id="at40">
+    <text>Moderate</text>
+    <description>There is a moderate amount of sediment in the fluid.</description>
+   </items>
+   <items id="at41">
+    <text>Profuse</text>
+    <description>There is a large amount of sediment in the fluid.</description>
+   </items>
+   <items id="at50">
+    <text>Fresh</text>
+    <description>The bodily substance appears fresh.</description>
+   </items>
+   <items id="at51">
+    <text>Old</text>
+    <description>The bodily substance appears old.</description>
+   </items>
+   <items id="at64">
+    <text>Waxy</text>
+    <description>The fluid has a consistency like wax.</description>
+   </items>
+   <items id="id68">
+    <text>Smell</text>
+    <description>The smell of the bodily substance.</description>
+   </items>
+   <items id="id69">
+    <text>Flow category</text>
+    <description>A text description of the flow rate.</description>
+   </items>
+   <items id="id70">
+    <text>Flow rate</text>
+    <description>A numerical expression of flow rate.</description>
+   </items>
+   <items id="id71">
+    <text>Comment</text>
+    <description>A text comment about the substance amount.</description>
+   </items>
+   <items id="id72">
+    <text>Mass</text>
+    <description>The quantity expressed as a mass or weight.</description>
+   </items>
+   <items id="id73">
+    <text>Fluid details</text>
+    <description>Findings specific to substances that are normally fluid.</description>
+   </items>
+   <items id="id74">
+    <text>Solid details</text>
+    <description>Findings specific to substances that are normally solid.</description>
+   </items>
+   <items id="id75">
+    <text>Consistency</text>
+    <description>Findings realted to the consistency of the substance.</description>
+   </items>
+   <items id="id76">
+    <text>Substance present</text>
+    <description>Substance is present.</description>
+   </items>
+   <items id="at78">
+    <text>Normal</text>
+    <description>The solid is of a normal consistency.</description>
+   </items>
+   <items id="at79">
+    <text>Soft</text>
+    <description>The solid is soft but with no liquid.</description>
+   </items>
+   <items id="at80">
+    <text>Loose</text>
+    <description>The substance, normally solid, is semi liquid but contains a significant amount of solid material.</description>
+   </items>
+   <items id="at81">
+    <text>Liquid</text>
+    <description>The substance, normally solid, has little solid material.</description>
+   </items>
+   <items id="id82">
+    <text>Age</text>
+    <description>Estimated age of the bodily substance.</description>
+   </items>
+   <items id="at83">
+    <text>Particulate</text>
+    <description>The fluid has become partially solidified and dispersed within a containing fluid e.g. particulate meconium within liquor.</description>
+   </items>
+   <items id="id84">
+    <text>Contained substance detail</text>
+    <description>Details of a contained substance.</description>
+   </items>
+   <items id="at84">
+    <text>Volume</text>
+    <description>Volume</description>
+   </items>
+   <items id="at85">
+    <text>Mass</text>
+    <description>Mass</description>
+   </items>
+   <items id="at86">
+    <text>Flow rate, volume</text>
+    <description>Flow rate, volume</description>
+   </items>
+   <items id="ac1">
+    <text>Amount (synthesised)</text>
+    <description>The amount of substance as a category. (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Change in amount (synthesised)</text>
+    <description>Statement about the change in volume of the fluid or secretion. (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>Age (synthesised)</text>
+    <description>Estimated age of the bodily substance. (synthesised)</description>
+   </items>
+   <items id="ac4">
+    <text>Turbidity (synthesised)</text>
+    <description>The degree of solid material suspended in the fluid. (synthesised)</description>
+   </items>
+   <items id="ac5">
+    <text>Consistency (synthesised)</text>
+    <description>The consistency of the fluid. (synthesised)</description>
+   </items>
+   <items id="ac6">
+    <text>Sediment (synthesised)</text>
+    <description>The amount of sediment in the fluid. (synthesised)</description>
+   </items>
+   <items id="ac7">
+    <text>Consistency (synthesised)</text>
+    <description>Findings realted to the consistency of the substance. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="openehr">
+   <items id="at84">http://openehr.org/id/129</items>
+   <items id="at85">http://openehr.org/id/124</items>
+   <items id="at86">http://openehr.org/id/126</items>
+  </term_bindings>
+  <value_sets id="ac1">
+   <members>at27</members>
+   <members>at28</members>
+   <members>at29</members>
+   <members>at30</members>
+   <members>at31</members>
+   <members>at32</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at10</members>
+   <members>at11</members>
+   <members>at12</members>
+   <members>at13</members>
+  </value_sets>
+  <value_sets id="ac3">
+   <members>at50</members>
+   <members>at51</members>
+  </value_sets>
+  <value_sets id="ac4">
+   <members>at16</members>
+   <members>at17</members>
+   <members>at18</members>
+   <members>at19</members>
+   <members>at20</members>
+  </value_sets>
+  <value_sets id="ac5">
+   <members>at22</members>
+   <members>at23</members>
+   <members>at24</members>
+   <members>at25</members>
+   <members>at64</members>
+   <members>at83</members>
+  </value_sets>
+  <value_sets id="ac6">
+   <members>at39</members>
+   <members>at40</members>
+   <members>at41</members>
+  </value_sets>
+  <value_sets id="ac7">
+   <members>at78</members>
+   <members>at79</members>
+   <members>at80</members>
+   <members>at81</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

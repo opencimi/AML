@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Ian McNicoll</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="date">02/11/2007</original_author>
+  <copyright>copyright (c) 2009 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>For recording the findings on inspection of the external ear</purpose>
+   <use>For use with the exam clusters for recording findings on inspection</use>
+   <keywords>inspect</keywords>
+   <keywords>visual</keywords>
+   <keywords>ear</keywords>
+   <keywords>external</keywords>
+   <misuse>Should only be used in the exam observation</misuse>
+  </details>
+  <other_details id="references"></other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.inspection-external_ear.v1.0.0">
+  <concept_id>inspection-external_ear</concept_id>
+ </archetype_id>
+ <parent_archetype_id>openEHR-EHR-CLUSTER.inspection.v1</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <differential_path>/items[id2]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id54.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac0.1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <differential_path>/items[id7]/items[id6]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.61" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.62" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac0.2</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id7]/items[id6]/items[id23]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.63" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id7]/items[id19]/items[id20]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id58.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.3</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <differential_path>/items[id7]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.52" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <sibling_order is_before="true">
+     <sibling_node_id>id50</sibling_node_id>
+    </sibling_order>
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.64" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id0.52">
+    <text>Operative scars</text>
+    <description>Any ear related operative scars</description>
+   </items>
+   <items id="at0.53">
+    <text>External ear normal</text>
+    <description>*</description>
+   </items>
+   <items id="at0.56">
+    <text>Pinna normal</text>
+    <description>*</description>
+   </items>
+   <items id="at0.57">
+    <text>External Auditory Canal normal</text>
+    <description>*</description>
+   </items>
+   <items id="at0.58">
+    <text>Hypoplasia</text>
+    <description>*</description>
+   </items>
+   <items id="at0.59">
+    <text>Atresia</text>
+    <description>*</description>
+   </items>
+   <items id="at0.60">
+    <text>Bat</text>
+    <description>*</description>
+   </items>
+   <items id="id0.61">
+    <text>Anatomical area</text>
+    <description>*</description>
+   </items>
+   <items id="at0.62">
+    <text>Pinna</text>
+    <description>*</description>
+   </items>
+   <items id="at0.63">
+    <text>External Auditory Canal</text>
+    <description>*</description>
+   </items>
+   <items id="id1.1">
+    <text>Inspection of External ear</text>
+    <description>The findings on physical examination by inspection of external ear</description>
+   </items>
+   <items id="ac0.1">
+    <text>Normal statement (synthesised)</text>
+    <description>A specific statement about the normality of inspection (synthesised)</description>
+   </items>
+   <items id="ac0.2">
+    <text>Anatomical area (synthesised)</text>
+    <description>* (synthesised)</description>
+   </items>
+   <items id="ac0.3">
+    <text>Description (synthesised)</text>
+    <description>Description of the external ear (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac0.1">
+   <members>at0.53</members>
+   <members>at0.56</members>
+   <members>at0.57</members>
+  </value_sets>
+  <value_sets id="ac0.2">
+   <members>at0.62</members>
+   <members>at0.63</members>
+  </value_sets>
+  <value_sets id="ac0.3">
+   <members>at0.58</members>
+   <members>at0.59</members>
+   <members>at0.60</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

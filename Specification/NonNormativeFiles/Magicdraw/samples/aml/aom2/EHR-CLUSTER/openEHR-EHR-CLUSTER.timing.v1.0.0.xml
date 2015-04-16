@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Sam Heard</original_author>
+  <original_author id="organisation">openEHR Foundation</original_author>
+  <original_author id="email">sam.heard@oceaninformatics.com</original_author>
+  <original_author id="date">2013-05-16</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To provide structured information on timing that is suitable for computation and display for human interpretation.</purpose>
+   <use>For use with medication orders and other instructions where timing is complex and needs to be computable.</use>
+   <keywords>timing</keywords>
+   <keywords>administration</keywords>
+   <keywords>dosing</keywords>
+   <keywords>frequency</keywords>
+   <misuse>Not to be used for specific timing but for scheduling of tasks that need repeating.</misuse>
+  </details>
+  <other_contributors>Sharmila Biswas, Dr Sharmila Biswas, Australia</other_contributors>
+  <other_contributors>Stephen Chu, NEHTA, Australia (Editor)</other_contributors>
+  <other_contributors>David Evans, Queensland Health, Australia</other_contributors>
+  <other_contributors>Sam Heard, Ocean Informatics, Australia (Editor)</other_contributors>
+  <other_contributors>Heather Leslie, Ocean Informatics, Australia (Editor)</other_contributors>
+  <other_contributors>Richard Townley-O&apos;Neill, NEHTA, Australia (Editor)</other_contributors>
+  <other_details id="references">Timing, draft archetype, NEHTA Clinical Knowledge Manager [Internet]. : NEHTA. Authored: 21 Nov 2010. Available at: http://dcm.nehta.org.au/ckm/#showArchetype_1013.1.886_4 (accessed 15 May 2013).</other_details>
+  <other_details id="MD5-CAM-1.0.1">EFBA7E8A2D9F5834E80C40F5A2E119E1</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.timing.v1.0.0">
+  <concept_id>timing</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id24" rm_type_name="DV_COUNT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id25" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at15</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+       <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0.0</lower>
+        </constraint>
+       </children>
+       <children  xsi:type="P_C_REAL" node_id="id99992" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0.0</lower>
+        </constraint>
+       </children>
+       <children  xsi:type="P_C_REAL" node_id="id99993" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0.0</lower>
+        </constraint>
+       </children>
+       <children  xsi:type="P_C_REAL" node_id="id99994" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0.0</lower>
+        </constraint>
+       </children>
+       <children xsi:type="P_C_REAL" node_id="id99995" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0.0</lower>
+        </constraint>
+       </children>
+       <children  xsi:type="P_C_REAL" node_id="id99996" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0.0</lower>
+        </constraint>
+       </children>
+       <children xsi:type="P_C_REAL" node_id="id99997" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0.0</lower>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>/d</constraint>
+       </children>
+       <children xsi:type="P_C_STRING" node_id="id99992" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>/wk</constraint>
+       </children>
+       <children xsi:type="P_C_STRING" node_id="id99993" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>/mo</constraint>
+       </children>
+       <children xsi:type="P_C_STRING" node_id="id99994" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>/yr</constraint>
+       </children>
+       <children xsi:type="P_C_STRING" node_id="id99995" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>/min</constraint>
+       </children>
+       <children xsi:type="P_C_STRING" node_id="id99996" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>/s</constraint>
+       </children>
+       <children xsi:type="P_C_STRING" node_id="id99997" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>/h</constraint>
+       </children>
+      </attributes>
+      <attribute_tuples>
+       <members>magnitude</members>
+       <members>units</members>
+      </attribute_tuples>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id15" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id26" rm_type_name="DV_DURATION" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id16" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id17" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id27" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false">
+        <target_path>/items[id4]</target_path>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id18" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id28" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false">
+        <target_path>/items[id4]</target_path>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id20" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id21" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id29" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false">
+        <target_path>/items[id15]</target_path>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id22" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id30" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false">
+        <target_path>/items[id15]</target_path>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id31" rm_type_name="DV_TIME" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id32" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id33" rm_type_name="DV_COUNT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+       <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>1</lower>
+         <upper>31</upper>
+        </constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id19" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id34" rm_type_name="DV_DATE" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id23" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id35" rm_type_name="DV_PARSABLE" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="formalism" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>text/xml</constraint>
+        <constraint>text/plain</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Timing</text>
+    <description>Structured information about the timing (intended or actual) of administration or use of a medicine, other therapeutic good or other intervention that is given on a scheduled basis.</description>
+   </items>
+   <items id="id2">
+    <text>Daily count</text>
+    <description>This is the actual or maximum number of doses or other interventions that are to be administered in a 24 hour period.</description>
+   </items>
+   <items id="id4">
+    <text>Frequency</text>
+    <description>The frequency as number of times per time period that the intervention is to take place.</description>
+   </items>
+   <items id="id5">
+    <text>Specific time</text>
+    <description>Specific time(s) during the day when the intervention should be applied.</description>
+   </items>
+   <items id="id6">
+    <text>Day of month</text>
+    <description>The specific and repeating day(s) of the month e.g. if it is required to give a dose on the 2nd day of each month then the value is 2.</description>
+   </items>
+   <items id="id7">
+    <text>Day of week</text>
+    <description>The specific and repeating day(s) of the week.</description>
+   </items>
+   <items id="at8">
+    <text>Monday</text>
+    <description>Monday.</description>
+   </items>
+   <items id="at9">
+    <text>Tuesday</text>
+    <description>Tuesday.</description>
+   </items>
+   <items id="at10">
+    <text>Wednesday</text>
+    <description>Wednesday.</description>
+   </items>
+   <items id="at11">
+    <text>Thursday</text>
+    <description>Thursday.</description>
+   </items>
+   <items id="at12">
+    <text>Friday</text>
+    <description>Friday.</description>
+   </items>
+   <items id="at13">
+    <text>Saturday</text>
+    <description>Saturday.</description>
+   </items>
+   <items id="at14">
+    <text>Sunday</text>
+    <description>Sunday.</description>
+   </items>
+   <items id="id15">
+    <text>Interval</text>
+    <description>The length of time between doses or interventions. 8 Hourly is PT8H, monthly is P1M, every hour and a half is PT1H30M.</description>
+   </items>
+   <items id="id16">
+    <text>Variable frequency</text>
+    <description>Details of variable upper and lower frequency e.g. 3-4 times a day.</description>
+   </items>
+   <items id="id17">
+    <text>Upper</text>
+    <description>The upper value of frequency.</description>
+   </items>
+   <items id="id18">
+    <text>Lower</text>
+    <description>The lower value of frequency.</description>
+   </items>
+   <items id="id19">
+    <text>Specific date</text>
+    <description>A specific date when the intervention is to take place.</description>
+   </items>
+   <items id="id20">
+    <text>Variable interval</text>
+    <description>Details of variable upper and lower intervals e.g. every 2-3 hours.</description>
+   </items>
+   <items id="id21">
+    <text>Upper</text>
+    <description>The upper value of the interval.</description>
+   </items>
+   <items id="id22">
+    <text>Lower</text>
+    <description>The lower value of the interval.</description>
+   </items>
+   <items id="id23">
+    <text>Parsable syntax</text>
+    <description>Complex intervention timing recorded as a parsable syntax.</description>
+   </items>
+   <items id="at15">
+    <text>Frequency</text>
+    <description>Frequency</description>
+   </items>
+   <items id="id27">
+    <text>(added by post-parse processor)</text>
+    <description>(added by post-parse processor)</description>
+   </items>
+   <items id="id28">
+    <text>(added by post-parse processor)</text>
+    <description>(added by post-parse processor)</description>
+   </items>
+   <items id="id29">
+    <text>(added by post-parse processor)</text>
+    <description>(added by post-parse processor)</description>
+   </items>
+   <items id="id30">
+    <text>(added by post-parse processor)</text>
+    <description>(added by post-parse processor)</description>
+   </items>
+   <items id="ac1">
+    <text>Day of week (synthesised)</text>
+    <description>The specific and repeating day(s) of the week. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="sl">
+   <items id="id1">
+    <text>*Timing(en)</text>
+    <description>*Structured information about the timing (intended or actual) of administration or use of a medicine, other therapeutic good or other intervention that is given on a scheduled basis.(en)</description>
+   </items>
+   <items id="id2">
+    <text>*Daily count(en)</text>
+    <description>*This is the actual or maximum number of doses or other interventions that are to be administered in a 24 hour period.(en)</description>
+   </items>
+   <items id="id4">
+    <text>*Frequency(en)</text>
+    <description>*The frequency as number of times per time period that the intervention is to take place.(en)</description>
+   </items>
+   <items id="id5">
+    <text>*Time(en)</text>
+    <description>*Specific time(s) during the day when the intervention should be applied.(en)</description>
+   </items>
+   <items id="id6">
+    <text>*Day of month(en)</text>
+    <description>*The specific and repeating day(s) of the month e.g. if it is required to give a dose on the 2nd day of each month then the value is 2.(en)</description>
+   </items>
+   <items id="id7">
+    <text>*Day of week(en)</text>
+    <description>*The specific and repeating day(s) of the week.(en)</description>
+   </items>
+   <items id="at8">
+    <text>*Monday(en)</text>
+    <description>*Monday.(en)</description>
+   </items>
+   <items id="at9">
+    <text>*Tuesday(en)</text>
+    <description>*Tuesday.(en)</description>
+   </items>
+   <items id="at10">
+    <text>*Wednesday(en)</text>
+    <description>*Wednesday.(en)</description>
+   </items>
+   <items id="at11">
+    <text>*Thursday(en)</text>
+    <description>*Thursday.(en)</description>
+   </items>
+   <items id="at12">
+    <text>*Friday(en)</text>
+    <description>*Friday.(en)</description>
+   </items>
+   <items id="at13">
+    <text>*Saturday(en)</text>
+    <description>*Saturday.(en)</description>
+   </items>
+   <items id="at14">
+    <text>*Sunday(en)</text>
+    <description>*Sunday.(en)</description>
+   </items>
+   <items id="id15">
+    <text>*Interval(en)</text>
+    <description>*The length of time between doses or interventions. 8 Hourly is PT8H, monthly is P1M, every hour and a half is PT1H30M.(en)</description>
+   </items>
+   <items id="id16">
+    <text>*Variable frequency(en)</text>
+    <description>*Details of variable upper and lower frequency e.g. 3-4 times a day.(en)</description>
+   </items>
+   <items id="id17">
+    <text>*Upper(en)</text>
+    <description>*The upper value of frequency.(en)</description>
+   </items>
+   <items id="id18">
+    <text>*Lower(en)</text>
+    <description>*The lower value of frequency.(en)</description>
+   </items>
+   <items id="id19">
+    <text>*Date(en)</text>
+    <description>*Actual dates.(en)</description>
+   </items>
+   <items id="id20">
+    <text>*Variable interval(en)</text>
+    <description>*Details of variable upper and lower intervals e.g. every 2-3 hours.(en)</description>
+   </items>
+   <items id="id21">
+    <text>*Upper(en)</text>
+    <description>*The upper value of the interval.(en)</description>
+   </items>
+   <items id="id22">
+    <text>*Lower(en)</text>
+    <description>*The lower value of the interval.(en)</description>
+   </items>
+   <items id="id23">
+    <text>*New element(en)</text>
+    <description>**(en)</description>
+   </items>
+   <items id="at15">
+    <text>*Frequency (en)</text>
+    <description>*Frequency (en)</description>
+   </items>
+   <items id="id27">
+    <text>*(added by post-parse processor)(en)</text>
+    <description>*(added by post-parse processor)(en)</description>
+   </items>
+   <items id="id28">
+    <text>*(added by post-parse processor)(en)</text>
+    <description>*(added by post-parse processor)(en)</description>
+   </items>
+   <items id="id29">
+    <text>*(added by post-parse processor)(en)</text>
+    <description>*(added by post-parse processor)(en)</description>
+   </items>
+   <items id="id30">
+    <text>*(added by post-parse processor)(en)</text>
+    <description>*(added by post-parse processor)(en)</description>
+   </items>
+   <items id="ac1">
+    <text>*Day of week(en) (synthesised)</text>
+    <description>*The specific and repeating day(s) of the week.(en) (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="openehr">
+   <items id="at15">http://openehr.org/id/382</items>
+  </term_bindings>
+  <value_sets id="ac1">
+   <members>at8</members>
+   <members>at9</members>
+   <members>at10</members>
+   <members>at11</members>
+   <members>at12</members>
+   <members>at13</members>
+   <members>at14</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

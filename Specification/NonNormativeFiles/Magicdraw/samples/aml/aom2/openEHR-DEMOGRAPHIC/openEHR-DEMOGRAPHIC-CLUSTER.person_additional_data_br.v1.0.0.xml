@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::pt-br</original_language>
+ <translations id="en">
+  <language>ISO_639-1::en</language>
+  <author id="name">Sergio Miranda Freire</author>
+  <author id="organisation">Universidade do Estado do Rio de Janeiro - UERJ</author>
+  <author id="email">sergio@lampada.uerj.br</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Sergio Miranda Freire &amp;amp; Rigoleta Dutra Mediano Dias</original_author>
+  <original_author id="organisation">Universidade do Estado do Rio de Janeiro - UERJ</original_author>
+  <original_author id="email">sergio@lampada.uerj.br</original_author>
+  <original_author id="date">22/05/2009</original_author>
+  <copyright>copyright (c) 2009 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Representation of other person&apos;s data besides those specified in ISO 22220</purpose>
+   <use>Used in demographic service to collect a person&apos;s data</use>
+   <keywords>demographic service</keywords>
+   <keywords>person&apos;s demographic data</keywords>
+   <misuse></misuse>
+  </details>
+  <details id="pt-br">
+   <language>ISO_639-1::pt-br</language>
+   <purpose>Representação de outros dados de uma pessoa além daqueles especificados pela ISO 22220</purpose>
+   <use>Usado em serviço demográficos para coletar os dados de uma pessoa</use>
+   <keywords>serviço demográfico</keywords>
+   <keywords>dados demográficos de uma pessoa</keywords>
+   <misuse></misuse>
+  </details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="DEMOGRAPHIC" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-DEMOGRAPHIC-CLUSTER.person_additional_data_br.v1.0.0">
+  <concept_id>person_additional_data_br</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac2</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac3</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::pt-br">
+  <term_definitions id="pt-br">
+   <items id="id1">
+    <text>Dados demográficos adicionais da pessoa</text>
+    <description>Dados demográficos adicionais da pessoa além daqueles especificados pela ISO 22220</description>
+   </items>
+   <items id="id2">
+    <text>Estado Civil</text>
+    <description>Estado Civil</description>
+   </items>
+   <items id="id3">
+    <text>Etnia</text>
+    <description>Grupo étnico ao qual a pessoa pertence</description>
+   </items>
+   <items id="ac2">
+    <text>Códigos para Estado Civil</text>
+    <description>Códigos válidos para Estado Civil</description>
+   </items>
+   <items id="ac3">
+    <text>Códigos para grupos étnicos</text>
+    <description>códigos válidos para grupos étnicos</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Extended personal demographics</text>
+    <description>Personal demographic data extended beyond those specified by ISO 22220.</description>
+   </items>
+   <items id="id2">
+    <text>Marital status</text>
+    <description>Marital status.</description>
+   </items>
+   <items id="id3">
+    <text>Ethnic background</text>
+    <description>The person&apos;s ethnic background.</description>
+   </items>
+   <items id="ac2">
+    <text>Marital status codes</text>
+    <description>Valid codes for marital status</description>
+   </items>
+   <items id="ac3">
+    <text>Ethnic background codes</text>
+    <description>Valid codes for ethnic background</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Dr Ian McNicoll</original_author>
+  <original_author id="organisation">Ocean Informatics, UK</original_author>
+  <original_author id="email">ian.mcnicoll@oceaninformatics.com</original_author>
+  <original_author id="date">27/07/2009</original_author>
+  <copyright>copyright (c) 2009 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record the TNM staging classification for lung cancer (Sixth Edition).</purpose>
+   <use>Use only for the Sixth edition of TNM lung cancer classification.</use>
+   <keywords>tumour</keywords>
+   <keywords>TNM</keywords>
+   <keywords>malignancy</keywords>
+   <keywords>cancer</keywords>
+   <keywords>staging</keywords>
+   <keywords>classification</keywords>
+   <keywords>lung</keywords>
+   <keywords>bronchial</keywords>
+   <keywords>lymph node</keywords>
+   <keywords>metastasis</keywords>
+   <misuse>Not to be used for pleural mesothelioma, sarcoma or other rare lung tumours.
+Not to be used for other editions of TNM classification.</misuse>
+  </details>
+  <other_contributors>Heather Leslie,Ocean Informatics. Australia</other_contributors>
+  <other_contributors>Cathy Richardson, NEHTA, Australia</other_contributors>
+  <other_contributors>David McKillop, NEHTA, Australia</other_contributors>
+  <other_contributors>Koray Atalag, University of Auckland, New Zealand</other_contributors>
+  <other_details id="references">Greene FL, Page DL, Fleming ID. et al, eds, for the American Joint Committee on Cancer. AJCC Cancer Staging Manual. 6th ed. New York, NY: Springer-Verlag; 2002. 
+
+American Joint Committee on Cancer. TNM schema files [Internet]. [cited 2009 Jul 27 ] 
+Available from: http://www.cancerstaging.org/education/tnmschema/tnmschema.html
+</other_details>
+  <other_details id="MD5-CAM-1.0.1">E03215CDA1A9A90A2730E3949D0B36F7</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.tnm_staging-lung_cancer.v1.0.0">
+  <concept_id>tnm_staging-lung_cancer</concept_id>
+ </archetype_id>
+ <parent_archetype_id>openEHR-EHR-CLUSTER.tnm_staging.v1</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id3]/items[id4]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id37.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.1</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id3]/items[id5]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id38.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.2</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id3]/items[id6]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id39.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.3</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id3]/items[id15]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id42.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.4</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id7]/items[id8]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id44.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.5</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id7]/items[id9]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id45.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.6</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id7]/items[id10]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id46.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.7</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id7]/items[id16]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id50.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.8</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="at0.14">
+    <text>Tx</text>
+    <description>Primary tumour cannot be assessed.</description>
+   </items>
+   <items id="at0.15">
+    <text>T0</text>
+    <description>No evidence of primary tumour.</description>
+   </items>
+   <items id="at0.16">
+    <text>Tis</text>
+    <description>Carcinoma in situ.</description>
+   </items>
+   <items id="at0.17">
+    <text>T1</text>
+    <description>Tumour ≤3cm in greatest dimension and completely surrounded by lung or visceral pleura and not involving a main bronchus.</description>
+   </items>
+   <items id="at0.18">
+    <text>T2</text>
+    <description>Tumour &amp;gt;3cm in greatest dimension;or, Involves main bronchus, 2cm or more distal to the carina;or, Invades the visceral pleura; or, Associated with atelectasis of obstructive pneumonia that extends to the hilar region but does not involve entire lung.</description>
+   </items>
+   <items id="at0.19">
+    <text>T3</text>
+    <description>Tumour of any size that directly invades chest wall, diaphragm, mediastinal pleura, parietal pericardium; or, Tumour in main bronchus &amp;lt;2cm from carina; or, Tumour with associated atelectasis or obstructive pneumonitis involving the entire lung.</description>
+   </items>
+   <items id="at0.20">
+    <text>T4</text>
+    <description>Tumour of any size that invades mediastinum, heart, great vessels, trachea, oesophagus, vertebral body, carina; or, Separate tumour nodules in same lobe; or,Tumour with malignant pleural effusion.</description>
+   </items>
+   <items id="at0.21">
+    <text>NX</text>
+    <description>Regional nodes cannot be assessed.</description>
+   </items>
+   <items id="at0.22">
+    <text>N0</text>
+    <description>No metastasis to regional lymph nodes.</description>
+   </items>
+   <items id="at0.23">
+    <text>N1</text>
+    <description>Metastasis to ipsilateral intralobar, peribronchial and/or hilar nodes including nodes involved by direct extension of the primary tumour.</description>
+   </items>
+   <items id="at0.24">
+    <text>N2</text>
+    <description>Metastasis to ipsilateral mediastinal and/or subcarinal nodes.</description>
+   </items>
+   <items id="at0.25">
+    <text>N3</text>
+    <description>Metastasis to contralateral mediastinal, contralateral hilar, ipsilateral or contralateral scalene, or supraclavicular nodes.</description>
+   </items>
+   <items id="at0.26">
+    <text>MX</text>
+    <description>Distant metastasis cannot be assessed.</description>
+   </items>
+   <items id="at0.27">
+    <text>M0</text>
+    <description>No distant metastasis.</description>
+   </items>
+   <items id="at0.28">
+    <text>M1</text>
+    <description>Distant metastasis present.</description>
+   </items>
+   <items id="at0.33">
+    <text>Stage 0</text>
+    <description>Tis  N0  M0</description>
+   </items>
+   <items id="at0.34">
+    <text>Stage IA</text>
+    <description>T1  N0  M0</description>
+   </items>
+   <items id="at0.35">
+    <text>Stage IB</text>
+    <description>T2  N0  M0</description>
+   </items>
+   <items id="at0.37">
+    <text>Stage IIB</text>
+    <description>T2  N1  M0 ; T3  N0  M0</description>
+   </items>
+   <items id="at0.38">
+    <text>Stage IIIA</text>
+    <description>T1  N2  M0,  T2  N2  M0,  T3  N1  M0, T3 N2 M0</description>
+   </items>
+   <items id="at0.54">
+    <text>Stage IIIB</text>
+    <description>Any T  N3  M0, T4  Any N  M0</description>
+   </items>
+   <items id="at0.40">
+    <text>pT0</text>
+    <description>No evidence of primary tumour.</description>
+   </items>
+   <items id="at0.41">
+    <text>pTis</text>
+    <description>Carcinoma in situ.</description>
+   </items>
+   <items id="at0.42">
+    <text>pT1</text>
+    <description>Tumour ≤3cm in greatest dimension and completely surrounded by lung or visceral pleura and not involving a main bronchus.</description>
+   </items>
+   <items id="at0.43">
+    <text>pT2</text>
+    <description>Tumour &amp;gt;3cm in greatest dimension; or, Involves main bronchus, 2cm or more distal to the carina; or, Invades the visceral pleura; or, Associated with atelectasis of obstructive pneumonia that extends to the hilar region but does not involve entire lung.</description>
+   </items>
+   <items id="at0.44">
+    <text>pT3</text>
+    <description>Tumour of any size that directly invades chest wall, diaphragm, mediastinal pleura, parietal pericardium; or, Tumour in main bronchus &amp;lt;2cm from carina; or, Tumour with associated atelectasis or obstructive pneumonitis involving the entire lung.</description>
+   </items>
+   <items id="at0.45">
+    <text>pT4</text>
+    <description>Tumour of any size that invades mediastinum, heart, great vessels, trachea, oesophagus, vertebral body, carina; or, Separate tumour nodules in same lobe; or, Tumour with malignant pleural effusion.</description>
+   </items>
+   <items id="at0.39">
+    <text>pTx</text>
+    <description>Primary tumour cannot be assessed.</description>
+   </items>
+   <items id="at0.46">
+    <text>pNX</text>
+    <description>Regional nodes cannot be assessed.</description>
+   </items>
+   <items id="at0.47">
+    <text>pN0</text>
+    <description>No metastasis to regional lymph nodes.</description>
+   </items>
+   <items id="at0.48">
+    <text>pN1</text>
+    <description>Metastasis to ipsilateral intralobar, peribronchial and/or hilar nodes including nodes involved by direct extension of the primary tumour.</description>
+   </items>
+   <items id="at0.49">
+    <text>pN2</text>
+    <description>Metastasis to ipsilateral mediastinal and/or subcarinal nodes.</description>
+   </items>
+   <items id="at0.50">
+    <text>pN3</text>
+    <description>Metastasis to contralateral mediastinal, contralateral hilar, ipsilateral or contralateral scalene, or supraclavicular nodes.</description>
+   </items>
+   <items id="at0.51">
+    <text>pMX</text>
+    <description>Distant metastasis cannot be assessed.</description>
+   </items>
+   <items id="at0.52">
+    <text>pM0</text>
+    <description>No distant metastasis.</description>
+   </items>
+   <items id="at0.53">
+    <text>pM1</text>
+    <description>Distant metastasis present.</description>
+   </items>
+   <items id="at0.36">
+    <text>Stage IIA</text>
+    <description>T1  N1  M0</description>
+   </items>
+   <items id="id1.1">
+    <text>TNM staging - Lung cancer (Sixth Edition)</text>
+    <description>TNM Staging classification for lung cancer (Sixth edition) .</description>
+   </items>
+   <items id="ac0.1">
+    <text>Primary tumour (T) (synthesised)</text>
+    <description>Clincal assessment of the primary tumour. (synthesised)</description>
+   </items>
+   <items id="ac0.2">
+    <text>Regional lymph nodes (N) (synthesised)</text>
+    <description>Clinical assessment of the regional lymph nodes. (synthesised)</description>
+   </items>
+   <items id="ac0.3">
+    <text>Distant metastasis (M) (synthesised)</text>
+    <description>Clinical assessment of distant metastasis. (synthesised)</description>
+   </items>
+   <items id="ac0.4">
+    <text>Clinical stage grouping (synthesised)</text>
+    <description>The TNM Clinical stage grouping. (synthesised)</description>
+   </items>
+   <items id="ac0.5">
+    <text>Primary tumour (pT) (synthesised)</text>
+    <description>Pathological assessment of the primary tumour. (synthesised)</description>
+   </items>
+   <items id="ac0.6">
+    <text>Regional lymph node (pN) (synthesised)</text>
+    <description>Pathological assessment of the regional lymph nodes. (synthesised)</description>
+   </items>
+   <items id="ac0.7">
+    <text>Distant metastasis (pM) (synthesised)</text>
+    <description>Pathological assessment of distant metastases. (synthesised)</description>
+   </items>
+   <items id="ac0.8">
+    <text>Pathological stage grouping (synthesised)</text>
+    <description>The TNM Pathological stage grouping. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac0.1">
+   <members>at0.14</members>
+   <members>at0.15</members>
+   <members>at0.16</members>
+   <members>at0.17</members>
+   <members>at0.18</members>
+   <members>at0.19</members>
+   <members>at0.20</members>
+  </value_sets>
+  <value_sets id="ac0.2">
+   <members>at0.21</members>
+   <members>at0.22</members>
+   <members>at0.23</members>
+   <members>at0.24</members>
+   <members>at0.25</members>
+  </value_sets>
+  <value_sets id="ac0.3">
+   <members>at0.26</members>
+   <members>at0.27</members>
+   <members>at0.28</members>
+  </value_sets>
+  <value_sets id="ac0.4">
+   <members>at0.33</members>
+   <members>at0.34</members>
+   <members>at0.54</members>
+   <members>at0.35</members>
+   <members>at0.36</members>
+   <members>at0.37</members>
+   <members>at0.38</members>
+  </value_sets>
+  <value_sets id="ac0.5">
+   <members>at0.39</members>
+   <members>at0.40</members>
+   <members>at0.41</members>
+   <members>at0.42</members>
+   <members>at0.43</members>
+   <members>at0.44</members>
+   <members>at0.45</members>
+  </value_sets>
+  <value_sets id="ac0.6">
+   <members>at0.46</members>
+   <members>at0.47</members>
+   <members>at0.48</members>
+   <members>at0.49</members>
+   <members>at0.50</members>
+  </value_sets>
+  <value_sets id="ac0.7">
+   <members>at0.51</members>
+   <members>at0.52</members>
+   <members>at0.53</members>
+  </value_sets>
+  <value_sets id="ac0.8">
+   <members>at0.33</members>
+   <members>at0.34</members>
+   <members>at0.54</members>
+   <members>at0.35</members>
+   <members>at0.36</members>
+   <members>at0.37</members>
+   <members>at0.38</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

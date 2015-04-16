@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Sam Heard</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">sam.heard@oceaninformatics.com</original_author>
+  <original_author id="date">2004-05-18</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Test bindings to paths that traverse use_node references.</purpose>
+  </details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="OBSERVATION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-OBSERVATION.term_bindings_paths_use_refs.v1.0.0">
+  <concept_id>term_bindings_paths_use_refs</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="OBSERVATION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data" is_multiple="false">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="HISTORY" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="events" cardinality="1..*; unordered" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="POINT_EVENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="offset" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id46" rm_type_name="DV_DURATION" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_DURATION" node_id="id9999" rm_type_name="String" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>PT1M</lower>
+          </constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ITEM_LIST" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" cardinality="1..6; ordered" is_multiple="true">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id47" rm_type_name="DV_ORDINAL" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+             <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>0</lower>
+              </constraint>
+             </children>
+             <children xsi:type="P_C_INTEGER" node_id="id99992" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>1</lower>
+              </constraint>
+             </children>
+             <children xsi:type="P_C_INTEGER" node_id="id99993" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>2</lower>
+              </constraint>
+             </children>
+            </attributes>
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="symbol" is_multiple="false">
+             <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>at11</constraint>
+             </children>
+             <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99992" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>at12</constraint>
+             </children>
+             <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99993" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>at13</constraint>
+             </children>
+            </attributes>
+            <attribute_tuples>
+             <members>value</members>
+             <members>symbol</members>
+            </attribute_tuples>
+           </children>
+          </attributes>
+         </children>
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id48" rm_type_name="DV_ORDINAL" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+             <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>0</lower>
+              </constraint>
+             </children>
+             <children xsi:type="P_C_INTEGER" node_id="id99992" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>1</lower>
+              </constraint>
+             </children>
+             <children xsi:type="P_C_INTEGER" node_id="id99993" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>2</lower>
+              </constraint>
+             </children>
+            </attributes>
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="symbol" is_multiple="false">
+             <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>at7</constraint>
+             </children>
+             <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99992" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>at8</constraint>
+             </children>
+             <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99993" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>at9</constraint>
+             </children>
+            </attributes>
+            <attribute_tuples>
+             <members>value</members>
+             <members>symbol</members>
+            </attribute_tuples>
+           </children>
+          </attributes>
+         </children>
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id14" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id49" rm_type_name="DV_ORDINAL" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+             <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>0</lower>
+              </constraint>
+             </children>
+             <children xsi:type="P_C_INTEGER" node_id="id99992" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>1</lower>
+              </constraint>
+             </children>
+             <children xsi:type="P_C_INTEGER" node_id="id99993" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>2</lower>
+              </constraint>
+             </children>
+            </attributes>
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="symbol" is_multiple="false">
+             <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>at15</constraint>
+             </children>
+             <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99992" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>at16</constraint>
+             </children>
+             <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99993" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>at17</constraint>
+             </children>
+            </attributes>
+            <attribute_tuples>
+             <members>value</members>
+             <members>symbol</members>
+            </attribute_tuples>
+           </children>
+          </attributes>
+         </children>
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id18" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id50" rm_type_name="DV_ORDINAL" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+             <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>0</lower>
+              </constraint>
+             </children>
+             <children xsi:type="P_C_INTEGER" node_id="id99992" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>1</lower>
+              </constraint>
+             </children>
+             <children xsi:type="P_C_INTEGER" node_id="id99993" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>2</lower>
+              </constraint>
+             </children>
+            </attributes>
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="symbol" is_multiple="false">
+             <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>at19</constraint>
+             </children>
+             <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99992" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>at20</constraint>
+             </children>
+             <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99993" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>at21</constraint>
+             </children>
+            </attributes>
+            <attribute_tuples>
+             <members>value</members>
+             <members>symbol</members>
+            </attribute_tuples>
+           </children>
+          </attributes>
+         </children>
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id22" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id51" rm_type_name="DV_ORDINAL" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+             <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>0</lower>
+              </constraint>
+             </children>
+             <children xsi:type="P_C_INTEGER" node_id="id99992" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>1</lower>
+              </constraint>
+             </children>
+             <children xsi:type="P_C_INTEGER" node_id="id99993" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>2</lower>
+              </constraint>
+             </children>
+            </attributes>
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="symbol" is_multiple="false">
+             <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>at23</constraint>
+             </children>
+             <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99992" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>at24</constraint>
+             </children>
+             <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99993" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>at25</constraint>
+             </children>
+            </attributes>
+            <attribute_tuples>
+             <members>value</members>
+             <members>symbol</members>
+            </attribute_tuples>
+           </children>
+          </attributes>
+         </children>
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id26" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id52" rm_type_name="DV_COUNT" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+             <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>0</lower>
+               <upper>10</upper>
+              </constraint>
+             </children>
+            </attributes>
+           </children>
+          </attributes>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id27" rm_type_name="POINT_EVENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="offset" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id53" rm_type_name="DV_DURATION" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_DURATION" node_id="id9999" rm_type_name="String" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>PT2M</lower>
+          </constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id41" rm_type_name="ITEM_LIST" is_deprecated="false">
+        <target_path>/data[id3]/events[id4]/data[id2]</target_path>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id28" rm_type_name="POINT_EVENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="offset" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id54" rm_type_name="DV_DURATION" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_DURATION" node_id="id9999" rm_type_name="String" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>PT3M</lower>
+          </constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id42" rm_type_name="ITEM_LIST" is_deprecated="false">
+        <target_path>/data[id3]/events[id4]/data[id2]</target_path>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id29" rm_type_name="POINT_EVENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="offset" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id55" rm_type_name="DV_DURATION" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_DURATION" node_id="id9999" rm_type_name="String" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>PT5M</lower>
+          </constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id43" rm_type_name="ITEM_LIST" is_deprecated="false">
+        <target_path>/data[id3]/events[id4]/data[id2]</target_path>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id32" rm_type_name="POINT_EVENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="offset" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id56" rm_type_name="DV_DURATION" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_DURATION" node_id="id9999" rm_type_name="String" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>PT10M</lower>
+          </constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id44" rm_type_name="ITEM_LIST" is_deprecated="false">
+        <target_path>/data[id3]/events[id4]/data[id2]</target_path>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id38" rm_type_name="EVENT" occurrences="0..*" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id45" rm_type_name="ITEM_LIST" is_deprecated="false">
+        <target_path>/data[id3]/events[id4]/data[id2]</target_path>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="protocol" is_multiple="false">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id30" rm_type_name="ITEM_LIST" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id31" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id57" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Apgar score</text>
+    <description>Clinical score derived from assessment of respiratory effort, heart rate, reflex irritability, muscle tone and skin colour.</description>
+   </items>
+   <items id="id4">
+    <text>1 minute</text>
+    <description>Apgar score 1 minute after birth.</description>
+   </items>
+   <items id="id6">
+    <text>Heart Rate</text>
+    <description>Recording of the infant&apos;s heart rate.</description>
+   </items>
+   <items id="at7">
+    <text>Absent</text>
+    <description>No heart beat is seen, felt or heard.</description>
+   </items>
+   <items id="at8">
+    <text>&amp;lt;100 beats per minute</text>
+    <description>Heart rate less than 100 beats per minute.</description>
+   </items>
+   <items id="at9">
+    <text>≥100 beats per minute</text>
+    <description>Heart rate greater than or equal to 100 beats per minute.</description>
+   </items>
+   <items id="id10">
+    <text>Respiratory effort</text>
+    <description>Observation of the infant&apos;s respiratory effort.</description>
+   </items>
+   <items id="at11">
+    <text>Absent</text>
+    <description>No effort to breath.</description>
+   </items>
+   <items id="at12">
+    <text>Weak or irregular</text>
+    <description>Some effort to breath, moving chest.</description>
+   </items>
+   <items id="at13">
+    <text>Normal</text>
+    <description>Breathing normally or crying.</description>
+   </items>
+   <items id="id14">
+    <text>Muscle tone</text>
+    <description>Observation of the infant&apos;s muscle tone.</description>
+   </items>
+   <items id="at15">
+    <text>Limp or flaccid</text>
+    <description>No spontaneous movement.</description>
+   </items>
+   <items id="at16">
+    <text>Reduced tone</text>
+    <description>Some flexion of extremities.</description>
+   </items>
+   <items id="at17">
+    <text>Normal tone</text>
+    <description>Normal, vigorous movements.</description>
+   </items>
+   <items id="id18">
+    <text>Reflex irritability</text>
+    <description>Observation of the response of the infant to an irritant stimulation, for example, suctioning the oropharynx and nares with a soft rubber catheter.</description>
+   </items>
+   <items id="at19">
+    <text>No response</text>
+    <description>No response to stimulation.</description>
+   </items>
+   <items id="at20">
+    <text>Reduced response</text>
+    <description>Grimace or feeble cry when stimulated.</description>
+   </items>
+   <items id="at21">
+    <text>Normal response</text>
+    <description>Grimace, sneeze, cough or pulls away when stimulated.</description>
+   </items>
+   <items id="id22">
+    <text>Skin colour</text>
+    <description>Observation of the skin colour of the infant.</description>
+   </items>
+   <items id="at23">
+    <text>Completely blue</text>
+    <description>Body and extremities are blue.</description>
+   </items>
+   <items id="at24">
+    <text>Body pink; extremities blue</text>
+    <description>Body is pink; extremities are blue.</description>
+   </items>
+   <items id="at25">
+    <text>Completely pink</text>
+    <description>Body and extremities are pink; no cyanosis.</description>
+   </items>
+   <items id="id26">
+    <text>Total</text>
+    <description>The sum of the 5 ordinal scores for each component parameter.</description>
+   </items>
+   <items id="id27">
+    <text>2 minute</text>
+    <description>Apgar score 2 minutes after birth.</description>
+   </items>
+   <items id="id28">
+    <text>3 minute</text>
+    <description>Apgar score 3 minutes after birth.</description>
+   </items>
+   <items id="id29">
+    <text>5 minute</text>
+    <description>Apgar score 5 minutes after birth.</description>
+   </items>
+   <items id="id31">
+    <text>Notes on measurement</text>
+    <description>Notes on measurement of the Apgar score.</description>
+   </items>
+   <items id="id32">
+    <text>10 minute</text>
+    <description>Apgar score 10 minutes after birth.</description>
+   </items>
+   <items id="id38">
+    <text>Any event</text>
+    <description>Apgar score at any additional time, as required.</description>
+   </items>
+   <items id="ac1">
+    <text>Respiratory effort</text>
+    <description>Observation of the infant&apos;s respiratory effort.</description>
+   </items>
+   <items id="ac2">
+    <text>Heart Rate</text>
+    <description>Recording of the infant&apos;s heart rate.</description>
+   </items>
+   <items id="ac3">
+    <text>Muscle tone</text>
+    <description>Observation of the infant&apos;s muscle tone.</description>
+   </items>
+   <items id="ac4">
+    <text>Reflex irritability</text>
+    <description>Observation of the response of the infant to an irritant stimulation, for example, suctioning the oropharynx and nares with a soft rubber catheter.</description>
+   </items>
+   <items id="ac5">
+    <text>Skin colour</text>
+    <description>Observation of the skin colour of the infant.</description>
+   </items>
+   <items id="ac6">
+    <text>Respiratory effort (synthesised)</text>
+    <description>Observation of the infant&apos;s respiratory effort. (synthesised)</description>
+   </items>
+   <items id="ac7">
+    <text>Heart Rate (synthesised)</text>
+    <description>Recording of the infant&apos;s heart rate. (synthesised)</description>
+   </items>
+   <items id="ac8">
+    <text>Muscle tone (synthesised)</text>
+    <description>Observation of the infant&apos;s muscle tone. (synthesised)</description>
+   </items>
+   <items id="ac9">
+    <text>Reflex irritability (synthesised)</text>
+    <description>Observation of the response of the infant to an irritant stimulation, for example, suctioning the oropharynx and nares with a soft rubber catheter. (synthesised)</description>
+   </items>
+   <items id="ac10">
+    <text>Skin colour (synthesised)</text>
+    <description>Observation of the skin colour of the infant. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="SNOMED-CT">
+   <items id="/data[id3]/events[id4]/data[id2]/items[id26]">http://snomedct.info/id/169895004</items>
+   <items id="/data[id3]/events[id29]/data[id2]/items[id26]">http://snomedct.info/id/169909004</items>
+   <items id="/data[id3]/events[id32]/data[id2]/items[id26]">http://snomedct.info/id/169922007</items>
+   <items id="/data[id3]/events[id38]/data[id2]/items[id26]">http://snomedct.info/id/364592005</items>
+   <items id="id26">http://snomedct.info/id/249228009</items>
+  </term_bindings>
+  <term_bindings id="LOINC">
+   <items id="/data[id3]/events[id4]">http://loinc.org/id/48334-7</items>
+   <items id="/data[id3]/events[id4]/data[id2]/items[id6]">http://loinc.org/id/32407-9</items>
+   <items id="/data[id3]/events[id4]/data[id2]/items[id10]">http://loinc.org/id/32410-3</items>
+   <items id="/data[id3]/events[id4]/data[id2]/items[id14]">http://loinc.org/id/32408-7</items>
+   <items id="/data[id3]/events[id4]/data[id2]/items[id18]">http://loinc.org/id/32409-5</items>
+   <items id="/data[id3]/events[id4]/data[id2]/items[id22]">http://loinc.org/id/32406-1</items>
+   <items id="/data[id3]/events[id4]/data[id2]/items[id26]">http://loinc.org/id/9272-6</items>
+   <items id="/data[id3]/events[id27]/data[id2]/items[id26]">http://loinc.org/id/9273-4</items>
+   <items id="/data[id3]/events[id29]">http://loinc.org/id/48333-9</items>
+   <items id="/data[id3]/events[id29]/data[id2]/items[id6]">http://loinc.org/id/32412-9</items>
+   <items id="/data[id3]/events[id29]/data[id2]/items[id10]">http://loinc.org/id/32415-2</items>
+   <items id="/data[id3]/events[id29]/data[id2]/items[id14]">http://loinc.org/id/32413-7</items>
+   <items id="/data[id3]/events[id29]/data[id2]/items[id18]">http://loinc.org/id/32414-5</items>
+   <items id="/data[id3]/events[id29]/data[id2]/items[id22]">http://loinc.org/id/32411-1</items>
+   <items id="/data[id3]/events[id29]/data[id2]/items[id26]">http://loinc.org/id/9274-2</items>
+   <items id="/data[id3]/events[id32]">http://loinc.org/id/48332-1</items>
+   <items id="/data[id3]/events[id32]/data[id2]/items[id6]">http://loinc.org/id/32402-0</items>
+   <items id="/data[id3]/events[id32]/data[id2]/items[id10]">http://loinc.org/id/32405-3</items>
+   <items id="/data[id3]/events[id32]/data[id2]/items[id14]">http://loinc.org/id/32403-8</items>
+   <items id="/data[id3]/events[id32]/data[id2]/items[id18]">http://loinc.org/id/32404-6</items>
+   <items id="/data[id3]/events[id32]/data[id2]/items[id22]">http://loinc.org/id/32401-2</items>
+   <items id="/data[id3]/events[id32]/data[id2]/items[id26]">http://loinc.org/id/9271-8</items>
+   <items id="at7">http://loinc.org/id/LA6716</items>
+   <items id="at8">http://loinc.org/id/LA6717</items>
+   <items id="at9">http://loinc.org/id/LA6718</items>
+   <items id="at11">http://loinc.org/id/LA6725</items>
+   <items id="at12">http://loinc.org/id/LA6726</items>
+   <items id="at13">http://loinc.org/id/LA6727</items>
+   <items id="at15">http://loinc.org/id/LA6713</items>
+   <items id="at16">http://loinc.org/id/LA6714</items>
+   <items id="at17">http://loinc.org/id/LA6715</items>
+   <items id="at19">http://loinc.org/id/LA6719</items>
+   <items id="at20">http://loinc.org/id/LA6720</items>
+   <items id="at21">http://loinc.org/id/LA6721</items>
+   <items id="at23">http://loinc.org/id/LA6722</items>
+   <items id="at24">http://loinc.org/id/LA6723</items>
+   <items id="at25">http://loinc.org/id/LA6724</items>
+  </term_bindings>
+  <value_sets id="ac1">
+   <members>at11</members>
+   <members>at12</members>
+   <members>at13</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at7</members>
+   <members>at8</members>
+   <members>at9</members>
+  </value_sets>
+  <value_sets id="ac3">
+   <members>at15</members>
+   <members>at16</members>
+   <members>at17</members>
+  </value_sets>
+  <value_sets id="ac4">
+   <members>at19</members>
+   <members>at20</members>
+   <members>at21</members>
+  </value_sets>
+  <value_sets id="ac5">
+   <members>at23</members>
+   <members>at24</members>
+   <members>at25</members>
+  </value_sets>
+  <value_sets id="ac6">
+   <members>at11</members>
+   <members>at12</members>
+   <members>at13</members>
+  </value_sets>
+  <value_sets id="ac7">
+   <members>at7</members>
+   <members>at8</members>
+   <members>at9</members>
+  </value_sets>
+  <value_sets id="ac8">
+   <members>at15</members>
+   <members>at16</members>
+   <members>at17</members>
+  </value_sets>
+  <value_sets id="ac9">
+   <members>at19</members>
+   <members>at20</members>
+   <members>at21</members>
+  </value_sets>
+  <value_sets id="ac10">
+   <members>at23</members>
+   <members>at24</members>
+   <members>at25</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

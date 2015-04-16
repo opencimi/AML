@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Heather Leslie</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">heather.leslie@oceaninformatics.com</original_author>
+  <original_author id="date">2012-12-05</original_author>
+  <copyright>© National E-Health Transition Authority</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record details about cleaning of the external auditory canal.</purpose>
+   <use>Use to record details about the cleaning of the external auditory canal.
+
+This archetype has been designed to provide structured details as part of a request for ear cleaning or recording an ear cleaning activity - use within INSTRUCTION.procedure or ACTION.procedure archetypes.</use>
+   <keywords>ear</keywords>
+   <keywords>cleaning</keywords>
+   <keywords>method</keywords>
+   <keywords>canal</keywords>
+   <keywords>external</keywords>
+   <keywords>auditory</keywords>
+   <keywords>pus</keywords>
+   <keywords>discharge</keywords>
+   <keywords>wax</keywords>
+   <keywords>instrument</keywords>
+   <keywords>suction</keywords>
+   <keywords>irrigation</keywords>
+   <keywords>flushing</keywords>
+   <keywords>tissue</keywords>
+   <misuse></misuse>
+  </details>
+  <other_contributors>Stephen Chu, NEHTA, Australia</other_contributors>
+  <other_contributors>Kimberley Crebbin, NT Hearing Services, Australia</other_contributors>
+  <other_contributors>Kathy Currie, Northern Territory Health, Australia</other_contributors>
+  <other_contributors>Jade Frederikson, Hearing Health Program, DoH, NT</other_contributors>
+  <other_contributors>Sam Heard, Ocean Informatics, Australia</other_contributors>
+  <other_contributors>Oliver Hosking, Remote Health NT, Australia</other_contributors>
+  <other_contributors>Anthony Leech, Hearing Health, Australia</other_contributors>
+  <other_contributors>Kerrie Lee, Ngaanyatjarra Health Service, Australia (Editor)</other_contributors>
+  <other_contributors>Heather Leslie, Ocean Informatics, Australia (Editor)</other_contributors>
+  <other_contributors>Ian McNicoll, Ocean Informatics UK, United Kingdom</other_contributors>
+  <other_contributors>Vanessa Rotumah, NT Government - Health DEvelopment, Australia</other_contributors>
+  <other_details id="current_contact">Heather Leslie, Ocean Informatics, heather.leslie@oceaninformatics.com</other_details>
+  <other_details id="MD5-CAM-1.0.1">C252621521746D26C0622C56F61FA5AA</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.ear_cleaning.v1.0.0">
+  <concept_id>ear_cleaning</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id11" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id12" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id13" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id14" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id15" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id16" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Ear Cleaning Details</text>
+    <description>Details about method for cleaning the external ear canal.</description>
+   </items>
+   <items id="id2">
+    <text>Ear Cleaned</text>
+    <description>Identification of the ear being cleaned.</description>
+   </items>
+   <items id="at3">
+    <text>Left Ear</text>
+    <description>The left ear was cleaned.</description>
+   </items>
+   <items id="at4">
+    <text>Right Ear</text>
+    <description>The right ear was cleaned.</description>
+   </items>
+   <items id="id5">
+    <text>Wash Agent</text>
+    <description>Substance used for ear wash.</description>
+   </items>
+   <items id="id6">
+    <text>Method</text>
+    <description>Method used for ear wash.</description>
+   </items>
+   <items id="id7">
+    <text>Instrument</text>
+    <description>Instrument used to assist cleaning.</description>
+   </items>
+   <items id="id8">
+    <text>Outcome</text>
+    <description>Description of the outcome of ear cleaning.</description>
+   </items>
+   <items id="id10">
+    <text>Description</text>
+    <description>Narrative description of the ear cleaning activity.</description>
+   </items>
+   <items id="ac1">
+    <text>Ear Cleaned (synthesised)</text>
+    <description>Identification of the ear being cleaned. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac1">
+   <members>at3</members>
+   <members>at4</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

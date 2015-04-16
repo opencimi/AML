@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <translations id="fr">
+  <language>ISO_639-1::fr</language>
+  <author id="name">unknown</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">author name</original_author>
+  <original_author id="email">someone@home</original_author>
+  <copyright>this is mine, mine, mine I tell you! Since 2003</copyright>
+  <details id="fr">
+   <language>ISO_639-1::fr</language>
+   <purpose>a quoi ça sert</purpose>
+   <use>ceçi explique la fonction de l&apos;archetype</use>
+   <keywords>ceçi</keywords>
+   <keywords>est</keywords>
+   <keywords>une</keywords>
+   <keywords>liste</keywords>
+   <keywords>de</keywords>
+   <keywords>mots</keywords>
+   <keywords>clés</keywords>
+   <misuse>les interdictions de cet archetype</misuse>
+   <original_resource_uri id="ligne guide">http://guidelines.are.us/wherever/fr</original_resource_uri>
+   <original_resource_uri id="medline">http://some%20medline%20ref</original_resource_uri>
+  </details>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>what this is for</purpose>
+   <use>this is what it is used for</use>
+   <keywords>this</keywords>
+   <keywords>is</keywords>
+   <keywords>a</keywords>
+   <keywords>list</keywords>
+   <keywords>of</keywords>
+   <keywords>keywords</keywords>
+   <misuse>this is not what it is used for</misuse>
+   <original_resource_uri id="guideline">http://guidelines.are.us/wherever/en</original_resource_uri>
+   <original_resource_uri id="medline">http://some%20medline%20ref</original_resource_uri>
+  </details>
+  <other_contributors>friend 1</other_contributors>
+  <other_contributors>friend 2</other_contributors>
+  <other_contributors>friend 3</other_contributors>
+  <other_details id="regression">PASS</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="OBSERVATION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-OBSERVATION.max_description.v1.0.0">
+  <concept_id>max_description</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="OBSERVATION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data" is_multiple="false">
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="fr">
+   <items id="id1">
+    <text>le plus minimal</text>
+    <description>le plus minimal</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="en">
+   <items id="id1">
+    <text>most minimal</text>
+    <description>most minimal</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

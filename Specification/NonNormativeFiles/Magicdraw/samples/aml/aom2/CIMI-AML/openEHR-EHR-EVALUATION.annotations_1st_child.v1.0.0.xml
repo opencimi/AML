@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Thomas Beale</original_author>
+  <original_author id="date">12/12/2010</original_author>
+  <copyright>copyright (c) 2010 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To test use of annotations; based on CKM Adverse reactions archetype</purpose>
+  </details>
+  <other_details id="regression">PASS</other_details>
+ </description>
+ <annotations>
+  <items id="en">
+  <!-- 
+   <items id="/data[id2]/items[id0.8]">
+    <items id="design note">this is a design note on allergic reaction</items>
+    <items id="requirements note">this is a requirements note on allergic reaction</items>
+    <items id="medline ref">this is a medline ref on allergic reaction</items>
+   </items>
+   <items id="/data[id2]/items[id0.10]">
+    <items id="design note">this is a design note on intelerance</items>
+    <items id="requirements note">this is a requirements note on intolerance</items>
+    <items id="national data dictionary">NDD ref for intolerance</items>
+   </items>
+   <items id="/data[id2]/items[id3]">
+    <items id="design note">this is a SPECIALISED design note on Statement</items>
+    <items id="NEW TAG">this is a SPECIALISED design note on Statement</items>
+   </items>
+   -->
+  </items>
+ </annotations>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="EVALUATION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-EVALUATION.annotations_1st_child.v1.0.0">
+  <concept_id>annotations_1st_child</concept_id>
+ </archetype_id>
+ <parent_archetype_id>openEHR-EHR-EVALUATION.annotations_parent.v1</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="EVALUATION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <differential_path>/data[id2]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.7" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.5" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.8" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.6" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.9" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.7" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.10" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.8" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1.1">
+    <text>Exclusion statement - Adverse Reaction</text>
+    <description>Statements about Adverse Reactions that need to be positively recorded as absent or excluded.</description>
+   </items>
+   <items id="id0.10">
+    <text>No known intolerance to</text>
+    <description>Positive statement about intolerances to substances that are explicitly known to have not been identified at the time of recording.</description>
+   </items>
+   <items id="id0.7">
+    <text>No known adverse reaction to</text>
+    <description>Positive statement about adverse reactions to substances that are explicitly known to have not been identified at the time of recording.</description>
+   </items>
+   <items id="id0.8">
+    <text>No known allergic reaction to</text>
+    <description>Positive statement about allergic reactions to substances that are explicitly known to have not been identified at the time of recording.</description>
+   </items>
+   <items id="id0.9">
+    <text>No known hypersensitivity reaction to</text>
+    <description>Positive statement about hypersensitivity reactions to substances that are explicitly known to have not been identified at the time of recording.</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

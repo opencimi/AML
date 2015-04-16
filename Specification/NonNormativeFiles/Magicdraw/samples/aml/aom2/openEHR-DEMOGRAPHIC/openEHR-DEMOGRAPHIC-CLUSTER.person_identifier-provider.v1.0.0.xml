@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::pt-br</original_language>
+ <translations id="en">
+  <language>ISO_639-1::en</language>
+  <author id="name">Sergio Miranda Freire</author>
+  <author id="organisation">Universidade do Estado do Rio de Janeiro - UERJ</author>
+  <author id="email">sergio@lampada.uerj.br</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Sergio Miranda Freire &amp;amp; Rigoleta Dutra Mediano Dias</original_author>
+  <original_author id="organisation">Universidade do Estado do Rio de Janeiro - UERJ</original_author>
+  <original_author id="email">sergio@lampada.uerj.br</original_author>
+  <original_author id="date">22/05/2009</original_author>
+  <copyright>© 2011 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Representation of data about a healthcare provider (individual/organisation) identifier.</purpose>
+   <use>Used in demographic services to register data about a healthcare provider (individual/organisation) identifier.</use>
+   <keywords>demographic service</keywords>
+   <keywords>healthcare provider identifier</keywords>
+   <misuse></misuse>
+  </details>
+  <details id="pt-br">
+   <language>ISO_639-1::pt-br</language>
+   <purpose>Representação de dados relativos a um documento de identificação de um prestador de assistência (indivíduo/organização).</purpose>
+   <use>Usado em serviçoS demográficos para registrar os dados relativos a um documento de identificação de um prestador de assistência à saúde (indivíduo/organização).</use>
+   <keywords>serviço demográfico</keywords>
+   <keywords>identificador de um prestador de assistência à saúde.</keywords>
+   <misuse></misuse>
+  </details>
+  <other_details id="references">ISO/DTS 27527:2007(E) - Provider Identification - Draft Technnical Specification - International Organization for Standardization</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="DEMOGRAPHIC" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-DEMOGRAPHIC-CLUSTER.person_identifier-provider.v1.0.0">
+  <concept_id>person_identifier-provider</concept_id>
+ </archetype_id>
+ <parent_archetype_id>openEHR-DEMOGRAPHIC-CLUSTER.person_identifier.v1</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <differential_path>/</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.2" rm_type_name="ELEMENT" occurrences="1..*" is_deprecated="false" is_frozen="false">
+    <sibling_order is_before="false">
+     <sibling_node_id>id7</sibling_node_id>
+    </sibling_order>
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.35" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.36" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1.1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.3" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" cardinality="3..*; ordered" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.30" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.37" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.31" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.38" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.32" rm_type_name="ELEMENT" occurrences="1..*" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.39" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.33" rm_type_name="ELEMENT" occurrences="1..*" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.40" rm_type_name="DV_DATE" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.34" rm_type_name="ELEMENT" occurrences="1..*" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.41" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::pt-br">
+  <term_definitions id="en">
+   <items id="id1.1">
+    <text>Healthcare provider identifier</text>
+    <description>Healthcare provider identifier.</description>
+   </items>
+   <items id="id0.2">
+    <text>Identifier Usage</text>
+    <description>The purpose or intended use of this unique identifier.</description>
+   </items>
+   <items id="id0.3">
+    <text>Duplicate resolution</text>
+    <description>This group of data allow users to identify where they have determined that two identifiers which appears to be duplicates are not duplicated, or to indicate that where they are discovered to be duplicates -  which number is retired and no longer used, and which is retained.</description>
+   </items>
+   <items id="id0.30">
+    <text>Not a duplicate of</text>
+    <description>The identifier entered into this field is not a duplicate entry of this identifier.</description>
+   </items>
+   <items id="id0.31">
+    <text>Duplicate of</text>
+    <description>The identifier entered into this field is a duplicate entry of this identifier.</description>
+   </items>
+   <items id="id0.32">
+    <text>Confirmed by organisation</text>
+    <description>The organisation that has confirmed the duplicate or not duplicate status of this identifier.</description>
+   </items>
+   <items id="id0.33">
+    <text>Date confirmed</text>
+    <description>The date upon which this identifier was determined as a duplicate or not a duplicate.</description>
+   </items>
+   <items id="id0.34">
+    <text>Retired identifider</text>
+    <description>For a duplicate identifier set this field indicates if this number is the one retired (nor for further use) or not.</description>
+   </items>
+   <items id="ac1.1">
+    <text>Identifier usage code</text>
+    <description>Valid codes for usage of identifiers.</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="pt-br">
+   <items id="id1.1">
+    <text>Identificador de um prestador de assistência à saúde</text>
+    <description>Identificador de um prestador de assistência à saúde.</description>
+   </items>
+   <items id="id0.2">
+    <text>Uso da identificação</text>
+    <description>O propósito de uso deste identificador único.</description>
+   </items>
+   <items id="id0.3">
+    <text>Resolução de duplicidade</text>
+    <description>Este grupo de dados permite aos usuários identificar onde eles determinaram que dois identificadores que parecem ser duplicatas não são duplicatas, ou indicar, no caso de se descobrir qe eles são duplicatas: que número está inativo e não é mais usado, e qual deve ser mantido.</description>
+   </items>
+   <items id="id0.30">
+    <text>Não é duplicata de</text>
+    <description>O identificador digitado neste campo não é uma duplicata deste identificador.</description>
+   </items>
+   <items id="id0.31">
+    <text>Duplicata de</text>
+    <description>O identificador digitado neste campo não é uma duplicata deste identificador.</description>
+   </items>
+   <items id="id0.32">
+    <text>Confirmado pela organização</text>
+    <description>A organização que confirmou o status de duplicata ou não deste identificador.</description>
+   </items>
+   <items id="id0.33">
+    <text>Data da confirmação</text>
+    <description>A data onde este identificador foi determinado como sendo ou não uma duplicata.</description>
+   </items>
+   <items id="id0.34">
+    <text>Identificador desativado</text>
+    <description>Para um conjunto de identificadores duplicados, este campo indica se este número é o que deve ser desativado (não mais usado) ou não.</description>
+   </items>
+   <items id="ac1.1">
+    <text>Código de uso do identificador.</text>
+    <description>códigos válidos para os usos de identificadores.</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

@@ -1,0 +1,830 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <translations id="ar-sy">
+  <language>ISO_639-1::ar-sy</language>
+  <author id="name">Mona Saleh</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Dr Ian McNicoll</original_author>
+  <original_author id="organisation">openEHR Archetype Editorial Group / Ocean Informatics</original_author>
+  <original_author id="email">ian.mcnicoll@oceaninformatics.com</original_author>
+  <original_author id="date">2009-01-27</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="ar-sy">
+   <language>ISO_639-1::ar-sy</language>
+   <purpose>لتسجيل تفاصيل حول عينة بالمعمل. 
+يستخدم غالبا في سياقات مختلفة, مثلا: في داخل نموذج (تعليمات) ليصف العينة التي ينبغي أخذها, أو يصف العينة المرافقة لطلب معملي. 
+و قد يحدث ذلك في داخل نموذج (فعل), مثال: وصف العينات التي تم أخذها كجزء من إجراء طبي جراحي. 
+و سيستخدم أخيرا في داخل نموذج نتيجة اختبار المعمل ليصف العينة التي يتم تقديم عينة حولها.</purpose>
+   <use>يستخدم عادةً في داخل نموذج (ملاحظة. معمل) و النماذج الأخرى تعليمات و فعل المتعلقة بالمعمل.</use>
+   <keywords>النموذج/العينة</keywords>
+   <keywords>المعمل/المختبر</keywords>
+   <keywords>العينة</keywords>
+   <keywords>التجميع</keywords>
+   <misuse></misuse>
+  </details>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record details of a laboratory specimen. Will often be used in different contexts e.g within an Instruction archetype to describe the specimen that has to be taken, or describing the specimen which accompanies the laboratory request. It may occur within an Action archetype e.g. describing specimens taken as part of a surgical procedure.
+
+It will finally be used within a laboratory result archetype to describe the specimen being reported.</purpose>
+   <use>Generally used within OBSERVATION. Laboratory and other laboratory related Instruction and Action archetypes.</use>
+   <keywords>specimen</keywords>
+   <keywords>laboratory</keywords>
+   <keywords>sample</keywords>
+   <keywords>collection</keywords>
+   <misuse></misuse>
+  </details>
+  <other_contributors>Sam Heard Ocean Informatics</other_contributors>
+  <other_contributors>Heather Leslie Ocean Informatics</other_contributors>
+  <other_contributors>Koray Atalag University of Auckland</other_contributors>
+  <other_details id="MD5-CAM-1.0.1">0E6E31FAD25FFC3252B931DF5C78361D</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.specimen.v1.0.0">
+  <concept_id>specimen</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id30" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id82" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id83" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id14" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/openEHR-EHR-CLUSTER\.anatomical_location(-a-zA-Z0-9_]+)*\.v1/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+   </children>
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id28" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/openEHR-EHR-CLUSTER\.physical_properties(-a-zA-Z0-9_]+)*\.v1/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id74" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id75" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id84" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id76" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id85" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at66</constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+         <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0.0</lower>
+          </constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>mm</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id77" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id86" rm_type_name="DV_COUNT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+         <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0</lower>
+          </constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id51" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id87" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id88" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id81" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id89" rm_type_name="DV_COUNT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+         <children  xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0</lower>
+          </constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id80" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id90" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id26" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id91" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_ARCHETYPE_SLOT" node_id="id69" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+      <includes type="Boolean">
+       <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+        <operator value="2007">
+        </operator>
+        <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+         <item>archetype_id/value</item>
+        </left_operand>
+        <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+         <item>
+          <rm_type_name>STRING</rm_type_name>
+          <constraint>/openEHR-EHR-CLUSTER\.specimen_preparation(-a-zA-Z0-9_]+)*\.v1/</constraint>
+          <is_path_compressible>false</is_path_compressible>
+          <is_deprecated>false</is_deprecated>
+          <is_frozen>false</is_frozen>
+          <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+         </item>
+        </right_operand>
+       </expression>
+      </includes>
+      <excludes type="Boolean">
+       <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+        <operator value="2007">
+        </operator>
+        <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+         <item>archetype_id/value</item>
+        </left_operand>
+        <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+         <item>
+          <rm_type_name>STRING</rm_type_name>
+          <constraint>/.*/</constraint>
+          <is_path_compressible>false</is_path_compressible>
+          <is_deprecated>false</is_deprecated>
+          <is_frozen>false</is_frozen>
+          <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+         </item>
+        </right_operand>
+       </expression>
+      </excludes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id79" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id92" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_ARCHETYPE_SLOT" node_id="id78" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+      <includes type="Boolean">
+       <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+        <operator value="2007">
+        </operator>
+        <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+         <item>archetype_id/value</item>
+        </left_operand>
+        <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+         <item>
+          <rm_type_name>STRING</rm_type_name>
+          <constraint>/openEHR-EHR-CLUSTER\.device(-a-zA-Z0-9_]+)*\.v1/</constraint>
+          <is_path_compressible>false</is_path_compressible>
+          <is_deprecated>false</is_deprecated>
+          <is_frozen>false</is_frozen>
+          <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+         </item>
+        </right_operand>
+       </expression>
+      </includes>
+      <excludes type="Boolean">
+       <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+        <operator value="2007">
+        </operator>
+        <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+         <item>archetype_id/value</item>
+        </left_operand>
+        <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+         <item>
+          <rm_type_name>STRING</rm_type_name>
+          <constraint>/.*/</constraint>
+          <is_path_compressible>false</is_path_compressible>
+          <is_deprecated>false</is_deprecated>
+          <is_frozen>false</is_frozen>
+          <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+         </item>
+        </right_operand>
+       </expression>
+      </excludes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id47" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id16" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id93" rm_type_name="DV_DATE_TIME" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id68" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id94" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id35" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id95" rm_type_name="DV_DATE_TIME" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id36" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id96" rm_type_name="DV_DATE_TIME" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id40" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id43" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id97" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac1</constraint>
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id98" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id45" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id99" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac2</constraint>
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id100" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id42" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id101" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac3</constraint>
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id102" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id46" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id103" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id104" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id105" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id73" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id106" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id71" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id107" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_ARCHETYPE_SLOT" node_id="id72" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+      <includes type="Boolean">
+       <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+        <operator value="2007">
+        </operator>
+        <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+         <item>archetype_id/value</item>
+        </left_operand>
+        <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+         <item>
+          <rm_type_name>STRING</rm_type_name>
+          <constraint>/.*/</constraint>
+          <is_path_compressible>false</is_path_compressible>
+          <is_deprecated>false</is_deprecated>
+          <is_frozen>false</is_frozen>
+          <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+         </item>
+        </right_operand>
+       </expression>
+      </includes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Specimen</text>
+    <description>To record details of a laboratory specimen.</description>
+   </items>
+   <items id="id2">
+    <text>Specimen identifier</text>
+    <description>Unique identifier of the specimen, normally assigned by the laboratory.</description>
+   </items>
+   <items id="id3">
+    <text>Identifiers</text>
+    <description>Sample identifications.</description>
+   </items>
+   <items id="id4">
+    <text>Parent specimen identifier</text>
+    <description>Unique identifier of the parent specimen, where the specimen is split into sub-samples.</description>
+   </items>
+   <items id="id6">
+    <text>Potential risk / biohazard</text>
+    <description>Any risk or biohazard associated with  collecting or handling the specimen.</description>
+   </items>
+   <items id="id8">
+    <text>Collection procedure</text>
+    <description>The method of collection to be used eg Venepuncture, biopsy, resection.</description>
+   </items>
+   <items id="id9">
+    <text>Sampling preconditions</text>
+    <description>Any conditions to be met before the sample should be taken e.g. fasting, &apos;full bladder&apos;, &apos;sterile field&apos; or any special instructions on the handling or immediate processing of the sample e.g. centrifuge on receipt. 
+
+Can also be used to document any known deviations from collection or handling instructions e.g patient was not fasted.</description>
+   </items>
+   <items id="id14">
+    <text>Site</text>
+    <description>The anatomical site(s) from where the specimen was taken.</description>
+   </items>
+   <items id="id16">
+    <text>Date and time of collection</text>
+    <description>The date and time that collection has been ordered to take place or has taken place.</description>
+   </items>
+   <items id="id26">
+    <text>Transport medium</text>
+    <description>Any special fixative or transport medium requirements.</description>
+   </items>
+   <items id="id28">
+    <text>Physical details</text>
+    <description>Dimensions / weight of sample. Set as unbounded to allow variations e.g Weight of prostatic gland with and without seminal vesicles.</description>
+   </items>
+   <items id="id30">
+    <text>Specimen tissue type</text>
+    <description>The type of specimen to be collected e.g venous blood, prostatic biopsy.</description>
+   </items>
+   <items id="id35">
+    <text>Date and time of receipt</text>
+    <description>The date and time that the sample was received at the laboratory.</description>
+   </items>
+   <items id="id36">
+    <text>Date and time processed</text>
+    <description>The date and time that the specimen was processed by the laboratory.</description>
+   </items>
+   <items id="id40">
+    <text>Specimen quality</text>
+    <description>Problems with the received specimen.</description>
+   </items>
+   <items id="id42">
+    <text>Adequacy for testing</text>
+    <description>Is the specimen adequate for testing?</description>
+   </items>
+   <items id="id43">
+    <text>Specimen received issues</text>
+    <description>Specific issue with a received specimen.</description>
+   </items>
+   <items id="id45">
+    <text>Laboratory handling issues</text>
+    <description>Issue arising with handling or processing of the specimen within the laboratory.</description>
+   </items>
+   <items id="id46">
+    <text>Comment</text>
+    <description>An additional text comment on the quality of the received specimen.</description>
+   </items>
+   <items id="id47">
+    <text>Handling and processing</text>
+    <description>Workflow of specimen processing/handling.</description>
+   </items>
+   <items id="id51">
+    <text>Collection and handling</text>
+    <description>Collection and handling requirements.</description>
+   </items>
+   <items id="at53">
+    <text>Haemolysed</text>
+    <description>The specimen was haemolysed.</description>
+   </items>
+   <items id="at54">
+    <text>Lipaemic</text>
+    <description>The specimen was lipaemic.</description>
+   </items>
+   <items id="at55">
+    <text>Incorrect transport medium</text>
+    <description>An incorrect preservative was used when transporting the specimen.</description>
+   </items>
+   <items id="at56">
+    <text>Insufficient sample</text>
+    <description>An insufficient sample was given to undertake measurement.</description>
+   </items>
+   <items id="at57">
+    <text>Handling error</text>
+    <description>An error arose when handling the specimen.</description>
+   </items>
+   <items id="at58">
+    <text>Age</text>
+    <description>The specimen was too old to analyse accurately.</description>
+   </items>
+   <items id="at59">
+    <text>Laboratory accident</text>
+    <description>An accident occurred with the sample in the laboratory.</description>
+   </items>
+   <items id="at60">
+    <text>Technical failure</text>
+    <description>The specimen could not be analysed for technical reasons.</description>
+   </items>
+   <items id="at63">
+    <text>Satisfactory</text>
+    <description>The specimen is of sufficient quality to allow reporting.</description>
+   </items>
+   <items id="at64">
+    <text>Unsatisfactory - processed</text>
+    <description>The specimen is unsatisfactory but has been processed.</description>
+   </items>
+   <items id="at65">
+    <text>Unsatisfactory - not processed</text>
+    <description>The specimen is unsatisfactory and has not been processed.</description>
+   </items>
+   <items id="id68">
+    <text>Collection setting</text>
+    <description>Identification of the setting at which the specimen was collected 
+from a subject of care. The specimen is often collected by a 
+healthcare provider, but may be collected directly by the patient or carer at home.</description>
+   </items>
+   <items id="id69">
+    <text>Additional preparation</text>
+    <description>The specimen preparation cluster allows detailed recording of a particular preparation step e.g staining or fixation.</description>
+   </items>
+   <items id="id71">
+    <text>Specimen collector identifier</text>
+    <description>Identifier of the person or agency responsible for collecting the specimen.</description>
+   </items>
+   <items id="id72">
+    <text>Specimen collector details</text>
+    <description>The person or organisation responsible for collecting the specimen.</description>
+   </items>
+   <items id="id73">
+    <text>Container identifier</text>
+    <description>Unique identifier given to the container in which the specimen is transported or processed.</description>
+   </items>
+   <items id="id74">
+    <text>Needle biopsy core details</text>
+    <description>Details of the needle used to take a needle biopsy.</description>
+   </items>
+   <items id="id75">
+    <text>Biopsy core needle gauge</text>
+    <description>The diameter of the core obtained via needle biopsy expressed using the needle gauge used to take the specimen.</description>
+   </items>
+   <items id="id76">
+    <text>Maximum biopsy core length</text>
+    <description>The length of the core obtained by needle biopsy.</description>
+   </items>
+   <items id="id77">
+    <text>Number of cores received</text>
+    <description>The number of needle biopsy cores received.</description>
+   </items>
+   <items id="id78">
+    <text>Device</text>
+    <description>Details of the device used to perform the test.</description>
+   </items>
+   <items id="id79">
+    <text>Testing method</text>
+    <description>The test method used to arrive at  result. This may be recorded or reported at whole test level or for an individual result.</description>
+   </items>
+   <items id="id80">
+    <text>Collection procedure details</text>
+    <description>Additional detailed description of method of sample collection.</description>
+   </items>
+   <items id="id81">
+    <text>Number of containers</text>
+    <description>The total number of containers holding this specimen.</description>
+   </items>
+   <items id="at66">
+    <text>Length</text>
+    <description>Length</description>
+   </items>
+   <items id="ac1">
+    <text>Specimen received issues (synthesised)</text>
+    <description>Specific issue with a received specimen. (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Laboratory handling issues (synthesised)</text>
+    <description>Issue arising with handling or processing of the specimen within the laboratory. (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>Adequacy for testing (synthesised)</text>
+    <description>Is the specimen adequate for testing? (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="ar-sy">
+   <items id="id1">
+    <text>العينة</text>
+    <description>لتسجيل تفاصيل عينة المعمل</description>
+   </items>
+   <items id="id2">
+    <text>العنصر التعريفي للعينة</text>
+    <description>عنصر تعريفي فريد للعينة, عادة ما يتم إعطاؤه بواسطة المعمل/المختبر</description>
+   </items>
+   <items id="id3">
+    <text>العناصر التعريفية</text>
+    <description>العينات التعريفية الخاصة بالعينة</description>
+   </items>
+   <items id="id4">
+    <text>العنصر التعريفي للعينة الأم</text>
+    <description>عنصر تعريفي فريد للعينة الأم, حيث يتم تقسيم العينة إلى عينات صغيرة</description>
+   </items>
+   <items id="id6">
+    <text>المخاطر البيولوجية/التخاطر (احتمال الخطر) المرتقب</text>
+    <description>أي تخاطر/احتمال خطر أو مخاطر بيولوجية مصاحبة لتجميع و معاملة العينة/النموذج</description>
+   </items>
+   <items id="id8">
+    <text>الإجراء الطبي الخاص بالتجميع</text>
+    <description>الطريقة التي تم استخدامها في تجميع العينة, مثل: بزل الوريد, الخزعة, القطع</description>
+   </items>
+   <items id="id9">
+    <text>الظروف التي تسبق أخذ العينة</text>
+    <description>أي عوامل ينبغي توفيرها قبل أخذ العينة, مثال: الصيام, امتلاء المثانة, وسط معقم, أو أي تعليمات خاصة في المعاملة أو المعالجة المباشرة للعينة, مثل إجراء الطرد المركزي بمجرد استقبال العينة.
+و من الممكن أن يستخدم أيضا لتوثيق أي انحرافات معروفة عن تعليمات التجميع و المعاملة: مثلا: لم يصم المريض.</description>
+   </items>
+   <items id="id14">
+    <text>المكان</text>
+    <description>المكان التشريحي الذي يتم أخذ العينة منه</description>
+   </items>
+   <items id="id16">
+    <text>تاريخ و توقيت التجميع</text>
+    <description>التاريخ و التوقيت الذي تم فيه الأمر بتجميع العينة, أو الذي تم فيه التجميع بالفعل</description>
+   </items>
+   <items id="id26">
+    <text>وسط النقل</text>
+    <description>أي مادة حافظة معينة أو متطلبات متعلقة بالوسط الذي يتم نقل العينة فيه.</description>
+   </items>
+   <items id="id28">
+    <text>التفاصيل الفيزيائية</text>
+    <description>أبعاد/وزن العينة. يوضع بشكل غير مقيد ليسمح بالتعدد, مثل: وزن غدة البروستاتا مع أو بدون الحويصلات المنوية.</description>
+   </items>
+   <items id="id30">
+    <text>نوع نسيج العينة</text>
+    <description>نوع العينة التي يتم تجميعها, مثل: الدم الوريدي, خزعة البروستاتا</description>
+   </items>
+   <items id="id35">
+    <text>تاريخ و توقيت الاستقبال</text>
+    <description>التاريخ و التوقيت الذي تم فيه استقبال العينة بواسطة المعمل/المختبر.</description>
+   </items>
+   <items id="id36">
+    <text>توقيت و تاريخ المعالجة</text>
+    <description>التاريخ و التوقيت الذي تم فيه معالجة العينة بواسطة المعمل/المختبر</description>
+   </items>
+   <items id="id40">
+    <text>جودة العينة</text>
+    <description>المشكلات المتعلقة بالعينة التي تم استقبالها/استلامها</description>
+   </items>
+   <items id="id42">
+    <text>المناسبة لإتمام التحليل</text>
+    <description>هل العينة مناسبة لإجراء الاختبار</description>
+   </items>
+   <items id="id43">
+    <text>القضايا المتعلقة بالعينة التي تم استقبالها/استلامها</text>
+    <description>قضية مخصوصة متعلقة بالعينة التي تم استقبالها/استلامها.</description>
+   </items>
+   <items id="id45">
+    <text>قضايا متعلقة بالمعاملة في المعمل/المختبر</text>
+    <description>قضية تثار عند معاملة أو معالجة العينة في داخل المعمل/المختبر</description>
+   </items>
+   <items id="id46">
+    <text>تعليق</text>
+    <description>تعليق نصي إضافي حول جودة العينة التي تم استقبالها/استلامها</description>
+   </items>
+   <items id="id47">
+    <text>المعاملة و المعالجة</text>
+    <description>سريان خطوات العمل الخاص بمعاملة و معالجة العينة</description>
+   </items>
+   <items id="id51">
+    <text>التجميع و المعاملة</text>
+    <description>متطلبات التجميع و المعاملة</description>
+   </items>
+   <items id="at53">
+    <text>تم حل الدم</text>
+    <description>تم حل الدم في العينة</description>
+   </items>
+   <items id="at54">
+    <text>العينة بها فرط شحيمات</text>
+    <description>العينة بها فرط شحيمات</description>
+   </items>
+   <items id="at55">
+    <text>وسط نقل غير صحيح</text>
+    <description>تم استخدام مادة حافظة غير صحيحة عند نقل العينة</description>
+   </items>
+   <items id="at56">
+    <text>عينة غير كافية</text>
+    <description>تم إعطاء عينة غير كافية لإتمام القياس</description>
+   </items>
+   <items id="at57">
+    <text>خطأ في المعاملة</text>
+    <description>تمت إثارة خطأ عند معاملة العينة</description>
+   </items>
+   <items id="at58">
+    <text>العمر</text>
+    <description>العينة قديمة جدا مما يمنع التحليل الدقيق</description>
+   </items>
+   <items id="at59">
+    <text>حادث معملي/مختبري</text>
+    <description>حصل حادث للعينة في المعمل/المختبر</description>
+   </items>
+   <items id="at60">
+    <text>إخفاق تقني</text>
+    <description>لم يُتمكن من تحليل العينة لأسباب تقنية</description>
+   </items>
+   <items id="at63">
+    <text>مُرضِية</text>
+    <description>العينة بجودة كافية بما يسمح للحصول على تقرير للاختبار</description>
+   </items>
+   <items id="at64">
+    <text>غير مُرضية - تمت معالجتها</text>
+    <description>العينة غير مُرضية و لكن تمت معالجتها</description>
+   </items>
+   <items id="at65">
+    <text>غير مُرضية - لم تتم معالجتها</text>
+    <description>العينة غير مُرضية و لم تتم معالجتها</description>
+   </items>
+   <items id="id68">
+    <text>محيط تجميع العينة</text>
+    <description>تعريف للمحيط الذي يتم فيه تجميع العينة من الشخص محل الرعاية. عادة ما يتم تجميع العينة بواسطة مُزَوِّد الرعاية الصحية, و قد يتم تجميعه بواسطة المريض نفسه أو بواسطة من يقوم بتقديم الخدمة في المنزل.</description>
+   </items>
+   <items id="id69">
+    <text>التحضير الإضافي</text>
+    <description>عنقود تحضير العينة و الذي يسمح بتسجيل تفصيلي لخطوة تحضير معينة, مثل: التلوين أو التثبيت.</description>
+   </items>
+   <items id="id71">
+    <text>العنصر التعريفي الخاصة بمن قام بتجميع العينة</text>
+    <description>العنصر التعريفي للشخص أو الوكالة المسؤولة عن تجميع العينة</description>
+   </items>
+   <items id="id72">
+    <text>تفاصيل من قام بتجميع العينة</text>
+    <description>الشخص أو المؤسسة المسؤولة عن تجميع العينة</description>
+   </items>
+   <items id="id73">
+    <text>عنصر تعريفي خاص بحاوية العينة</text>
+    <description>عنصر تعريفي فريد يتم إعطاؤه لحاوية العينة التي يتم فيها نقل و معالجة العينة</description>
+   </items>
+   <items id="id74">
+    <text>التفاصيل الجوهرية للخزعة بالإبرة</text>
+    <description>تفاصيل الإبرة التي تم استخدامها في أخذ خزعة إبرية</description>
+   </items>
+   <items id="id75">
+    <text>مقياس إبرة لب الخزعة</text>
+    <description>قطر اللب الذي تم الحصول عليه بخزعة الإبرة و يتم التعبير عنها بمقياس الإبرة المستخدمة في أخذ العينة.</description>
+   </items>
+   <items id="id76">
+    <text>الحد الأقصى لطول لب العينة</text>
+    <description>طول اللب الذي تم الحصول عليه بواسطة خزعة الإبرة</description>
+   </items>
+   <items id="id77">
+    <text>عدد الألباب التي تم الحصول عليها</text>
+    <description>عدد ألباب الخزعات الإبرية التي تم الحصول عليها</description>
+   </items>
+   <items id="id78">
+    <text>الجهيزة</text>
+    <description>تفاصيل حول الجهيزة المستخدمة لإجراء الاختبار</description>
+   </items>
+   <items id="id79">
+    <text>طريقة الاختبار</text>
+    <description>طريقة الاختبار المستخدمة للوصول إلى النتيجة. و قد يتم تسجيل النتيجة أو كتابة تقرير بها على مستوى الاختبار ككل أو على مستوى كل نتيجة فردية.</description>
+   </items>
+   <items id="id80">
+    <text>تفاصيل الإجراء الطبي الخاص بالتجميع</text>
+    <description>وصف تفصيلي إضافي لطريقة تجميع العينة.</description>
+   </items>
+   <items id="id81">
+    <text>عدد حاويات العينة</text>
+    <description>العدد الإجمالي لحاويات العينة</description>
+   </items>
+   <items id="at66">
+    <text>*Length (en)</text>
+    <description>*Length (en)</description>
+   </items>
+   <items id="ac1">
+    <text>القضايا المتعلقة بالعينة التي تم استقبالها/استلامها (synthesised)</text>
+    <description>قضية مخصوصة متعلقة بالعينة التي تم استقبالها/استلامها. (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>قضايا متعلقة بالمعاملة في المعمل/المختبر (synthesised)</text>
+    <description>قضية تثار عند معاملة أو معالجة العينة في داخل المعمل/المختبر (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>المناسبة لإتمام التحليل (synthesised)</text>
+    <description>هل العينة مناسبة لإجراء الاختبار (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="openehr">
+   <items id="at66">http://openehr.org/id/122</items>
+  </term_bindings>
+  <value_sets id="ac1">
+   <members>at53</members>
+   <members>at54</members>
+   <members>at55</members>
+   <members>at56</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at57</members>
+   <members>at58</members>
+   <members>at59</members>
+   <members>at60</members>
+  </value_sets>
+  <value_sets id="ac3">
+   <members>at63</members>
+   <members>at64</members>
+   <members>at65</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

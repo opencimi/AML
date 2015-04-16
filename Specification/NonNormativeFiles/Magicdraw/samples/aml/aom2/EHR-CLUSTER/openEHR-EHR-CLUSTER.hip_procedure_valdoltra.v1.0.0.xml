@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <translations id="sl">
+  <language>ISO_639-1::sl</language>
+  <author id="name">***</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Ian McNicoll</original_author>
+  <original_author id="organisation">HANDIHealth,UK</original_author>
+  <original_author id="email">ian@handihealth.org</original_author>
+  <original_author id="date">2014-12-04</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record additional hip procedure details to align with Valdoltra hip registry.</purpose>
+   <use></use>
+   <misuse></misuse>
+  </details>
+  <details id="sl">
+   <language>ISO_639-1::sl</language>
+   <purpose>*To record additional hip procedure details to align with Valdoltra hip registry.(en)</purpose>
+   <use>*(en)</use>
+   <misuse>*(en)</misuse>
+  </details>
+  <other_details id="MD5-CAM-1.0.1">D9F9595442B077FEF19BB08D0DD1FB9B</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.hip_procedure_valdoltra.v1.0.0">
+  <concept_id>hip_procedure_valdoltra</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id12" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id13" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id14" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac2</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id15" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac3</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id11" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id16" rm_type_name="DV_DURATION" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children  xsi:type="P_C_DURATION" node_id="id9999" rm_type_name="String" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>PT0S</lower>
+        </constraint>
+        <pattern_constraint>PTM</pattern_constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id10" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/.*/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Hip procedure registry details (Valdoltra)</text>
+    <description>Additional hip procedure details to align with Valdoltra hospital hip registry.</description>
+   </items>
+   <items id="id3">
+    <text>Prophylactic antibiotics</text>
+    <description>Were prophylactic systemic antibiotics used?</description>
+   </items>
+   <items id="at4">
+    <text>Systemic prophylactic antibiotics used</text>
+    <description>Systemic antibiotic prophylaxis was given to the patient.</description>
+   </items>
+   <items id="at5">
+    <text>Systemic prophylactic antibiotics not used</text>
+    <description>Systemic antibiotic prophylaxis was not given to the patient.</description>
+   </items>
+   <items id="id6">
+    <text>Wound drainage</text>
+    <description>Was wound drainage used?</description>
+   </items>
+   <items id="at7">
+    <text>Wound drainage used</text>
+    <description>Wound drainage was used.</description>
+   </items>
+   <items id="at8">
+    <text>Wound drainage not used</text>
+    <description>Wound drainage was not used.</description>
+   </items>
+   <items id="id10">
+    <text>Details</text>
+    <description>Further procedure details.</description>
+   </items>
+   <items id="id11">
+    <text>Duration of procedure</text>
+    <description>The duration of the hip procedure.</description>
+   </items>
+   <items id="id12">
+    <text>Trochanter osteotomy</text>
+    <description>Was trochanter osteotomy performed?</description>
+   </items>
+   <items id="at13">
+    <text>Trochanter osteotomy performed</text>
+    <description>Trochanter osteotomy was performed.</description>
+   </items>
+   <items id="at14">
+    <text>Trochanter osteotomy not performed</text>
+    <description>Trochanter osteotomy was not performed.</description>
+   </items>
+   <items id="ac1">
+    <text>Trochanter osteotomy (synthesised)</text>
+    <description>Was trochanter osteotomy performed? (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Prophylactic antibiotics (synthesised)</text>
+    <description>Were prophylactic systemic antibiotics used? (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>Wound drainage (synthesised)</text>
+    <description>Was wound drainage used? (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="sl">
+   <items id="id1">
+    <text>*Hip procedure registry details (Valdoltra)(en)</text>
+    <description>*Additional hip procedure details to align with Valdoltra hospital hip registry.(en)</description>
+   </items>
+   <items id="id3">
+    <text>*Prophylactic antibiotics(en)</text>
+    <description>*Were prophylactic systemic antibiotics used?(en)</description>
+   </items>
+   <items id="at4">
+    <text>*Systemic prophylactic antibiotics used(en)</text>
+    <description>*Systemic antibiotic prophylaxis was given to the patient.(en)</description>
+   </items>
+   <items id="at5">
+    <text>*Systemic prophylactic antibiotics not used(en)</text>
+    <description>*Systemic antibiotic prophylaxis was not given to the patient.(en)</description>
+   </items>
+   <items id="id6">
+    <text>*Wound drainage(en)</text>
+    <description>*Was wound drainage used?(en)</description>
+   </items>
+   <items id="at7">
+    <text>*Wound drainage used(en)</text>
+    <description>*Wound drainage was used.(en)</description>
+   </items>
+   <items id="at8">
+    <text>*Wound drainage not used(en)</text>
+    <description>*Wound drainage was not used.(en)</description>
+   </items>
+   <items id="id10">
+    <text>*Details(en)</text>
+    <description>*Further procedure details.(en)</description>
+   </items>
+   <items id="id11">
+    <text>*Duration of procedure(en)</text>
+    <description>*The duration of the hip procedure.(en)</description>
+   </items>
+   <items id="id12">
+    <text>*Trochanter osteotomy(en)</text>
+    <description>*Was trochanter osteotomy performed?(en)</description>
+   </items>
+   <items id="at13">
+    <text>*Trochanter osteotomy performed(en)</text>
+    <description>*Trochanter osteotomy was performed.(en)</description>
+   </items>
+   <items id="at14">
+    <text>*Trochanter osteotomy not performed(en)</text>
+    <description>*Trochanter osteotomy was not performed.(en)</description>
+   </items>
+   <items id="ac1">
+    <text>*Trochanter osteotomy(en) (synthesised)</text>
+    <description>*Was trochanter osteotomy performed?(en) (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>*Prophylactic antibiotics(en) (synthesised)</text>
+    <description>*Were prophylactic systemic antibiotics used?(en) (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>*Wound drainage(en) (synthesised)</text>
+    <description>*Was wound drainage used?(en) (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac1">
+   <members>at13</members>
+   <members>at14</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at4</members>
+   <members>at5</members>
+  </value_sets>
+  <value_sets id="ac3">
+   <members>at7</members>
+   <members>at8</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

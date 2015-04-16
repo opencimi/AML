@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::es</original_language>
+ <translations id="en">
+  <language>ISO_639-1::en</language>
+  <author id="name">?</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Aitor Eguzkitza</original_author>
+  <original_author id="organisation">Universidad Pública de Navarra - Complejo Hospitalario de Navarra</original_author>
+  <original_author id="email">aitor.eguzkiza@unavarra.es</original_author>
+  <original_author id="date">2014-05-26</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="es">
+   <language>ISO_639-1::es</language>
+   <purpose>Gestionar el proceso de llevar a cabo y posteriormente valorar la prueba de medición de la presión intraocular.</purpose>
+   <use></use>
+   <misuse></misuse>
+  </details>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Manage the process of carrying out and then reviewing the test of intraocular pressure measurement.</purpose>
+   <use>*(es)</use>
+   <keywords>IOP</keywords>
+   <keywords>intraocular pressure</keywords>
+   <misuse>*(es)</misuse>
+  </details>
+  <other_details id="MD5-CAM-1.0.1">C5FE073C18B6EAD45A6165ED57B70D3C</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="SECTION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-SECTION.intraocular_pressure_study.v1.0.0">
+  <concept_id>intraocular_pressure_study</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="SECTION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" cardinality="1..*; unordered" is_multiple="true">
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id2" rm_type_name="ACTION" is_deprecated="false" is_closed="false">
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/openEHR-EHR-ACTION\.procedure(-a-zA-Z0-9_]+)*\.v1/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+    <excludes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/.*/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </excludes>
+   </children>
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id3" rm_type_name="OBSERVATION" is_deprecated="false" is_closed="false">
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/openEHR-EHR-OBSERVATION\.intraocular_pressure(-a-zA-Z0-9_]+)*\.v1/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+    <excludes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/.*/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </excludes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::es">
+  <term_definitions id="es">
+   <items id="id1">
+    <text>Estudio de presión intraocular</text>
+    <description>Define el proceso que implica la adquisición y estudio de la presión intraocular.</description>
+   </items>
+   <items id="id2">
+    <text>Procedimiento realizado</text>
+    <description>Actividad clínica que se ha llevado a cabo con propósitos terapéuticos o diagnósticos.</description>
+   </items>
+   <items id="id3">
+    <text>Medición de PIO</text>
+    <description>Medición de la presión intraocular de un solo ojo, normalmente utilizando un dispositivo de tonometría.</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Intraocular pressure study</text>
+    <description>Defines the process which involves the intraocular pressure acquisition and its study.</description>
+   </items>
+   <items id="id2">
+    <text>Procedure undertaken</text>
+    <description>A clinical activity that has been carried out for therapeutic or diagnostic purposes.</description>
+   </items>
+   <items id="id3">
+    <text>IOP measurement</text>
+    <description>Intraocular pressure measurement of a single eye, normally using a tonometry device.</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

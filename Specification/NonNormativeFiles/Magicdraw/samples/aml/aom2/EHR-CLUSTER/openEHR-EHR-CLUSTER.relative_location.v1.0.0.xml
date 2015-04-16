@@ -1,0 +1,562 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <translations id="sl">
+  <language>ISO_639-1::sl</language>
+  <author id="name">Biljana Princic</author>
+ </translations>
+ <translations id="nb">
+  <language>ISO_639-1::nb</language>
+  <author id="name">Lars Bitsch-Larsen</author>
+  <author id="organisation">Haukeland University Hospital of Bergen, Norway</author>
+  <accreditation>MD, DEAA, MBA, spec in anesthesia, spec in tropical medicine.</accreditation>
+ </translations>
+ <translations id="ar-sy">
+  <language>ISO_639-1::ar-sy</language>
+  <author id="name">Mona Saleh</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Heather Leslie</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">heather.leslie@oceaninformatics.com</original_author>
+  <original_author id="date">2008-11-10</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="ar-sy">
+   <language>ISO_639-1::ar-sy</language>
+   <purpose>تسجيل المكان التشريحي بالتفصيل</purpose>
+   <use></use>
+   <keywords>الموقع</keywords>
+   <keywords>المكان</keywords>
+   <keywords>تشريحي</keywords>
+   <misuse>لا يستخدم لتحديد حالات الحدوث في جانب واحد أو في الجانبين - حيث إن ذلك متعلق بتقييم قد يتضمن العديد من الأماكن</misuse>
+  </details>
+  <details id="sl">
+   <language>ISO_639-1::sl</language>
+   <purpose>*To record details about anatomical location.(en)</purpose>
+   <use></use>
+   <keywords>*location(en)</keywords>
+   <keywords>*site(en)</keywords>
+   <keywords>*anatomical(en)</keywords>
+   <misuse>*Not for specifiying unilateral/bilateral occurence - this is related to an evaluation which perhaps includes multiple locations.(en)</misuse>
+  </details>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record details about a single physical location on the human body in terms of its relationship to other anatomical landmarks.</purpose>
+   <use>Use to record details about a single physical location in the human body. It may be neccessary to describe the physical location using more than one relative location - for example, 2 cm inferior to &apos;landmark A&apos; and 3 cm medial to &apos;landmark B&apos;. This archetype is designed to be used within the context of other ENTRY or CLUSTER archetypes and soley to provide a structured and consistent way to represent identified body sites.
+
+In practice, some archetypes carry a single data element for carrying a simple description of body site - for example, OBSERVATION.blood_pressure and CLUSTER.symptom when describing ear pain. In this situation, where the value set is predictable and simple to define, this is a very accurate and pragmatic way to record the site in the body and to query at a later date.
+
+However in the situation where the anatomical location is not able to be named as a specific site, it may be more flexible to use this archetype. For example, the CLUSTER.symptom archetype also carries a SLOT for &apos;Complex Body Location&apos; which can hold both this archetype plus the CLUSTER.anatomical_location to support maximal flexibility.</use>
+   <keywords>location</keywords>
+   <keywords>site</keywords>
+   <keywords>anatomical</keywords>
+   <keywords>relative</keywords>
+   <keywords>approximate</keywords>
+   <misuse>Not to be used for specifiying unilateral/bilateral occurence - this is related to an evaluation which perhaps includes multiple locations.
+
+Not to be used to specify a specific location of a named physical site in the body. Use the CLUSTER.anatomical_location for this purpose.
+
+Not to be used as a stand-alone archetype.</misuse>
+  </details>
+  <details id="nb">
+   <language>ISO_639-1::nb</language>
+   <purpose>For registrering av detaljer om et anatomisk sted.</purpose>
+   <use></use>
+   <keywords>sted</keywords>
+   <keywords>lokasjon</keywords>
+   <keywords>anatomisk</keywords>
+   <keywords>site</keywords>
+   <misuse>Anvendes ikke for spesifisering av unilateral/bilateral forekomst - dette relateres til en vurdering som kanskje omfatter flere steder.</misuse>
+  </details>
+  <other_contributors>Heather Leslie, Ocean Informatics, Australia (Editor)</other_contributors>
+  <other_contributors>Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (Editor)</other_contributors>
+  <other_contributors>Dunmail Hodkinson, Black Pear Software Ltd, UK</other_contributors>
+  <other_details id="references">Use cases:
+
+- 5LICS, midclavicular line
+
+- L forearm, 2cm anterior to the cubital fossa
+
+- Right iliac fossa
+
+- 5 cm below L tibial tuberosity
+
+- 2 cm medial to R nipple
+
+- 4 cm below R costal margin in midclavicular line
+
+- R femur
+
+- midline nose
+
+- medial aspect of R great toe nail.</other_details>
+  <other_details id="MD5-CAM-1.0.1">5428580BD0F7E8B60CB5CAD0A831953B</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.relative_location.v1.0.0">
+  <concept_id>relative_location</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id21" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id22" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id55" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id56" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac1</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id23" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id57" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at21</constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>cm</constraint>
+          <constraint>in</constraint>
+          <constraint>mm</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id24" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id58" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id54" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id59" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id53" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id60" rm_type_name="DV_MULTIMEDIA" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="media_type" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac2</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="ar-sy">
+   <items id="id1">
+    <text>*Relative Anatomical Location(en)</text>
+    <description>*A physical location on the human body that is described in terms of its relationship to other body parts.(en)</description>
+   </items>
+   <items id="id7">
+    <text>المظهر</text>
+    <description>عنصر مؤهل/وصفي لتعريف اتجاه المكان التشريحي بالنسبة للمَعْلَم المعروف</description>
+   </items>
+   <items id="at8">
+    <text>إنسيّ/ وسطي</text>
+    <description>المكان النسبي هو متوسط للمَعْلَم</description>
+   </items>
+   <items id="at9">
+    <text>جانبي</text>
+    <description>المكان النسبي هو جانبي بالنسبة للمَعْلَم</description>
+   </items>
+   <items id="at10">
+    <text>عُلْوي</text>
+    <description>المكان النسبي هو علويّ بالنسبة للمَعْلَم</description>
+   </items>
+   <items id="at11">
+    <text>سُفْلي</text>
+    <description>المكان النسبي هو سفلي بالنسبة للمَعْلَم</description>
+   </items>
+   <items id="at13">
+    <text>أمامي</text>
+    <description>المكان النسبي هو أمام المَعْلَم</description>
+   </items>
+   <items id="at14">
+    <text>خلفي</text>
+    <description>المكان النسبي هو خلف المَعْلَم </description>
+   </items>
+   <items id="at15">
+    <text>أسفل</text>
+    <description>المكان النسبي هو أسفل المَعْلَم</description>
+   </items>
+   <items id="at16">
+    <text>فوق</text>
+    <description>المكان النسبي هو أعلى المَعْلَم</description>
+   </items>
+   <items id="at17">
+    <text>جانبي سفلي</text>
+    <description>المكان النسبي هو سفلي متوسط بالنسبة للمَعْلَم</description>
+   </items>
+   <items id="at18">
+    <text>علوي جانبي</text>
+    <description>المكان النسبي هو علوي و جانبي بالنسبة للمَعْلَم</description>
+   </items>
+   <items id="at19">
+    <text>سفلي متوسط</text>
+    <description>المكان النسبي هو سفلي و متوسط بالنسبة للمَعْلَم</description>
+   </items>
+   <items id="at20">
+    <text>علوي متوسط</text>
+    <description>المكان النسبي هو علوي و متوسط بالنسبة للمَعْلَم</description>
+   </items>
+   <items id="id21">
+    <text>*Relative location(en)</text>
+    <description>*Details required to identify a single physical location on the human body in terms of its relationship to other anatomical landmarks.(en)</description>
+   </items>
+   <items id="id22">
+    <text>*Identified landmark(en)</text>
+    <description>*Identified anatomical site used as the reference point.(en)</description>
+   </items>
+   <items id="id23">
+    <text>المسافة من المَعْلَم</text>
+    <description>المسافة بين المكان و المَعْلَم المعروف</description>
+   </items>
+   <items id="id24">
+    <text>*Description(en)</text>
+    <description>*Narrative description about the anatomical location.(en)</description>
+   </items>
+   <items id="id53">
+    <text>*Multimedia representation(en)</text>
+    <description>*Image or other media used to support identification of the location on the body.(en)</description>
+   </items>
+   <items id="id54">
+    <text>العلامات/الاتجاهات البصرية</text>
+    <description>وصف أي علامات بصرية مستخدمة لتوجيه من ينظر, مثل: النقاط المرجعية الخارجية, الدَّرْز الخاص, علامات الحبر</description>
+   </items>
+   <items id="at21">
+    <text>*Length (en)</text>
+    <description>*Length (en)</description>
+   </items>
+   <items id="ac1">
+    <text>المظهر (synthesised)</text>
+    <description>عنصر مؤهل/وصفي لتعريف اتجاه المكان التشريحي بالنسبة للمَعْلَم المعروف (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>*Multimedia representation(en) (synthesised)</text>
+    <description>*Image or other media used to support identification of the location on the body.(en) (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="sl">
+   <items id="id1">
+    <text>*Relative Anatomical Location(en)</text>
+    <description>*A physical location on the human body that is described in terms of its relationship to other body parts.(en)</description>
+   </items>
+   <items id="id7">
+    <text>*Aspect(en)</text>
+    <description>*Qualifier to identify which direction the anatomical location is in relation to the identified landmark.(en)</description>
+   </items>
+   <items id="at8">
+    <text>Srednji</text>
+    <description>*Relative location medial to the landmark.(en)</description>
+   </items>
+   <items id="at9">
+    <text>Stranski</text>
+    <description>*Relative location lateral to the landmark.(en)</description>
+   </items>
+   <items id="at10">
+    <text>Višje</text>
+    <description>*Relative location superior to the landmark.(en)</description>
+   </items>
+   <items id="at11">
+    <text>Nižje</text>
+    <description>*Relative location inferior to the landmark.(en)</description>
+   </items>
+   <items id="at13">
+    <text>Spredaj</text>
+    <description>*Relative location anterior to the landmark.(en)</description>
+   </items>
+   <items id="at14">
+    <text>Zadaj</text>
+    <description>*Relative location posterior to the landmark.(en)</description>
+   </items>
+   <items id="at15">
+    <text>Spodaj</text>
+    <description>*Relative location below the landmark.(en)</description>
+   </items>
+   <items id="at16">
+    <text>Zgoraj</text>
+    <description>*Relative location above the landmark.(en)</description>
+   </items>
+   <items id="at17">
+    <text>Nižje ob strani</text>
+    <description>*Relative location inferior and lateral to the landmark.(en)</description>
+   </items>
+   <items id="at18">
+    <text>Višje ob strani</text>
+    <description>*Relative location superior and lateral to the landmark.(en)</description>
+   </items>
+   <items id="at19">
+    <text>Nižje v sredini</text>
+    <description>*Relative location inferior and medial to the landmark.(en)</description>
+   </items>
+   <items id="at20">
+    <text>Višje v sredini</text>
+    <description>*Relative location superior and medial to the landmark.(en)</description>
+   </items>
+   <items id="id21">
+    <text>*Relative location(en)</text>
+    <description>*Details required to identify a single physical location on the human body in terms of its relationship to other anatomical landmarks.(en)</description>
+   </items>
+   <items id="id22">
+    <text>*Identified landmark(en)</text>
+    <description>*Identified anatomical site used as the reference point.(en)</description>
+   </items>
+   <items id="id23">
+    <text>*Distance from landmark(en)</text>
+    <description>*Distance of location from the identified landmark.(en)</description>
+   </items>
+   <items id="id24">
+    <text>*Description(en)</text>
+    <description>*Narrative description about the anatomical location.(en)</description>
+   </items>
+   <items id="id53">
+    <text>*Multimedia representation(en)</text>
+    <description>*Image or other media used to support identification of the location on the body.(en)</description>
+   </items>
+   <items id="id54">
+    <text>*Visual markings/orientation(en)</text>
+    <description>*Description of any visual markings used to orientate the viewer e.g external reference points, special sutures, ink markings.(en)</description>
+   </items>
+   <items id="at21">
+    <text>*Length (en)</text>
+    <description>*Length (en)</description>
+   </items>
+   <items id="ac1">
+    <text>*Aspect(en) (synthesised)</text>
+    <description>*Qualifier to identify which direction the anatomical location is in relation to the identified landmark.(en) (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>*Multimedia representation(en) (synthesised)</text>
+    <description>*Image or other media used to support identification of the location on the body.(en) (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Relative Anatomical Location</text>
+    <description>A physical location on the human body that is described in terms of its relationship to other body parts.</description>
+   </items>
+   <items id="id7">
+    <text>Aspect</text>
+    <description>Qualifier to identify which direction the anatomical location is in relation to the identified landmark.</description>
+   </items>
+   <items id="at8">
+    <text>Medial to</text>
+    <description>Relative location medial to the landmark.</description>
+   </items>
+   <items id="at9">
+    <text>Lateral to</text>
+    <description>Relative location lateral to the landmark.</description>
+   </items>
+   <items id="at10">
+    <text>Superior to</text>
+    <description>Relative location superior to the landmark.</description>
+   </items>
+   <items id="at11">
+    <text>Inferior to</text>
+    <description>Relative location inferior to the landmark.</description>
+   </items>
+   <items id="at13">
+    <text>Anterior to</text>
+    <description>Relative location anterior to the landmark.</description>
+   </items>
+   <items id="at14">
+    <text>Posterior to</text>
+    <description>Relative location posterior to the landmark.</description>
+   </items>
+   <items id="at15">
+    <text>Below</text>
+    <description>Relative location below the landmark.</description>
+   </items>
+   <items id="at16">
+    <text>Above</text>
+    <description>Relative location above the landmark.</description>
+   </items>
+   <items id="at17">
+    <text>Inferolateral to</text>
+    <description>Relative location inferior and lateral to the landmark.</description>
+   </items>
+   <items id="at18">
+    <text>Superolateral to</text>
+    <description>Relative location superior and lateral to the landmark.</description>
+   </items>
+   <items id="at19">
+    <text>Inferomedial to</text>
+    <description>Relative location inferior and medial to the landmark.</description>
+   </items>
+   <items id="at20">
+    <text>Superomedial to</text>
+    <description>Relative location superior and medial to the landmark.</description>
+   </items>
+   <items id="id21">
+    <text>Relative location</text>
+    <description>Details required to identify a single physical location on the human body in terms of its relationship to other anatomical landmarks.</description>
+   </items>
+   <items id="id22">
+    <text>Identified landmark</text>
+    <description>Identified anatomical site used as the reference point.</description>
+   </items>
+   <items id="id23">
+    <text>Distance from landmark</text>
+    <description>Distance of location from the identified landmark.</description>
+   </items>
+   <items id="id24">
+    <text>Description</text>
+    <description>Narrative description about the anatomical location.</description>
+   </items>
+   <items id="id53">
+    <text>Multimedia representation</text>
+    <description>Image or other media used to support identification of the location on the body.</description>
+   </items>
+   <items id="id54">
+    <text>Visual markings/orientation</text>
+    <description>Description of any visual markings used to orientate the viewer e.g external reference points, special sutures, ink markings.</description>
+   </items>
+   <items id="at21">
+    <text>Length</text>
+    <description>Length</description>
+   </items>
+   <items id="ac1">
+    <text>Aspect (synthesised)</text>
+    <description>Qualifier to identify which direction the anatomical location is in relation to the identified landmark. (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Multimedia representation (synthesised)</text>
+    <description>Image or other media used to support identification of the location on the body. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="nb">
+   <items id="id1">
+    <text>*Relative Anatomical Location(en)</text>
+    <description>*A physical location on the human body that is described in terms of its relationship to other body parts.(en)</description>
+   </items>
+   <items id="id7">
+    <text>Retning</text>
+    <description>Konsept for identifikasjon av hvilken retningen det anatomiske sted er, i relasjon til det identifiserte landemerke.</description>
+   </items>
+   <items id="at8">
+    <text>Medialt</text>
+    <description>Det relative sted medialt til landemerket.</description>
+   </items>
+   <items id="at9">
+    <text>Lateralt</text>
+    <description>Det relative sted lateralt for landemerket.</description>
+   </items>
+   <items id="at10">
+    <text>Superiort</text>
+    <description>Det relative sted superiort til landemerket.</description>
+   </items>
+   <items id="at11">
+    <text>Inferiort</text>
+    <description>Det relative sted inferiort til landemerket.</description>
+   </items>
+   <items id="at13">
+    <text>Anteriort</text>
+    <description>Det relative sted anteriort til landemerket.</description>
+   </items>
+   <items id="at14">
+    <text>Posteriort</text>
+    <description>Det relative sted posteriort til landemerket.</description>
+   </items>
+   <items id="at15">
+    <text>Under</text>
+    <description>Det relative sted under landemerket.</description>
+   </items>
+   <items id="at16">
+    <text>Over</text>
+    <description>Det relative sted over landemerket.</description>
+   </items>
+   <items id="at17">
+    <text>Inferiorlateralt</text>
+    <description>Det relative sted inferirot og lateralt til landemerket.</description>
+   </items>
+   <items id="at18">
+    <text>Superiorlateralt</text>
+    <description>Det relative sted superiort og lateralt til landelmerket.</description>
+   </items>
+   <items id="at19">
+    <text>Inferiormedialt</text>
+    <description>Det relative sted inferiort og medialt for landemerket.</description>
+   </items>
+   <items id="at20">
+    <text>Superiormedialt</text>
+    <description>Det relative sted superiort og medialt til landemerket.</description>
+   </items>
+   <items id="id21">
+    <text>*Relative location(en)</text>
+    <description>*Details required to identify a single physical location on the human body in terms of its relationship to other anatomical landmarks.(en)</description>
+   </items>
+   <items id="id22">
+    <text>*Identified landmark(en)</text>
+    <description>*Identified anatomical site used as the reference point.(en)</description>
+   </items>
+   <items id="id23">
+    <text>Avstand til landemerket</text>
+    <description>Avstanden til det identifiserte landemerke.</description>
+   </items>
+   <items id="id24">
+    <text>*Description(en)</text>
+    <description>*Narrative description about the anatomical location.(en)</description>
+   </items>
+   <items id="id53">
+    <text>*Multimedia representation(en)</text>
+    <description>*Image or other media used to support identification of the location on the body.(en)</description>
+   </items>
+   <items id="id54">
+    <text>Visuel markering/orientering</text>
+    <description>Beskrivelse av alle visuelle markeringer brukes til å orientere betrakteren f.eks eksterne referansepunkter, spesielle suturer, blekk markeringer.</description>
+   </items>
+   <items id="at21">
+    <text>*Length (en)</text>
+    <description>*Length (en)</description>
+   </items>
+   <items id="ac1">
+    <text>Retning (synthesised)</text>
+    <description>Konsept for identifikasjon av hvilken retningen det anatomiske sted er, i relasjon til det identifiserte landemerke. (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>*Multimedia representation(en) (synthesised)</text>
+    <description>*Image or other media used to support identification of the location on the body.(en) (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="openehr">
+   <items id="at21">http://openehr.org/id/122</items>
+  </term_bindings>
+  <value_sets id="ac1">
+   <members>at8</members>
+   <members>at9</members>
+   <members>at10</members>
+   <members>at11</members>
+   <members>at13</members>
+   <members>at14</members>
+   <members>at15</members>
+   <members>at16</members>
+   <members>at17</members>
+   <members>at18</members>
+   <members>at19</members>
+   <members>at20</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

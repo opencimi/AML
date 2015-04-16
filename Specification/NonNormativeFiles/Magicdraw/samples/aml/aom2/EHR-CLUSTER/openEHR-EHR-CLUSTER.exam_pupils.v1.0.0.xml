@@ -1,0 +1,796 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <translations id="sl">
+  <language>ISO_639-1::sl</language>
+  <author id="name">Biljana Prinčič</author>
+  <author id="organisation">Marand d.o.o., Ljubljana</author>
+  <author id="email">biljana.princic@marand.si</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Dr Ian McNicoll</original_author>
+  <original_author id="organisation">Ocean Informatics, United Kingdom</original_author>
+  <original_author id="email">ian.mcnicoll@oceaninformatics.com</original_author>
+  <original_author id="date">2012-12-21</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>For recording the findings on physical examination of the pupils.</purpose>
+   <use>Use to record the findings on physical examination of the pupils.
+
+Use to incorporate the narrative descriptions of clinical findings within existing or legacy clinical systems into an archetyped format, using the &apos;Clinical Description&apos; data element.
+
+Specifically designed to be used within the OBSERVATION.exam archetype, but may be used within any clinically appropriate ENTRY or CLUSTER archetype.</use>
+   <keywords>eye</keywords>
+   <keywords>pupil</keywords>
+   <keywords>reflex</keywords>
+   <keywords>PERL</keywords>
+   <keywords>PERLA</keywords>
+   <keywords>inspection</keywords>
+   <keywords>examination</keywords>
+   <misuse>Not to be used to record findings of the physical examination of other parts of the eye, such as the retina - use other specific archetypes for this purpose.</misuse>
+  </details>
+  <details id="sl">
+   <language>ISO_639-1::sl</language>
+   <purpose>Za dokumentiranje opazovanj zenic v ZN</purpose>
+   <use>Uporablja se za opazovanje zenic v ZN</use>
+   <keywords>zenice</keywords>
+   <keywords>refleks</keywords>
+   <keywords>oči</keywords>
+   <misuse></misuse>
+  </details>
+  <other_contributors>Sam Heard, Ocean Informatics, Australia</other_contributors>
+  <other_contributors>Gustavo M Bacelar-Silva, Brazil</other_contributors>
+  <other_details id="current_contact">Ian McNicoll, Ocean Informatics, UK, ian.mcnicoll@oceaninformatics.com</other_details>
+  <other_details id="references">IHE Eye Care Domain. General Eye Evaluation (GEE) [Internet]. IHE; 2012. Available from: http://www.ihe.net/Technical_Framework/upload/IHE_EyeCare_Supp_GEE_Rev1-1_TI_2012-06-29.pdf
+
+Royal College of Opthalmologists. Cataract National Dataset for Adults [Internet]. 2011. Available from: http://www.rcophth.ac.uk/page.asp?section=583&amp;amp;sectionTitle=Cataract+National+Data+Set+for+Adults
+
+CfH, UK. Do Once &amp;amp; Share - Glaucoma [Internet]. [cited 2012 Sep 26]. Available from: http://www.doasglaucoma.org/
+
+Eye Color [Internet]. Wikipedia. Available from: http://en.wikipedia.org/wiki/Eye_color
+
+Pupillary abnormalities [Internet], openEyes Project.  Available from: http://www.openeyes.org.uk/elements/pupil/pupil.html</other_details>
+  <other_details id="MD5-CAM-1.0.1">F8EBFE74B0D3BD7F9F74F74692E06C0B</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.exam_pupils.v1.0.0">
+  <concept_id>exam_pupils</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id70" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id79" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id72" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id80" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id76" rm_type_name="CLUSTER" occurrences="0..2" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id16" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id81" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac2</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id82" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac3</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id83" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at75</constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+         <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0.0</lower>
+           <upper>30.0</upper>
+          </constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="precision" is_multiple="false">
+         <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0</lower>
+          </constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+         <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>mm</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id21" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id84" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac4</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id85" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac5</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id86" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac6</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id87" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac7</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id54" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id88" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac8</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id77" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id89" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id71" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id90" rm_type_name="DV_MULTIMEDIA" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="media_type" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac9</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id69" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id91" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id78" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id92" rm_type_name="DV_MULTIMEDIA" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="media_type" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac10</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id28" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id93" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Examination Findings  - Pupils</text>
+    <description>Findings on physical examination of the pupils.</description>
+   </items>
+   <items id="id3">
+    <text>Measured Size</text>
+    <description>Measured size of the pupil.</description>
+   </items>
+   <items id="id4">
+    <text>Direct Light Reflex</text>
+    <description>Pupil constricts with light shone into that eye.</description>
+   </items>
+   <items id="id5">
+    <text>Consensual Light Reflex</text>
+    <description>Findings of the consensual pupillary light reflex.</description>
+   </items>
+   <items id="id6">
+    <text>Shape</text>
+    <description>The shape of the pupil.</description>
+   </items>
+   <items id="id7">
+    <text>Accommodation Reflex</text>
+    <description>Findings of the pupillary accommodation reflex.</description>
+   </items>
+   <items id="id16">
+    <text>Pupil Examined</text>
+    <description>Identification of the pupil under examination.</description>
+   </items>
+   <items id="at17">
+    <text>Left</text>
+    <description>The left pupil.</description>
+   </items>
+   <items id="at18">
+    <text>Right</text>
+    <description>The right pupil.</description>
+   </items>
+   <items id="at19">
+    <text>Both pupils</text>
+    <description>Both pupils.</description>
+   </items>
+   <items id="id21">
+    <text>Estimated Size</text>
+    <description>A text description of the estimated pupil size.</description>
+   </items>
+   <items id="at22">
+    <text>Normal sized pupil</text>
+    <description>The pupil size is normal (3-5mm).</description>
+   </items>
+   <items id="at23">
+    <text>Constricted pupil.</text>
+    <description>The pupil is constricted, relative to normal (1.5-2.5mm).</description>
+   </items>
+   <items id="at24">
+    <text>Pin-point pupil</text>
+    <description>The pupil is heavily constricted (&amp;lt;= 1mm).</description>
+   </items>
+   <items id="at25">
+    <text>Dilated pupil</text>
+    <description>The pupil is dilated, relative to normal (&amp;gt;= 5.5mm).</description>
+   </items>
+   <items id="at26">
+    <text>Present</text>
+    <description>The direct light reflex is present.</description>
+   </items>
+   <items id="at27">
+    <text>Absent</text>
+    <description>The direct light reflex is absent.</description>
+   </items>
+   <items id="id28">
+    <text>Comment</text>
+    <description>Additional narrative about the physical examination findings of the pupil, not captured in other fields.</description>
+   </items>
+   <items id="at34">
+    <text>Sluggish/slow (-)</text>
+    <description>The direct light reflex is slow or sluggish (-).</description>
+   </items>
+   <items id="at35">
+    <text>Normal speed (+/-)</text>
+    <description>The direct light reflex is of normal speed (+/-).</description>
+   </items>
+   <items id="at36">
+    <text>Brisk(+)</text>
+    <description>The direct light reflex is brisk (+).</description>
+   </items>
+   <items id="at37">
+    <text>Very brisk (++)</text>
+    <description>The direct light reflex is very brisk (++).</description>
+   </items>
+   <items id="at38">
+    <text>Present</text>
+    <description>The consensual light reflex is present.</description>
+   </items>
+   <items id="at39">
+    <text>Absent</text>
+    <description>The consensual light reflex is absent.</description>
+   </items>
+   <items id="at40">
+    <text>Sluggish/slow (-)</text>
+    <description>The consensual light reflex is sluggish or slow (-).</description>
+   </items>
+   <items id="at41">
+    <text>Normal (+/-)</text>
+    <description>The consensual light reflex is of normal speed (+/-).</description>
+   </items>
+   <items id="at42">
+    <text>Brisk (+)</text>
+    <description>The consensual light reflex is brisk (+).</description>
+   </items>
+   <items id="at44">
+    <text>Present</text>
+    <description>The accomodation light reflex is present.</description>
+   </items>
+   <items id="at45">
+    <text>Absent</text>
+    <description>The accommodation light reflex is absent.</description>
+   </items>
+   <items id="at46">
+    <text>Sluggish/slow (-)</text>
+    <description>The accommodation light reflex is slow or sluggish (-).</description>
+   </items>
+   <items id="at47">
+    <text>Normal (-/+)</text>
+    <description>The accommodation light reflex is of normal speed (+/-).</description>
+   </items>
+   <items id="at48">
+    <text>Brisk (+)</text>
+    <description>The accommodation light reflex is brisk (+).</description>
+   </items>
+   <items id="at50">
+    <text>Normal, circular</text>
+    <description>The pupil is a normal, circular shape.</description>
+   </items>
+   <items id="at51">
+    <text>Abnormal</text>
+    <description>The pupil is an abnormal shape.</description>
+   </items>
+   <items id="at52">
+    <text>Oval</text>
+    <description>The pupil is an oval shape.</description>
+   </items>
+   <items id="at53">
+    <text>Irregular</text>
+    <description>The pupil is irregular.</description>
+   </items>
+   <items id="id54">
+    <text>Relative Afferent Pupillary Defect</text>
+    <description>Findings of the relative afferent pupillary defect.</description>
+   </items>
+   <items id="at55">
+    <text>Absent</text>
+    <description>A relative afferent afferent pupillary defect (RAPD) is absent.</description>
+   </items>
+   <items id="at56">
+    <text>Present</text>
+    <description>A relative afferent afferent pupillary defect (RAPD) is present.</description>
+   </items>
+   <items id="at57">
+    <text>Sectoral abnormaility</text>
+    <description>A sectoral abnormality is present.</description>
+   </items>
+   <items id="at58">
+    <text>Teardrop</text>
+    <description>The pupil is tear-drop shaped.</description>
+   </items>
+   <items id="at59">
+    <text>Keyhole</text>
+    <description>The pupil is keyhole-shaped.</description>
+   </items>
+   <items id="id69">
+    <text>Interpretation</text>
+    <description>Single word, phrase or brief description representing a summary of the examination findings applying to both puplis.</description>
+   </items>
+   <items id="id70">
+    <text>Description</text>
+    <description>Narrative description of findings observed during a physical examination of the pupil.</description>
+   </items>
+   <items id="id71">
+    <text>Image</text>
+    <description>Multimedia image taken during examination of the identified pupil.</description>
+   </items>
+   <items id="id72">
+    <text>Symmetry</text>
+    <description>An estimate of the equality of the size and shape of the pupils.</description>
+   </items>
+   <items id="at73">
+    <text>Equal</text>
+    <description>The pupils are of equal size.</description>
+   </items>
+   <items id="at74">
+    <text>Unequal</text>
+    <description>The puils are of unequal size.</description>
+   </items>
+   <items id="id76">
+    <text>Per Pupil</text>
+    <description>Physical examination findings of an identified pupil.</description>
+   </items>
+   <items id="id77">
+    <text>Interpretation</text>
+    <description>Single word, phrase or brief description representing a summary of the examination findings applying to a single pupil.</description>
+   </items>
+   <items id="id78">
+    <text>Image</text>
+    <description>Multimedia image taken during examination of both pupils.</description>
+   </items>
+   <items id="at75">
+    <text>Length</text>
+    <description>Length</description>
+   </items>
+   <items id="ac1">
+    <text>Symmetry (synthesised)</text>
+    <description>An estimate of the equality of the size and shape of the pupils. (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Pupil Examined (synthesised)</text>
+    <description>Identification of the pupil under examination. (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>Shape (synthesised)</text>
+    <description>The shape of the pupil. (synthesised)</description>
+   </items>
+   <items id="ac4">
+    <text>Estimated Size (synthesised)</text>
+    <description>A text description of the estimated pupil size. (synthesised)</description>
+   </items>
+   <items id="ac5">
+    <text>Direct Light Reflex (synthesised)</text>
+    <description>Pupil constricts with light shone into that eye. (synthesised)</description>
+   </items>
+   <items id="ac6">
+    <text>Consensual Light Reflex (synthesised)</text>
+    <description>Findings of the consensual pupillary light reflex. (synthesised)</description>
+   </items>
+   <items id="ac7">
+    <text>Accommodation Reflex (synthesised)</text>
+    <description>Findings of the pupillary accommodation reflex. (synthesised)</description>
+   </items>
+   <items id="ac8">
+    <text>Relative Afferent Pupillary Defect (synthesised)</text>
+    <description>Findings of the relative afferent pupillary defect. (synthesised)</description>
+   </items>
+   <items id="ac9">
+    <text>Image (synthesised)</text>
+    <description>Multimedia image taken during examination of the identified pupil. (synthesised)</description>
+   </items>
+   <items id="ac10">
+    <text>Image (synthesised)</text>
+    <description>Multimedia image taken during examination of both pupils. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="sl">
+   <items id="id1">
+    <text>*Examination - Pupil(en)</text>
+    <description>*Physical examination of the pupil.(en)</description>
+   </items>
+   <items id="id3">
+    <text>*Measured Size(en)</text>
+    <description>*Measured size of the pupil.(en)</description>
+   </items>
+   <items id="id4">
+    <text>*Direct Light Reflex(en)</text>
+    <description>*Pupil constricts with light shone into that eye.(en)</description>
+   </items>
+   <items id="id5">
+    <text>*Consensual Light Reflex(en)</text>
+    <description>*Findings of the consensual pupillary light reflex.(en)</description>
+   </items>
+   <items id="id6">
+    <text>Obilka</text>
+    <description>Obilka zenice</description>
+   </items>
+   <items id="id7">
+    <text>*Accommodation Reflex(en)</text>
+    <description>*Findings of the pupillary accommodation reflex.(en)</description>
+   </items>
+   <items id="id16">
+    <text>*Pupil Examined(en)</text>
+    <description>*Identification of the pupil under examination.(en)</description>
+   </items>
+   <items id="at17">
+    <text>*Left(en)</text>
+    <description>*The left pupil.(en)</description>
+   </items>
+   <items id="at18">
+    <text>*Right(en)</text>
+    <description>*The right pupil.(en)</description>
+   </items>
+   <items id="at19">
+    <text>*Both pupils(en)</text>
+    <description>*Both pupils.(en)</description>
+   </items>
+   <items id="id21">
+    <text>*Estimated Size(en)</text>
+    <description>*A text description of the estimated pupil size.(en)</description>
+   </items>
+   <items id="at22">
+    <text>*Normal sized pupil(en)</text>
+    <description>*The pupil size is normal (3-5mm).(en)</description>
+   </items>
+   <items id="at23">
+    <text>*Constricted pupil.(en)</text>
+    <description>*The pupil is constricted, relative to normal (1.5-2.5mm).(en)</description>
+   </items>
+   <items id="at24">
+    <text>*Pin-point pupil(en)</text>
+    <description>*The pupil is heavily constricted (&amp;lt;= 1mm).(en)</description>
+   </items>
+   <items id="at25">
+    <text>*Dilated pupil(en)</text>
+    <description>*The pupil is dilated, relative to normal (&amp;gt;= 5.5mm).(en)</description>
+   </items>
+   <items id="at26">
+    <text>Da</text>
+    <description>Refleks na direktno svetlobo je prisoten</description>
+   </items>
+   <items id="at27">
+    <text>Ne</text>
+    <description>Refleks na direktno svetlobo ni prisoten</description>
+   </items>
+   <items id="id28">
+    <text>*Comment(en)</text>
+    <description>*Additional narrative about the physical examination findings of the pupil, not captured in other fields.(en)</description>
+   </items>
+   <items id="at34">
+    <text>Počasen (-)</text>
+    <description>Refleks na direktno svetlobo je počasen (-)</description>
+   </items>
+   <items id="at35">
+    <text>*Normal speed (+/-)(en)</text>
+    <description>*The direct light reflex is of normal speed (+/-).(en)</description>
+   </items>
+   <items id="at36">
+    <text>Hiter(+)</text>
+    <description>Refleks na direktno svetlobo je hiter (+)</description>
+   </items>
+   <items id="at37">
+    <text>Zelo hiter (++)</text>
+    <description>Refleks na direktno svetlobo je zelo hiter (++)</description>
+   </items>
+   <items id="at38">
+    <text>Da</text>
+    <description>Refleks na indirektno svetlobo je prisoten</description>
+   </items>
+   <items id="at39">
+    <text>Ne</text>
+    <description>Refleks na indirektno svetlobo ni prisoten</description>
+   </items>
+   <items id="at40">
+    <text>Počasen (-)</text>
+    <description>Refleks na indirektno svetlobo je počasen (-)</description>
+   </items>
+   <items id="at41">
+    <text>Normalen (+/-)</text>
+    <description>Refleks na indirektno svetlobo je normalno hiter (+/-)</description>
+   </items>
+   <items id="at42">
+    <text>Hiter(+)</text>
+    <description>Refleks na indirektno svetlobo je hiter (+)</description>
+   </items>
+   <items id="at44">
+    <text>Da</text>
+    <description>Akomodacijski refleks je prisoten</description>
+   </items>
+   <items id="at45">
+    <text>Ne</text>
+    <description>Akomodacijski refleks ni prisoten</description>
+   </items>
+   <items id="at46">
+    <text>Počasen (-)</text>
+    <description>Akomodacija leče je počasna (-)</description>
+   </items>
+   <items id="at47">
+    <text>Normalen (+/-)</text>
+    <description>Akomodacija leče je normalno hitra (+,-)</description>
+   </items>
+   <items id="at48">
+    <text>Hiter(+)</text>
+    <description>Akomodacija leče je hitra (+)</description>
+   </items>
+   <items id="at50">
+    <text>Normalna, okrogla</text>
+    <description>Oblika zenice je normalna, okrogla</description>
+   </items>
+   <items id="at51">
+    <text>Nepravilna</text>
+    <description>Zenica je nepravilne oblike</description>
+   </items>
+   <items id="at52">
+    <text>Ovalna</text>
+    <description>Zenica je ovalne oblike</description>
+   </items>
+   <items id="at53">
+    <text>Nepravilna</text>
+    <description>Zenica je nepravilne oblike</description>
+   </items>
+   <items id="id54">
+    <text>*Relative Afferent Pupillary Defect(en)</text>
+    <description>*Findings of the relative afferent pupillary defect.(en)</description>
+   </items>
+   <items id="at55">
+    <text>*Absent(en)</text>
+    <description>*A relative afferent afferent pupillary defect (RAPD) is absent.(en)</description>
+   </items>
+   <items id="at56">
+    <text>*Present(en)</text>
+    <description>*A relative afferent afferent pupillary defect (RAPD) is present.(en)</description>
+   </items>
+   <items id="at57">
+    <text>*Sectoral abnormaility(en)</text>
+    <description>*A sectoral abnormality is present.(en)</description>
+   </items>
+   <items id="at58">
+    <text>V obliki solze</text>
+    <description>Zenica je v obliki solze</description>
+   </items>
+   <items id="at59">
+    <text>V obliki ključavnice</text>
+    <description>Zenica je v obliki ključavnice</description>
+   </items>
+   <items id="id69">
+    <text>*Interpretation(en)</text>
+    <description>*Single word, phrase or brief description representing a summary of the examination findings.(en)</description>
+   </items>
+   <items id="id70">
+    <text>*Description(en)</text>
+    <description>*Narrative description of findings observed by a clinician during a physical examination of the pupil.(en)</description>
+   </items>
+   <items id="id71">
+    <text>*Image(en)</text>
+    <description>*Multimedia image taken during examination of the pupil.(en)</description>
+   </items>
+   <items id="id72">
+    <text>*Equality(en)</text>
+    <description>*An estimate of the equality of the size of the pupils.(en)</description>
+   </items>
+   <items id="at73">
+    <text>*Equal(en)</text>
+    <description>*The pupils are of equal size.(en)</description>
+   </items>
+   <items id="at74">
+    <text>*Unequal(en)</text>
+    <description>*The puils are of unequal size.(en)</description>
+   </items>
+   <items id="id76">
+    <text>*New cluster(en)</text>
+    <description>**(en)</description>
+   </items>
+   <items id="id77">
+    <text>*New element(en)</text>
+    <description>**(en)</description>
+   </items>
+   <items id="id78">
+    <text>*New element(en)</text>
+    <description>**(en)</description>
+   </items>
+   <items id="at75">
+    <text>*Length (en)</text>
+    <description>*Length (en)</description>
+   </items>
+   <items id="ac1">
+    <text>*Equality(en) (synthesised)</text>
+    <description>*An estimate of the equality of the size of the pupils.(en) (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>*Pupil Examined(en) (synthesised)</text>
+    <description>*Identification of the pupil under examination.(en) (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>Obilka (synthesised)</text>
+    <description>Obilka zenice (synthesised)</description>
+   </items>
+   <items id="ac4">
+    <text>*Estimated Size(en) (synthesised)</text>
+    <description>*A text description of the estimated pupil size.(en) (synthesised)</description>
+   </items>
+   <items id="ac5">
+    <text>*Direct Light Reflex(en) (synthesised)</text>
+    <description>*Pupil constricts with light shone into that eye.(en) (synthesised)</description>
+   </items>
+   <items id="ac6">
+    <text>*Consensual Light Reflex(en) (synthesised)</text>
+    <description>*Findings of the consensual pupillary light reflex.(en) (synthesised)</description>
+   </items>
+   <items id="ac7">
+    <text>*Accommodation Reflex(en) (synthesised)</text>
+    <description>*Findings of the pupillary accommodation reflex.(en) (synthesised)</description>
+   </items>
+   <items id="ac8">
+    <text>*Relative Afferent Pupillary Defect(en) (synthesised)</text>
+    <description>*Findings of the relative afferent pupillary defect.(en) (synthesised)</description>
+   </items>
+   <items id="ac9">
+    <text>*Image(en) (synthesised)</text>
+    <description>*Multimedia image taken during examination of the pupil.(en) (synthesised)</description>
+   </items>
+   <items id="ac10">
+    <text>*New element(en) (synthesised)</text>
+    <description>**(en) (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="SNOMED-CT">
+   <items id="id3">http://snomed.info/id/363953003</items>
+   <items id="id4">http://snomed.info/id/113147002</items>
+   <items id="id21">http://snomed.info/id/363953003</items>
+   <items id="id72">http://snomed.info/id/363955005</items>
+  </term_bindings>
+  <term_bindings id="openehr">
+   <items id="at75">http://openehr.org/id/122</items>
+  </term_bindings>
+  <value_sets id="ac1">
+   <members>at73</members>
+   <members>at74</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at17</members>
+   <members>at18</members>
+   <members>at19</members>
+  </value_sets>
+  <value_sets id="ac3">
+   <members>at50</members>
+   <members>at51</members>
+   <members>at52</members>
+   <members>at53</members>
+   <members>at57</members>
+   <members>at58</members>
+   <members>at59</members>
+  </value_sets>
+  <value_sets id="ac4">
+   <members>at24</members>
+   <members>at23</members>
+   <members>at22</members>
+   <members>at25</members>
+  </value_sets>
+  <value_sets id="ac5">
+   <members>at26</members>
+   <members>at27</members>
+   <members>at34</members>
+   <members>at35</members>
+   <members>at36</members>
+   <members>at37</members>
+  </value_sets>
+  <value_sets id="ac6">
+   <members>at38</members>
+   <members>at39</members>
+   <members>at40</members>
+   <members>at41</members>
+   <members>at42</members>
+  </value_sets>
+  <value_sets id="ac7">
+   <members>at44</members>
+   <members>at45</members>
+   <members>at46</members>
+   <members>at47</members>
+   <members>at48</members>
+  </value_sets>
+  <value_sets id="ac8">
+   <members>at56</members>
+   <members>at55</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Ian McNicoll</original_author>
+  <original_author id="organisation">Ocean Informatics, United Kingdom</original_author>
+  <original_author id="email">ian.mcnicoll@oceaninformatics.com</original_author>
+  <original_author id="date">08/12/2009</original_author>
+  <copyright>© openEHR</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To request a pathology test to be performed and convey supporting clinical details.</purpose>
+   <use>Use in most requests for a pathology test to be conducted on a patient.
+If there are more specific details about the test and/or specimen include this information in more detailed CLUSTER archetypes appropriate for the purpose.</use>
+   <keywords>request</keywords>
+   <keywords>refer</keywords>
+   <keywords>order</keywords>
+   <keywords>service</keywords>
+   <keywords>provide</keywords>
+   <keywords>laboratory</keywords>
+   <keywords>pathology</keywords>
+   <keywords>microbiology</keywords>
+   <keywords>haematology</keywords>
+   <keywords>diagnostic</keywords>
+   <misuse></misuse>
+  </details>
+  <other_contributors>Heather Leslie, Ocean Informatics, Australia</other_contributors>
+  <other_details id="MD5-CAM-1.0.1">43C7B3E22BF23A6BB8F11BDE74E32BE5</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="INSTRUCTION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-INSTRUCTION.request-pathology_test.v1.0.0">
+  <concept_id>request-pathology_test</concept_id>
+ </archetype_id>
+ <parent_archetype_id>openEHR-EHR-INSTRUCTION.request.v1</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="INSTRUCTION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="name" is_multiple="false">
+   <differential_path>/activities[id2]/description[id10]/items[id122.1]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.146" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="name" is_multiple="false">
+   <differential_path>/activities[id2]/description[id10]/items[id136.1]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.147" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <differential_path>/activities[id2]/description[id10]</differential_path>
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id0.145" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+    <sibling_order is_before="true">
+     <sibling_node_id>id63</sibling_node_id>
+    </sibling_order>
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/.*/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id41.1" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id145.1" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id0.145">
+    <text>Specimen details</text>
+    <description>Structured detail defining the specimen.</description>
+   </items>
+   <items id="id1.1">
+    <text>PathologyTest Request</text>
+    <description>Generic request for a pathology request.</description>
+   </items>
+   <items id="id41.1">
+    <text>DateTime test preferred</text>
+    <description>The preferred date and time by which the service should be performed or completed.</description>
+   </items>
+   <items id="id122.1">
+    <text>Pathology Test Requested</text>
+    <description>Identification of the pathology test requested. This is often coded with an external terminology.</description>
+   </items>
+   <items id="id136.1">
+    <text>Description of Test</text>
+    <description>A detailed narrative description of the pathology test requested.</description>
+   </items>
+   <items id="id145.1">
+    <text>Latest DateTime test required</text>
+    <description>The latest date that is acceptable for the service to be completed.</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

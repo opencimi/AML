@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Sam Heard</original_author>
+  <original_author id="organisation">Ocean Informatics, UK</original_author>
+  <original_author id="email">sam.heard@oceaninformatics.com</original_author>
+  <original_author id="date">2013-05-16</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To describe the form of the medication or chemical as well as the active or therapeutic and other ingredients. This is available as a cluster for use in settlngs where the record of a medication or other chemical is required.</purpose>
+   <use>Use to add detail to a medication order or administration record and in conjunction with medication_amount for quantity and strength of medication ingredients.</use>
+   <keywords>composition</keywords>
+   <keywords>generic</keywords>
+   <keywords>ingredient</keywords>
+   <keywords>medication</keywords>
+   <keywords>chemical</keywords>
+   <misuse></misuse>
+  </details>
+  <other_contributors>Ian McNicoll, Ocean Informatics, UK</other_contributors>
+  <other_details id="references">Chemical description of medication, draft archetype, NEHTA Clinical Knowledge Manager [Internet]. NEHTA. Authored: 12 Nov 2010. Available at: http://dcm.nehta.org.au/ckm/#showArchetype_1013.1.885_2 (accessed 15 May 2013).</other_details>
+  <other_details id="MD5-CAM-1.0.1">C4AFB245015FC6A74D6E08C5517B7B58</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.medication_ingredients.v1.0.0">
+  <concept_id>medication_ingredients</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id11" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id35" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id36" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id31" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/openEHR-EHR-CLUSTER\.medication_amount(-a-zA-Z0-9_]+)*\.v1/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id37" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id38" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false">
+      <target_path>/items[id11]</target_path>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id39" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false">
+      <target_path>/items[id6]</target_path>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id40" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_ARCHETYPE_SLOT" node_id="id34" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_closed="false">
+      <includes type="Boolean">
+       <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+        <operator value="2007">
+        </operator>
+        <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+         <item>archetype_id/value</item>
+        </left_operand>
+        <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+         <item>
+          <rm_type_name>STRING</rm_type_name>
+          <constraint>/openEHR-EHR-CLUSTER\.medication_amount(-a-zA-Z0-9_]+)*\.v1/</constraint>
+          <is_path_compressible>false</is_path_compressible>
+          <is_deprecated>false</is_deprecated>
+          <is_frozen>false</is_frozen>
+          <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+         </item>
+        </right_operand>
+       </expression>
+      </includes>
+     </children>
+     <children xsi:type="P_ARCHETYPE_SLOT" node_id="id25" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_closed="false">
+      <includes type="Boolean">
+       <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+        <operator value="2007">
+        </operator>
+        <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+         <item>archetype_id/value</item>
+        </left_operand>
+        <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+         <item>
+          <rm_type_name>STRING</rm_type_name>
+          <constraint>/openEHR-EHR-CLUSTER\.medication_amount(-a-zA-Z0-9_]+)*\.v1/</constraint>
+          <is_path_compressible>false</is_path_compressible>
+          <is_deprecated>false</is_deprecated>
+          <is_frozen>false</is_frozen>
+          <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+         </item>
+        </right_operand>
+       </expression>
+      </includes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Medication ingredients</text>
+    <description>The actual ingredients with strength and overall form of a chemical or medication.</description>
+   </items>
+   <items id="id2">
+    <text>Ingredient</text>
+    <description>Detailed Information about an individual ingredient.</description>
+   </items>
+   <items id="id3">
+    <text>Name</text>
+    <description>The name of the chemical or medication.</description>
+   </items>
+   <items id="id4">
+    <text>Compound</text>
+    <description>The detailed chemical name of the compound that is an active ingredient.</description>
+   </items>
+   <items id="id6">
+    <text>Role</text>
+    <description>The role of the agent. If not stated it will be assumed to be therapeutic.</description>
+   </items>
+   <items id="at7">
+    <text>Therapeutic</text>
+    <description>The chemical has a known and desired effect which is positive.</description>
+   </items>
+   <items id="at8">
+    <text>Toxic</text>
+    <description>This chemical is toxic and has no therapeutic effect.</description>
+   </items>
+   <items id="at9">
+    <text>Adjuvant</text>
+    <description>The chemical is active but aids the therapeutic effect of another ingredient.</description>
+   </items>
+   <items id="at10">
+    <text>Other</text>
+    <description>The chemical has another active role.</description>
+   </items>
+   <items id="id11">
+    <text>Form</text>
+    <description>The formulation or presentation of the overall substance.</description>
+   </items>
+   <items id="at18">
+    <text>Dilutant</text>
+    <description>Inert dilutant.</description>
+   </items>
+   <items id="at19">
+    <text>Propellent</text>
+    <description>Inert propellent.</description>
+   </items>
+   <items id="at20">
+    <text>Preservative</text>
+    <description>The ingredient is present to prolong the life of the substance.</description>
+   </items>
+   <items id="at21">
+    <text>Colouring</text>
+    <description>The ingredient is used to colour the substance.</description>
+   </items>
+   <items id="id25">
+    <text>Quantity</text>
+    <description>The quantity of an ingredient used within a mixture.</description>
+   </items>
+   <items id="id31">
+    <text>Strength</text>
+    <description>The strength of the overall preparation.</description>
+   </items>
+   <items id="id34">
+    <text>Strength</text>
+    <description>The strength of an individual ingredient.</description>
+   </items>
+   <items id="at36">
+    <text>Electrolyte</text>
+    <description>This ingredient is an electrolyte.</description>
+   </items>
+   <items id="id38">
+    <text>(added by post-parse processor)</text>
+    <description>(added by post-parse processor)</description>
+   </items>
+   <items id="id39">
+    <text>(added by post-parse processor)</text>
+    <description>(added by post-parse processor)</description>
+   </items>
+   <items id="ac1">
+    <text>Role (synthesised)</text>
+    <description>The role of the agent. If not stated it will be assumed to be therapeutic. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="sl">
+   <items id="id1">
+    <text>*Chemical description of medication(en)</text>
+    <description>*The actual ingredients with strength and overall form of a chemical or medication.(en)</description>
+   </items>
+   <items id="id2">
+    <text>*Ingredient(en)</text>
+    <description>*Detailed Information about an individual ingredient.(en)</description>
+   </items>
+   <items id="id3">
+    <text>*Name(en)</text>
+    <description>*The name of the chemical or medication.(en)</description>
+   </items>
+   <items id="id4">
+    <text>*Compound(en)</text>
+    <description>*The detailed chemical name of the compound that is an active ingredient.(en)</description>
+   </items>
+   <items id="id6">
+    <text>*Role(en)</text>
+    <description>*The role of the agent. If not stated it will be assumed to be therapeutic.(en)</description>
+   </items>
+   <items id="at7">
+    <text>*Therapeutic(en)</text>
+    <description>*The chemical has a known and desired effect which is positive.(en)</description>
+   </items>
+   <items id="at8">
+    <text>*Toxic(en)</text>
+    <description>*This chemical is toxic and has no therapeutic effect.(en)</description>
+   </items>
+   <items id="at9">
+    <text>*Adjuvant(en)</text>
+    <description>*The chemical is active but aids the therapeutic effect of another ingredient.(en)</description>
+   </items>
+   <items id="at10">
+    <text>*Other(en)</text>
+    <description>*The chemical has another active role.(en)</description>
+   </items>
+   <items id="id11">
+    <text>*Form(en)</text>
+    <description>*The formulation or presentation of the overall substance.(en)</description>
+   </items>
+   <items id="at18">
+    <text>*Dilutant(en)</text>
+    <description>*Inert dilutant.(en)</description>
+   </items>
+   <items id="at19">
+    <text>*Propellent(en)</text>
+    <description>*Inert propellent.(en)</description>
+   </items>
+   <items id="at20">
+    <text>*Preservative(en)</text>
+    <description>*The ingredient is present to prolong the life of the substance.(en)</description>
+   </items>
+   <items id="at21">
+    <text>*Colouring(en)</text>
+    <description>*The ingredient is used to colour the substance.(en)</description>
+   </items>
+   <items id="id25">
+    <text>*Quantity(en)</text>
+    <description>*The quantity of an ingredient used within a mixture.(en)</description>
+   </items>
+   <items id="id31">
+    <text>*Strength(en)</text>
+    <description>*The strength of the overall preparation.(en)</description>
+   </items>
+   <items id="id34">
+    <text>*Strength(en)</text>
+    <description>*The strength of an individual ingredient.(en)</description>
+   </items>
+   <items id="at36">
+    <text>*Electrolyte(en)</text>
+    <description>*This ingredient is an electrolyte.(en)</description>
+   </items>
+   <items id="id38">
+    <text>*(added by post-parse processor)(en)</text>
+    <description>*(added by post-parse processor)(en)</description>
+   </items>
+   <items id="id39">
+    <text>*(added by post-parse processor)(en)</text>
+    <description>*(added by post-parse processor)(en)</description>
+   </items>
+   <items id="ac1">
+    <text>*Role(en) (synthesised)</text>
+    <description>*The role of the agent. If not stated it will be assumed to be therapeutic.(en) (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac1">
+   <members>at7</members>
+   <members>at36</members>
+   <members>at8</members>
+   <members>at9</members>
+   <members>at18</members>
+   <members>at19</members>
+   <members>at20</members>
+   <members>at21</members>
+   <members>at10</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

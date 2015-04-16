@@ -1,0 +1,1500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <translations id="de">
+  <language>ISO_639-1::de</language>
+  <author id="name">Jasmin Buck, Sebastian Garde</author>
+  <author id="organisation">University of Heidelberg, Central Queensland University</author>
+ </translations>
+ <translations id="ar-sy">
+  <language>ISO_639-1::ar-sy</language>
+  <author id="name">Mona Saleh</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Tony Shannon</original_author>
+  <original_author id="organisation">UK NHS, Connecting for Health</original_author>
+  <original_author id="email">tony.shannon@nhs.net</original_author>
+  <original_author id="date">2007-02-20</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="ar-sy">
+   <language>ISO_639-1::ar-sy</language>
+   <purpose>*To record detail about a symptom - either self-recorded by an individual or recorded on the behalf of a patient by a clinician. A complete patient history may include varying level of details about a variety of symptoms.(en)</purpose>
+   <use>*Use to record detailed information about a symptom as told to a clinician by a patient or self-recorded by the individual/patient.
+
+This archetype allows a &apos;nil significant&apos; statement to be explicitly recorded.(en)</use>
+   <misuse>*Not to be used to record details about pain. Use the specialisation of this archetype - the CLUSTER.symptom-pain instead.
+
+Not to be used for diagnoses and problems that form part of a persisting Problem List - use EVALUATION.problem_diagnosis.(en)</misuse>
+  </details>
+  <details id="de">
+   <language>ISO_639-1::de</language>
+   <purpose>*To record detail about a symptom - either self-recorded by an individual or recorded on the behalf of a patient by a clinician. A complete patient history may include varying level of details about a variety of symptoms.(en)</purpose>
+   <use>*Use to record detailed information about a symptom as told to a clinician by a patient or self-recorded by the individual/patient.
+
+This archetype allows a &apos;nil significant&apos; statement to be explicitly recorded.(en)</use>
+   <misuse>*Sollte nur für Symptome benutzt werden. (en)</misuse>
+  </details>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record detail about a symptom - either self-recorded by an individual or recorded on the behalf of a patient by a clinician. A complete patient history may include varying level of details about a variety of symptoms.</purpose>
+   <use>Use to record detailed information about a symptom as told to a clinician by a patient or self-recorded by the individual/patient.
+
+This archetype allows a &apos;nil significant&apos; statement to be explicitly recorded.</use>
+   <keywords>complaint</keywords>
+   <keywords>presenting</keywords>
+   <keywords>symptom</keywords>
+   <misuse>Not to be used to record details about pain. Use the specialisation of this archetype - the CLUSTER.symptom-pain instead.
+
+Not to be used for diagnoses and problems that form part of a persisting Problem List - use EVALUATION.problem_diagnosis.</misuse>
+  </details>
+  <other_contributors>Sam Heard, Ocean Informatics</other_contributors>
+  <other_contributors>Heather Leslie, Ocean Informatics, Australia (Editor)</other_contributors>
+  <other_contributors>Ian McNicoll, Ocean Informatics, United Kingdom (Editor)</other_contributors>
+  <other_details id="current_contact">Heather Leslie, Ocean Informatics, heather.leslie@oceaninformatics.com</other_details>
+  <other_details id="MD5-CAM-1.0.1">F45AC5753EC5F8C93FA71A2593955BAD</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.symptom.v1.0.0">
+  <concept_id>symptom</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id153" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id36" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id154" rm_type_name="DV_BOOLEAN" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_BOOLEAN" node_id="id9999" rm_type_name="BOOLEAN" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>true</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id155" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id152" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id156" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id148" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_closed="false">
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/openEHR-EHR-CLUSTER\.anatomical_location(-a-zA-Z0-9_]+)*\.v1/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+    <excludes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/.*/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </excludes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id22" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id157" rm_type_name="DV_ORDINAL" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>1</lower>
+        </constraint>
+       </children>
+       <children xsi:type="P_C_INTEGER" node_id="id99992" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>2</lower>
+        </constraint>
+       </children>
+       <children xsi:type="P_C_INTEGER" node_id="id99993" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>5</lower>
+        </constraint>
+       </children>
+       <children xsi:type="P_C_INTEGER" node_id="id99994" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>8</lower>
+        </constraint>
+       </children>
+       <children xsi:type="P_C_INTEGER" node_id="id99995" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>9</lower>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="symbol" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at45</constraint>
+       </children>
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99992" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at24</constraint>
+       </children>
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99993" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at25</constraint>
+       </children>
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99994" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at26</constraint>
+       </children>
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99995" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at46</constraint>
+       </children>
+      </attributes>
+      <attribute_tuples>
+       <members>value</members>
+       <members>symbol</members>
+      </attribute_tuples>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id47" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id48" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id158" rm_type_name="DV_ORDINAL" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0</lower>
+          </constraint>
+         </children>
+         <children xsi:type="P_C_INTEGER" node_id="id99992" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>1</lower>
+          </constraint>
+         </children>
+         <children xsi:type="P_C_INTEGER" node_id="id99993" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>2</lower>
+          </constraint>
+         </children>
+         <children xsi:type="P_C_INTEGER" node_id="id99994" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>5</lower>
+          </constraint>
+         </children>
+         <children xsi:type="P_C_INTEGER" node_id="id99995" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>8</lower>
+          </constraint>
+         </children>
+         <children xsi:type="P_C_INTEGER" node_id="id99996" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>9</lower>
+          </constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="symbol" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at23</constraint>
+         </children>
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99992" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at45</constraint>
+         </children>
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99993" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at24</constraint>
+         </children>
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99994" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at25</constraint>
+         </children>
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99995" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at26</constraint>
+         </children>
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99996" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>at46</constraint>
+         </children>
+        </attributes>
+        <attribute_tuples>
+         <members>value</members>
+         <members>symbol</members>
+        </attribute_tuples>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id27" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id159" rm_type_name="DV_COUNT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+         <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0</lower>
+           <upper>10</upper>
+          </constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id151" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id160" rm_type_name="DV_PROPORTION" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="numerator" is_multiple="false">
+         <children  xsi:type="P_C_REAL" node_id="id9999" rm_type_name="REAL" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0.0</lower>
+          </constraint>
+         </children>
+        </attributes>
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="type" is_multiple="false">
+         <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="PROPORTION_KIND" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="true">
+          <constraint>
+           <lower>0</lower>
+          </constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id29" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id161" rm_type_name="DV_DURATION" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id32" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id162" rm_type_name="DV_COUNT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id33" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id163" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id164" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id59" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id60" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id165" rm_type_name="DV_BOOLEAN" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_BOOLEAN" node_id="id9999" rm_type_name="BOOLEAN" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>true</constraint>
+          <constraint>false</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id91" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id143" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id166" rm_type_name="DV_DATE_TIME" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id58" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id167" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id144" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id168" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_ARCHETYPE_SLOT" node_id="id147" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_closed="false">
+        <includes type="Boolean">
+         <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+          <operator value="2007">
+          </operator>
+          <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+           <item>archetype_id/value</item>
+          </left_operand>
+          <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+           <item>
+            <rm_type_name>STRING</rm_type_name>
+            <constraint>/openEHR-EHR-CLUSTER\.symptom\.v1/</constraint>
+            <is_path_compressible>false</is_path_compressible>
+            <is_deprecated>false</is_deprecated>
+            <is_frozen>false</is_frozen>
+            <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+           </item>
+          </right_operand>
+         </expression>
+        </includes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id99" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id169" rm_type_name="DV_COUNT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+         <children  xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>
+           <lower>0</lower>
+          </constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id34" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id170" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac2</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id61" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id171" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id31" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id172" rm_type_name="DV_DATE_TIME" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id38" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id173" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac3</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id12" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id174" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac4</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id15" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id16" rm_type_name="ELEMENT" occurrences="1..*" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id175" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id17" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id19" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id20" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id176" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id18" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id177" rm_type_name="DV_ORDINAL" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+           <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>
+             <lower>-3</lower>
+            </constraint>
+           </children>
+           <children xsi:type="P_C_INTEGER" node_id="id99992" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>
+             <lower>-2</lower>
+            </constraint>
+           </children>
+           <children xsi:type="P_C_INTEGER" node_id="id99993" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>
+             <lower>-1</lower>
+            </constraint>
+           </children>
+           <children xsi:type="P_C_INTEGER" node_id="id99994" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>
+             <lower>0</lower>
+            </constraint>
+           </children>
+           <children xsi:type="P_C_INTEGER" node_id="id99995" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>
+             <lower>1</lower>
+            </constraint>
+           </children>
+           <children xsi:type="P_C_INTEGER" node_id="id99996" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>
+             <lower>2</lower>
+            </constraint>
+           </children>
+           <children xsi:type="P_C_INTEGER" node_id="id99997" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>
+             <lower>3</lower>
+            </constraint>
+           </children>
+          </attributes>
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="symbol" is_multiple="false">
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>at49</constraint>
+           </children>
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99992" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>at50</constraint>
+           </children>
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99993" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>at51</constraint>
+           </children>
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99994" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>at52</constraint>
+           </children>
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99995" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>at53</constraint>
+           </children>
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99996" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>at54</constraint>
+           </children>
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99997" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>at55</constraint>
+           </children>
+          </attributes>
+          <attribute_tuples>
+           <members>value</members>
+           <members>symbol</members>
+          </attribute_tuples>
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id57" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id178" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id64" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/openEHR-EHR-CLUSTER\.symptom(-a-zA-Z0-9_]+)*\.v1/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id62" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id63" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id179" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="ar-sy">
+   <items id="id1">
+    <text>*Symptom(en)</text>
+    <description>*A subjective observation by an individual about departure from normal function and which may indicate the presence of disease or abnormality. Either self-recorded or recorded on the behalf of a patient by a clinician.(en)</description>
+   </items>
+   <items id="id2">
+    <text>*Symptom name(en)</text>
+    <description>*The symptom experienced.(en)</description>
+   </items>
+   <items id="id3">
+    <text>*Description(en)</text>
+    <description>*A narrative description of the symptom.(en)</description>
+   </items>
+   <items id="id4">
+    <text>التنوع</text>
+    <description>تنوع العرض</description>
+   </items>
+   <items id="at5">
+    <text>ثابت</text>
+    <description>العرض موجود بشكل ثابت/مستمر</description>
+   </items>
+   <items id="at6">
+    <text>متقطع</text>
+    <description>العرض موجود في بعض الأوقات و غائب في البعض الآخر</description>
+   </items>
+   <items id="at7">
+    <text>متموج</text>
+    <description>العرض يتغير بشكل مؤثر و لكنه موجود في جميع الأوقات</description>
+   </items>
+   <items id="id9">
+    <text>نوع بداية الإصابة</text>
+    <description>طبيعة بداية الإصابة بالعرض</description>
+   </items>
+   <items id="at10">
+    <text>تدريجي</text>
+    <description>خلال فترة زمنية طويلة</description>
+   </items>
+   <items id="at11">
+    <text>مفاجئ</text>
+    <description>حدث مباشرةً</description>
+   </items>
+   <items id="id12">
+    <text>التوقف التام</text>
+    <description>طبيعة توقف هذا العرض</description>
+   </items>
+   <items id="id15">
+    <text>العوامل التي تُعجِّل العرض</text>
+    <description>العوامل التي تحفز أو تتسبب في العرض</description>
+   </items>
+   <items id="id16">
+    <text>العامل الذي يُعجِّل العرض</text>
+    <description>واقعة أو نشاط يتسبب في أو يحفز العرض</description>
+   </items>
+   <items id="id17">
+    <text>التعديل</text>
+    <description>العوامل التي تغير مستوى شدة العرض</description>
+   </items>
+   <items id="id18">
+    <text>التغيير</text>
+    <description>واقعة أو نشاط يؤدي إلى زيادة سوء حالة العرض</description>
+   </items>
+   <items id="id19">
+    <text>العامل المُعَدِّل</text>
+    <description>المعلومات حول عامل معين يغير العرض</description>
+   </items>
+   <items id="id20">
+    <text>العامل</text>
+    <description>واقعة أو نشاط يُعَدِّل العرض</description>
+   </items>
+   <items id="id22">
+    <text>*Impact(en)</text>
+    <description>*The severity of the symptom in its impact on daily living.(en)</description>
+   </items>
+   <items id="at23">
+    <text>لا يوجد</text>
+    <description>العرض غير موجود</description>
+   </items>
+   <items id="at24">
+    <text>متوسط</text>
+    <description>العرض لا يتداخل بشكل كبير مع الأنشطة اليومية</description>
+   </items>
+   <items id="at25">
+    <text>متوسط</text>
+    <description>العرض يؤثر على الأنشطة اليومية</description>
+   </items>
+   <items id="at26">
+    <text>شديد</text>
+    <description>العرض يمنع بعض الأنشطة اليومية المحورية</description>
+   </items>
+   <items id="id27">
+    <text>حرز النظير البصري/المرئي</text>
+    <description>حرز من 0 (غير موجود) إلى 10 (أسوأ ما يمكن)</description>
+   </items>
+   <items id="id29">
+    <text>المدة</text>
+    <description>مدة حدوث العرض منذ بدايته</description>
+   </items>
+   <items id="id31">
+    <text>وقت الحد الأقصى من الشدة</text>
+    <description>التوقيت و/أو التاريخ الخاص بالحد الأقصى من الشدة لهذا العرض</description>
+   </items>
+   <items id="id32">
+    <text>عدد مرات الحدوث</text>
+    <description>عدد المرات التي حدث فيها هذا العرض</description>
+   </items>
+   <items id="id33">
+    <text>الخاصية</text>
+    <description>خاصية العرض</description>
+   </items>
+   <items id="id34">
+    <text>المَساق/المسار</text>
+    <description>خصائص مسار العَرَض</description>
+   </items>
+   <items id="id36">
+    <text>غير مؤثر/لا يعتد به</text>
+    <description>ليس لدى الشخص أي خبرة مؤثرة/يعتد بها للعرض</description>
+   </items>
+   <items id="at37">
+    <text>سريع</text>
+    <description>خلال فترة زمنية قصيرة</description>
+   </items>
+   <items id="id38">
+    <text>التقدم</text>
+    <description>تقدم العرض مقارنة بالماضي</description>
+   </items>
+   <items id="at39">
+    <text>يتحسن</text>
+    <description>حدث تحسن للعرض عبر الزمن</description>
+   </items>
+   <items id="at40">
+    <text>يقل</text>
+    <description>شدة العرض تقل بمرور الزمن</description>
+   </items>
+   <items id="at41">
+    <text>مستقر</text>
+    <description>لم يتغير العرض عبر الزمن </description>
+   </items>
+   <items id="at42">
+    <text>متزايد</text>
+    <description>شدة العرض تزيد عبر الزمن</description>
+   </items>
+   <items id="at43">
+    <text>تسوء</text>
+    <description>العرض يسوء عبر الزمن</description>
+   </items>
+   <items id="at44">
+    <text>انصرف/بَرَأَ</text>
+    <description>برأ العرض عبر الزمن</description>
+   </items>
+   <items id="at45">
+    <text>طفيف</text>
+    <description>العرض طفيف و لا يسبب مشكلة</description>
+   </items>
+   <items id="at46">
+    <text>شديد جدا</text>
+    <description>العرض عند الحد الأقصى من الشدة و يمنع القيام بأي أنشطة</description>
+   </items>
+   <items id="id47">
+    <text>*Intensity(en)</text>
+    <description>*Measures of the intensity of the symptom. Assumed to be current intensity unless otherwise specified but may be used to capture e.g. maximal and  minimal intensity.(en)</description>
+   </items>
+   <items id="id48">
+    <text>الدرجة</text>
+    <description>الدرجة التي يسبب فيها العرَض إزعاجا للمريض</description>
+   </items>
+   <items id="at49">
+    <text>شفي بشكل تام</text>
+    <description>تم شفاء العرض بواسطة هذا العامل</description>
+   </items>
+   <items id="at50">
+    <text>تحسن</text>
+    <description>تم تحسن العرض بواسطة هذا العامل</description>
+   </items>
+   <items id="at51">
+    <text>تحسن إلى حد ما</text>
+    <description>تم تحسن العرض إلى حد ما بواسطة هذا العامل</description>
+   </items>
+   <items id="at52">
+    <text>لا يوجد تغيير</text>
+    <description>لم يتم تعديل العرض بواسطة هذا العامل</description>
+   </items>
+   <items id="at53">
+    <text>أسوأ إلى حد ما</text>
+    <description>تم سوء حالة العرض إلى حد ما بواسطة هذا العرض</description>
+   </items>
+   <items id="at54">
+    <text>ساءت الحالة</text>
+    <description>تم زيادة سوء العرض بواسطة هذا العامل</description>
+   </items>
+   <items id="at55">
+    <text>ساء بشكل كبير</text>
+    <description>تم زيادة سوء العرض بشكل كبير بواسطة هذا العامل</description>
+   </items>
+   <items id="id57">
+    <text>التفاصيل</text>
+    <description>التفاصيل حول التأثير</description>
+   </items>
+   <items id="id58">
+    <text>التفاصيل</text>
+    <description>التفاصيل حول الأعراض السابقة و المقارنة بينها و بين هذه النوبة</description>
+   </items>
+   <items id="id59">
+    <text>النوبات السابقة</text>
+    <description>تفاصيل حول النوبات السابقة</description>
+   </items>
+   <items id="id60">
+    <text>هل توجد أي نوبات سابقة</text>
+    <description>هل كان هناك أي نوبات سابقة لهذا العرض</description>
+   </items>
+   <items id="id61">
+    <text>وصف بداية الإصابة</text>
+    <description>النشاط أو الموقف عند بداية الإصابة و تفاصيل بداية الإصابة</description>
+   </items>
+   <items id="id62">
+    <text>الخصائص غير موجودة</text>
+    <description>*</description>
+   </items>
+   <items id="id63">
+    <text>خصيصة غائبة</text>
+    <description>خصيصة غير موجودة</description>
+   </items>
+   <items id="id64">
+    <text>عنقود: الأعراض المصاحبة</text>
+    <description>الأعراض المصاحبة</description>
+   </items>
+   <items id="id91">
+    <text>النوبة السابقة</text>
+    <description>تفاصيل حول نوبة بعينها</description>
+   </items>
+   <items id="id99">
+    <text>عدد النوبات السابقة</text>
+    <description>عدد النوبات السابقة</description>
+   </items>
+   <items id="id143">
+    <text>التاريخ/التوقيت الخاص بالنوبة السابقة</text>
+    <description>التاريخ/التوقيت الخاص بالنوبة السابقة</description>
+   </items>
+   <items id="id144">
+    <text>المقارنة</text>
+    <description>مقارنة بين هذه النوبة و النوبة السابقة</description>
+   </items>
+   <items id="id147">
+    <text>التفاصيل</text>
+    <description>تفاصيل مركبة للأعراض في النوبات السابقة</description>
+   </items>
+   <items id="id148">
+    <text>*Site Details(en)</text>
+    <description>*Details of the location in the body.(en)</description>
+   </items>
+   <items id="id151">
+    <text>عنصر جديد</text>
+    <description>*</description>
+   </items>
+   <items id="id152">
+    <text>*Site(en)</text>
+    <description>*The site on the body where the symptom was located.(en)</description>
+   </items>
+   <items id="ac1">
+    <text>التنوع (synthesised)</text>
+    <description>تنوع العرض (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>نوع بداية الإصابة (synthesised)</text>
+    <description>طبيعة بداية الإصابة بالعرض (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>التقدم (synthesised)</text>
+    <description>تقدم العرض مقارنة بالماضي (synthesised)</description>
+   </items>
+   <items id="ac4">
+    <text>التوقف التام (synthesised)</text>
+    <description>طبيعة توقف هذا العرض (synthesised)</description>
+   </items>
+   <items id="ac5">
+    <text>*Impact(en) (synthesised)</text>
+    <description>*The severity of the symptom in its impact on daily living.(en) (synthesised)</description>
+   </items>
+   <items id="ac6">
+    <text>الدرجة (synthesised)</text>
+    <description>الدرجة التي يسبب فيها العرَض إزعاجا للمريض (synthesised)</description>
+   </items>
+   <items id="ac7">
+    <text>التغيير (synthesised)</text>
+    <description>واقعة أو نشاط يؤدي إلى زيادة سوء حالة العرض (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="de">
+   <items id="id1">
+    <text>Symptom</text>
+    <description>*A subjective observation by an individual about departure from normal function and which may indicate the presence of disease or abnormality. Either self-recorded or recorded on the behalf of a patient by a clinician.(en)</description>
+   </items>
+   <items id="id2">
+    <text>*Symptom name(en)</text>
+    <description>*The symptom experienced.(en)</description>
+   </items>
+   <items id="id3">
+    <text>*Description(en)</text>
+    <description>*A narrative description of the symptom.(en)</description>
+   </items>
+   <items id="id4">
+    <text>Variation</text>
+    <description>die Variationen des Symptoms</description>
+   </items>
+   <items id="at5">
+    <text>Dauerhaft</text>
+    <description>das Symptom ist dauerhaft anwesend</description>
+   </items>
+   <items id="at6">
+    <text>Zeitweise</text>
+    <description>das Symptom ist abwechselnd anwesend und nicht anwesend</description>
+   </items>
+   <items id="at7">
+    <text>Variabel</text>
+    <description>das Symptom variiert deutlich, ist aber praktisch ständig anwesend</description>
+   </items>
+   <items id="id9">
+    <text>Art des Eintretens</text>
+    <description>die Art des Eintretens des Symptoms</description>
+   </items>
+   <items id="at10">
+    <text>Graduell</text>
+    <description>das Symptom ist allmählich über eine längere Zeitspanne hinweg aufgetaucht</description>
+   </items>
+   <items id="at11">
+    <text>Plötzlich</text>
+    <description>das Symptom ist sofort aufgetaucht</description>
+   </items>
+   <items id="id12">
+    <text>Ende</text>
+    <description>die Art des Abklingens des Symptoms</description>
+   </items>
+   <items id="id15">
+    <text>Beschleunigende Faktoren</text>
+    <description>Faktoren, die das Symptom auslösen oder bewirken</description>
+   </items>
+   <items id="id16">
+    <text>Beschleunigender Faktor</text>
+    <description>ein Ereignis oder eine Handlung, die das Symptom auslösen oder bewirken</description>
+   </items>
+   <items id="id17">
+    <text>Modifizierende Faktoren</text>
+    <description>Faktoren, die den Intensitätsgrad des Symptoms verändern</description>
+   </items>
+   <items id="id18">
+    <text>Erschwerender Faktor</text>
+    <description>ein Ereignis oder eine Handlung, die das Symptom verschlimmern</description>
+   </items>
+   <items id="id19">
+    <text>Modifizierender Faktor</text>
+    <description>Information über einen bestimmten Faktor, der das Symptom verändert</description>
+   </items>
+   <items id="id20">
+    <text>Faktor</text>
+    <description>ein Ereignis oder eine Handlung, die das Symptom verändert</description>
+   </items>
+   <items id="id22">
+    <text>*Impact(en)</text>
+    <description>*The severity of the symptom in its impact on daily living.(en)</description>
+   </items>
+   <items id="at23">
+    <text>nicht anwesend</text>
+    <description>das Symptom ist nicht anwesend</description>
+   </items>
+   <items id="at24">
+    <text>gelinde</text>
+    <description>das Symptom beeinträchtigt alltägliche Handlungen nicht ernsthaft</description>
+   </items>
+   <items id="at25">
+    <text>mäßig</text>
+    <description>das Symptom beeinträchtigt alltägliche Handlungen</description>
+   </items>
+   <items id="at26">
+    <text>schwer</text>
+    <description>das Symptom verhindert wichtige alltägliche Handlungen</description>
+   </items>
+   <items id="id27">
+    <text>Visuelle Analogskala</text>
+    <description>eine Bewertung von 0 (nicht anwesend) bis 10 (schlimmer geht nicht)</description>
+   </items>
+   <items id="id29">
+    <text>Dauer</text>
+    <description>die Dauer des Symptoms seit dem Beginn</description>
+   </items>
+   <items id="id31">
+    <text>Zeitpunkt der maximalen Stärke</text>
+    <description>Die Zeit (und/oder das  Datum) der maximalen Stärke des Symptoms</description>
+   </items>
+   <items id="id32">
+    <text>Anzahl der Vorkommnisse</text>
+    <description>die Anzahl wie oft das Symptom aufgetreten ist</description>
+   </items>
+   <items id="id33">
+    <text>Art</text>
+    <description>die Art des Symptoms</description>
+   </items>
+   <items id="id34">
+    <text>Verlauf</text>
+    <description>Merkmale des Verlaufs des Symptoms</description>
+   </items>
+   <items id="id36">
+    <text>Nicht signifikant</text>
+    <description>die Person hat keine signifikanten Erfahrungen mit dem Symptom</description>
+   </items>
+   <items id="at37">
+    <text>rasch</text>
+    <description>über einen kurzen Zeitraum</description>
+   </items>
+   <items id="id38">
+    <text>Entwicklung</text>
+    <description>die Entwicklung des Symptoms im Hinblick auf die Vergangenheit</description>
+   </items>
+   <items id="at39">
+    <text>sich bessernd</text>
+    <description>das Symptom hat sich im Laufe der Zeit gebessert</description>
+   </items>
+   <items id="at40">
+    <text>nachlassend</text>
+    <description>die Intensität des Symptoms hat im Laufe der Zeit nachgelassen</description>
+   </items>
+   <items id="at41">
+    <text>stabil</text>
+    <description>das Symptom hat sich im Laufe der Zeit nicht verändert</description>
+   </items>
+   <items id="at42">
+    <text>zunehmend</text>
+    <description>die Intensität des Symptoms hat im Laufe der Zeit zugenommen</description>
+   </items>
+   <items id="at43">
+    <text>sich verschlimmernd</text>
+    <description>das Symptom hat sich im Laufe der Zeit verschlimmert</description>
+   </items>
+   <items id="at44">
+    <text>hat sich gelegt</text>
+    <description>das Symptom hat sich im Laufe der Zeit gelegt</description>
+   </items>
+   <items id="at45">
+    <text>geringfügig</text>
+    <description>das Symptom ist geringfügig und verursacht keine Probleme</description>
+   </items>
+   <items id="at46">
+    <text>sehr schwerwiegend</text>
+    <description>das Symptom hat fast die maximal mögliche Intensität und verhindert jegliche Handlungen</description>
+   </items>
+   <items id="id47">
+    <text>*Intensity(en)</text>
+    <description>*Measures of the intensity of the symptom. Assumed to be current intensity unless otherwise specified but may be used to capture e.g. maximal and  minimal intensity.(en)</description>
+   </items>
+   <items id="id48">
+    <text>Grad</text>
+    <description>der Grad der Beeinträchtigung des Patienten durch das Symptom</description>
+   </items>
+   <items id="at49">
+    <text>Komplett gelindert</text>
+    <description>Das Symptom wird durch diesen Faktor gelindert</description>
+   </items>
+   <items id="at50">
+    <text>Verbessert</text>
+    <description>Das Symptom wird durch diesen Faktor verbessert</description>
+   </items>
+   <items id="at51">
+    <text>Etwas verbessert</text>
+    <description>Das Symptom wird durch diesen Faktor etwas verbessert</description>
+   </items>
+   <items id="at52">
+    <text>Keine Veränderung</text>
+    <description>Das Symptom wird durch diesen Faktor nicht verändert</description>
+   </items>
+   <items id="at53">
+    <text>Etwas verschlechtert</text>
+    <description>Das Symptom wird durch diesen Faktor etwas verschlechtert</description>
+   </items>
+   <items id="at54">
+    <text>Verschlechtert</text>
+    <description>Das Symptom wird durch diesen Faktor verschlechtert</description>
+   </items>
+   <items id="at55">
+    <text>Sehr viel verschlechtert</text>
+    <description>Das Symptom wird durch diesen Faktor sehr viel verschlechtert</description>
+   </items>
+   <items id="id57">
+    <text>Details über den Effekt</text>
+    <description>Details über den Effekt</description>
+   </items>
+   <items id="id58">
+    <text>Details über vorherige Symptome</text>
+    <description>Details über vorherige Symptome und Vergleich zu diesem Vorfall</description>
+   </items>
+   <items id="id59">
+    <text>Vorherige Vorfälle</text>
+    <description>Details über vorherige Vorfälle</description>
+   </items>
+   <items id="id60">
+    <text>Frühere Vorfälle</text>
+    <description>Ist dieses Symptom früher schon einmal aufgetreten</description>
+   </items>
+   <items id="id61">
+    <text>Beschreibung des Auftretens</text>
+    <description>Taetigkeit oder Situation bei Auftreten des Symptoms und weitere Details</description>
+   </items>
+   <items id="id62">
+    <text>Nicht vorhandene Merkmale</text>
+    <description>Nicht vorhandene Merkmale</description>
+   </items>
+   <items id="id63">
+    <text>Nicht vorhandenes Merkmal</text>
+    <description>Ein nicht vorhandenes Merkmal</description>
+   </items>
+   <items id="id64">
+    <text>Cluster: Zugehörige Symptome</text>
+    <description>Zugehörige Symptome</description>
+   </items>
+   <items id="id91">
+    <text>*Previous episode</text>
+    <description>*Details about a specific episode (en)</description>
+   </items>
+   <items id="id99">
+    <text>*Number of previous episodes (en)</text>
+    <description>*Number of previous episodes (en)</description>
+   </items>
+   <items id="id143">
+    <text>*Date / time of previous episode (en)</text>
+    <description>*Date/time of previous episode (en)</description>
+   </items>
+   <items id="id144">
+    <text>*Comparison</text>
+    <description>*How the previous episode compares with this one (en)</description>
+   </items>
+   <items id="id147">
+    <text>*Details (en)</text>
+    <description>*Structured details of symptoms in previous episodes (en)</description>
+   </items>
+   <items id="id148">
+    <text>*Site Details(en)</text>
+    <description>*Details of the location in the body.(en)</description>
+   </items>
+   <items id="id151">
+    <text>*New element(en)</text>
+    <description>**(en)</description>
+   </items>
+   <items id="id152">
+    <text>*Site(en)</text>
+    <description>*The site on the body where the symptom was located.(en)</description>
+   </items>
+   <items id="ac1">
+    <text>Variation (synthesised)</text>
+    <description>die Variationen des Symptoms (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Art des Eintretens (synthesised)</text>
+    <description>die Art des Eintretens des Symptoms (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>Entwicklung (synthesised)</text>
+    <description>die Entwicklung des Symptoms im Hinblick auf die Vergangenheit (synthesised)</description>
+   </items>
+   <items id="ac4">
+    <text>Ende (synthesised)</text>
+    <description>die Art des Abklingens des Symptoms (synthesised)</description>
+   </items>
+   <items id="ac5">
+    <text>*Impact(en) (synthesised)</text>
+    <description>*The severity of the symptom in its impact on daily living.(en) (synthesised)</description>
+   </items>
+   <items id="ac6">
+    <text>Grad (synthesised)</text>
+    <description>der Grad der Beeinträchtigung des Patienten durch das Symptom (synthesised)</description>
+   </items>
+   <items id="ac7">
+    <text>Erschwerender Faktor (synthesised)</text>
+    <description>ein Ereignis oder eine Handlung, die das Symptom verschlimmern (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Symptom</text>
+    <description>A subjective observation by an individual about departure from normal function and which may indicate the presence of disease or abnormality. Either self-recorded or recorded on the behalf of a patient by a clinician.</description>
+   </items>
+   <items id="id2">
+    <text>Symptom name</text>
+    <description>The symptom experienced.</description>
+   </items>
+   <items id="id3">
+    <text>Description</text>
+    <description>A narrative description of the symptom.</description>
+   </items>
+   <items id="id4">
+    <text>Variation</text>
+    <description>The variation of the symptom.</description>
+   </items>
+   <items id="at5">
+    <text>Constant</text>
+    <description>The symptom is constantly present.</description>
+   </items>
+   <items id="at6">
+    <text>Intermittent</text>
+    <description>The symptom is present at times and not at others.</description>
+   </items>
+   <items id="at7">
+    <text>Fluctuating</text>
+    <description>The symptom varys considerably but is almost always present.</description>
+   </items>
+   <items id="id9">
+    <text>Onset Type</text>
+    <description>The nature of the onset of the symptom.</description>
+   </items>
+   <items id="at10">
+    <text>Gradual</text>
+    <description>Over a longer period of time.</description>
+   </items>
+   <items id="at11">
+    <text>Sudden</text>
+    <description>Almost immediate.</description>
+   </items>
+   <items id="id12">
+    <text>Cessation</text>
+    <description>The nature of the cessation of the symptom.</description>
+   </items>
+   <items id="id15">
+    <text>Precipitating factors</text>
+    <description>Factors that trigger or bring on the symptom.</description>
+   </items>
+   <items id="id16">
+    <text>Precipitating Factor</text>
+    <description>An event or activity that brings on or triggers the symptom.</description>
+   </items>
+   <items id="id17">
+    <text>Modification</text>
+    <description>Factors that change the level of intensity of the symptom.</description>
+   </items>
+   <items id="id18">
+    <text>Change</text>
+    <description>An event or activity that makes the symptom worse.</description>
+   </items>
+   <items id="id19">
+    <text>Modifying Factor</text>
+    <description>Information about a specific factor that changes the symptom.</description>
+   </items>
+   <items id="id20">
+    <text>Factor</text>
+    <description>An event or activity that modifies the symptom.</description>
+   </items>
+   <items id="id22">
+    <text>Impact</text>
+    <description>The severity of the symptom in its impact on daily living.</description>
+   </items>
+   <items id="at23">
+    <text>Not present</text>
+    <description>The symptom is not present.</description>
+   </items>
+   <items id="at24">
+    <text>Mild</text>
+    <description>The symptom does not interfere greatly with day to day activities.</description>
+   </items>
+   <items id="at25">
+    <text>Moderate</text>
+    <description>The symptom interferes with day to day activities.</description>
+   </items>
+   <items id="at26">
+    <text>Severe</text>
+    <description>The symptom prohibits some key daily activities.</description>
+   </items>
+   <items id="id27">
+    <text>Visual Analogue Score</text>
+    <description>A score from 0 (not present) to 10 (as bad as it could be).</description>
+   </items>
+   <items id="id29">
+    <text>Duration</text>
+    <description>The duration of the symptom since onset.</description>
+   </items>
+   <items id="id31">
+    <text>Time of Maximum Intensity</text>
+    <description>The time (and/or date) of maximum intensity of the symptom.</description>
+   </items>
+   <items id="id32">
+    <text>Number of Occurrences</text>
+    <description>The number of times this symptom has occurred.</description>
+   </items>
+   <items id="id33">
+    <text>Character</text>
+    <description>The character of the symptom.</description>
+   </items>
+   <items id="id34">
+    <text>Course</text>
+    <description>Features of the course of the symptom.</description>
+   </items>
+   <items id="id36">
+    <text>Nil Significant</text>
+    <description>The person has not had any significant experience of the symptom.</description>
+   </items>
+   <items id="at37">
+    <text>Rapid</text>
+    <description>Over a short period of time.</description>
+   </items>
+   <items id="id38">
+    <text>Progression</text>
+    <description>The progress of the symptom relative to the past.</description>
+   </items>
+   <items id="at39">
+    <text>Improving</text>
+    <description>The symptom has improved over time.</description>
+   </items>
+   <items id="at40">
+    <text>Decreasing</text>
+    <description>The symptom is decreasing in intensity over time.</description>
+   </items>
+   <items id="at41">
+    <text>Stable</text>
+    <description>The symptom has not changed over time.</description>
+   </items>
+   <items id="at42">
+    <text>Increasing</text>
+    <description>The symptom is increasing in intensity over time.</description>
+   </items>
+   <items id="at43">
+    <text>Worsening</text>
+    <description>The symptom is getting worse over.</description>
+   </items>
+   <items id="at44">
+    <text>Has resolved</text>
+    <description>The symptom has resolved over time.</description>
+   </items>
+   <items id="at45">
+    <text>Trivial</text>
+    <description>The symptom is trivial and causes no problems.</description>
+   </items>
+   <items id="at46">
+    <text>Very severe</text>
+    <description>The symptom is almost maximum possible intensity and prohibits any activity.</description>
+   </items>
+   <items id="id47">
+    <text>Intensity</text>
+    <description>Measures of the intensity of the symptom. Assumed to be current intensity unless otherwise specified but may be used to capture e.g. maximal and  minimal intensity.</description>
+   </items>
+   <items id="id48">
+    <text>Degree</text>
+    <description>The degree the symptom is bothering the patient.</description>
+   </items>
+   <items id="at49">
+    <text>Relieved completely</text>
+    <description>The symptom is relieved by this factor.</description>
+   </items>
+   <items id="at50">
+    <text>Made better</text>
+    <description>The symptom is made better by this factor.</description>
+   </items>
+   <items id="at51">
+    <text>Somewhat improved</text>
+    <description>The symptom is somewhat improved by this factor.</description>
+   </items>
+   <items id="at52">
+    <text>No change</text>
+    <description>The symptom is not modified by this factor.</description>
+   </items>
+   <items id="at53">
+    <text>Somewhat worse</text>
+    <description>The symptom is made somewhat worse by this factor.</description>
+   </items>
+   <items id="at54">
+    <text>Made worse</text>
+    <description>The symptom is made worse by this factor.</description>
+   </items>
+   <items id="at55">
+    <text>Much worse</text>
+    <description>The symptom is made much worse by this factor.</description>
+   </items>
+   <items id="id57">
+    <text>Details</text>
+    <description>Details of the effect.</description>
+   </items>
+   <items id="id58">
+    <text>Details</text>
+    <description>Details of previous symptoms and comparison to this episode.</description>
+   </items>
+   <items id="id59">
+    <text>Previous Episodes</text>
+    <description>Details about previous episodes.</description>
+   </items>
+   <items id="id60">
+    <text>Any Previous Episodes</text>
+    <description>Have there been any previous episodes of this symptom.</description>
+   </items>
+   <items id="id61">
+    <text>Onset Description</text>
+    <description>Activity or situation at and details of onset.</description>
+   </items>
+   <items id="id62">
+    <text>Features not present</text>
+    <description>Anticipated features which are not present.</description>
+   </items>
+   <items id="id63">
+    <text>Absent feature</text>
+    <description>A feature that is not present.</description>
+   </items>
+   <items id="id64">
+    <text>Associated symptoms</text>
+    <description>Associated symptoms.</description>
+   </items>
+   <items id="id91">
+    <text>Previous Episode</text>
+    <description>Details about a specific episode.</description>
+   </items>
+   <items id="id99">
+    <text>Number of Previous Episodes</text>
+    <description>Number of previous episodes.</description>
+   </items>
+   <items id="id143">
+    <text>Date / time of previous episode</text>
+    <description>Date/time of previous episode.</description>
+   </items>
+   <items id="id144">
+    <text>Comparison</text>
+    <description>How the previous episode compares with this one.</description>
+   </items>
+   <items id="id147">
+    <text>Details</text>
+    <description>Structured details of symptoms in previous episodes.</description>
+   </items>
+   <items id="id148">
+    <text>Site Details</text>
+    <description>Details of the location in the body.</description>
+   </items>
+   <items id="id151">
+    <text>Degree</text>
+    <description>The intensity of the symptom expressed as a proportion.</description>
+   </items>
+   <items id="id152">
+    <text>Site</text>
+    <description>The site on the body where the symptom was located.</description>
+   </items>
+   <items id="ac1">
+    <text>Variation (synthesised)</text>
+    <description>The variation of the symptom. (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Onset Type (synthesised)</text>
+    <description>The nature of the onset of the symptom. (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>Progression (synthesised)</text>
+    <description>The progress of the symptom relative to the past. (synthesised)</description>
+   </items>
+   <items id="ac4">
+    <text>Cessation (synthesised)</text>
+    <description>The nature of the cessation of the symptom. (synthesised)</description>
+   </items>
+   <items id="ac5">
+    <text>Impact (synthesised)</text>
+    <description>The severity of the symptom in its impact on daily living. (synthesised)</description>
+   </items>
+   <items id="ac6">
+    <text>Degree (synthesised)</text>
+    <description>The degree the symptom is bothering the patient. (synthesised)</description>
+   </items>
+   <items id="ac7">
+    <text>Change (synthesised)</text>
+    <description>An event or activity that makes the symptom worse. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="SNOMED-CT">
+   <items id="id1">http://snomed.info/id/19019007</items>
+   <items id="id2">http://snomed.info/id/19019007</items>
+   <items id="id3">http://snomed.info/id/162408000</items>
+   <items id="id15">http://snomed.info/id/57465006</items>
+   <items id="id16">http://snomed.info/id/57465006</items>
+   <items id="id17">http://snomed.info/id/68027008</items>
+   <items id="id22">http://snomed.info/id/162465004</items>
+   <items id="at24">http://snomed.info/id/162468002</items>
+   <items id="at25">http://snomed.info/id/162469005</items>
+   <items id="at26">http://snomed.info/id/162470006</items>
+   <items id="id27">http://snomed.info/id/273903006</items>
+   <items id="id29">http://snomed.info/id/162442009</items>
+   <items id="id34">http://snomed.info/id/260908002</items>
+   <items id="at39">http://snomed.info/id/385633008</items>
+   <items id="at40">http://snomed.info/id/260371004</items>
+   <items id="at41">http://snomed.info/id/58158008</items>
+   <items id="at42">http://snomed.info/id/260369004</items>
+   <items id="at43">http://snomed.info/id/230993007</items>
+   <items id="at44">http://snomed.info/id/370996005</items>
+   <items id="at45">http://snomed.info/id/162466003</items>
+   <items id="at46">http://snomed.info/id/162471005</items>
+  </term_bindings>
+  <value_sets id="ac1">
+   <members>at5</members>
+   <members>at6</members>
+   <members>at7</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at10</members>
+   <members>at37</members>
+   <members>at11</members>
+  </value_sets>
+  <value_sets id="ac3">
+   <members>at39</members>
+   <members>at40</members>
+   <members>at41</members>
+   <members>at42</members>
+   <members>at43</members>
+   <members>at44</members>
+  </value_sets>
+  <value_sets id="ac4">
+   <members>at10</members>
+   <members>at37</members>
+   <members>at11</members>
+  </value_sets>
+  <value_sets id="ac5">
+   <members>at45</members>
+   <members>at24</members>
+   <members>at25</members>
+   <members>at26</members>
+   <members>at46</members>
+  </value_sets>
+  <value_sets id="ac6">
+   <members>at23</members>
+   <members>at45</members>
+   <members>at24</members>
+   <members>at25</members>
+   <members>at26</members>
+   <members>at46</members>
+  </value_sets>
+  <value_sets id="ac7">
+   <members>at49</members>
+   <members>at50</members>
+   <members>at51</members>
+   <members>at52</members>
+   <members>at53</members>
+   <members>at54</members>
+   <members>at55</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

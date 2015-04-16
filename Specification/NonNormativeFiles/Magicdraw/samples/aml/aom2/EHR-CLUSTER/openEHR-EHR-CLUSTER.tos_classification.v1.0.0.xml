@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Heather Leslie</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">heather.leslie@oceaninformatics.com</original_author>
+  <original_author id="date">2013-01-14</original_author>
+  <copyright>© National E-Health Transition Authority</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record the grading of attic retraction of the tympanic membrane, based on the classification by Tos and Poulsen.</purpose>
+   <use>Use to record the grading of tympanic membrane retraction, particularly by specialist physicians. 
+
+Designed to be optionally nested within the CLUSTER.exam_tympanic_membrane archetype to provide additional detail on tympanic membrane retraction, if it is useful within a given clinical scenario.
+
+This archetype extends the Tos Classification to allow recording of Tos Grade 5 which is described in some documentation but is not described in the original paper and appears not to be in common usage.</use>
+   <keywords>retraction</keywords>
+   <keywords>tympanic</keywords>
+   <keywords>membrane</keywords>
+   <keywords>pars flaccida</keywords>
+   <keywords>attic</keywords>
+   <keywords>drum</keywords>
+   <misuse></misuse>
+  </details>
+  <other_contributors>Kerrie Lee, Australia</other_contributors>
+  <other_details id="current_contact">Heather Leslie, Ocean Informatics, heather.leslie@oceaninformatics.com</other_details>
+  <other_details id="references">Tos M, Poulsen G. Attic retractions following secretory otitis. Acta Otolaryngol. 1980 May-Jun;89(5-6):479-86. PubMed PMID: 7192477.</other_details>
+  <other_details id="MD5-CAM-1.0.1">F07FDE315EF59CEC985A58611D8695C6</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.tos_classification.v1.0.0">
+  <concept_id>tos_classification</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="DV_ORDINAL" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>1</lower>
+        </constraint>
+       </children>
+       <children xsi:type="P_C_INTEGER" node_id="id99992" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>2</lower>
+        </constraint>
+       </children>
+       <children xsi:type="P_C_INTEGER" node_id="id99993" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>3</lower>
+        </constraint>
+       </children>
+       <children xsi:type="P_C_INTEGER" node_id="id99994" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>4</lower>
+        </constraint>
+       </children>
+       <children xsi:type="P_C_INTEGER" node_id="id99995" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>5</lower>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="symbol" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at3</constraint>
+       </children>
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99992" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at4</constraint>
+       </children>
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99993" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at5</constraint>
+       </children>
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99994" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at6</constraint>
+       </children>
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99995" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at7</constraint>
+       </children>
+      </attributes>
+      <attribute_tuples>
+       <members>value</members>
+       <members>symbol</members>
+      </attribute_tuples>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Tos Classification</text>
+    <description>A classification of the degree of tympanic membrane pars flaccida retraction, related to extent and severity and as described by Tos and Poulsen.</description>
+   </items>
+   <items id="id2">
+    <text>Tos Classification</text>
+    <description>Grading of the degree of tympanic membrane pars tensa retraction / atelectasis based on the Tos &amp;amp; Poulson Classification.</description>
+   </items>
+   <items id="at3">
+    <text>Grade 1</text>
+    <description>Pars flaccida is dimpled and is more retracted than normal. It is not adherent to the malleus (airspace visible).</description>
+   </items>
+   <items id="at4">
+    <text>Grade 2</text>
+    <description>Retraction onto neck of malleus - no airspace visible behind membrane.</description>
+   </items>
+   <items id="at5">
+    <text>Grade 3</text>
+    <description>Retraction extends beyond osseous malleus full extent seen.</description>
+   </items>
+   <items id="at6">
+    <text>Grade 4</text>
+    <description>Erosion of outer attic wall. Part of the retraction pocket may be hidden.</description>
+   </items>
+   <items id="at7">
+    <text>Grade 5</text>
+    <description>Bottom of the retraction pocket can be seen only by using an endoscope.</description>
+   </items>
+   <items id="ac1">
+    <text>Tos Classification (synthesised)</text>
+    <description>Grading of the degree of tympanic membrane pars tensa retraction / atelectasis based on the Tos &amp;amp; Poulson Classification. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac1">
+   <members>at3</members>
+   <members>at4</members>
+   <members>at5</members>
+   <members>at6</members>
+   <members>at7</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

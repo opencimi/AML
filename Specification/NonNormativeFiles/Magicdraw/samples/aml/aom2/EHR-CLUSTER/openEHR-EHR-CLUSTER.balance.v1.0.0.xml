@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <translations id="ar-sy">
+  <language>ISO_639-1::ar-sy</language>
+  <author id="name">Mona Saleh</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Heather Leslie</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">heather.leslie@oceaninformatics.com</original_author>
+  <original_author id="date">2007-03-19</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="ar-sy">
+   <language>ISO_639-1::ar-sy</language>
+   <purpose>لتسجيل توازن المريض و استجابته لاختبارات التوازن المحددة</purpose>
+   <use></use>
+   <keywords>توازن</keywords>
+   <misuse></misuse>
+  </details>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record patient&apos;s balance and response to specific balance testing.</purpose>
+   <use>Use to record the findings on physical examination of a subject&apos;s blance, including specific tests such as the Romberg and Heel-Toe Test.
+
+Designed to be used within any clinically appropriate ENTRY or CLUSTER archetype.</use>
+   <keywords>Balance</keywords>
+   <keywords>Romberg</keywords>
+   <keywords>Heel-toe</keywords>
+   <misuse></misuse>
+  </details>
+  <other_contributors>Heather Leslie, Ocean Informatics, Australia (Editor)</other_contributors>
+  <other_contributors>Ian McNicoll, Ocean Informatics, United Kingdom (Editor)</other_contributors>
+  <other_details id="MD5-CAM-1.0.1">6B9BBB28AAAC00757E6DA1E4AC46D01F</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.balance.v1.0.0">
+  <concept_id>balance</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id33" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id34" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id21" rm_type_name="CLUSTER" occurrences="0..2" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id22" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id35" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac1</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id36" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac2</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id29" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id37" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac3</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id12" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id38" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac4</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id25" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id39" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id18" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id40" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="ar-sy">
+   <items id="id1">
+    <text>التوازن</text>
+    <description>فحص التوازن</description>
+   </items>
+   <items id="id5">
+    <text>العينان مفتوحتان/مغلقتان</text>
+    <description>تسجيل ما إذا كانت العينان مفتوحتان أو مغلقتان في أثناء أداء/إجراء الاختبار</description>
+   </items>
+   <items id="at6">
+    <text>العينان مفتوحتان</text>
+    <description>العينان مفتوحتان</description>
+   </items>
+   <items id="at7">
+    <text>العينان مغلقتان</text>
+    <description>العينان مغلقتان</description>
+   </items>
+   <items id="id12">
+    <text>الجانب المتأثر</text>
+    <description>تعريف الجانب الذي به موجودات غير طبيعية</description>
+   </items>
+   <items id="at13">
+    <text>يسقط تجاه الجانب الأيمن</text>
+    <description>سقوط الشخص تجاه الجانب الأيمن</description>
+   </items>
+   <items id="at14">
+    <text>يسقط تجاه الجانب الأيسر</text>
+    <description>سقوط الشخص تجاه الجانب الأيسر</description>
+   </items>
+   <items id="at15">
+    <text>كلا الجانبين</text>
+    <description>تأثير مُعَمَّم يستبب في فقد التوازن في كِليْ الجانبين أو جانب واحد</description>
+   </items>
+   <items id="id18">
+    <text>الموجودات السريرية</text>
+    <description>موجودة سريرية</description>
+   </items>
+   <items id="id21">
+    <text>موجودات الاختبار المحدد</text>
+    <description>الموجودات المتعلقة باختبارات محددة</description>
+   </items>
+   <items id="id22">
+    <text>اسم الاختبار</text>
+    <description>اسم الاختبار</description>
+   </items>
+   <items id="at24">
+    <text>اختبار رومبيرغ</text>
+    <description>اختبار توازن</description>
+   </items>
+   <items id="id25">
+    <text>الوصف</text>
+    <description>الوصف التفصيلي لناتج اختبار التوازن</description>
+   </items>
+   <items id="id29">
+    <text>فقد التوازن</text>
+    <description>موجودات فقد التوازن</description>
+   </items>
+   <items id="at30">
+    <text>سير العقِب - إصبع القدم</text>
+    <description>السير مع وجود عقب القدم القائدة أمام أصبع القدم الخلفية</description>
+   </items>
+   <items id="id33">
+    <text>*New element(en)</text>
+    <description>**(en)</description>
+   </items>
+   <items id="at34">
+    <text>*No loss of balance(en)</text>
+    <description>*The subject did not lose their balance.(en)</description>
+   </items>
+   <items id="at35">
+    <text>*Partial loss of balance(en)</text>
+    <description>*The subject lost their balance but did not fall over completely.(en)</description>
+   </items>
+   <items id="at36">
+    <text>*Full loss of balance(en)</text>
+    <description>*The subject lost their balance completely.(en)</description>
+   </items>
+   <items id="ac1">
+    <text>اسم الاختبار (synthesised)</text>
+    <description>اسم الاختبار (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>العينان مفتوحتان/مغلقتان (synthesised)</text>
+    <description>تسجيل ما إذا كانت العينان مفتوحتان أو مغلقتان في أثناء أداء/إجراء الاختبار (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>فقد التوازن (synthesised)</text>
+    <description>موجودات فقد التوازن (synthesised)</description>
+   </items>
+   <items id="ac4">
+    <text>الجانب المتأثر (synthesised)</text>
+    <description>تعريف الجانب الذي به موجودات غير طبيعية (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Examination Findings - Balance</text>
+    <description>Findings observed during the physical examination of balance.</description>
+   </items>
+   <items id="id5">
+    <text>Eyes Open/closed</text>
+    <description>Record of eyes being open or closed during performance of test.</description>
+   </items>
+   <items id="at6">
+    <text>Eyes open</text>
+    <description>Both eyes are open.</description>
+   </items>
+   <items id="at7">
+    <text>Eyes closed</text>
+    <description>Both eyes are closed.</description>
+   </items>
+   <items id="id12">
+    <text>Affected Side</text>
+    <description>Identification of side of abnormal finding.</description>
+   </items>
+   <items id="at13">
+    <text>Fall towards right</text>
+    <description>Falling to the person&apos;s right side.</description>
+   </items>
+   <items id="at14">
+    <text>Fall towards left</text>
+    <description>Falling to the person&apos;s left side.</description>
+   </items>
+   <items id="at15">
+    <text>Both sides</text>
+    <description>Generalised effect causing loss of balance to both, or either, side.</description>
+   </items>
+   <items id="id18">
+    <text>Interpretation</text>
+    <description>Single word, phrase or brief description represents the clinical meaning and significance of the balance findings.</description>
+   </items>
+   <items id="id21">
+    <text>Test Result</text>
+    <description>Findings relating to specific tests.</description>
+   </items>
+   <items id="id22">
+    <text>Test Name</text>
+    <description>Name of a specific test of subject&apos;s balance.</description>
+   </items>
+   <items id="at24">
+    <text>Rhomberg&apos;s test</text>
+    <description>The Rhomberg balance test was performed.</description>
+   </items>
+   <items id="id25">
+    <text>Description</text>
+    <description>Detailed description of outcome of balance test.</description>
+   </items>
+   <items id="id29">
+    <text>Loss of Balance</text>
+    <description>Finding of the extent of loss of balance.</description>
+   </items>
+   <items id="at30">
+    <text>Heel-toe walking</text>
+    <description>Walking with the heel of the leading foot in front of the toe of the trailing foot.</description>
+   </items>
+   <items id="id33">
+    <text>Description</text>
+    <description>Narrative description of the overall findings observed during a physical examination of balance.</description>
+   </items>
+   <items id="at34">
+    <text>No loss of balance</text>
+    <description>The subject did not lose their balance.</description>
+   </items>
+   <items id="at35">
+    <text>Partial loss of balance</text>
+    <description>The subject temporarily lost their balance but recovered it and did not fall over.</description>
+   </items>
+   <items id="at36">
+    <text>Full loss of balance</text>
+    <description>The subject lost their balance completely.</description>
+   </items>
+   <items id="ac1">
+    <text>Test Name (synthesised)</text>
+    <description>Name of a specific test of subject&apos;s balance. (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Eyes Open/closed (synthesised)</text>
+    <description>Record of eyes being open or closed during performance of test. (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>Loss of Balance (synthesised)</text>
+    <description>Finding of the extent of loss of balance. (synthesised)</description>
+   </items>
+   <items id="ac4">
+    <text>Affected Side (synthesised)</text>
+    <description>Identification of side of abnormal finding. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac1">
+   <members>at24</members>
+   <members>at30</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at6</members>
+   <members>at7</members>
+  </value_sets>
+  <value_sets id="ac3">
+   <members>at34</members>
+   <members>at35</members>
+   <members>at36</members>
+  </value_sets>
+  <value_sets id="ac4">
+   <members>at13</members>
+   <members>at14</members>
+   <members>at15</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

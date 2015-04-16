@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Thomas Beale</original_author>
+  <original_author id="date">12/12/2010</original_author>
+  <copyright>copyright (c) 2010 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To test use of specialisation that adds only annotations, i.e. no other changes</purpose>
+  </details>
+  <other_details id="regression">PASS</other_details>
+ </description>
+ <annotations>
+  <items id="en">
+  <!-- 
+   <items id="/data[id2]/items[id3]">
+    <items id="design note">this is a SPECIALISED design note on Statement</items>
+    <items id="NEW TAG">this is a SPECIALISED design note on Statement</items>
+   </items>
+   -->
+  </items>
+ </annotations>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="EVALUATION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-EVALUATION.annotations_only_child.v1.0.0">
+  <concept_id>annotations_only_child</concept_id>
+ </archetype_id>
+ <parent_archetype_id>openEHR-EHR-EVALUATION.annotations_parent.v1</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="EVALUATION" is_deprecated="false" is_frozen="false">
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1.1">
+    <text>Annotations specialisation</text>
+    <description>Annotations specialisation</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

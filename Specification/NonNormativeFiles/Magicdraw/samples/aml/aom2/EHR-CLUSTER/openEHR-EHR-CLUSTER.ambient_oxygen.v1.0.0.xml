@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <translations id="de">
+  <language>ISO_639-1::de</language>
+  <author id="name">Jasmin Buck, Sebastian Garde</author>
+  <author id="organisation">University of Heidelberg, Central Queensland University</author>
+ </translations>
+ <translations id="es-ar">
+  <language>ISO_639-1::es-ar</language>
+  <author id="name">Dr. Leonardo Der Jachadurian</author>
+  <author id="organisation">Bitios.com</author>
+  <accreditation>Medical Doctor (Internal Medicine Specialist)</accreditation>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Ian McNicoll</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">ian.mcnicoll@oceaninformatics.com</original_author>
+  <original_author id="date">2009-06-08</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="es-ar">
+   <language>ISO_639-1::es-ar</language>
+   <purpose>Para registrar la cantidad de oxígeno administrada al sujeto en el momento de la observación. Se asumen valores de 21% de O2, FiO2 de 0,21 y velocidad de flujo de oxígeno de cero.</purpose>
+   <use>Puede ser usado dentro de un arquetipo ACTION para especificar oxígenoterapia o dentro de arquetipos OBSERVATION tales como Gases arteriales o Respiraciones, como parte del estado del paciente, donde el conocimiento de la concentración de oxígeno ambiental es crítica para la interpretación de la observación.</use>
+   <keywords>respirando</keywords>
+   <keywords>oxígeno</keywords>
+   <keywords>ambiental</keywords>
+   <keywords>FiO2</keywords>
+   <misuse></misuse>
+  </details>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record the amount of oxygen being delivered to the subject at the time of observation.  Assumed values of 21% O2, Fi02 of 0.21 and Oxygen flow rate of zero.</purpose>
+   <use>May be used within an ACTION archetype to specificy oxygen therapy , or within OBSERVATION archetypes such as Blood gases or Respirations, as part of patient state, where knowledge of ambient oxygen status is critical to interpretation of the observation.</use>
+   <keywords>breathing</keywords>
+   <keywords>oxygen</keywords>
+   <misuse></misuse>
+  </details>
+  <other_contributors>Heather Leslie, Ocean Informatics, Australia</other_contributors>
+  <other_contributors>Sebastian Garde, Ocean Informatics, Germany</other_contributors>
+  <other_contributors>Andrew James, University of Toronto, Canada</other_contributors>
+  <other_contributors>Sundarasan Jaganathan NHS Scotland, United Kingdom</other_contributors>
+  <other_contributors>Omer Hotomargolu,, Turkey</other_contributors>
+  <other_contributors>Marja Buur, Medisch Centrum Alkmaar, Netherlands</other_contributors>
+  <other_contributors>Gregory Caulton PatientOS Inc., USA</other_contributors>
+  <other_contributors>Anne Harbison, CPCER, Australia</other_contributors>
+  <other_contributors>Sam Heard, Ocean Informatics, Australia</other_contributors>
+  <other_details id="MD5-CAM-1.0.1">23473D680886AF1FA9E8AD07B63DAAFC</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.ambient_oxygen.v1.0.0">
+  <concept_id>ambient_oxygen</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id52" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id55" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>at1</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+       <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0.0</lower>
+         <upper>50.0</upper>
+        </constraint>
+       </children>
+       <children xsi:type="P_C_REAL" node_id="id99992" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>0.0</lower>
+         <upper>50000.0</upper>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+       <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>l/m</constraint>
+       </children>
+       <children xsi:type="P_C_STRING" node_id="id99992" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ml/min</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="precision" is_multiple="false">
+       <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>1</lower>
+        </constraint>
+       </children>
+       <children xsi:type="P_C_INTEGER" node_id="id99992" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>1</lower>
+        </constraint>
+       </children>
+      </attributes>
+      <attribute_tuples>
+       <members>magnitude</members>
+       <members>units</members>
+       <members>precision</members>
+      </attribute_tuples>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id53" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id56" rm_type_name="DV_PROPORTION" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="numerator" is_multiple="false">
+       <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="REAL" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <assumed_value>0.21</assumed_value>
+        <constraint>
+         <lower>0.0</lower>
+         <upper>1.0</upper>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="is_integral" is_multiple="false">
+       <children xsi:type="P_C_BOOLEAN" node_id="id9999" rm_type_name="BOOLEAN" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>false</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="type" is_multiple="false">
+       <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="PROPORTION_KIND" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="true">
+        <constraint>
+         <lower>1</lower>
+        </constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id54" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id57" rm_type_name="DV_PROPORTION" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="numerator" is_multiple="false">
+       <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="REAL" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <assumed_value>21.0</assumed_value>
+        <constraint>
+         <lower>0.0</lower>
+         <upper>100.0</upper>
+        </constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="is_integral" is_multiple="false">
+       <children xsi:type="P_C_BOOLEAN" node_id="id9999" rm_type_name="BOOLEAN" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>false</constraint>
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="type" is_multiple="false">
+       <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="PROPORTION_KIND" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="true">
+        <constraint>
+         <lower>2</lower>
+        </constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="de">
+   <items id="id1">
+    <text>*Ambient oxygen(en)</text>
+    <description>*The amount of oxygen being delivered to the subject at the time of observation.  Assumed values of 21% O2, Fi02 of 0.21 and Oxygen flow rate of zero.(en)</description>
+   </items>
+   <items id="id52">
+    <text>*Oxygen flow rate(en)</text>
+    <description>*Flow rate of inspired oxygen.(en)</description>
+   </items>
+   <items id="id53">
+    <text>*FiO2(en)</text>
+    <description>*Fraction of inspired oxygen.(en)</description>
+   </items>
+   <items id="id54">
+    <text>*Percent O2(en)</text>
+    <description>*Percentage of inspired oxygen.(en)</description>
+   </items>
+   <items id="at1">
+    <text>*Flow rate, volume (en)</text>
+    <description>*Flow rate, volume (en)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Ambient oxygen</text>
+    <description>The amount of oxygen being delivered to the subject at the time of observation.  Assumed values of 21% O2, Fi02 of 0.21 and Oxygen flow rate of zero.</description>
+   </items>
+   <items id="id52">
+    <text>Oxygen flow rate</text>
+    <description>Flow rate of inspired oxygen.</description>
+   </items>
+   <items id="id53">
+    <text>FiO2</text>
+    <description>Fraction of inspired oxygen.</description>
+   </items>
+   <items id="id54">
+    <text>Percent O2</text>
+    <description>Percentage of inspired oxygen.</description>
+   </items>
+   <items id="at1">
+    <text>Flow rate, volume</text>
+    <description>Flow rate, volume</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="es-ar">
+   <items id="id1">
+    <text>Oxígeno ambiental</text>
+    <description>La cantidad de oxígeno siendo administrada al sujeto en el momento de la observación. Se asumen valores de 21% de O2, FiO2 de 0,21 y velocidad de flujo de oxígeno de cero.</description>
+   </items>
+   <items id="id52">
+    <text>Velocidad del flujo de Oxígeno</text>
+    <description>Velocidad del flujo de Oxígeno inspirado.</description>
+   </items>
+   <items id="id53">
+    <text>FiO2</text>
+    <description>Fracción inspiratoria de oxígeno.</description>
+   </items>
+   <items id="id54">
+    <text>Porcentaje de 02</text>
+    <description>Porcentaje de oxígeno inspirado.</description>
+   </items>
+   <items id="at1">
+    <text>*Flow rate, volume (en)</text>
+    <description>*Flow rate, volume (en)</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="openehr">
+   <items id="at1">http://openehr.org/id/126</items>
+  </term_bindings>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

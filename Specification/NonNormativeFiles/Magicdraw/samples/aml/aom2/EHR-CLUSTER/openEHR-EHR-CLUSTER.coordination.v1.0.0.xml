@@ -1,0 +1,488 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Heather Leslie</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">heather.leslie@oceaninformatics.com</original_author>
+  <original_author id="date">19/03/2007</original_author>
+  <copyright>copyright (c) 2010 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To capture examination details about coordination.</purpose>
+   <use>For use as a part of an examination OBSERVATION.</use>
+   <keywords>coordination</keywords>
+   <keywords>cerebellum</keywords>
+   <keywords>dysdiadokinesis</keywords>
+   <keywords>finger-nose</keywords>
+   <keywords>heel-shin</keywords>
+   <keywords>tapping</keywords>
+   <misuse></misuse>
+  </details>
+  <other_details id="references"></other_details>
+  <other_details id="MD5-CAM-1.0.1">90DDD94651394097265F022758826941</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.coordination.v1.0.0">
+  <concept_id>coordination</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id53" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id54" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id51" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id52" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id55" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>ac1</constraint>
+           </children>
+          </attributes>
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id56" rm_type_name="ELEMENT" is_deprecated="false">
+        <target_path>/items[id4]/items[id6]/items[id46]</target_path>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id57" rm_type_name="ELEMENT" is_deprecated="false">
+        <target_path>/items[id4]/items[id6]/items[id10]</target_path>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id58" rm_type_name="ELEMENT" is_deprecated="false">
+        <target_path>/items[id4]/items[id6]/items[id42]</target_path>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id59" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>ac2</constraint>
+           </children>
+          </attributes>
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id46" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id60" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>ac3</constraint>
+           </children>
+          </attributes>
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id61" rm_type_name="DV_BOOLEAN" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+           <children xsi:type="P_C_BOOLEAN" node_id="id9999" rm_type_name="BOOLEAN" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>true</constraint>
+            <constraint>false</constraint>
+           </children>
+          </attributes>
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id62" rm_type_name="DV_BOOLEAN" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+           <children xsi:type="P_C_BOOLEAN" node_id="id9999" rm_type_name="BOOLEAN" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>true</constraint>
+            <constraint>false</constraint>
+           </children>
+          </attributes>
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id23" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id63" rm_type_name="DV_ORDINAL" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+           <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>
+             <lower>0</lower>
+            </constraint>
+           </children>
+           <children xsi:type="P_C_INTEGER" node_id="id99992" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>
+             <lower>1</lower>
+            </constraint>
+           </children>
+           <children xsi:type="P_C_INTEGER" node_id="id99993" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>
+             <lower>2</lower>
+            </constraint>
+           </children>
+          </attributes>
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="symbol" is_multiple="false">
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>at31</constraint>
+           </children>
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99992" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>at32</constraint>
+           </children>
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99993" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>at33</constraint>
+           </children>
+          </attributes>
+          <attribute_tuples>
+           <members>value</members>
+           <members>symbol</members>
+          </attribute_tuples>
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id27" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id64" rm_type_name="DV_ORDINAL" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+           <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>
+             <lower>0</lower>
+            </constraint>
+           </children>
+           <children xsi:type="P_C_INTEGER" node_id="id99992" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>
+             <lower>1</lower>
+            </constraint>
+           </children>
+           <children xsi:type="P_C_INTEGER" node_id="id99993" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>
+             <lower>2</lower>
+            </constraint>
+           </children>
+          </attributes>
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="symbol" is_multiple="false">
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>at34</constraint>
+           </children>
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99992" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>at35</constraint>
+           </children>
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99993" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>at36</constraint>
+           </children>
+          </attributes>
+          <attribute_tuples>
+           <members>value</members>
+           <members>symbol</members>
+          </attribute_tuples>
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id42" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id65" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>ac4</constraint>
+           </children>
+          </attributes>
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id66" rm_type_name="DV_ORDINAL" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+           <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>
+             <lower>0</lower>
+            </constraint>
+           </children>
+           <children xsi:type="P_C_INTEGER" node_id="id99992" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>
+             <lower>1</lower>
+            </constraint>
+           </children>
+           <children xsi:type="P_C_INTEGER" node_id="id99993" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>
+             <lower>2</lower>
+            </constraint>
+           </children>
+          </attributes>
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="symbol" is_multiple="false">
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>at11</constraint>
+           </children>
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99992" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>at12</constraint>
+           </children>
+           <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id99993" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+            <constraint>at13</constraint>
+           </children>
+          </attributes>
+          <attribute_tuples>
+           <members>value</members>
+           <members>symbol</members>
+          </attribute_tuples>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Coordination</text>
+    <description>Examination of coordination.</description>
+   </items>
+   <items id="id2">
+    <text>Normal Statements</text>
+    <description>Collection of normal statements about the examination of coordination.</description>
+   </items>
+   <items id="id3">
+    <text>Normal statement</text>
+    <description>Normal statement about the Collection of normal statements about the examination of coordination.</description>
+   </items>
+   <items id="id4">
+    <text>Findings</text>
+    <description>Findings on examination.</description>
+   </items>
+   <items id="id5">
+    <text>Clinical Description</text>
+    <description>General description of findings on examination of Coordination.</description>
+   </items>
+   <items id="id6">
+    <text>Specific test findings</text>
+    <description>Findings of specific coordination tests.</description>
+   </items>
+   <items id="id7">
+    <text>Overshooting</text>
+    <description>Finding of overshooting, alternatively known as past-pointing or dysmetria.</description>
+   </items>
+   <items id="id8">
+    <text>Intention tremor</text>
+    <description>Presence of intention tremor on performance of test.</description>
+   </items>
+   <items id="id9">
+    <text>Test</text>
+    <description>Name of test.</description>
+   </items>
+   <items id="id10">
+    <text>Overall Performance</text>
+    <description>Overall description of performance.</description>
+   </items>
+   <items id="at11">
+    <text>Normal</text>
+    <description>*</description>
+   </items>
+   <items id="at12">
+    <text>Mild impairment</text>
+    <description>*</description>
+   </items>
+   <items id="at13">
+    <text>Marked impairment</text>
+    <description>*</description>
+   </items>
+   <items id="id23">
+    <text>Rate</text>
+    <description>Description of rate of performance.</description>
+   </items>
+   <items id="id27">
+    <text>Fluidity</text>
+    <description>Description of smoothness and evenness of performance.</description>
+   </items>
+   <items id="at31">
+    <text>Normal</text>
+    <description>*</description>
+   </items>
+   <items id="at32">
+    <text>Slightly slower than expected</text>
+    <description>*</description>
+   </items>
+   <items id="at33">
+    <text>Much slower than expected</text>
+    <description>*</description>
+   </items>
+   <items id="at34">
+    <text>Smooth and even</text>
+    <description>*</description>
+   </items>
+   <items id="at35">
+    <text>Slightly uneven</text>
+    <description>*</description>
+   </items>
+   <items id="at36">
+    <text>Markedly uneven</text>
+    <description>*</description>
+   </items>
+   <items id="at38">
+    <text>Finger-nose test</text>
+    <description>Findings on movement of patient&apos;s index finger between tester&apos;s finger and patient&apos;s nose.</description>
+   </items>
+   <items id="at39">
+    <text>Dysdiadokinesis</text>
+    <description>Findings on testing dysdiadokinese or alternate hand tapping.</description>
+   </items>
+   <items id="at40">
+    <text>Rapid alternating finger movements</text>
+    <description>Findings on patient touching of the tips of each finger to the thumb of the same hand.</description>
+   </items>
+   <items id="at41">
+    <text>Heel to shin test</text>
+    <description>Findings of patient moving the heel of one foot up and down along the top of the opposite shin.</description>
+   </items>
+   <items id="id42">
+    <text>Affected side</text>
+    <description>Identification of side of abnormal finding.</description>
+   </items>
+   <items id="at43">
+    <text>Left</text>
+    <description>*</description>
+   </items>
+   <items id="at44">
+    <text>Right</text>
+    <description>*</description>
+   </items>
+   <items id="at45">
+    <text>Both</text>
+    <description>*</description>
+   </items>
+   <items id="id46">
+    <text>Eyes open/closed</text>
+    <description>Record of eyes being open or closed during performance of test.</description>
+   </items>
+   <items id="at47">
+    <text>Eyes open</text>
+    <description>*</description>
+   </items>
+   <items id="at48">
+    <text>Eyes closed</text>
+    <description>*</description>
+   </items>
+   <items id="at49">
+    <text>Squatting</text>
+    <description>*</description>
+   </items>
+   <items id="at50">
+    <text>Stand on heels</text>
+    <description>*</description>
+   </items>
+   <items id="id51">
+    <text>General test findings</text>
+    <description>*</description>
+   </items>
+   <items id="id52">
+    <text>Test</text>
+    <description>*</description>
+   </items>
+   <items id="at53">
+    <text>Bend over</text>
+    <description>*</description>
+   </items>
+   <items id="at54">
+    <text>Stand on tiptoe</text>
+    <description>*</description>
+   </items>
+   <items id="id56">
+    <text>(added by post-parse processor)</text>
+    <description>(added by post-parse processor)</description>
+   </items>
+   <items id="id57">
+    <text>(added by post-parse processor)</text>
+    <description>(added by post-parse processor)</description>
+   </items>
+   <items id="id58">
+    <text>(added by post-parse processor)</text>
+    <description>(added by post-parse processor)</description>
+   </items>
+   <items id="ac1">
+    <text>Test (synthesised)</text>
+    <description>* (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Test (synthesised)</text>
+    <description>Name of test. (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>Eyes open/closed (synthesised)</text>
+    <description>Record of eyes being open or closed during performance of test. (synthesised)</description>
+   </items>
+   <items id="ac4">
+    <text>Affected side (synthesised)</text>
+    <description>Identification of side of abnormal finding. (synthesised)</description>
+   </items>
+   <items id="ac5">
+    <text>Rate (synthesised)</text>
+    <description>Description of rate of performance. (synthesised)</description>
+   </items>
+   <items id="ac6">
+    <text>Fluidity (synthesised)</text>
+    <description>Description of smoothness and evenness of performance. (synthesised)</description>
+   </items>
+   <items id="ac7">
+    <text>Overall Performance (synthesised)</text>
+    <description>Overall description of performance. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac2">
+   <members>at38</members>
+   <members>at39</members>
+   <members>at40</members>
+   <members>at41</members>
+  </value_sets>
+  <value_sets id="ac1">
+   <members>at49</members>
+   <members>at50</members>
+   <members>at53</members>
+   <members>at54</members>
+  </value_sets>
+  <value_sets id="ac3">
+   <members>at47</members>
+   <members>at48</members>
+  </value_sets>
+  <value_sets id="ac4">
+   <members>at43</members>
+   <members>at44</members>
+   <members>at45</members>
+  </value_sets>
+  <value_sets id="ac5">
+   <members>at31</members>
+   <members>at32</members>
+   <members>at33</members>
+  </value_sets>
+  <value_sets id="ac6">
+   <members>at34</members>
+   <members>at35</members>
+   <members>at36</members>
+  </value_sets>
+  <value_sets id="ac7">
+   <members>at11</members>
+   <members>at12</members>
+   <members>at13</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

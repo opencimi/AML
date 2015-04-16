@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <translations id="ar-sy">
+  <language>ISO_639-1::ar-sy</language>
+  <author id="name">?</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Heather Leslie</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="date">12/10/2007</original_author>
+  <copyright>© 2011 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record the  waist (or girth) and hip circumference and waist/hip ratio</purpose>
+   <use></use>
+   <keywords>waist</keywords>
+   <keywords>hip</keywords>
+   <misuse></misuse>
+  </details>
+  <details id="ar-sy">
+   <language>ISO_639-1::ar-sy</language>
+   <purpose>لتسجيل كِفاف الخصر (الحزام) و الورك و نسبة قياس الخصر إلى الورك</purpose>
+   <use></use>
+   <keywords>الخصر</keywords>
+   <keywords>الورك</keywords>
+   <misuse></misuse>
+  </details>
+  <other_contributors>Heather Leslie, Ocean Informatics, Australia (Editor)</other_contributors>
+  <other_details id="references"></other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="OBSERVATION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-OBSERVATION.waist_hip.v1.0.0">
+  <concept_id>waist_hip</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="OBSERVATION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data" is_multiple="false">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="HISTORY" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="events" cardinality="1..*; unordered" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="EVENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="ITEM_LIST" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+             <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>at1</constraint>
+             </children>
+            </attributes>
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+             <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>cm</constraint>
+              <constraint>in</constraint>
+             </children>
+            </attributes>
+           </children>
+          </attributes>
+         </children>
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
+             <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>at1</constraint>
+             </children>
+            </attributes>
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
+             <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>0.0</lower>
+              </constraint>
+             </children>
+            </attributes>
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="precision" is_multiple="false">
+             <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="INTEGER" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>
+               <lower>1</lower>
+              </constraint>
+             </children>
+            </attributes>
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
+             <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+              <constraint>cm</constraint>
+             </children>
+            </attributes>
+           </children>
+          </attributes>
+         </children>
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10" rm_type_name="DV_PROPORTION" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="type" is_multiple="false">
+             <children xsi:type="P_C_INTEGER" node_id="id9999" rm_type_name="PROPORTION_KIND" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="true">
+              <constraint>
+               <lower>1</lower>
+              </constraint>
+             </children>
+            </attributes>
+           </children>
+          </attributes>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Waist and hip circumference</text>
+    <description>The waist (or girth) and hip circumference</description>
+   </items>
+   <items id="id3">
+    <text>Any event</text>
+    <description>Timing event</description>
+   </items>
+   <items id="id5">
+    <text>Waist circumference</text>
+    <description>The waist circumference measured at or above the umbilicus</description>
+   </items>
+   <items id="id6">
+    <text>Hip circumference</text>
+    <description>Measurement of body circumference at the widest point of the buttocks</description>
+   </items>
+   <items id="id7">
+    <text>Waist:hip ratio</text>
+    <description>Ratio with unitary denominator</description>
+   </items>
+   <items id="at1">
+    <text>Length</text>
+    <description>Length</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="ar-sy">
+   <items id="id1">
+    <text>كفاف الوِرك و الخصر</text>
+    <description>كفاف الخصر (الحزام) و الورك</description>
+   </items>
+   <items id="id3">
+    <text>إحدى الوقائع</text>
+    <description>واقعة وقتية</description>
+   </items>
+   <items id="id5">
+    <text>كِفاف الخصر</text>
+    <description>كِفاف الخصر, يتم قياسه عند أو أعلى من السُّرة</description>
+   </items>
+   <items id="id6">
+    <text>كِفاف الوِرك</text>
+    <description>قياس كِفاف الجسم عند أعرض نقطة من الألية</description>
+   </items>
+   <items id="id7">
+    <text>نسبة الخصر إلى الوِرك</text>
+    <description>*Ratio with unitary denominator(en)</description>
+   </items>
+   <items id="at1">
+    <text>*Length (en)</text>
+    <description>*Length (en)</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="openehr">
+   <items id="at1">http://openehr.org/id/122</items>
+  </term_bindings>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

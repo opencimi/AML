@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">unknown</original_author>
+  <copyright>copyright (c) 2010 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record details about a health related event.</purpose>
+   <use></use>
+   <misuse></misuse>
+  </details>
+  <other_details id="references"></other_details>
+  <other_details id="MD5-CAM-1.0.1">D33F4A1B634C2ED46B16E86164CE843A</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.health_event.v1.0.0">
+  <concept_id>health_event</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id19" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id16" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id20" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id11" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id12" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id21" rm_type_name="DV_DURATION" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id22" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id23" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id24" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_ARCHETYPE_SLOT" node_id="id17" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+        <includes type="Boolean">
+         <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+          <operator value="2007">
+          </operator>
+          <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+           <item>archetype_id/value</item>
+          </left_operand>
+          <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+           <item>
+            <rm_type_name>STRING</rm_type_name>
+            <constraint>/openEHR-EHR-CLUSTER\.symptom\.v1|openEHR-EHR-CLUSTER\.health_event\.v1/</constraint>
+            <is_path_compressible>false</is_path_compressible>
+            <is_deprecated>false</is_deprecated>
+            <is_frozen>false</is_frozen>
+            <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+           </item>
+          </right_operand>
+         </expression>
+        </includes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id13" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_ARCHETYPE_SLOT" node_id="id18" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+        <includes type="Boolean">
+         <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+          <operator value="2007">
+          </operator>
+          <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+           <item>archetype_id/value</item>
+          </left_operand>
+          <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+           <item>
+            <rm_type_name>STRING</rm_type_name>
+            <constraint>/openEHR-EHR-CLUSTER\.health_event\.v1|openEHR-EHR-CLUSTER\.symptom-pain\.v1|openEHR-EHR-CLUSTER\.symptom\.v1/</constraint>
+            <is_path_compressible>false</is_path_compressible>
+            <is_deprecated>false</is_deprecated>
+            <is_frozen>false</is_frozen>
+            <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+           </item>
+          </right_operand>
+         </expression>
+        </includes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id14" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id15" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id25" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Health event</text>
+    <description>A recording about a health related event.</description>
+   </items>
+   <items id="id2">
+    <text>Event</text>
+    <description>The type of event that has occurred.</description>
+   </items>
+   <items id="id3">
+    <text>Witness</text>
+    <description>Who witnessed the event other than the patient.</description>
+   </items>
+   <items id="id4">
+    <text>Perpetrator</text>
+    <description>Any person involved in causing the event.</description>
+   </items>
+   <items id="id5">
+    <text>Other parties</text>
+    <description>Information about other parties.</description>
+   </items>
+   <items id="id8">
+    <text>Circumstances</text>
+    <description>Information about the circumstances surrounding the event.</description>
+   </items>
+   <items id="id9">
+    <text>Preceding symptoms and events</text>
+    <description>Symptoms and events which preceded the index event.</description>
+   </items>
+   <items id="id10">
+    <text>Clinical description</text>
+    <description>A clinical description of what happenned.</description>
+   </items>
+   <items id="id11">
+    <text>Occurrence</text>
+    <description>The timing of the event in relation to the observation.</description>
+   </items>
+   <items id="id12">
+    <text>How long ago</text>
+    <description>The time between the event and the observation time.</description>
+   </items>
+   <items id="id13">
+    <text>Associated symptoms and events</text>
+    <description>Grouping of associated symptoms and events.</description>
+   </items>
+   <items id="id14">
+    <text>Contributing factors</text>
+    <description>Factors contributing to the event or likelihood of the event.</description>
+   </items>
+   <items id="id15">
+    <text>Contributing factor</text>
+    <description>A factor contributing to the event.</description>
+   </items>
+   <items id="id16">
+    <text>Event details</text>
+    <description>*</description>
+   </items>
+   <items id="id17">
+    <text>Cluster: Preceding symptoms and events</text>
+    <description>Symptoms and events which preceded the index event.</description>
+   </items>
+   <items id="id18">
+    <text>Cluster: Preceding and associated symptoms and events</text>
+    <description>Symptoms and events which preceded the index event.</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

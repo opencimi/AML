@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">unknown</original_author>
+  <copyright>copyright (c) 2010 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To capture details about gait.
+
+</purpose>
+   <use></use>
+   <keywords>gait</keywords>
+   <keywords>walking</keywords>
+   <keywords>balance</keywords>
+   <keywords>arm swing</keywords>
+   <keywords>rhomberg</keywords>
+   <misuse></misuse>
+  </details>
+  <other_details id="references"></other_details>
+  <other_details id="MD5-CAM-1.0.1">565A89C42C577DDEE05340DFBD44C2E6</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.gait.v1.0.0">
+  <concept_id>gait</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id48" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id49" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id11" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id50" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac1</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id20" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id51" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id21" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id52" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac2</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id46" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_ARCHETYPE_SLOT" node_id="id47" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_closed="false">
+        <includes type="Boolean">
+         <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+          <operator value="2007">
+          </operator>
+          <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+           <item>archetype_id/value</item>
+          </left_operand>
+          <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+           <item>
+            <rm_type_name>STRING</rm_type_name>
+            <constraint>/openEHR-EHR-CLUSTER\.balance\.v1/</constraint>
+            <is_path_compressible>false</is_path_compressible>
+            <is_deprecated>false</is_deprecated>
+            <is_frozen>false</is_frozen>
+            <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+           </item>
+          </right_operand>
+         </expression>
+        </includes>
+        <excludes type="Boolean">
+         <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+          <operator value="2007">
+          </operator>
+          <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+           <item>archetype_id/value</item>
+          </left_operand>
+          <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+           <item>
+            <rm_type_name>STRING</rm_type_name>
+            <constraint>/.*/</constraint>
+            <is_path_compressible>false</is_path_compressible>
+            <is_deprecated>false</is_deprecated>
+            <is_frozen>false</is_frozen>
+            <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+           </item>
+          </right_operand>
+         </expression>
+        </excludes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Gait</text>
+    <description>Examination of gait.</description>
+   </items>
+   <items id="id2">
+    <text>Normal Statements</text>
+    <description>Collection of normal statements about examination of gait.</description>
+   </items>
+   <items id="id3">
+    <text>Normal statement</text>
+    <description>Normal statement about gait.</description>
+   </items>
+   <items id="id4">
+    <text>Findings</text>
+    <description>Specific findings.</description>
+   </items>
+   <items id="id5">
+    <text>Clinical Description</text>
+    <description>General description of gait findings.</description>
+   </items>
+   <items id="id11">
+    <text>Characteristic</text>
+    <description>Identify characterisitsc of gait.</description>
+   </items>
+   <items id="at12">
+    <text>Wide-based</text>
+    <description>*</description>
+   </items>
+   <items id="at13">
+    <text>Shuffling</text>
+    <description>*</description>
+   </items>
+   <items id="at16">
+    <text>High-stepping</text>
+    <description>*</description>
+   </items>
+   <items id="id20">
+    <text>Turning</text>
+    <description>*</description>
+   </items>
+   <items id="id21">
+    <text>Arm swing</text>
+    <description>Mobility of arm on walking.</description>
+   </items>
+   <items id="at22">
+    <text>Normal</text>
+    <description>*</description>
+   </items>
+   <items id="at23">
+    <text>Left arm reduced</text>
+    <description>*</description>
+   </items>
+   <items id="at24">
+    <text>Right arm reduced</text>
+    <description>*</description>
+   </items>
+   <items id="at25">
+    <text>Both arms reduced</text>
+    <description>*</description>
+   </items>
+   <items id="at26">
+    <text>Trendelenburg</text>
+    <description>*</description>
+   </items>
+   <items id="at27">
+    <text>Antalgic</text>
+    <description>Patient favors certain motions to avoid acute pain.</description>
+   </items>
+   <items id="at28">
+    <text>Ataxic </text>
+    <description>Reeling gait, in a style similar to that of an intoxicated person.</description>
+   </items>
+   <items id="at29">
+    <text>Festinating</text>
+    <description>Patient moves with short, jerky steps.</description>
+   </items>
+   <items id="at30">
+    <text>Stomping</text>
+    <description>Uncoordinated walking from sensory loss.</description>
+   </items>
+   <items id="at31">
+    <text>Spastic</text>
+    <description>Asymmetric foot dragging.</description>
+   </items>
+   <items id="at35">
+    <text>Waddling</text>
+    <description>Walking like a duck.</description>
+   </items>
+   <items id="at36">
+    <text>Swaying</text>
+    <description>*</description>
+   </items>
+   <items id="at37">
+    <text>Cerebellar</text>
+    <description>*</description>
+   </items>
+   <items id="at38">
+    <text>Choreic</text>
+    <description>*</description>
+   </items>
+   <items id="at39">
+    <text>Scissoring</text>
+    <description>*</description>
+   </items>
+   <items id="at40">
+    <text>Accelerating</text>
+    <description>*</description>
+   </items>
+   <items id="at41">
+    <text>Foot-drop</text>
+    <description>*</description>
+   </items>
+   <items id="at42">
+    <text>Flat-footed</text>
+    <description>*</description>
+   </items>
+   <items id="id46">
+    <text>Balance</text>
+    <description>Examination of balance.</description>
+   </items>
+   <items id="id47">
+    <text>Cluster: Balance</text>
+    <description>Examination of balance</description>
+   </items>
+   <items id="ac1">
+    <text>Characteristic (synthesised)</text>
+    <description>Identify characterisitsc of gait. (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Arm swing (synthesised)</text>
+    <description>Mobility of arm on walking. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac1">
+   <members>at12</members>
+   <members>at13</members>
+   <members>at16</members>
+   <members>at26</members>
+   <members>at27</members>
+   <members>at28</members>
+   <members>at29</members>
+   <members>at30</members>
+   <members>at31</members>
+   <members>at35</members>
+   <members>at36</members>
+   <members>at37</members>
+   <members>at38</members>
+   <members>at39</members>
+   <members>at40</members>
+   <members>at41</members>
+   <members>at42</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at22</members>
+   <members>at23</members>
+   <members>at24</members>
+   <members>at25</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

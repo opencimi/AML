@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">unknown</original_author>
+  <copyright>copyright (c) 2009 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record details pertaining to open or keyhole operation performed</purpose>
+   <use></use>
+   <misuse></misuse>
+  </details>
+  <other_details id="references"></other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="OBSERVATION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-OBSERVATION.operation_record.v1.0.0">
+  <concept_id>operation_record</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="OBSERVATION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data" is_multiple="false">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="HISTORY" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="events" cardinality="1..*; unordered" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="EVENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="ITEM_TREE" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id57" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+             </children>
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id58" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+              <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+               <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+                <constraint>ac1</constraint>
+               </children>
+              </attributes>
+             </children>
+            </attributes>
+           </children>
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id15" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id59" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+             </children>
+            </attributes>
+           </children>
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id14" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id60" rm_type_name="DV_DATE_TIME" is_deprecated="false" is_frozen="false">
+              <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+               <children xsi:type="P_C_DATE_TIME" node_id="id9999" rm_type_name="String" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+                <pattern_constraint>yyyy-??-??T??:??:??</pattern_constraint>
+               </children>
+              </attributes>
+             </children>
+            </attributes>
+           </children>
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id55" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id61" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+             </children>
+            </attributes>
+           </children>
+          </attributes>
+         </children>
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id38" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id37" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id62" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+             </children>
+            </attributes>
+           </children>
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id48" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id45" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+              <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+               <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id63" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+               </children>
+              </attributes>
+             </children>
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id50" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+              <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+               <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id64" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+                <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+                </attributes>
+               </children>
+              </attributes>
+             </children>
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id46" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+              <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+               <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id65" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+                <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+                </attributes>
+               </children>
+              </attributes>
+             </children>
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id51" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+              <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+               <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id66" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+                <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+                </attributes>
+               </children>
+              </attributes>
+             </children>
+            </attributes>
+           </children>
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id43" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id44" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+              <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+               <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id67" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+               </children>
+              </attributes>
+             </children>
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id47" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+              <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+               <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id68" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+                <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+                </attributes>
+               </children>
+              </attributes>
+             </children>
+            </attributes>
+           </children>
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id53" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+             <children xsi:type="P_ARCHETYPE_SLOT" node_id="id56" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_closed="false">
+              <includes type="Boolean">
+               <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+                <operator value="2007">
+                </operator>
+                <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+                 <item>archetype_id/value</item>
+                </left_operand>
+                <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+                 <item>
+                  <rm_type_name>STRING</rm_type_name>
+                  <constraint>/.*/</constraint>
+                  <is_path_compressible>false</is_path_compressible>
+                  <is_deprecated>false</is_deprecated>
+                  <is_frozen>false</is_frozen>
+                  <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+                 </item>
+                </right_operand>
+               </expression>
+              </includes>
+             </children>
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id54" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+              <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+               <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id69" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+               </children>
+              </attributes>
+             </children>
+            </attributes>
+           </children>
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id39" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id70" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+             </children>
+            </attributes>
+           </children>
+          </attributes>
+         </children>
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id16" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id71" rm_type_name="DV_COUNT" is_deprecated="false" is_frozen="false">
+             </children>
+            </attributes>
+           </children>
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id17" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id18" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+              <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+               <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id72" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+                <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+                 <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+                  <constraint>ac2</constraint>
+                 </children>
+                </attributes>
+               </children>
+               <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id73" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+               </children>
+              </attributes>
+             </children>
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id19" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+              <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+               <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id74" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+                <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+                 <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+                  <constraint>ac3</constraint>
+                 </children>
+                </attributes>
+               </children>
+              </attributes>
+             </children>
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id20" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+              <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+               <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id75" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+               </children>
+              </attributes>
+             </children>
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id31" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+              <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+               <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id76" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+               </children>
+              </attributes>
+             </children>
+            </attributes>
+           </children>
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id33" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id35" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+              <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+               <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id77" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+               </children>
+              </attributes>
+             </children>
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id34" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+              <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+               <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id78" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+               </children>
+              </attributes>
+             </children>
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id36" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+              <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+               <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id79" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+                <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+                </attributes>
+               </children>
+              </attributes>
+             </children>
+            </attributes>
+           </children>
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id52" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id80" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+             </children>
+            </attributes>
+           </children>
+          </attributes>
+         </children>
+         <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+          <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id81" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+             </children>
+            </attributes>
+           </children>
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id82" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+             </children>
+            </attributes>
+           </children>
+           <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id32" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+            <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+             <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id83" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+             </children>
+            </attributes>
+           </children>
+          </attributes>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Operation Record</text>
+    <description>Record of details pertaining to open or keyhole operation performed</description>
+   </items>
+   <items id="id3">
+    <text>Any event</text>
+    <description>*</description>
+   </items>
+   <items id="id5">
+    <text>Incision</text>
+    <description>*</description>
+   </items>
+   <items id="id6">
+    <text>Closure</text>
+    <description>*</description>
+   </items>
+   <items id="id7">
+    <text>Intra-Operative Issues</text>
+    <description>*</description>
+   </items>
+   <items id="id8">
+    <text>Complication</text>
+    <description>Identify any complications incurred in performing the surgery</description>
+   </items>
+   <items id="id9">
+    <text>Issue or difficulty</text>
+    <description>Identify any issue or difficulty faced during surgery</description>
+   </items>
+   <items id="id10">
+    <text>Skin incision</text>
+    <description>Details about skin incision</description>
+   </items>
+   <items id="at11">
+    <text>Midline</text>
+    <description>*</description>
+   </items>
+   <items id="at12">
+    <text>Transverse</text>
+    <description>*</description>
+   </items>
+   <items id="at13">
+    <text>Classical</text>
+    <description>*</description>
+   </items>
+   <items id="id14">
+    <text>Time of knife to skin</text>
+    <description>*</description>
+   </items>
+   <items id="id15">
+    <text>Location of incision</text>
+    <description>Location of incision</description>
+   </items>
+   <items id="id16">
+    <text>Number of Closure layers</text>
+    <description>*</description>
+   </items>
+   <items id="id17">
+    <text>Layer closure detail</text>
+    <description>*</description>
+   </items>
+   <items id="id18">
+    <text>Layer</text>
+    <description>Name of layer</description>
+   </items>
+   <items id="id19">
+    <text>Method of closure</text>
+    <description>Method of closure</description>
+   </items>
+   <items id="id20">
+    <text>Material used</text>
+    <description>Details about closure material</description>
+   </items>
+   <items id="at21">
+    <text>Peritoneum</text>
+    <description>*</description>
+   </items>
+   <items id="at22">
+    <text>Sheath</text>
+    <description>*</description>
+   </items>
+   <items id="at23">
+    <text>Fat</text>
+    <description>*</description>
+   </items>
+   <items id="at24">
+    <text>Skin</text>
+    <description>*</description>
+   </items>
+   <items id="at25">
+    <text>Suture - continuous</text>
+    <description>*</description>
+   </items>
+   <items id="at26">
+    <text>Staples</text>
+    <description>*</description>
+   </items>
+   <items id="at27">
+    <text>Suture - subcutaneous</text>
+    <description>*</description>
+   </items>
+   <items id="at28">
+    <text>Suture - interrupted</text>
+    <description>*</description>
+   </items>
+   <items id="id31">
+    <text>Comment</text>
+    <description>Additional comment about closure</description>
+   </items>
+   <items id="id32">
+    <text>Comment</text>
+    <description>Additional comment about operative issues</description>
+   </items>
+   <items id="id33">
+    <text>Drains</text>
+    <description>Detail about drains inserted</description>
+   </items>
+   <items id="id34">
+    <text>Location</text>
+    <description>Location of drain</description>
+   </items>
+   <items id="id35">
+    <text>Type</text>
+    <description>Type of drain</description>
+   </items>
+   <items id="id36">
+    <text>Comment</text>
+    <description>Comment about drains</description>
+   </items>
+   <items id="id37">
+    <text>Overall Technique</text>
+    <description>Details of operative technique performed</description>
+   </items>
+   <items id="id38">
+    <text>Operative details</text>
+    <description>*</description>
+   </items>
+   <items id="id39">
+    <text>Comment</text>
+    <description>Overall comment about the operation performed</description>
+   </items>
+   <items id="id43">
+    <text>Haemostasis</text>
+    <description>Details about haemostasis methods used</description>
+   </items>
+   <items id="id44">
+    <text>Method</text>
+    <description>Method of haemostasis</description>
+   </items>
+   <items id="id45">
+    <text>Approach</text>
+    <description>Surgical approach</description>
+   </items>
+   <items id="id46">
+    <text>Description</text>
+    <description>Details of surgery performed</description>
+   </items>
+   <items id="id47">
+    <text>Comment</text>
+    <description>*</description>
+   </items>
+   <items id="id48">
+    <text>Details of surgery performed</text>
+    <description>*</description>
+   </items>
+   <items id="id50">
+    <text>Method</text>
+    <description>Details of method performed</description>
+   </items>
+   <items id="id51">
+    <text>Comment</text>
+    <description>Comments about surgery performed</description>
+   </items>
+   <items id="id52">
+    <text>Comment</text>
+    <description>Comments about closure</description>
+   </items>
+   <items id="id53">
+    <text>Operation-specific details</text>
+    <description>Further details about operation that are very specific to purpose</description>
+   </items>
+   <items id="id54">
+    <text>Comment</text>
+    <description>Comment on operation-specific details</description>
+   </items>
+   <items id="id55">
+    <text>Comment</text>
+    <description>Comment about the incision and opening phase of surgical operation</description>
+   </items>
+   <items id="id56">
+    <text>Any operation-specific details</text>
+    <description>Cluster for further details about operation that are very specific to purpose</description>
+   </items>
+   <items id="ac1">
+    <text>Skin incision (synthesised)</text>
+    <description>Details about skin incision (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Layer (synthesised)</text>
+    <description>Name of layer (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>Method of closure (synthesised)</text>
+    <description>Method of closure (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac1">
+   <members>at11</members>
+   <members>at12</members>
+   <members>at13</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at21</members>
+   <members>at22</members>
+   <members>at23</members>
+   <members>at24</members>
+  </value_sets>
+  <value_sets id="ac3">
+   <members>at25</members>
+   <members>at26</members>
+   <members>at27</members>
+   <members>at28</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Dr Ian McNicoll</original_author>
+  <original_author id="organisation">Ocean Informatics, United Kingdom</original_author>
+  <original_author id="email">ian.mcnicoll@oceaninformatics.com</original_author>
+  <original_author id="date">19/08/2009</original_author>
+  <copyright>copyright (c) 2009 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To record non-TNM staging scores for colorectal cancer.</purpose>
+   <use>Use in conjunction with a suite of histo-pathology related archetypes or with a Diagnosis archetype.</use>
+   <keywords>staging</keywords>
+   <keywords>cancer</keywords>
+   <keywords>tumour</keywords>
+   <keywords>histo-pathology</keywords>
+   <keywords>malignancy</keywords>
+   <misuse></misuse>
+  </details>
+  <other_details id="references">Davis N, Newland R. The reporting of colorectal cancer: The Australian clinico-pathological staging system. ANZ Journal of Surgery. 1982 ;52(4):395-397.
+
+Royal College of Pathologists. Dataset for colorectal cancer (2nd edition) [Internet]. 2007 Dec 4;[cited 2009 Jul 29 ]
+Available from: http://www.rcpath.org/index.asp?PageID=1153
+
+
+
+</other_details>
+  <other_details id="MD5-CAM-1.0.1">7B91C01ED83E6504C8AFC02B1BFDD236</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.tumour_colorectal_staging_non_tnm.v1.0.0">
+  <concept_id>tumour_colorectal_staging_non_tnm</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id18" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id19" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac2</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id17" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id20" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac3</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Tumour - Colorectal staging (non-TNM)</text>
+    <description>Non-TNM staging scores for colorectal cancer.</description>
+   </items>
+   <items id="id2">
+    <text>Dukes Score</text>
+    <description>Dukes classification for colorectal cancer (Dukes and Bussey modification)</description>
+   </items>
+   <items id="id3">
+    <text>ACPS Score</text>
+    <description>Australian clinicopathological staging (ACPS) system.</description>
+   </items>
+   <items id="at8">
+    <text>Dukes A</text>
+    <description>Tumour limited to the wall of the bowel, lymph nodes negative.</description>
+   </items>
+   <items id="at9">
+    <text>Dukes B</text>
+    <description>Tumour spread beyond muscularis propria, lymph nodes negative.</description>
+   </items>
+   <items id="at10">
+    <text>Dukes C1</text>
+    <description>Lymph nodes positive but highest node spared.</description>
+   </items>
+   <items id="at11">
+    <text>Dukes C2</text>
+    <description>Highest lymph node involved.</description>
+   </items>
+   <items id="at12">
+    <text>Stage A0</text>
+    <description>Mucosa involved.</description>
+   </items>
+   <items id="at13">
+    <text>Stage A</text>
+    <description>Submucosa involved.</description>
+   </items>
+   <items id="at14">
+    <text>Stage B</text>
+    <description>Muscularis propria involved.</description>
+   </items>
+   <items id="at15">
+    <text>Stage C</text>
+    <description>Local nodes involved.</description>
+   </items>
+   <items id="at16">
+    <text>Stage D</text>
+    <description>Tumour transected (histological).</description>
+   </items>
+   <items id="id17">
+    <text>ACPS Concord variant</text>
+    <description>Concord substage variant of Australian clinicopathological staging (ACPS) system.</description>
+   </items>
+   <items id="at18">
+    <text>Stage A1</text>
+    <description>Mucosa involved.</description>
+   </items>
+   <items id="at19">
+    <text>Stage A2</text>
+    <description>Submucosa involved.</description>
+   </items>
+   <items id="at20">
+    <text>Stage A3</text>
+    <description>Muscularis propria involved</description>
+   </items>
+   <items id="at21">
+    <text>Stage B1</text>
+    <description>Involvement beyond muscularis propria.</description>
+   </items>
+   <items id="at22">
+    <text>Stage B2</text>
+    <description>Involvement of free serosal surface.</description>
+   </items>
+   <items id="at23">
+    <text>Stage C1</text>
+    <description>Local nodes involved</description>
+   </items>
+   <items id="at24">
+    <text>Stage C2</text>
+    <description>Apical nodes involved.</description>
+   </items>
+   <items id="at25">
+    <text>Stage D1</text>
+    <description>Tumour transected (histological)</description>
+   </items>
+   <items id="at26">
+    <text>Stage D2</text>
+    <description>Distant metastases (clinical or histological).</description>
+   </items>
+   <items id="ac1">
+    <text>Dukes Score (synthesised)</text>
+    <description>Dukes classification for colorectal cancer (Dukes and Bussey modification) (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>ACPS Score (synthesised)</text>
+    <description>Australian clinicopathological staging (ACPS) system. (synthesised)</description>
+   </items>
+   <items id="ac3">
+    <text>ACPS Concord variant (synthesised)</text>
+    <description>Concord substage variant of Australian clinicopathological staging (ACPS) system. (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac1">
+   <members>at8</members>
+   <members>at9</members>
+   <members>at10</members>
+   <members>at11</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at12</members>
+   <members>at13</members>
+   <members>at14</members>
+   <members>at15</members>
+   <members>at16</members>
+  </value_sets>
+  <value_sets id="ac3">
+   <members>at18</members>
+   <members>at19</members>
+   <members>at20</members>
+   <members>at21</members>
+   <members>at22</members>
+   <members>at23</members>
+   <members>at24</members>
+   <members>at25</members>
+   <members>at26</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

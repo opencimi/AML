@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <translations id="ru">
+  <language>ISO_639-1::ru</language>
+  <author id="name">Art Latyp; Латыпов Артур Шамилевич</author>
+  <author id="organisation">RusBITech РусБИТех, Москва</author>
+  <accreditation>hmm</accreditation>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Heather Leslie</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">heather.leslie@oceaninformatics.com</original_author>
+  <original_author id="date">11/04/2007</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Section to bring together all archetypes involved in recording the conclusion in an encounter with a patient</purpose>
+   <use></use>
+   <keywords>diagnosis</keywords>
+   <keywords>differential diagnosis</keywords>
+   <misuse></misuse>
+  </details>
+  <details id="ru">
+   <language>ISO_639-1::ru</language>
+   <purpose>Раздел для объединения всех архетипов, описывающих выводы (заключения) в результате встречи с пациентом </purpose>
+   <use></use>
+   <keywords>диагностика</keywords>
+   <keywords>диагноз</keywords>
+   <keywords>дифдиагноз</keywords>
+   <keywords>дифференциальный</keywords>
+   <keywords>заключение</keywords>
+   <keywords>вывод</keywords>
+   <misuse></misuse>
+  </details>
+  <other_details id="references"></other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="SECTION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-SECTION.conclusion.v1.0.0">
+  <concept_id>conclusion</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="SECTION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id2" rm_type_name="EVALUATION" is_deprecated="false" is_closed="false">
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/openEHR-EHR-EVALUATION\.differential_diagnosis\.v1|openEHR-EHR-EVALUATION\.problem\.v1|openEHR-EHR-EVALUATION\.problem-diagnosis\.v1/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Conclusion</text>
+    <description>Section to record conclusions of an encounter with a patient</description>
+   </items>
+   <items id="id2">
+    <text>Evaluation of a problem, diagnosis etc.</text>
+    <description>*</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="ru">
+   <items id="id1">
+    <text>Заключение</text>
+    <description>Раздел для записи заключения (выводов) после встречи с пациентом (осмотра, консультации) </description>
+   </items>
+   <items id="id2">
+    <text>Оценка проблемы, диагноз и т.д.</text>
+    <description>Итоговое мнение врача после осмотра пациента, включая диагноз</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

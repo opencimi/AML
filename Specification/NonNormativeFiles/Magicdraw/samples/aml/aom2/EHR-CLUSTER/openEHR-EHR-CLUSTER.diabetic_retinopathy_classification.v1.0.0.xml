@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::es</original_language>
+ <translations id="en">
+  <language>ISO_639-1::en</language>
+  <author id="name">?</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Aitor Eguzkitza</original_author>
+  <original_author id="organisation">Universidad Pública de Navarra - Complejo Hospitalario de Navarra</original_author>
+  <original_author id="email">aitor.eguzkiza@unavarra.es</original_author>
+  <original_author id="date">2014-04-08</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="es">
+   <language>ISO_639-1::es</language>
+   <purpose>Registrar la severidad de la retinopatía diabética según la clasificación internacional dispuesta para la misma.</purpose>
+   <use>Concretar el diagnóstico de la retinopatía diabética en circuitos de seguimiento de la misma.</use>
+   <keywords>diabetic retinopathy</keywords>
+   <keywords>diabetic macular edema</keywords>
+   <keywords>international classification</keywords>
+   <misuse>No utilizar para clasificar afecciones diferentes a la retinopatía diabética o el edema macular diabético.</misuse>
+  </details>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Register the severity for diabetic retinopathy and diabetic macular edema according to the international scale of that disease.</purpose>
+   <use>Specify a diagnosis within diabetic retinopathy follow up.</use>
+   <keywords>retinopatía diabética</keywords>
+   <keywords>edema macular diabético</keywords>
+   <keywords>clasificación internacional</keywords>
+   <misuse>Do not use to classify diseases besides diabetic retinopathy or diabetic macular edema.</misuse>
+  </details>
+  <other_details id="references">- Wilkinson C, Ferris F, Klein R, Lee P, Agardh C, Davis M, et al. Proposed international clinical diabetic retinopathy and diabetic macular edema disease severity scales. Ophthalmology. 2003;110:1677-82.
+
+- Li HK, Horton M, Bursell SE, Cavallerano J, Zimmer-Galler I, Tennant M, et al. Telehealth practice recommendations for diabetic retinopathy, second edition. Telemed J E Health. 2011;17:814-37.</other_details>
+  <other_details id="MD5-CAM-1.0.1">9415463EA3D273C72B2039B0E481635A</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.diabetic_retinopathy_classification.v1.0.0">
+  <concept_id>diabetic_retinopathy_classification</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id16" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac1</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id17" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+       <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>ac2</constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id15" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id18" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::es">
+  <term_definitions id="es">
+   <items id="id1">
+    <text>Clasificación de la retinopatía diabética</text>
+    <description>Clasificación internacional de gravedad de la retinopatía diabética y edema macular diabético</description>
+   </items>
+   <items id="id2">
+    <text>Clasificación RD</text>
+    <description>Escala internacional para la clasificación de la retinopatía diabética</description>
+   </items>
+   <items id="at3">
+    <text>No RD aparente</text>
+    <description>Niveles 10, 14, 15 en clasificación ETRDS de retinopatía diabética; Ausencia de RD</description>
+   </items>
+   <items id="at4">
+    <text>RD no proliferativa leve</text>
+    <description>Nivel 20 en clasificación ETRDS de retinopatía diabética; RD no proliferativa muy leve</description>
+   </items>
+   <items id="at5">
+    <text>RD no proliferativa moderada</text>
+    <description>Niveles 35, 43, 47 en clasificación ETRDS de retinopatía diabética; RD no proliferativa moderada</description>
+   </items>
+   <items id="at6">
+    <text>RD no proliferativa severa</text>
+    <description>Niveles 53A-E en clasificación ETRDS de retinopatía diabética; RD no proliferativa severa, RD no proliferativa muy severa</description>
+   </items>
+   <items id="at7">
+    <text>RD proliferativa preliminar</text>
+    <description>Niveles 61,65 en clasificación ETRDS de retinopatía diabética; RD proliferativa</description>
+   </items>
+   <items id="at8">
+    <text>RD proliferativa de alto riesgo</text>
+    <description>Niveles 71,75,81,85 en clasificación ETRDS de retinopatía diabética; RD proliferativa de alto riesgo, RD proliferativa muy severa o avanzada</description>
+   </items>
+   <items id="id9">
+    <text>Clasificación del edema macular</text>
+    <description>Niveles de clasificación para la presencia de edema macular definidos por la escala internacional</description>
+   </items>
+   <items id="at10">
+    <text>Edema macular diabético aparentemente ausente</text>
+    <description>Aparentemente no hay estrechamiento retiniano o exudados duros (ED) en el polo posterior</description>
+   </items>
+   <items id="at11">
+    <text>Edema macular diabético leve</text>
+    <description>Aparentemente hay estrechamiento o exudados duros en el polo posterior, aunque distantes del centro de la mácula (Clasificación ETDRS: Edema macular diabético aunque no Edema macular clínicamente significativo)</description>
+   </items>
+   <items id="at12">
+    <text>Edema macular diabético moderado</text>
+    <description>Hay estrechamiento de la retina o exudados duros cercanos a la mácula aunque no la afectan (Clasificación ETDRS: Edema macular clínicamente significativo )</description>
+   </items>
+   <items id="at13">
+    <text>Edema macular diabético severo</text>
+    <description>estrechamiento de la retina o exudados duros que además afecta a la mácula (Clasificación ETDRS: edema macular clínicamente significativo)</description>
+   </items>
+   <items id="at14">
+    <text>No valorable</text>
+    <description>Las pruebas no son evaluables por la baja calidad de las capturas o por indecisión en el diagnóstico</description>
+   </items>
+   <items id="id15">
+    <text>Comentarios</text>
+    <description>Comentarios dirigidos a los revisores especializados en la clasificación de la RD. Se pueden incluir particularidades de la prueba o cuestiones que provocaran incertidumbre al clasificar la afección. Sirve de canal de feedback para mejorar la calidad del servicio de clasificación de la RD.</description>
+   </items>
+   <items id="ac1">
+    <text>Clasificación RD (synthesised)</text>
+    <description>Escala internacional para la clasificación de la retinopatía diabética (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Clasificación del edema macular (synthesised)</text>
+    <description>Niveles de clasificación para la presencia de edema macular definidos por la escala internacional (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Diabetic retinopathy classification</text>
+    <description>International clinical disease severity scale for diabetic retinopathy and diabetic macular edema</description>
+   </items>
+   <items id="id2">
+    <text>DR classification</text>
+    <description>International scale for the classification of diabetic retinopathy</description>
+   </items>
+   <items id="at3">
+    <text>No apparent DR</text>
+    <description>ETDRS Levels of DR 10, 14, 15; DR absent </description>
+   </items>
+   <items id="at4">
+    <text>Mild nonproliferative DR</text>
+    <description>ETDRS Level of DR 20; very mild nonproliferative DR</description>
+   </items>
+   <items id="at5">
+    <text>Moderate nonproliferative DR</text>
+    <description>ETDRS Levels of DR 35, 43, 47; moderate nonproliferative DR</description>
+   </items>
+   <items id="at6">
+    <text>Severe nonproliferative DR</text>
+    <description>ETDRS Levels of DR 53A-E; very severe nonproliferative DR</description>
+   </items>
+   <items id="at7">
+    <text>Preliminary proliferative DR</text>
+    <description>ETDRS Levels of DR 61,65; high-risk proliferative DR</description>
+   </items>
+   <items id="at8">
+    <text>High-risk proliferative DR</text>
+    <description>ETDRS Levels of DR 71,75,81,85; very severe or advanced proliferative DR</description>
+   </items>
+   <items id="id9">
+    <text>Macular edema classification</text>
+    <description>Classification levels for the presence of macular edema as defined by the international scale</description>
+   </items>
+   <items id="at10">
+    <text>Diabetic macular edema apparently absent</text>
+    <description>No apparent retinal thickening or hard exudates (HE) in posterior pole</description>
+   </items>
+   <items id="at11">
+    <text>Mild diabetic macular edema</text>
+    <description>Apparently some retinal thickening or hard exudates in posterior pole but distant from center of the macula. Not clinically significant macular edema</description>
+   </items>
+   <items id="at12">
+    <text>Moderate diabetic macular edema</text>
+    <description>Apparently retinal thickening or hard exudates approaching but not involving the center of the macula. Clinically significant macular edema</description>
+   </items>
+   <items id="at13">
+    <text>Severe diabetic macular edema</text>
+    <description>Apparently retinal thickening or hard exudates involving the center of the macula. Clinically significant macular edema</description>
+   </items>
+   <items id="at14">
+    <text>Not assessable</text>
+    <description>The test is not assessable due to the low quality of acquisitions or uncertainty of the evaluator</description>
+   </items>
+   <items id="id15">
+    <text>Comments</text>
+    <description>Comments directed to reviewers specialized on classifying DR. It may include test details or issues that provoke uncertainty while classifying the disease. It is useful as feedback channel  to improve the quality of the DR classification service.</description>
+   </items>
+   <items id="ac1">
+    <text>DR classification (synthesised)</text>
+    <description>International scale for the classification of diabetic retinopathy (synthesised)</description>
+   </items>
+   <items id="ac2">
+    <text>Macular edema classification (synthesised)</text>
+    <description>Classification levels for the presence of macular edema as defined by the international scale (synthesised)</description>
+   </items>
+  </term_definitions>
+  <term_bindings id="SNOMED-CT">
+   <items id="/items[id2]">http://snomed.info/id/59276001</items>
+   <items id="at3">http://snomed.info/id/201141000000103</items>
+   <items id="at4">http://snomed.info/id/312903003</items>
+   <items id="at5">http://snomed.info/id/312904009</items>
+   <items id="at6">http://snomed.info/id/312905005</items>
+   <items id="at7">http://snomed.info/id/312906006</items>
+   <items id="at8">http://snomed.info/id/399865004</items>
+   <items id="id9">http://snomed.info/id/37231002</items>
+  </term_bindings>
+  <value_sets id="ac1">
+   <members>at3</members>
+   <members>at4</members>
+   <members>at5</members>
+   <members>at6</members>
+   <members>at7</members>
+   <members>at8</members>
+   <members>at14</members>
+  </value_sets>
+  <value_sets id="ac2">
+   <members>at10</members>
+   <members>at11</members>
+   <members>at12</members>
+   <members>at13</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

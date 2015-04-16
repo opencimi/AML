@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::es</original_language>
+ <translations id="en">
+  <language>ISO_639-1::en</language>
+  <author id="name">?</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Aitor Eguzkitza</original_author>
+  <original_author id="organisation">Universidad Pública de Navarra - Complejo Hospitalario de Navarra</original_author>
+  <original_author id="email">aitor.eguzkiza@unavarra.es</original_author>
+  <original_author id="date">2014-08-18</original_author>
+  <copyright>*(es)</copyright>
+  <details id="es">
+   <language>ISO_639-1::es</language>
+   <purpose>Registrar la solicitud de informes de evaluación acerca de pruebas diagnósticas específicas.</purpose>
+   <use>Se utiliza para registrar la solicitud de informes para revisar las pruebas diagnósticas realizadas. La declaración se considera únicamente para el momento en que ha sido registrada. Es decir, se pueden planificar varios informes a lo largo del tiempo para evaluar las mismas pruebas diagnósticas, en caso de requerirse una segunda opinión.</use>
+   <misuse></misuse>
+  </details>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Register the statement/s about the request of a report of assessment about specific diagnostic tests.</purpose>
+   <use>Use to record statement/s about asking reports to review the diagnostic tests carried out. The statement is considered only at the time it is registered. That is to say, other reports can be planned along the time, if second opinion is required.</use>
+   <keywords>review</keywords>
+   <keywords>diagnostic test</keywords>
+   <keywords>report</keywords>
+   <misuse>*(es)</misuse>
+  </details>
+  <other_details id="MD5-CAM-1.0.1">9766771F8C2A18A836788849E5AC980E</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="SECTION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-SECTION.next_step_planning.v1.0.0">
+  <concept_id>next_step_planning</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="SECTION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" cardinality="1..*; unordered" is_multiple="true">
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id3" rm_type_name="INSTRUCTION" is_deprecated="false" is_closed="false">
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/openEHR-EHR-INSTRUCTION\.request-report(-a-zA-Z0-9_]+)*\.v1/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+    <excludes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/.*/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </excludes>
+   </children>
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id4" rm_type_name="INSTRUCTION" is_deprecated="false" is_closed="false">
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/openEHR-EHR-INSTRUCTION\.request-referral(-a-zA-Z0-9_]+)*\.v1/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+    <excludes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/.*/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </excludes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::es">
+  <term_definitions id="es">
+   <items id="id1">
+    <text>Pianificación del siguiente paso</text>
+    <description>Proceso de toma de decisiones con respecto a la petición de un informe de evaluación de pruebas diagnósticas específicas.</description>
+   </items>
+   <items id="id3">
+    <text>Solicitud de informe diagnóstico</text>
+    <description>Solicitud de un informe diagnóstico acerca del estudio de pruebas diagnósticas concretas.</description>
+   </items>
+   <items id="id4">
+    <text>Solicitud de volante</text>
+    <description>Solicitud de la prestación de un servicio especificado por otro proveedor de salud u organización.</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Next step planning</text>
+    <description>Decision-making concerning the planning of next assessment for the diagnostic tests carried out.</description>
+   </items>
+   <items id="id3">
+    <text>Report request</text>
+    <description>Request for a diagnostic report involving the study of specific diagnostic tests.</description>
+   </items>
+   <items id="id4">
+    <text>Referral request</text>
+    <description>Request for provision of a specified service by another healthcare provider or organisation.</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

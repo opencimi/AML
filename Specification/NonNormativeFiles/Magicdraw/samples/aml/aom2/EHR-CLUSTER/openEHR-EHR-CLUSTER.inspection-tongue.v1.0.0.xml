@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Heather Leslie</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">heather.leslie@oceaninformatics.com</original_author>
+  <original_author id="date">23/05/2007</original_author>
+  <copyright>copyright (c) 2009 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>For recording the findings on inspection of the tongue.</purpose>
+   <use>For use with the exam clusters for recording findings on inspection</use>
+   <keywords>inspect</keywords>
+   <keywords>visual</keywords>
+   <keywords>tongue</keywords>
+   <misuse>Should only be used in the exam observation</misuse>
+  </details>
+  <other_details id="references"></other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.inspection-tongue.v1.0.0">
+  <concept_id>inspection-tongue</concept_id>
+ </archetype_id>
+ <parent_archetype_id>openEHR-EHR-CLUSTER.inspection.v1</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/items[id2]/items[id3]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id54.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>at0.62</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <differential_path>/items[id7]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.58" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <sibling_order is_before="false">
+     <sibling_node_id>id35</sibling_node_id>
+    </sibling_order>
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.59" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.64" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.60" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.65" rm_type_name="DV_BOOLEAN" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+         <children xsi:type="P_C_BOOLEAN" node_id="id9999" rm_type_name="BOOLEAN" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>true</constraint>
+          <constraint>false</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.61" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+       <children xsi:type="P_ARCHETYPE_SLOT" node_id="id0.63" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_closed="false">
+        <includes type="Boolean">
+         <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+          <operator value="2007">
+          </operator>
+          <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+           <item>archetype_id/value</item>
+          </left_operand>
+          <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+           <item>
+            <rm_type_name>STRING</rm_type_name>
+            <constraint>/openEHR-EHR-CLUSTER\.size\.v1|openEHR-EHR-CLUSTER\.dimensions\.v1/</constraint>
+            <is_path_compressible>false</is_path_compressible>
+            <is_deprecated>false</is_deprecated>
+            <is_frozen>false</is_frozen>
+            <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+           </item>
+          </right_operand>
+         </expression>
+        </includes>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.52" rm_type_name="CLUSTER" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <sibling_order is_before="true">
+     <sibling_node_id>id50</sibling_node_id>
+    </sibling_order>
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.53" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.66" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+          <constraint>ac0.1</constraint>
+         </children>
+        </attributes>
+       </children>
+      </attributes>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.57" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.67" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id0.52">
+    <text>Movements</text>
+    <description>Movements of the tongue</description>
+   </items>
+   <items id="id0.53">
+    <text>Deviation on protrusion</text>
+    <description>Does the tongue deviate on protrusion</description>
+   </items>
+   <items id="at0.54">
+    <text>None</text>
+    <description>*</description>
+   </items>
+   <items id="at0.55">
+    <text>Deviates to right</text>
+    <description>*</description>
+   </items>
+   <items id="at0.56">
+    <text>Deviates to left</text>
+    <description>*</description>
+   </items>
+   <items id="id0.57">
+    <text>Description of Involuntary movements</text>
+    <description>Description of any involuntary movements of the tongue</description>
+   </items>
+   <items id="id0.58">
+    <text>Size</text>
+    <description>*</description>
+   </items>
+   <items id="id0.59">
+    <text>Description</text>
+    <description>Text description of the size of the tongue</description>
+   </items>
+   <items id="id0.60">
+    <text>Presence of atrophy</text>
+    <description>Does the tongue show signs of atrophy?</description>
+   </items>
+   <items id="id0.61">
+    <text>Details</text>
+    <description>*</description>
+   </items>
+   <items id="at0.62">
+    <text>Tongue normal</text>
+    <description>*</description>
+   </items>
+   <items id="id0.63">
+    <text>Cluster: Size and Dimension</text>
+    <description>*</description>
+   </items>
+   <items id="id1.1">
+    <text>Inspection of tongue</text>
+    <description>The findings on physical examination by inspection of the tongue</description>
+   </items>
+   <items id="ac0.1">
+    <text>Deviation on protrusion (synthesised)</text>
+    <description>Does the tongue deviate on protrusion (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac0.1">
+   <members>at0.54</members>
+   <members>at0.55</members>
+   <members>at0.56</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

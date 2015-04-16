@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <translations id="sl">
+  <language>ISO_639-1::sl</language>
+  <author id="name">Biljana Prinčič</author>
+  <author id="organisation">Marand, Ljubljana</author>
+  <author id="email">biljana.princic@marand.si</author>
+ </translations>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Sam Heard</original_author>
+  <original_author id="organisation">openEHR Foundation</original_author>
+  <original_author id="email">sam.heard@oceaninformatics.com</original_author>
+  <original_author id="date">2013-05-16</original_author>
+  <copyright>© openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>To describe how a medication should be administered or was actually administered.</purpose>
+   <use>To be used in INSTRUCTION.medication and ACTION.medication to describe the administration.</use>
+   <keywords>medication administration</keywords>
+   <keywords>injection</keywords>
+   <keywords>infusion</keywords>
+   <misuse>Not to be used for administration of anything other than medication.</misuse>
+  </details>
+  <details id="sl">
+   <language>ISO_639-1::sl</language>
+   <purpose></purpose>
+   <use></use>
+   <misuse></misuse>
+  </details>
+  <other_contributors>Ian McNicoll, Ocean Informatics, UK</other_contributors>
+  <other_details id="references">Medication administration, draft archetype, NEHTA Clinical Knowledge Manager [Internet]. : NEHTA. Authored: 10 Nov 2010. Available at: http://dcm.nehta.org.au/ckm/#showArchetype_1013.1.874_1 (accessed 15 May 2013).</other_details>
+  <other_details id="MD5-CAM-1.0.1">6BA029E6118C5E5418053BE84D85C377</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.medication_admin.v1.0.0">
+  <concept_id>medication_admin</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="ELEMENT" occurrences="0..1" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10" rm_type_name="DV_DURATION" is_deprecated="false" is_frozen="false">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+       <children  xsi:type="P_C_DURATION" node_id="id9999" rm_type_name="String" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+        <constraint>
+         <lower>PT0S</lower>
+        </constraint>
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id6" rm_type_name="CLUSTER" is_deprecated="false" is_closed="false">
+    <includes type="Boolean">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+      <operator value="2007">
+      </operator>
+      <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">
+       <item>archetype_id/value</item>
+      </left_operand>
+      <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
+       <item>
+        <rm_type_name>STRING</rm_type_name>
+        <constraint>/openEHR-EHR-CLUSTER\.infusion_details(-a-zA-Z0-9_]+)*\.v1/</constraint>
+        <is_path_compressible>false</is_path_compressible>
+        <is_deprecated>false</is_deprecated>
+        <is_frozen>false</is_frozen>
+        <is_enumerated_type_constraint>false</is_enumerated_type_constraint>
+       </item>
+      </right_operand>
+     </expression>
+    </includes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Medication administration</text>
+    <description>Information about the future or actual administration of medication.</description>
+   </items>
+   <items id="id2">
+    <text>Route</text>
+    <description>The route by which the medication is administered (e.g. oral, sublingual etc).</description>
+   </items>
+   <items id="id3">
+    <text>Site</text>
+    <description>A description of the site of administration.</description>
+   </items>
+   <items id="id4">
+    <text>Delivery method</text>
+    <description>The method of delivery if this should be specified (e.g. via a nebuliser or spacer).</description>
+   </items>
+   <items id="id5">
+    <text>Dose duration</text>
+    <description>The length of time over which to administer each dose (e.g. an intravenous administration may have to be over a period of 5 minutes).</description>
+   </items>
+   <items id="id6">
+    <text>Infusion details</text>
+    <description>Details of administration via infusion.</description>
+   </items>
+  </term_definitions>
+  <term_definitions id="sl">
+   <items id="id1">
+    <text>Aplikacija cepiva</text>
+    <description>Podatki o aplikaciji cepiva</description>
+   </items>
+   <items id="id2">
+    <text>Pot uporabe</text>
+    <description>Poti uporabe zdravila</description>
+   </items>
+   <items id="id3">
+    <text>Mesto aplikacije</text>
+    <description>Mesto aplikacije</description>
+   </items>
+   <items id="id4">
+    <text>Vrsta aplikacije</text>
+    <description>Vrsta apliciranja, če je določena (npr. inhalacije, oralno...)</description>
+   </items>
+   <items id="id5">
+    <text>Trajanje doze aplikacije</text>
+    <description>Čas trajanja ene doze apliciranega zdravila</description>
+   </items>
+   <items id="id6">
+    <text>Podatki o infuziji</text>
+    <description>Podatki o infuziji</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

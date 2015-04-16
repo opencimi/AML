@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Heather Leslie</original_author>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="email">heather.leslie@oceaninformatics.com</original_author>
+  <original_author id="date">21/06/2009</original_author>
+  <copyright>copyright (c) 2009 openEHR Foundation</copyright>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>This is a generic archetype used to record an ongoing and persistent summary of the use of any and all substances. </purpose>
+   <use>Used to record an ongoing and persistent summary of any and all use of tobacco.  </use>
+   <keywords>consumption</keywords>
+   <keywords>substance</keywords>
+   <keywords>use</keywords>
+   <keywords>usage</keywords>
+   <keywords>dependence</keywords>
+   <keywords>tobacco</keywords>
+   <keywords>smoking</keywords>
+   <keywords>cigarettes</keywords>
+   <keywords>cigar</keywords>
+   <keywords>pipe</keywords>
+   <misuse>Not to be used for recording actual details about the use of the substance and event-related data - this should be captured using the OBSERVATION.substance_use-tobacco archetype.  
+Not to be used to record information about any other substance other than tobacco.</misuse>
+  </details>
+  <other_contributors>Sam Heard, Ocean Informatics, Australia</other_contributors>
+  <other_details id="references"></other_details>
+  <other_details id="MD5-CAM-1.0.1">18923FC45C08D0C0BD602D99BCCDAE79</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="EVALUATION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-EVALUATION.substance_use_summary-tobacco.v1.0.0">
+  <concept_id>substance_use_summary-tobacco</concept_id>
+ </archetype_id>
+ <parent_archetype_id>openEHR-EHR-EVALUATION.substance_use_summary.v1</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="EVALUATION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/data[id2]/items[id6]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id17.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>at0.17</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+   <differential_path>/data[id2]/items[id8]/items[id9]</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id19.1" rm_type_name="DV_CODED_TEXT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code" is_multiple="false">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+      <constraint>ac0.1</constraint>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="at0.17">
+    <text>Tobacco</text>
+    <description>Tobacco used</description>
+   </items>
+   <items id="at0.18">
+    <text>Cigarettes - manufactured</text>
+    <description>Commercial, manufactured cigarettes</description>
+   </items>
+   <items id="at0.19">
+    <text>Cigarettes - roll-your-own</text>
+    <description>Home-made, roll-your-own cigarettes</description>
+   </items>
+   <items id="at0.20">
+    <text>Cigars</text>
+    <description>Commercial cigars</description>
+   </items>
+   <items id="at0.21">
+    <text>Pipe</text>
+    <description>Tobacco smoked within a pipe</description>
+   </items>
+   <items id="id1.1">
+    <text>Tobacco Use Summary</text>
+    <description>Archetype to record a persisting summary or overview of use or consumption of tobacco over time.</description>
+   </items>
+   <items id="ac0.1">
+    <text>Form (synthesised)</text>
+    <description>Identify the form of tobacco (synthesised)</description>
+   </items>
+  </term_definitions>
+  <value_sets id="ac0.1">
+   <members>at0.18</members>
+   <members>at0.19</members>
+   <members>at0.20</members>
+   <members>at0.21</members>
+  </value_sets>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

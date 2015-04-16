@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="organisation">Ocean Informatics</original_author>
+  <original_author id="name">Thomas Beale</original_author>
+  <original_author id="date">11/8/2008</original_author>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Test specialised archetype containing ordered extension nodes</purpose>
+  </details>
+  <other_details id="regression">PASS</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="OBSERVATION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-OBSERVATION.added_nodes_ordered.v1.0.0">
+  <concept_id>added_nodes_ordered</concept_id>
+ </archetype_id>
+ <parent_archetype_id>openEHR-EHR-OBSERVATION.spec_test_parent.v1.0.0</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="OBSERVATION" is_deprecated="false" is_frozen="false">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <differential_path>/data/events[id3]/data</differential_path>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.1" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <sibling_order is_before="false">
+     <sibling_node_id>id5</sibling_node_id>
+    </sibling_order>
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.3" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.2" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.4" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.3" rm_type_name="ELEMENT" is_deprecated="false" is_frozen="false">
+    <sibling_order is_before="true">
+     <sibling_node_id>id8</sibling_node_id>
+    </sibling_order>
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value" is_multiple="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.5" rm_type_name="DV_TEXT" is_deprecated="false" is_frozen="false">
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id0.1">
+    <text>Text field 2</text>
+    <description>*</description>
+   </items>
+   <items id="id0.2">
+    <text>Quantity 2</text>
+    <description>*</description>
+   </items>
+   <items id="id0.3">
+    <text>Text field 3</text>
+    <description>*</description>
+   </items>
+   <items id="id1.1">
+    <text>specialisation containing ordered extension nodes</text>
+    <description>specialisation containing ordered extension nodes</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>
