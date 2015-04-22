@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<archetype  xsi:schemaLocation="http://schemas.openehr.org/v1 P_Archetype.xsd"  xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+<archetype xsi:schemaLocation="http://schemas.openehr.org/v1 P_Archetype.xsd"   xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
  <original_language>ISO_639-1::en</original_language>
  <description>
   <lifecycle_state>unmanaged</lifecycle_state>
@@ -14,9 +14,10 @@
   </details>
   <other_details id="regression">PASS</other_details>
  </description>
- <annotations>
+ 
+  <annotations>
   <items id="en">
-  <!-- 
+  
    <items id="/context/start_time">
     <items id="test">XXXX</items>
     <items id="local_name">consultation start time</items>
@@ -27,9 +28,12 @@
    <items id="/context/health_care_facility/name">
     <items id="design note">Note on use of non-archteyped context/health_care_facility/name RM element in this data</items>
    </items>
-   -->
+  
+  
   </items>
  </annotations>
+
+ 
  <artefact_type>archetype</artefact_type>
  <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="COMPOSITION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-COMPOSITION.annotations_rm_path.v1.0.0">
   <concept_id>annotations_rm_path</concept_id>

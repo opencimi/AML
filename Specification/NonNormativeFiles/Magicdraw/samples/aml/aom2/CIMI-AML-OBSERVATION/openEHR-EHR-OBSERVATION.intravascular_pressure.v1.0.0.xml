@@ -81,12 +81,12 @@
              </children>
             </attributes>
             <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
-             <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+             <children  xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
               <constraint>
                <lower>0.0</lower>
               </constraint>
              </children>
-             <children xsi:type="P_C_REAL" node_id="id99992" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+             <children  xsi:type="P_C_REAL" node_id="id99992" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
               <constraint>
                <lower>0.0</lower>
               </constraint>

@@ -1,0 +1,1 @@
+mof gen based on P_Archetype.xsd

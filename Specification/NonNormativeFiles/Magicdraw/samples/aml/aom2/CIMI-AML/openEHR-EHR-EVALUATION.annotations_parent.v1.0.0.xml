@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
  <original_language>ISO_639-1::en</original_language>
  <description>
   <lifecycle_state>unmanaged</lifecycle_state>
@@ -12,9 +12,9 @@
   </details>
   <other_details id="regression">PASS</other_details>
  </description>
+   
  <annotations>
   <items id="en">
-  <!-- 
    <items id="/data[id2]">
     <items id="ui">passthrough</items>
    </items>
@@ -23,9 +23,9 @@
     <items id="requirements note">this is a requirements note on Statement</items>
     <items id="medline ref">this is a medline ref on Statement</items>
    </items>
-   -->
   </items>
  </annotations>
+  
  <artefact_type>archetype</artefact_type>
  <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="EVALUATION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-EVALUATION.annotations_parent.v1.0.0">
   <concept_id>annotations_parent</concept_id>
