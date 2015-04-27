@@ -17,11 +17,11 @@
  <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="SECTION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-SECTION.slot_include_empty_exclude_any.v1.0.0">
   <concept_id>slot_include_empty_exclude_any</concept_id>
  </archetype_id>
- <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="SECTION" is_deprecated="false" is_frozen="false">
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="SECTION">
   <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" cardinality="1..*; unordered" is_multiple="true">
-   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id2" rm_type_name="OBSERVATION" occurrences="0..1" is_deprecated="false" is_closed="false">
+   <children xsi:type="P_ARCHETYPE_SLOT" node_id="id2" rm_type_name="OBSERVATION" occurrences="0..1">
     <excludes type="Boolean">
-     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean" precedence_overridden="false">
+     <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean">
       <operator value="2007">
       </operator>
       <left_operand xsi:type="EXPR_LEAF" type="String" reference_type="attribute">

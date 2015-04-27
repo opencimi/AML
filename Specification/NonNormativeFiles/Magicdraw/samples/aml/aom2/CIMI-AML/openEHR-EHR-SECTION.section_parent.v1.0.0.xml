@@ -16,7 +16,7 @@
  <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="SECTION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-SECTION.section_parent.v1.0.0">
   <concept_id>section_parent</concept_id>
  </archetype_id>
- <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="SECTION" is_deprecated="false" is_frozen="false">
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="SECTION">
  </definition>
  <terminology original_language="ISO_639-1::en">
   <term_definitions id="en">

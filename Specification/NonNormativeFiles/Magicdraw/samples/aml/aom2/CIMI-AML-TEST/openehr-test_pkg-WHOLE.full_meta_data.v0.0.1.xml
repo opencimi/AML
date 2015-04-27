@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
  <original_language>ISO_639-1::en</original_language>
  <description>
   <lifecycle_state>unmanaged</lifecycle_state>
-  <original_author id="name">Thomas Beale &amp;lt;thomas.beale@oceaninformatics.com&amp;gt;</original_author>
-  <original_author id="organisation">Ocean Informatics &amp;lt;http://www.oceaninformatics.com&amp;gt;</original_author>
+  <original_author id="name">Thomas Beale &lt;thomas.beale@oceaninformatics.com&gt;</original_author>
+  <original_author id="organisation">Ocean Informatics &lt;http://www.oceaninformatics.com&gt;</original_author>
   <original_namespace>org.archetypes-r-us</original_namespace>
   <original_publisher>Archetype R Us</original_publisher>
   <custodian_namespace>org.openehr</custodian_namespace>
   <custodian_organisation>openEHR Foundation</custodian_organisation>
   <copyright>Copyright (c) 2014 openEHR Foundation</copyright>
-  <licence>Creative Commons CC-BY &amp;lt;https://creativecommons.org/licenses/by/3.0/&amp;gt;</licence>
+  <licence>Creative Commons CC-BY &lt;https://creativecommons.org/licenses/by/3.0/&gt;</licence>
   <ip_acknowledgements id="loinc">This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use</ip_acknowledgements>
-  <ip_acknowledgements id="snomedct">Content from SNOMED CT® is copyright © 2007 IHTSDO &amp;lt;ihtsdo.org&amp;gt;</ip_acknowledgements>
+  <ip_acknowledgements id="snomedct">Content from SNOMED CT® is copyright © 2007 IHTSDO &lt;ihtsdo.org&gt;</ip_acknowledgements>
   <details id="en">
    <language>ISO_639-1::en</language>
    <purpose>This archetype demonstrates the use of governance meta-data.</purpose>
@@ -20,13 +20,13 @@
    <keywords>governance</keywords>
    <keywords>test</keywords>
    <misuse>This archetype should not be used around children or dogs.</misuse>
-   <original_resource_uri id="resource A">Some resource available in the English language &amp;lt;http://aaa.bbb/path/to/resource&amp;gt;</original_resource_uri>
-   <original_resource_uri id="resource B">Some other resource available in the English language &amp;lt;http://aaa.bbb/path/to/resource&amp;gt;</original_resource_uri>
+   <original_resource_uri id="resource A">Some resource available in the English language &lt;http://aaa.bbb/path/to/resource&gt;</original_resource_uri>
+   <original_resource_uri id="resource B">Some other resource available in the English language &lt;http://aaa.bbb/path/to/resource&gt;</original_resource_uri>
   </details>
-  <other_contributors>Marcus Aurelius &amp;lt;marcus@aurelius.net&amp;gt;</other_contributors>
-  <other_contributors>Augustus Caesar &amp;lt;augustus@caesars_palace.net</other_contributors>
-  <references>Barthel Scale &amp;lt;http://en.wikipedia.org/wiki/Barthel_scale&amp;gt;</references>
-  <references>Barthel Index, the Internet Stroke Center &amp;lt;http://www.strokecenter.org/wp-content/uploads/2011/08/barthel.pdf&amp;gt;</references>
+  <other_contributors>Marcus Aurelius &lt;marcus@aurelius.net&gt;</other_contributors>
+  <other_contributors>Augustus Caesar &lt;augustus@caesars_palace.net</other_contributors>
+  <references>Barthel Scale &lt;http://en.wikipedia.org/wiki/Barthel_scale&gt;</references>
+  <references>Barthel Index, the Internet Stroke Center &lt;http://www.strokecenter.org/wp-content/uploads/2011/08/barthel.pdf&gt;</references>
   <references>O&apos;Sullivan, Susan B; Schmitz, Thomas J (2007). Physical Rehabilitation, Fifth Edition. Philadelphia, PA: F.A. Davis Company. p. 385.</references>
   <other_details id="regression">PASS</other_details>
   <resource_package_uri>http://www.openehr.org/ckm/path/to/package</resource_package_uri>
@@ -35,7 +35,7 @@
  <archetype_id rm_publisher="openehr" rm_package="test_pkg" rm_class="WHOLE" release_version="0.0.1" version_status="0" build_count="0" physical_id="openehr-test_pkg-WHOLE.full_meta_data.v0.0.1">
   <concept_id>full_meta_data</concept_id>
  </archetype_id>
- <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="WHOLE" is_deprecated="false" is_frozen="false">
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="WHOLE">
  </definition>
  <terminology original_language="ISO_639-1::en">
   <term_definitions id="en">

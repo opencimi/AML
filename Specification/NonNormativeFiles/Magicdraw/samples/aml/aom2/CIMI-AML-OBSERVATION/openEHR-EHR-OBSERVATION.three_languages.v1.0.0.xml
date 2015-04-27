@@ -69,8 +69,8 @@
  <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="OBSERVATION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-OBSERVATION.three_languages.v1.0.0">
   <concept_id>three_languages</concept_id>
  </archetype_id>
- <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="OBSERVATION" is_deprecated="false" is_frozen="false">
-  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data" is_multiple="false">
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="OBSERVATION">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data">
   </attributes>
  </definition>
  <terminology original_language="ISO_639-1::en">

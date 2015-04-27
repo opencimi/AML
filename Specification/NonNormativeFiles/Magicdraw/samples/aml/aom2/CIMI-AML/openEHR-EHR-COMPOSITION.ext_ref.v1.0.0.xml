@@ -17,12 +17,12 @@
  <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="COMPOSITION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-COMPOSITION.ext_ref.v1.0.0">
   <concept_id>ext_ref</concept_id>
  </archetype_id>
- <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="COMPOSITION" is_deprecated="false" is_frozen="false">
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="COMPOSITION">
   <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="content" is_multiple="true">
-   <children xsi:type="P_C_ARCHETYPE_ROOT" node_id="id2" rm_type_name="SECTION" occurrences="0..1" is_deprecated="false" is_frozen="false">
+   <children xsi:type="P_C_ARCHETYPE_ROOT" node_id="id2" rm_type_name="SECTION" occurrences="0..1">
     <archetype_ref>openEHR-EHR-SECTION.section_parent.v1</archetype_ref>
    </children>
-   <children xsi:type="P_C_ARCHETYPE_ROOT" node_id="id3" rm_type_name="OBSERVATION" occurrences="1" is_deprecated="false" is_frozen="false">
+   <children xsi:type="P_C_ARCHETYPE_ROOT" node_id="id3" rm_type_name="OBSERVATION" occurrences="1">
     <archetype_ref>openEHR-EHR-OBSERVATION.spec_test_obs.v1</archetype_ref>
    </children>
   </attributes>

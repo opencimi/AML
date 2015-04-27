@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
  <original_language>ISO_639-1::en</original_language>
  <description>
   <lifecycle_state>unmanaged</lifecycle_state>
@@ -17,30 +17,30 @@
  <archetype_id rm_publisher="openehr" rm_package="TEST_PKG" rm_class="SOME_TYPE" release_version="1.0.0" version_status="0" build_count="0" physical_id="openehr-TEST_PKG-SOME_TYPE.dv_quantity_tuple.v1.0.0">
   <concept_id>dv_quantity_tuple</concept_id>
  </archetype_id>
- <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="SOME_TYPE" is_deprecated="false" is_frozen="false">
-  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="clinical_quantity_attr_1" is_multiple="false">
-   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="DV_QUANTITY" is_deprecated="false" is_frozen="false">
-    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property" is_multiple="false">
-     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="SOME_TYPE">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="clinical_quantity_attr_1">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="DV_QUANTITY">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="property">
+     <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE">
       <constraint>at1</constraint>
      </children>
     </attributes>
-    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units" is_multiple="false">
-     <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="units">
+     <children xsi:type="P_C_STRING" node_id="id9999" rm_type_name="STRING">
       <constraint>C</constraint>
      </children>
-     <children xsi:type="P_C_STRING" node_id="id99992" rm_type_name="STRING" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
+     <children xsi:type="P_C_STRING" node_id="id99992" rm_type_name="STRING">
       <constraint>F</constraint>
      </children>
     </attributes>
-    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude" is_multiple="false">
-     <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
-      <constraint>
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="magnitude">
+     <children xsi:type="P_C_REAL" node_id="id9999" rm_type_name="Double">
+      <constraint upper_unbounded="true">
        <lower>4.0</lower>
       </constraint>
      </children>
-     <children xsi:type="P_C_REAL" node_id="id99992" rm_type_name="Double" is_deprecated="false" is_frozen="false" is_enumerated_type_constraint="false">
-      <constraint>
+     <children xsi:type="P_C_REAL" node_id="id99992" rm_type_name="Double">
+      <constraint upper_unbounded="true">
        <lower>40.0</lower>
       </constraint>
      </children>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="false" adl_version="2.0.5" rm_release="1.0.2">
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
  <uid>15E82D77-7DB7-4F70-8D8E-EED6FF241B2D</uid>
  <original_language>ISO_639-1::en</original_language>
  <description>
@@ -12,18 +12,24 @@
   <concept_id>child_with_uid_and_other_metadata</concept_id>
  </archetype_id>
  <parent_archetype_id>openehr-TEST_PKG-WHOLE.parent_with_uid_and_other_metadata.v1</parent_archetype_id>
- <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="WHOLE" is_deprecated="false" is_frozen="false">
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="WHOLE">
  </definition>
  <terminology original_language="ISO_639-1::en">
   <term_definitions id="en">
+   <items id="id1">
+    <text>Parent archetype with uid</text>
+    <description>Uid parent</description>
+   </items>
    <items id="id1.1">
     <text>Parent archetype with uid</text>
     <description>Uid parent</description>
    </items>
   </term_definitions>
  </terminology>
- <other_metadata id="child_flag">true</other_metadata>
+ <other_metadata id="some_flag">true</other_metadata>
  <other_metadata id="some_key">some_replacement_value</other_metadata>
+ <other_metadata id="another_key">another_value</other_metadata>
+ <other_metadata id="child_flag">true</other_metadata>
  <other_metadata id="child_key">xxxxx</other_metadata>
  <is_controlled>false</is_controlled>
 </archetype>

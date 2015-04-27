@@ -18,27 +18,27 @@
  <archetype_id rm_publisher="openEHR" rm_package="DEMOGRAPHIC" rm_class="PERSON" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-DEMOGRAPHIC-PERSON.use_node_occurrences.v1.0.0">
   <concept_id>use_node_occurrences</concept_id>
  </archetype_id>
- <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="PERSON" is_deprecated="false" is_frozen="false">
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="PERSON">
   <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="contacts" is_multiple="true">
-   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="CONTACT" is_deprecated="false" is_frozen="false">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="CONTACT">
     <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="addresses" is_multiple="true">
-     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="ADDRESS" occurrences="0..1" is_deprecated="false" is_frozen="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="ADDRESS" occurrences="0..1">
      </children>
-     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="ADDRESS" occurrences="0..2" is_deprecated="false" is_frozen="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="ADDRESS" occurrences="0..2">
      </children>
-     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="ADDRESS" is_deprecated="false" is_frozen="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="ADDRESS">
      </children>
     </attributes>
    </children>
-   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10" rm_type_name="CONTACT" is_deprecated="false" is_frozen="false">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10" rm_type_name="CONTACT">
     <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="addresses" is_multiple="true">
-     <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id11" rm_type_name="ADDRESS" is_deprecated="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id11" rm_type_name="ADDRESS">
       <target_path>/contacts[id6]/addresses[id7]</target_path>
      </children>
-     <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id12" rm_type_name="ADDRESS" is_deprecated="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id12" rm_type_name="ADDRESS">
       <target_path>/contacts[id6]/addresses[id8]</target_path>
      </children>
-     <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id13" rm_type_name="ADDRESS" occurrences="1..3" is_deprecated="false">
+     <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id13" rm_type_name="ADDRESS" occurrences="1..3">
       <target_path>/contacts[id6]/addresses[id9]</target_path>
      </children>
     </attributes>
