@@ -24,6 +24,7 @@ description
     ["regression"] = <"PASS">
   >
   copyright = <"Copyright © 2010 openEHR Foundation <http://www.openEHR.org>">
+  licence = <"Creative Commons CC-BY-SA <https://creativecommons.org/licenses/by-sa/3.0/>">
 
 definition
   COMPOSITION[id1] matches {  -- Prescription
