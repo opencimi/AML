@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Thomas Beale</original_author>
+  <original_author id="email">thomas.beale@openEHR.org</original_author>
+  <original_author id="organisation">openEHR Foundation &lt;http://www.openEHR.org&gt;</original_author>
+  <original_author id="date">2014-06-12</original_author>
+  <custodian_namespace>org.openehr</custodian_namespace>
+  <custodian_organisation>openEHR Foundation &lt;http://www.openEHR.org&gt;</custodian_organisation>
+  <copyright>Copyright © 2006 openEHR Foundation &lt;http://www.openEHR.org&gt;</copyright>
+  <licence>Creative Commons CC-BY-SA &lt;https://creativecommons.org/licenses/by-sa/3.0/&gt;</licence>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Illustrate constraining of fields whose types in the RM are a generic type parameter, i.e. typically &apos;T&apos;, &apos;U&apos; etc. In this example, the upper and lower fields are of type &apos;T&apos; in the RM definition of DV_INTERVAL.</purpose>
+   <keywords>ADL</keywords>
+   <keywords>test</keywords>
+   <keywords>generic types</keywords>
+  </details>
+  <other_details id="regression">PASS</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="CLUSTER" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-CLUSTER.generic_parameters.v1.0.0">
+  <concept_id>generic_parameters</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="CLUSTER">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="items" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="ELEMENT" occurrences="0..1">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="DV_INTERVAL&lt;DV_DATE_TIME&gt;">
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="upper">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="DV_DATE_TIME">
+       </children>
+      </attributes>
+      <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="lower">
+       <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id5" rm_type_name="DV_DATE_TIME">
+       </children>
+      </attributes>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Specimen</text>
+    <description>unknown</description>
+   </items>
+   <items id="id2">
+    <text>Datetime range</text>
+    <description>Date/time range</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Thomas Beale</original_author>
+  <original_author id="email">thomas.beale@openEHR.org</original_author>
+  <original_author id="organisation">openEHR Foundation &lt;http://www.openEHR.org&gt;</original_author>
+  <original_author id="date">2004-06-01</original_author>
+  <custodian_namespace>org.openehr</custodian_namespace>
+  <custodian_organisation>openEHR Foundation &lt;http://www.openEHR.org&gt;</custodian_organisation>
+  <copyright>Copyright © 2004 openEHR Foundation &lt;http://www.openEHR.org&gt;</copyright>
+  <licence>Creative Commons CC-BY-SA &lt;https://creativecommons.org/licenses/by-sa/3.0/&gt;</licence>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Example showing override of occurrences at source end of use_node. With no occurrences stated on a use_node node, the occurrences at target of the reference are used. This can be overridden as in this example with an occurrences at the source end.</purpose>
+   <keywords>ADL</keywords>
+   <keywords>test</keywords>
+   <keywords>use_node</keywords>
+   <keywords>occurrences</keywords>
+  </details>
+  <other_details id="regression">PASS</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="DEMOGRAPHIC" rm_class="PERSON" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-DEMOGRAPHIC-PERSON.use_node_occurrences.v1.0.0">
+  <concept_id>use_node_occurrences</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="PERSON">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="contacts" is_multiple="true">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id6" rm_type_name="CONTACT">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="addresses" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id7" rm_type_name="ADDRESS" occurrences="0..1">
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id8" rm_type_name="ADDRESS" occurrences="0..2">
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id9" rm_type_name="ADDRESS">
+     </children>
+    </attributes>
+   </children>
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id10" rm_type_name="CONTACT">
+    <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="addresses" is_multiple="true">
+     <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id11" rm_type_name="ADDRESS">
+      <target_path>/contacts[id6]/addresses[id7]</target_path>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id12" rm_type_name="ADDRESS">
+      <target_path>/contacts[id6]/addresses[id8]</target_path>
+     </children>
+     <children xsi:type="P_C_COMPLEX_OBJECT_PROXY" node_id="id13" rm_type_name="ADDRESS" occurrences="1..3">
+      <target_path>/contacts[id6]/addresses[id9]</target_path>
+     </children>
+    </attributes>
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>person demographics</text>
+    <description>demographic person details</description>
+   </items>
+   <items id="id6">
+    <text>home contact</text>
+    <description>person&apos;s home contact details</description>
+   </items>
+   <items id="id7">
+    <text>home phone number</text>
+    <description>person&apos;s home phone number</description>
+   </items>
+   <items id="id8">
+    <text>home fax number</text>
+    <description>person&apos;s home fax number</description>
+   </items>
+   <items id="id9">
+    <text>home email address</text>
+    <description>person&apos;s home email address</description>
+   </items>
+   <items id="id10">
+    <text>work contact</text>
+    <description>person&apos;s home contact details</description>
+   </items>
+   <items id="id11">
+    <text>work fax number</text>
+    <description>person&apos;s work fax number</description>
+   </items>
+   <items id="id12">
+    <text>work email address</text>
+    <description>person&apos;s work email address</description>
+   </items>
+   <items id="id13">
+    <text>work contact</text>
+    <description>person&apos;s work contact details</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>

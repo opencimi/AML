@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <uid>2.3.5.4.3.02.27</uid>
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Thomas Beale</original_author>
+  <original_author id="email">thomas.beale@openEHR.org</original_author>
+  <original_author id="organisation">openEHR Foundation &lt;http://www.openEHR.org&gt;</original_author>
+  <original_author id="date">2014-11-12</original_author>
+  <custodian_namespace>org.openehr</custodian_namespace>
+  <custodian_organisation>openEHR Foundation &lt;http://www.openEHR.org&gt;</custodian_organisation>
+  <copyright>Copyright © 2014 openEHR Foundation &lt;http://www.openEHR.org&gt;</copyright>
+  <licence>Creative Commons CC-BY-SA &lt;https://creativecommons.org/licenses/by-sa/3.0/&gt;</licence>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Example top-level archetype containing an ISO OID uid field.</purpose>
+   <keywords>ADL</keywords>
+   <keywords>meta-data</keywords>
+   <keywords>test</keywords>
+  </details>
+  <other_details id="regression">PASS</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openehr" rm_package="TEST_PKG" rm_class="WHOLE" release_version="1.0.0" version_status="0" build_count="0" physical_id="openehr-TEST_PKG-WHOLE.parent_with_oid.v1.0.0">
+  <concept_id>parent_with_oid</concept_id>
+ </archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1" rm_type_name="WHOLE">
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>Parent archetype with Oid</text>
+    <description>Oid parent</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>
