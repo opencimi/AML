@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<archetype  xsi:schemaLocation="http://schemas.openehr.org/v1 P_Archetype.xsd"  xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+<archetype
+	xsi:schemaLocation="http://schemas.openehr.org/v1 P_Archetype.xsd"  
+	xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
  <original_language>ISO_639-1::en</original_language>
  <description>
   <lifecycle_state>unmanaged</lifecycle_state>
   <original_author id="name">Thomas Beale</original_author>
-  <original_author id="organisation">Ocean Informatics</original_author>
-  <original_author id="email">thomas.beale@oceaninformatics.com</original_author>
-  <original_author id="date">22/01/2014</original_author>
-  <copyright>© openEHR Foundation</copyright>
+  <original_author id="email">thomas.beale@openEHR.org</original_author>
+  <original_author id="organisation">openEHR Foundation &lt;http://www.openEHR.org&gt;</original_author>
+  <original_author id="date">2014-01-22</original_author>
+  <custodian_namespace>org.openehr</custodian_namespace>
+  <custodian_organisation>openEHR Foundation &lt;http://www.openEHR.org&gt;</custodian_organisation>
+  <copyright>Copyright © 2014 openEHR Foundation &lt;http://www.openEHR.org&gt;</copyright>
+  <licence>Creative Commons CC-BY-SA &lt;https://creativecommons.org/licenses/by-sa/3.0/&gt;</licence>
   <details id="en">
    <language>ISO_639-1::en</language>
-   <purpose>To test rules that define formulae based on archetype data points</purpose>
+   <purpose>Illustrate rules that define formulae based on archetype data points. This example defines two rules based on well known blood pressure formulae, viz &apos;mean arterial pressure&apos; and &apos;pulse pressure&apos;. These both use</purpose>
+   <keywords>ADL</keywords>
+   <keywords>test</keywords>
+   <keywords>rules</keywords>
   </details>
   <other_details id="regression">PASS</other_details>
  </description>
@@ -357,7 +365,7 @@
         <right_operand xsi:type="EXPR_LEAF" type="C_STRING" reference_type="constraint">
          <item>
           <rm_type_name>STRING</rm_type_name>
-          <constraint>/openEHR-EHR-CLUSTER\.device(-a-zA-Z0-9_]+)*\.v1/</constraint>
+          <constraint>/openEHR-EHR-CLUSTER\.device([a-zA-Z0-9_]+)*\.v1/</constraint>
           <is_path_compressible>false</is_path_compressible>
           <is_deprecated>false</is_deprecated>
           <is_frozen>false</is_frozen>
@@ -371,8 +379,7 @@
    </children>
   </attributes>
  </definition>
- 
- <rules xsi:type="ASSERTION" type="Boolean" tag="mean_arterial_pressure">
+ <rules   xsi:type="ASSERTION" type="Boolean" tag="mean_arterial_pressure">
   <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean">
    <operator value="2001">
    </operator>
@@ -380,33 +387,32 @@
     <item>/data[id2]/events[id7]/data[id4]/items[id1007]/value/magnitude</item>
    </left_operand>
    <right_operand xsi:type="EXPR_BINARY_OPERATOR" type="Integer">
-    <operator value="2021">
+    <operator value="2022">
     </operator>
     <left_operand xsi:type="EXPR_BINARY_OPERATOR" type="Integer">
-     <operator value="2022">
+     <operator value="2020">
      </operator>
-     <left_operand xsi:type="EXPR_BINARY_OPERATOR" type="Integer">
-      <operator value="2020">
-      </operator>
-      <left_operand xsi:type="EXPR_LEAF" type="Double" reference_type="attribute">
-       <item>/data[id2]/events[id7]/data[id4]/items[id6]/value/magnitude</item>
-      </left_operand>
-      <right_operand xsi:type="EXPR_LEAF" type="Real" reference_type="constant">
-       <item>0.33</item>
-      </right_operand>
+     <left_operand xsi:type="EXPR_LEAF" type="Double" reference_type="attribute">
+      <item>/data[id2]/events[id7]/data[id4]/items[id6]/value/magnitude</item>
      </left_operand>
-     <right_operand xsi:type="EXPR_LEAF" type="Double" reference_type="attribute">
-      <item>/data[id2]/events[id7]/data[id4]/items[id5]/value/magnitude</item>
+     <right_operand xsi:type="EXPR_LEAF" type="Real" reference_type="constant">
+      <item>0.33</item>
      </right_operand>
     </left_operand>
-    <right_operand xsi:type="EXPR_LEAF" type="Double" reference_type="attribute">
-     <item>/data[id2]/events[id7]/data[id4]/items[id6]/value/magnitude</item>
+    <right_operand xsi:type="EXPR_BINARY_OPERATOR" type="Integer">
+     <operator value="2021">
+     </operator>
+     <left_operand xsi:type="EXPR_LEAF" type="Double" reference_type="attribute">
+      <item>/data[id2]/events[id7]/data[id4]/items[id5]/value/magnitude</item>
+     </left_operand>
+     <right_operand xsi:type="EXPR_LEAF" type="Double" reference_type="attribute">
+      <item>/data[id2]/events[id7]/data[id4]/items[id6]/value/magnitude</item>
+     </right_operand>
     </right_operand>
    </right_operand>
   </expression>
  </rules>
- 
- <rules xsi:type="ASSERTION"  type="Boolean" tag="pulse_pressure">
+ <rules   xsi:type="ASSERTION" type="Boolean" tag="pulse_pressure">
   <expression xsi:type="EXPR_BINARY_OPERATOR" type="Boolean">
    <operator value="2001">
    </operator>

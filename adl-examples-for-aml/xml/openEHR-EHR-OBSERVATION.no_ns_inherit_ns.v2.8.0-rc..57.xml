@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archetype xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:im="http://www.openehr.org/1.0.2" is_generated="true" adl_version="2.0.5" rm_release="1.0.2">
+ <original_language>ISO_639-1::en</original_language>
+ <description>
+  <lifecycle_state>unmanaged</lifecycle_state>
+  <original_author id="name">Thomas Beale</original_author>
+  <original_author id="email">thomas.beale@openEHR.org</original_author>
+  <original_author id="organisation">openEHR Foundation &lt;http://www.openEHR.org&gt;</original_author>
+  <original_author id="date">2013-08-11</original_author>
+  <custodian_namespace>org.openehr</custodian_namespace>
+  <custodian_organisation>openEHR Foundation &lt;http://www.openEHR.org&gt;</custodian_organisation>
+  <copyright>Copyright © 2013 openEHR Foundation &lt;http://www.openEHR.org&gt;</copyright>
+  <licence>Creative Commons CC-BY-SA &lt;https://creativecommons.org/licenses/by-sa/3.0/&gt;</licence>
+  <details id="en">
+   <language>ISO_639-1::en</language>
+   <purpose>Test full namespaced published versioned archetype identifier containing semver.org style &apos;rc&apos; qualifier at end (release candidate).</purpose>
+   <keywords>ADL</keywords>
+   <keywords>identifiers</keywords>
+   <keywords>test</keywords>
+  </details>
+  <other_details id="regression">PASS</other_details>
+ </description>
+ <artefact_type>archetype</artefact_type>
+ <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="OBSERVATION" release_version="2.8.0" version_status="-1" build_count="57" physical_id="openEHR-EHR-OBSERVATION.no_ns_inherit_ns.v2.8.0-rc..57">
+  <concept_id>no_ns_inherit_ns</concept_id>
+ </archetype_id>
+ <parent_archetype_id>org.openehr::openEHR-EHR-OBSERVATION.full_id_1.v1</parent_archetype_id>
+ <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="OBSERVATION">
+  <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data">
+   <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id0.2" rm_type_name="HISTORY">
+   </children>
+  </attributes>
+ </definition>
+ <terminology original_language="ISO_639-1::en">
+  <term_definitions id="en">
+   <items id="id1">
+    <text>top-level archetype</text>
+    <description>top level test archetype for specialisation lineage</description>
+   </items>
+   <items id="id1.1">
+    <text>specialised archetype</text>
+    <description>specialised child archetype</description>
+   </items>
+  </term_definitions>
+ </terminology>
+ <is_controlled>false</is_controlled>
+</archetype>
