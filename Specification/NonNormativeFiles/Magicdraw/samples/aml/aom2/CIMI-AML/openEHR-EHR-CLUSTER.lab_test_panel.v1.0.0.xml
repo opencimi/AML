@@ -4,13 +4,19 @@
  <description>
   <lifecycle_state>unmanaged</lifecycle_state>
   <original_author id="name">Ian McNicoll</original_author>
-  <original_author id="organisation">freshEHR Clinical Informatics, UK</original_author>
   <original_author id="email">ian@freshehr.com</original_author>
+  <original_author id="organisation">freshEHR Clinical Informatics, UK</original_author>
   <original_author id="date">2014-04-18</original_author>
-  <copyright>(c) 2014 openEHR Foundation</copyright>
+  <custodian_namespace>org.openehr</custodian_namespace>
+  <custodian_organisation>openEHR Foundation &lt;http://www.openEHR.org&gt;</custodian_organisation>
+  <copyright>Copyright © 2014 openEHR Foundation &lt;http://www.openEHR.org&gt;</copyright>
+  <licence>Creative Commons CC-BY-SA &lt;https://creativecommons.org/licenses/by-sa/3.0/&gt;</licence>
   <details id="en">
    <language>ISO_639-1::en</language>
    <purpose>Parent for flattening tests on lab-style archetypes</purpose>
+   <keywords>ADL</keywords>
+   <keywords>flattening</keywords>
+   <keywords>test</keywords>
   </details>
   <other_details id="regression">PASS</other_details>
  </description>

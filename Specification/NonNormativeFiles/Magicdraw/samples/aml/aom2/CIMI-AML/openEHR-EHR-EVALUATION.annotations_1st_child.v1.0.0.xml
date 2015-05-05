@@ -4,11 +4,16 @@
  <description>
   <lifecycle_state>unmanaged</lifecycle_state>
   <original_author id="name">Thomas Beale</original_author>
-  <original_author id="date">12/12/2010</original_author>
-  <copyright>copyright (c) 2010 openEHR Foundation</copyright>
+  <original_author id="email">thomas.beale@openEHR.org</original_author>
+  <original_author id="organisation">openEHR Foundation &lt;http://www.openEHR.org&gt;</original_author>
+  <original_author id="date">2010-12-12</original_author>
+  <copyright>Copyright © 2010 openEHR Foundation &lt;http://www.openEHR.org&gt;</copyright>
+  <licence>Creative Commons CC-BY-SA &lt;https://creativecommons.org/licenses/by-sa/3.0/&gt;</licence>
   <details id="en">
    <language>ISO_639-1::en</language>
-   <purpose>To test use of annotations; based on CKM Adverse reactions archetype</purpose>
+   <purpose>To test use of annotations in a specialised archetype, on specialised paths.</purpose>
+   <keywords>ADL</keywords>
+   <keywords>test</keywords>
   </details>
   <other_details id="regression">PASS</other_details>
  </description>
@@ -26,11 +31,6 @@
      <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id3" rm_type_name="ELEMENT" occurrences="1..*">
       <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="value">
        <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id4" rm_type_name="DV_CODED_TEXT">
-        <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="defining_code">
-         <children xsi:type="P_C_TERMINOLOGY_CODE" node_id="id9999" rm_type_name="CODE_PHRASE">
-          <constraint>ac1</constraint>
-         </children>
-        </attributes>
        </children>
       </attributes>
      </children>
@@ -72,54 +72,6 @@
     <text>Statement</text>
     <description>The statement about what is excluded</description>
    </items>
-   <items id="at4">
-    <text>No significant illness</text>
-    <description>The person has no significant medical condition</description>
-   </items>
-   <items id="at5">
-    <text>No significant past history</text>
-    <description>The person has no significant past medical history</description>
-   </items>
-   <items id="at6">
-    <text>No significant family history</text>
-    <description>The person has no relatives with significant health problems</description>
-   </items>
-   <items id="at7">
-    <text>No known adverse reactions</text>
-    <description>The person has had no adverse reactions, including intolerances, sensitivities or allergies, to medications, food, animals or chemicals</description>
-   </items>
-   <items id="at8">
-    <text>No known sensitivities</text>
-    <description>No sensitivity to any medications, foods or substances</description>
-   </items>
-   <items id="at9">
-    <text>No known intolerances</text>
-    <description>No known or recorded intolerances to medications, foods or other substances</description>
-   </items>
-   <items id="at10">
-    <text>No relevant past history</text>
-    <description>No past problems or procedures relevant to the current situation</description>
-   </items>
-   <items id="at11">
-    <text>No hospitalisations</text>
-    <description>No admissions to hospital</description>
-   </items>
-   <items id="at12">
-    <text>No major surgery</text>
-    <description>No major operations or procedures</description>
-   </items>
-   <items id="at13">
-    <text>No relevant family history</text>
-    <description>No family history relevant to the current situation</description>
-   </items>
-   <items id="at14">
-    <text>No known allergies</text>
-    <description>No allergies known to any medications, foods or substances</description>
-   </items>
-   <items id="ac1">
-    <text>Statement</text>
-    <description>The statement about what is excluded</description>
-   </items>
    <items id="id0.10">
     <text>No known intolerance to</text>
     <description>Positive statement about intolerances to substances that are explicitly known to have not been identified at the time of recording.</description>
@@ -141,19 +93,6 @@
     <description>Statements about Adverse Reactions that need to be positively recorded as absent or excluded.</description>
    </items>
   </term_definitions>
-  <value_sets id="ac1">
-   <members>at4</members>
-   <members>at5</members>
-   <members>at6</members>
-   <members>at7</members>
-   <members>at10</members>
-   <members>at13</members>
-   <members>at14</members>
-   <members>at11</members>
-   <members>at12</members>
-   <members>at8</members>
-   <members>at9</members>
-  </value_sets>
  </terminology>
  <is_controlled>false</is_controlled>
 </archetype>

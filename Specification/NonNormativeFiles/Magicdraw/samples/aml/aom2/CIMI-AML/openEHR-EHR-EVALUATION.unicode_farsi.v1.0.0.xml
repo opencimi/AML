@@ -7,10 +7,14 @@
  </translations>
  <description>
   <lifecycle_state>unmanaged</lifecycle_state>
-  <original_author id="name">Sam Heard</original_author>
-  <original_author id="organisation">Ocean Informatics</original_author>
-  <original_author id="date">23/04/2006</original_author>
-  <original_author id="email">sam.heard@oceaninformatics.com</original_author>
+  <original_author id="name">Thomas Beale</original_author>
+  <original_author id="email">thomas.beale@openEHR.org</original_author>
+  <original_author id="organisation">openEHR Foundation &lt;http://www.openEHR.org&gt;</original_author>
+  <original_author id="date">2006-04-23</original_author>
+  <custodian_namespace>org.openehr</custodian_namespace>
+  <custodian_organisation>openEHR Foundation &lt;http://www.openEHR.org&gt;</custodian_organisation>
+  <copyright>Copyright © 2006 openEHR Foundation &lt;http://www.openEHR.org&gt;</copyright>
+  <licence>Creative Commons CC-BY-SA &lt;https://creativecommons.org/licenses/by-sa/3.0/&gt;</licence>
   <details id="en">
    <language>ISO_639-1::en</language>
    <purpose>Test unicode language archetype with Farsi translation</purpose>

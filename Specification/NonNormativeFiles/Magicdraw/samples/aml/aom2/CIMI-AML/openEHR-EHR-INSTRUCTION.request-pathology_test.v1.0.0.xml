@@ -3,14 +3,17 @@
  <original_language>ISO_639-1::en</original_language>
  <description>
   <lifecycle_state>unmanaged</lifecycle_state>
-  <original_author id="name">Ian McNicoll</original_author>
-  <original_author id="organisation">Ocean Informatics, United Kingdom</original_author>
+  <original_author id="name">Dr Ian McNicoll</original_author>
   <original_author id="email">ian.mcnicoll@oceaninformatics.com</original_author>
-  <original_author id="date">08/12/2009</original_author>
-  <copyright>© openEHR</copyright>
+  <original_author id="organisation">Ocean Informatics UK &lt;http://www.oceaninformatics.com&gt;</original_author>
+  <original_author id="date">2009-08-12</original_author>
+  <custodian_namespace>org.openehr</custodian_namespace>
+  <custodian_organisation>openEHR Foundation &lt;http://www.openEHR.org&gt;</custodian_organisation>
+  <copyright>Copyright © 2009 openEHR Foundation &lt;http://www.openEHR.org&gt;</copyright>
+  <licence>Creative Commons CC-BY-SA &lt;https://creativecommons.org/licenses/by-sa/3.0/&gt;</licence>
   <details id="en">
    <language>ISO_639-1::en</language>
-   <purpose>Test flattening when child archetype contains a differential path with an overridden id code</purpose>
+   <purpose>Test flattening when child archetype contains a differential path that contains an overridden id code midway through (id122.1).</purpose>
   </details>
   <other_details id="regression">PASS</other_details>
  </description>

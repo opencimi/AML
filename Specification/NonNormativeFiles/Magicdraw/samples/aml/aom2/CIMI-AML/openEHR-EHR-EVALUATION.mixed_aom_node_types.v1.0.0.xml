@@ -4,12 +4,14 @@
  <description>
   <lifecycle_state>unmanaged</lifecycle_state>
   <original_author id="name">Thomas Beale</original_author>
-  <original_author id="submission">01/05/2004</original_author>
-  <original_author id="organisation">OceanInformatics.com</original_author>
-  <copyright>copyright (c) 2010 The openEHR Foundation</copyright>
+  <original_author id="email">thomas.beale@openEHR.org</original_author>
+  <original_author id="organisation">openEHR Foundation &lt;http://www.openEHR.org&gt;</original_author>
+  <original_author id="date">2004-05-01</original_author>
+  <copyright>copyright © 2010 openEHR Foundation &lt;http://www.openEHR.org&gt;</copyright>
+  <licence>Creative Commons CC-BY-SA &lt;https://creativecommons.org/licenses/by-sa/3.0/&gt;</licence>
   <details id="en">
    <language>ISO_639-1::en</language>
-   <purpose>Test various C_OBJECT types together</purpose>
+   <purpose>Test various AOM C_OBJECT types together, toensure co-existence within the same object structure.</purpose>
    <keywords>ADL</keywords>
    <keywords>test</keywords>
   </details>

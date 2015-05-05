@@ -4,13 +4,19 @@
  <description>
   <lifecycle_state>unmanaged</lifecycle_state>
   <original_author id="name">Thomas Beale</original_author>
-  <original_author id="organisation">Ocean Informatics</original_author>
-  <original_author id="email">thomas.beale@oceaninformatics.com</original_author>
+  <original_author id="email">thomas.beale@openEHR.org</original_author>
+  <original_author id="organisation">openEHR Foundation &lt;http://www.openEHR.org&gt;</original_author>
   <original_author id="date">2014-06-10</original_author>
-  <copyright>© 2014 openEHR Foundation</copyright>
+  <custodian_namespace>org.openehr</custodian_namespace>
+  <custodian_organisation>openEHR Foundation &lt;http://www.openEHR.org&gt;</custodian_organisation>
+  <copyright>Copyright © 2014 openEHR Foundation &lt;http://www.openEHR.org&gt;</copyright>
+  <licence>Creative Commons CC-BY-SA &lt;https://creativecommons.org/licenses/by-sa/3.0/&gt;</licence>
   <details id="en">
    <language>ISO_639-1::en</language>
-   <purpose>To test enumerated type constraints</purpose>
+   <purpose>Illustrate enumerated type constraints. In this archetype, the DV_PROPORTION.type field has integer values that are actually the values of a declared enumeration type PROPORTION_KIND based on the Integer primitive type.</purpose>
+   <keywords>ADL</keywords>
+   <keywords>test</keywords>
+   <keywords>enumerated types</keywords>
   </details>
   <other_details id="regression">PASS</other_details>
  </description>

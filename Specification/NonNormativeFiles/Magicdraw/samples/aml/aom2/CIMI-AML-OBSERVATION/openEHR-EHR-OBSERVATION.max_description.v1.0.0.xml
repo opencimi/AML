@@ -9,7 +9,10 @@
   <lifecycle_state>unmanaged</lifecycle_state>
   <original_author id="name">author name</original_author>
   <original_author id="email">someone@home</original_author>
-  <copyright>this is mine, mine, mine I tell you! Since 2003</copyright>
+  <custodian_namespace>org.openehr</custodian_namespace>
+  <custodian_organisation>openEHR Foundation &lt;http://www.openEHR.org&gt;</custodian_organisation>
+  <copyright>Copyright © 2012 openEHR Foundation &lt;http://www.openEHR.org&gt;</copyright>
+  <licence>Creative Commons CC-BY-SA &lt;https://creativecommons.org/licenses/by-sa/3.0/&gt;</licence>
   <details id="fr">
    <language>ISO_639-1::fr</language>
    <purpose>a quoi ça sert</purpose>

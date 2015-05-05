@@ -3,21 +3,29 @@
  <original_language>ISO_639-1::en</original_language>
  <description>
   <lifecycle_state>unmanaged</lifecycle_state>
-  <original_author id="name">Sam Heard</original_author>
-  <original_author id="organisation">Ocean Informatics</original_author>
-  <original_author id="email">sam.heard@oceaninformatics.com</original_author>
-  <original_author id="date">28/06/2006</original_author>
-  <copyright>© openEHR Foundation</copyright>
+  <original_author id="name">Thomas Beale</original_author>
+  <original_author id="email">thomas.beale@openEHR.org</original_author>
+  <original_author id="organisation">openEHR Foundation &lt;http://www.openEHR.org&gt;</original_author>
+  <original_author id="date">2014-02-28</original_author>
+  <custodian_namespace>org.openehr</custodian_namespace>
+  <custodian_organisation>openEHR Foundation &lt;http://www.openEHR.org&gt;</custodian_organisation>
+  <copyright>Copyright © 2014 openEHR Foundation &lt;http://www.openEHR.org&gt;</copyright>
+  <licence>Creative Commons CC-BY-SA &lt;https://creativecommons.org/licenses/by-sa/3.0/&gt;</licence>
   <details id="en">
    <language>ISO_639-1::en</language>
-   <purpose>Illustrate redefinition of tuple to narrower tuple consisting of one item only</purpose>
+   <purpose>Illustrate redefinition of tuple to narrower tuple consisting of one item only.</purpose>
+   <keywords>ADL</keywords>
+   <keywords>test</keywords>
+   <keywords>specialisation</keywords>
+   <keywords>tuple</keywords>
   </details>
+  <other_details id="regression">PASS</other_details>
  </description>
  <artefact_type>archetype</artefact_type>
  <archetype_id rm_publisher="openEHR" rm_package="EHR" rm_class="OBSERVATION" release_version="1.0.0" version_status="0" build_count="0" physical_id="openEHR-EHR-OBSERVATION.tuple_redefine_to_single.v1.0.0">
   <concept_id>tuple_redefine_to_single</concept_id>
  </archetype_id>
- <parent_archetype_id>openEHR-EHR-OBSERVATION.parent_for_tuple_redefine.v1.0.0</parent_archetype_id>
+ <parent_archetype_id>openEHR-EHR-OBSERVATION.tuple_parent.v1</parent_archetype_id>
  <definition xsi:type="P_C_COMPLEX_OBJECT" node_id="id1.1" rm_type_name="OBSERVATION">
   <attributes xsi:type="P_C_ATTRIBUTE" rm_attribute_name="data">
    <children xsi:type="P_C_COMPLEX_OBJECT" node_id="id2" rm_type_name="HISTORY">

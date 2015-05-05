@@ -4,12 +4,17 @@
  <description>
   <lifecycle_state>unmanaged</lifecycle_state>
   <original_author id="name">Thomas Beale</original_author>
-  <original_author id="organisation">Ocean Informatics</original_author>
-  <original_author id="email">thomas.beale@oceaninformatics.com</original_author>
+  <original_author id="email">thomas.beale@openEHR.org</original_author>
+  <original_author id="organisation">openEHR Foundation &lt;http://www.openEHR.org&gt;</original_author>
   <original_author id="date">2009-03-18</original_author>
+  <custodian_namespace>org.openehr</custodian_namespace>
+  <custodian_organisation>openEHR Foundation &lt;http://www.openEHR.org&gt;</custodian_organisation>
+  <copyright>Copyright © 2009 openEHR Foundation &lt;http://www.openEHR.org&gt;</copyright>
+  <licence>Creative Commons CC-BY-SA &lt;https://creativecommons.org/licenses/by-sa/3.0/&gt;</licence>
   <details id="en">
    <language>ISO_639-1::en</language>
    <purpose>Test for conformance of RM subtype (here: POINT_EVENT) to statically declared RM type (EVENT). This archetype should pass validation.</purpose>
+   <keywords>ADL</keywords>
    <keywords>test</keywords>
    <keywords>RM checking</keywords>
   </details>

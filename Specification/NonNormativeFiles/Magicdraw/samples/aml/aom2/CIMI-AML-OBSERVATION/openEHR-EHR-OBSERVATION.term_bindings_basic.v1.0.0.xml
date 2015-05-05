@@ -3,10 +3,20 @@
  <original_language>ISO_639-1::en</original_language>
  <description>
   <lifecycle_state>unmanaged</lifecycle_state>
-  <original_author id="name">Sam Heard</original_author>
+  <original_author id="name">Thomas Beale</original_author>
+  <original_author id="email">thomas.beale@openEHR.org</original_author>
+  <original_author id="organisation">openEHR Foundation &lt;http://www.openEHR.org&gt;</original_author>
+  <original_author id="date">2012-10-21</original_author>
+  <custodian_namespace>org.openehr</custodian_namespace>
+  <custodian_organisation>openEHR Foundation &lt;http://www.openEHR.org&gt;</custodian_organisation>
+  <copyright>Copyright © 2012 openEHR Foundation &lt;http://www.openEHR.org&gt;</copyright>
+  <licence>Creative Commons CC-BY-SA &lt;https://creativecommons.org/licenses/by-sa/3.0/&gt;</licence>
   <details id="en">
    <language>ISO_639-1::en</language>
-   <purpose>Test parsing of basic terminology bindings</purpose>
+   <purpose>Simple example of LOINC terminology bindings to id-codes. In this case, the bound terms define the meaning, i.e. say what each node &apos;is-about&apos;.</purpose>
+   <keywords>ADL</keywords>
+   <keywords>test</keywords>
+   <keywords>terminology bindings</keywords>
   </details>
   <other_details id="regression">PASS</other_details>
  </description>
