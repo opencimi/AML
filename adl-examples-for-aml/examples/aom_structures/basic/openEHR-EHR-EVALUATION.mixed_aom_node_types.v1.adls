@@ -14,7 +14,7 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"Test various AOM C_OBJECT types together, toensure co-existence within the same object structure.">
+			purpose = <"Test various AOM C_OBJECT types together, to ensure co-existence within the same object structure.">
 			keywords = <"ADL", "test">
 		>
 	>

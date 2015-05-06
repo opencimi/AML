@@ -25,7 +25,7 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"Test unicode language archetype with Farsi translation">
+			purpose = <"Test unicode language archetype with Farsi translation.">
 			use = <"For recording information about the prevalence of the condition in relatives and quantifying risk to the subject of care.">
 			misuse = <"Not for recording problems of individual relatives - use 'openEHR-EHR-EVALUATION.problem' and 'openEHR-EHR-EVALUATION.problem-diagnosis' and set the subject of data to the relative.">
 		>

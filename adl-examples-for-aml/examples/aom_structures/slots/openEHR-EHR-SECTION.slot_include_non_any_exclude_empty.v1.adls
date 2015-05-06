@@ -17,7 +17,7 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"Archetype with non-any include and no excludes, which means the includes are taken as recommendations.">
+			purpose = <"Test slot archetype with non-any include and no excludes, which means the includes are taken as recommendations.">
 			keywords = <"ADL", "test", "slots">
 		>
 	>

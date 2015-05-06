@@ -21,7 +21,7 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"Example specialised archetype containing a uid and other meta-data that maps to AOM AUTHORED_ARCHETYPE.other_meta_data. Values with same-named keys override those in the parent.">
+			purpose = <"Example of a specialised archetype containing a uid and other meta-data that maps to AOM AUTHORED_ARCHETYPE.other_meta_data. Values with same-named keys override those in the parent.">
 			keywords = <"ADL", "meta-data", "test">
 		>
 	>

@@ -18,7 +18,7 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"Test multiple alternative nodes of single-valued attribute; view in flat mode to see result">
+			purpose = <"Test multiple alternative nodes of single-valued attribute; view in flat mode to see result.">
 		>
 	>
 

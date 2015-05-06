@@ -20,7 +20,7 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"Example specialised archetype containing a GUID uid field">
+			purpose = <"Example of a specialised archetype containing a GUID uid field">
 			keywords = <"ADL", "meta-data", "test">
 		>
 	>

@@ -17,7 +17,7 @@ description
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"To test use of annotations in a specialised archetype, on specialised paths.">
+      purpose = <"Test use of annotations in a specialised archetype, on specialised paths.">
       keywords = <"ADL", "test">
     >
   >

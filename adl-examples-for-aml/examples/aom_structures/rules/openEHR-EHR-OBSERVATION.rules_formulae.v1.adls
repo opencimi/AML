@@ -17,7 +17,7 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"Illustrate rules that define formulae based on archetype data points. This example defines two rules based on well known blood pressure formulae, viz 'mean arterial pressure' and 'pulse pressure'. These both use">
+			purpose = <"Illustrate rules that define formulae based on archetype data points. This example defines two rules based on well known blood pressure formulae, viz 'mean arterial pressure' and 'pulse pressure'.">
 			keywords = <"ADL", "test", "rules">
 		>
 	>

@@ -14,7 +14,7 @@ description
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Test constraints on primitive types that have added 'assumed values' as defined by the AOM">
+      purpose = <"Test constraints on primitive types that have added 'assumed values' as defined by the AOM.">
       keywords = <"ADL", "assumed types", "test">
     >
   >

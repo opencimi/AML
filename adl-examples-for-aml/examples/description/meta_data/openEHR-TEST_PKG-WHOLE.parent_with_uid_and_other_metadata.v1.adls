@@ -18,7 +18,7 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"Example top-level archetype containing a uid and other meta-data that maps to AOM AUTHORED_ARCHETYPE.other_meta_data">
+			purpose = <"Example of a top-level archetype containing a uid and other meta-data that maps to AOM AUTHORED_ARCHETYPE.other_meta_data.">
 			keywords = <"ADL", "meta-data", "test">
 		>
 	>

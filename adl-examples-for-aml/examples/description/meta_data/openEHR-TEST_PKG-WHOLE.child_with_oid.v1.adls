@@ -21,7 +21,7 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"Example specialised archetype containing an ISO OID uid field.">
+			purpose = <"Example of a specialised archetype containing an ISO OID uid field.">
 			keywords = <"ADL", "meta-data", "test">
 		>
 	>
