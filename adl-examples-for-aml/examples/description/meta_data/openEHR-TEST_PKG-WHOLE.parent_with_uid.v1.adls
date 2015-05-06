@@ -18,7 +18,7 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"Example top-level archetype containing a GUID uid field.">
+			purpose = <"Example of a top-level archetype containing a GUID uid field.">
 			keywords = <"ADL", "meta-data", "test">
 		>
 	>

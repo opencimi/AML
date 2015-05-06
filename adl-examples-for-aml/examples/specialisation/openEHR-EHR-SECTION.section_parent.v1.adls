@@ -17,7 +17,7 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"To provide a root heading for physical examination in all structured recordings">
+			purpose = <"To provide a root heading for physical examination in all structured recordings.">
 			keywords = <"ADL", "test", "specialisation">
 		>
 	>

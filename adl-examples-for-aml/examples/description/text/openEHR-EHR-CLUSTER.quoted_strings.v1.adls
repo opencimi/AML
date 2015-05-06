@@ -16,7 +16,7 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"This archetype should parse fine, and when saved and reparsed, no changes should occur in the strings of the at0001 term, i.e. the quoted slash and quoted double quote should remain as they are. However, both should display in the GUI without the backslash symbol">
+			purpose = <"This archetype should parse fine, and when saved and reparsed, no changes should occur in the strings of the at0001 term, i.e. the quoted slash and quoted double quote should remain as they are. However, both should display in the GUI without the backslash symbol.">
 			use = <"\\">
 			keywords = <"a\"x'c\\d", "p\"q\\s\"">
 		>

@@ -17,7 +17,7 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"Test OBSERVATION specialisation parent archetype">
+			purpose = <"Test OBSERVATION specialisation parent archetype.">
 			keywords = <"ADL", "test", "specialisation">
 		>
 	>

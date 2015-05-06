@@ -17,7 +17,7 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"Slot with no include and non-any exclude, which defines a recommendation to exclude.">
+			purpose = <"Test slot with no include and non-any exclude, which defines a recommendation to exclude.">
 			keywords = <"ADL", "test", "slots">
 		>
 	>

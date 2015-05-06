@@ -17,7 +17,7 @@ description
 	details = <
 		["en"] = <
 			language = <[ISO_639-1::en]>
-			purpose = <"Parent for flattening tests on lab-style archetypes">
+			purpose = <"Parent for flattening tests on lab-style archetypes.">
 			keywords = <"ADL", "flattening", "test">
 		>
 	>
