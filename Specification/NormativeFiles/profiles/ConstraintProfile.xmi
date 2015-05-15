@@ -3,7 +3,7 @@
 
 <uml:Model xmi:type="uml:Model" xmi:id="_18_0_2aa0151_1431653332215_749287_5522" name="Data">
 		
-		<packagedElement xmi:type="uml:Profile" xmi:id="_Data-ConstraintProfile" name="ConstraintProfile" URI="http://www.omg.org/spec/AML/20141201/constraint/1.0">
+		<packagedElement xmi:type="uml:Profile" xmi:id="_Data-ConstraintProfile" name="ConstraintProfile" URI="http://www.omg.org/spec/AML/20150401/constraint/1.0">
 			<metamodelReference xmi:idref="_Data-ConstraintProfile-packageImport-1"/>
 			<ownedComment xmi:type="uml:Comment" xmi:id="_Data-ConstraintProfile-ownedComment" body="The constraint profile defines the modeling elements that may be applied to a reference models and archetypes.  These elements “constrain” the target model narrowing the semantics and syntax.  These elements are drawn from ADL 2.0 and ISO 13606.">
 				<annotatedElement xmi:idref="_Data-ConstraintProfile"/>
@@ -13,18 +13,13 @@
 					
 				</importedPackage>
 			</packageImport>
-			<packageImport xmi:type="uml:PackageImport" xmi:id="_Data-ConstraintProfile-packageImport-2">
-				<importedPackage href="http://www.omg.org/spec/UML/20131001/UML.xmi#_0">
-					
-				</importedPackage>
-			</packageImport>
 			<packageImport xmi:type="uml:PackageImport" xmi:id="_18_0_2aa0151_1431659404287_721712_5722">
-				<importedPackage href="ReferenceModelProfile.xmi#_Data-ReferenceModelProfile">
+				<importedPackage href="http://www.omg.org/spec/AML/20150401/referenceModel/1.0#_Data-ReferenceModelProfile">
 					
 				</importedPackage>
 			</packageImport>
 			<packageImport xmi:type="uml:PackageImport" xmi:id="_18_0_2aa0151_1431659416821_241067_5723">
-				<importedPackage href="TerminologyProfile.xmi#_Data-TerminologyProfile">
+				<importedPackage href="http://www.omg.org/spec/AML/20150401/terminology/1.0#_Data-TerminologyProfile">
 					
 				</importedPackage>
 			</packageImport>

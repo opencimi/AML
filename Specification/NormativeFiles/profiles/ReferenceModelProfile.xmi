@@ -3,13 +3,13 @@
 
 <uml:Model xmi:type="uml:Model" xmi:id="_18_0_2aa0151_1431653399834_122017_6249" name="Data">
 		
-		<packagedElement xmi:type="uml:Profile" xmi:id="_Data-ReferenceModelProfile" name="ReferenceModelProfile" URI="http://www.omg.org/spec/AML/20141201/referenceModel/1.0">
+		<packagedElement xmi:type="uml:Profile" xmi:id="_Data-ReferenceModelProfile" name="ReferenceModelProfile" URI="http://www.omg.org/spec/AML/20150401/terminology/1.0">
 			<metamodelReference xmi:idref="_Data-ReferenceModelProfile-packageImport"/>
 			<ownedComment xmi:type="uml:Comment" xmi:id="_Data-ReferenceModelProfile-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&amp;#160;The Reference Model Profile (RMP) enables the specification of reference models, upon which archetypes can be based. &amp;#160;The RMP enables the identification of a root package that identifies the set of reference model elements (REM) that can be constrained by a collection of archetype model elements (AME) in an Archetype Library.&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;&amp;#160;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;The RMP provides the ability to associate the &amp;quot;primitive data types&amp;quot; identified in an instance of a Constraint Model Profile with the corresponding (mapped) data types in the reference model. &amp;#160;It also allows properties in the target reference model to be identified as &amp;quot;unconstrainable&amp;quot;, because they carry &amp;quot;runtime&amp;quot; provenance and workflow information or because they carry &amp;quot;infrastructure&amp;quot; items such as archetype identifiers, etc.&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
 				<annotatedElement xmi:idref="_Data-ReferenceModelProfile"/>
 			</ownedComment>
 			<elementImport xmi:type="uml:ElementImport" xmi:id="_Data-ReferenceModelProfile-elementImport">
-				<importedElement href="XmlPrimitiveTypes.xmi#XMLPrimitiveTypes">
+				<importedElement href="http://www.omg.org/spec/NIEM-UML/20120501/XmlPrimitiveTypes.xmi#XMLPrimitiveTypes">
 					
 				</importedElement>
 			</elementImport>
