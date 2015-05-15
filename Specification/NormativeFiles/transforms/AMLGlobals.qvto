@@ -1,0 +1,53 @@
+modeltype UML uses 'http://www.omg.org/spec/UML/20131001'; // OMG UML 2.5
+modeltype XSD  uses 'http://www.eclipse.org/xsd/2002/XSD';// XSD Meta-model as used in MOF XMI
+
+transformation AMLGlobals();// root QVT, contains constants plus Profile/Stereotype-related properties initialized from the AML Profiles
+	main() {
+	}
+	
+	
+property ConstraintProfile:UML::Profile=null;// The Constraint Profile
+property ReferenceModelProfile:UML::Profile=null;// The ReferenceModel Profile
+property TerminologyProfile:UML::Profile=null;// The Terminology Profile
+
+// Constraint Profile Stereotypes
+property ArchetypeStereotype:UML::Stereotype=null;			//  <<Archetype>>	
+property ArchetypeDefinitionStereotype:UML::Stereotype=null;  //  <<ArchetypeDefinition>>	
+property ArchetypeLibraryStereotype:UML::Stereotype=null;	//  <<ArchetypeLibrary>>	
+property C_ARCHETYPE_ROOTStereotype:UML::Stereotype=null;	// <<ArchetypeRoot>>
+property ARCHETYPE_SLOTStereotype:UML::Stereotype=null;		// <<ArchetypeSlot>>
+property AuthoredResourceStereotype:UML::Stereotype=null;	//  <<AuthoredResource>>
+property ComplexObjectConstraintStereotype:UML::Stereotype=null;	//  <<ComplexObjectConstraint>>	
+property ConstrainsStereotype:UML::Stereotype=null;			//  <<Constrains>>
+property ObjectConstraintStereotype:UML::Stereotype=null;	//  <<ObjectConstraint>>
+property ResourceAnnotationNodeItemStereotype:UML::Stereotype=null;	//  <<ResourceAnnotationNodeItem>>
+property ResourceTranslationStereotype:UML::Stereotype=null;//	<<ResourceTranslation>>
+
+//  ReferenceModel Profile Stereotypes	
+property InfrastructureStereotype:UML::Stereotype=null;		//  <<Infrastructure>>
+property MappedDataTypeStereotype:UML::Stereotype=null;		//  <<MappedDataType>>
+property ReferenceModelReferenceModelStereotype:UML::Stereotype=null;//  <<ReferenceModel>>	
+property RuntimeStereotype:UML::Stereotype=null;			//  <<Runtime>>
+
+//  Terminology Profile
+property ArchetypeTypeEnueration:UML::Enumeration=null;		//  ArchetypeType <Enumeration>	
+property ARCHETYPE_TERMStereotype:UML::Stereotype=null;		//  <<ArchetypeTerm>>
+property CodeSystemReferenceStereotype:UML::Stereotype=null;//  <<CodeSystemReference>>	
+property CodeSystemVersionReferenceStereotype:UML::Stereotype=null;	//  <<CodesSystemVersionReference>>
+property ConceptReferenceStereotype:UML::Stereotype=null;	//  <<ConceptReference>>
+property EnumerationValueDomainStereotype:UML::Stereotype=null;//  <<EnumeratedValueDomain>>	
+property IdentifiedItemStereotype:UML::Stereotype=null;		//  <<IdentifiedItem>>
+property IdEntryStereotype:UML::Stereotype=null;			//  <<IdEntry>>
+property PermissibleValueStereotype:UML::Stereotype=null;	//  <<PermissibleValue>>
+property PossibleValueStereotype:UML::Stereotype=null;		//  <<PossibleValue>>
+property ResourceReferenceStereotype:UML::Stereotype=null;	//  <<ResourceReference>>
+property ScopedIdentifierStereotype:UML::Stereotype=null;	//  <<ScopedIdentifier>>
+property ValueSetDefinitionReferenceStereotype:UML::Stereotype=null;//  <<ValueSetDefinitionReference>>	
+property ValueSetReferenceStereotype:UML::Stereotype=null;	//  <<ValueSetReference>>
+
+property UMLPrimitiveTypesPackageName:String='PrimitiveTypes'; // name of UML Primitive Types library
+property XMLPrimitiveTypesPackageName:String='XMLPrimitiveTypes';// name of NIEM-UML XML Primitive Types Library
+
+ property umlXmlLibrary:UML::Package=null; // the NIEM XML Type library
+property umlLibrary:UML::Package=null;// the UML type library
+	
