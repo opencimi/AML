@@ -12,8 +12,6 @@ transformation adl2uml(in adl:ADL,inout pimUml:UML)// transformation from AOM to
 }	
 property referenceModelPackage:UML::Package=null;// the <<ReferenceModel>> Package correspond to this singular <<ArchetypeLibrary>>	
 property amlRootPackage:UML::Model=null; // the Top-Level Model for the UML Project
-//property libraryRootPackage:UML::Package=null;// an optional library root package within a <<ReferenceModel>>, which can be used to find some kinds of common resources
-//property CodePhraseRoot:UML::Enumeration=null;// an optional code definition Enumeration within a <<ReferenceModel>> libraryRootPackage, which can be used for code definitions
 property archetypeLibrary:UML::Package=null;// the <<ArchetypeLibrary>> used for this transformation
 property allArchetypes:Set(ADL::PAUTHOREDARCHETYPE)=Set{};// The set of all <<Archetype>>s for this model.
 // run transformation
@@ -396,6 +394,9 @@ query String::getStringDictionaryItem(value:OrderedSet(ADL::StringDictionaryItem
 // set the value of the tag 'other_translation_details' on this Applied Stereotype Instance to the list of String values within the given list of StringDictionaryItems 	
 helper Stdlib::Element::setOther_translation_details(value:OrderedSet(ADL::StringDictionaryItem)){
 	self.setOther_translation_details(value.value);
+	self.setOther_translation_details_id(value.id);
+
+//	self.setOther_translation_details(value.value);
 }
 
 // map the given language name to a <<ResourceTranslation>> Enumeration owned by the language's terminology identifier
@@ -411,6 +412,8 @@ mapping String::LanguageEnumeration(inout context:UML::Package,at:ADL::PAUTHORED
 		resourceTranslation.setAuthor(translation.author);
 		resourceTranslation.setAccreditation(translation.accreditation->first());
 		resourceTranslation.setOther_translation_details(translation.otherDetails);
+		resourceTranslation.setVersion_last_translated(translation.versionLastTranslated->first());
+		
 	};
 	// add language-specific information coming from the description/details to <<ResourceTranslation>>
 	at.description.details->select(l|l.language->first()=self)->forEach(detail){
@@ -457,7 +460,7 @@ mapping ADL::StringDictionaryItem::ResourceAnnotationNodeItem(location:String,in
 	// apply <<ResourceAnnotationNodeItem>> Stereotype to result Comment
 	var resourceAnnotationNodeItem:Stdlib::Element=result.applyStereotype(ResourceAnnotationNodeItemStereotype);
 	// set tag 'annotationNodeId' on <<ResourceAnnotationNodeItem>> to this StringDictionaryItem@id
-	resourceAnnotationNodeItem.setAnnotationNodeId(self.id);
+	//resourceAnnotationNodeItem.setAnnotationNodeId(self.id);
 	// <<ResourceAnnotationNodeItem>> annotates a model element specified by this StringDictionaryItem@id
 	result.annotatedElement+=self.id.findTarget(language.getNearestPackage().nestingPackage.nestingPackage,identifierDefinition);
 	
@@ -513,7 +516,7 @@ mapping ADL::TermBindingSet::TermBindingSet(archetypeTerminology:ADL::PARCHETYPE
 	// name of the <<ValueSetDefinitionReference>> Package is the TermBindingSet@id
 	name:=self.id;
 	// apply the <<ValueSetDefinitionReference>> Stereotype
-	result.applyStereotype(ValueSetDefinitionReferenceStereotype);
+	//result.applyStereotype(ValueSetDefinitionReferenceStereotype);
 	// map each item in the TermBindingSet to a <<ConceptReference>> EnumerationLiteral
 	self.items.map TERM_BINDING_ITEM(archetypeTerminology,result);
 }
