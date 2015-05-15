@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.omg.org/spec/UML/20131001">
+
+<uml:Model xmi:type="uml:Model" xmi:id="_18_0_2aa0151_1431653435343_364065_6978" name="Data">
+		
+		<packagedElement xmi:type="uml:Profile" xmi:id="_Data-TerminologyProfile" name="TerminologyProfile" URI="http://www.omg.org/spec/AML/20141201/terminology/1.0">
+			<metamodelReference xmi:idref="_Data-TerminologyProfile-packageImport"/>
+			<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;&amp;#160;&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The Terminology Binding Profile supports the binding of information models terminology, with optional support for binding to [CTS2].&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;Profile bindings include:&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;font-family:Times New Roman,serif;margin-right:0in;margin-left:.5in;text-indent:-.25in;margin-top:0in;margin-bottom:.0001pt;font-size:10.0pt;&#34;&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;;font-variant:normal; line-height:normal;&#34;&gt;1.&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-weight:normal; font-family:Times New Roman;;font-variant:normal; line-height:normal;&#34;&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;Value Bindings&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;&lt;i&gt;: &lt;/i&gt;&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;Linkage of the data model to value domains, which restrict the valid value(s) of an attribute to a set of values that correspond to a set of meanings recorded in an external terminology;&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;font-family:Times New Roman,serif;margin-right:0in;margin-left:.5in;text-indent:-.25in;margin-top:0in;margin-bottom:.0001pt;font-size:10.0pt;&#34;&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;;font-variant:normal; line-height:normal;&#34;&gt;2.&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt; font-weight:normal;;font-variant:normal; line-height:normal;&#34;&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;Semantic Bindings: Definition of the meaning of model elements using concepts in an external terminology;&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;font-family:Times New Roman,serif;margin-right:0in;margin-left:.5in;text-indent:-.25in;margin-top:0in;margin-bottom:.0001pt;font-size:10.0pt;&#34;&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;;font-variant:normal; line-height:normal;&#34;&gt;3.&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt; font-weight:normal;;font-variant:normal; line-height:normal;&#34;&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;Constraint Bindings&lt;i&gt;: &lt;/i&gt;Specifying constraints on the information model, using concepts and relationships defined in an external terminology.&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;font-family:Times New Roman,serif;margin-top:0in;margin-bottom:0in;margin-left:0in;font-size:10.0pt;margin-right:0in;&#34;&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;The Terminology Binding Profile includes the UML equivalent of the ADL 2.0 terminology section, including:&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;font-family:Times New Roman,serif;margin-right:0in;margin-left:.5in;text-indent:-.25in;margin-top:0in;margin-bottom:.0001pt;font-size:10.0pt;&#34;&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;;font-variant:normal; line-height:normal;&#34;&gt;·&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt; font-weight:normal;;font-variant:normal; line-height:normal;&#34;&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;Identifiers -- The&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;IdentifiedItem stereotype allows &amp;quot;id&amp;quot;, &amp;quot;at&amp;quot; and &amp;quot;ac&amp;quot; identifiers to be assigned to Class constraints, Enumeration Literals and Enumerations respectively.&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;font-family:Times New Roman,serif;margin-right:0in;margin-left:.5in;text-indent:-.25in;margin-top:0in;margin-bottom:.0001pt;font-size:10.0pt;&#34;&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;;font-variant:normal; line-height:normal;&#34;&gt;·&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt; font-weight:normal;;font-variant:normal; line-height:normal;&#34;&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;Term definitions -- The ResourceTranslation, Entry and IdEntry stereotypes allow language specific text/ description tuples to be assigned directly to model elements (Entry) or indirectly to identified elements&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;font-family:Times New Roman,serif;margin-right:0in;margin-left:.5in;text-indent:-.25in;margin-top:0in;margin-bottom:.0001pt;font-size:10.0pt;&#34;&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;;font-variant:normal; line-height:normal;&#34;&gt;·&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt; font-weight:normal;;font-variant:normal; line-height:normal;&#34;&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;Term bindings&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;font-family:Times New Roman,serif;margin-right:0in;margin-left:1.0in;text-indent:-.25in;margin-top:0in;margin-bottom:.0001pt;font-size:10.0pt;&#34;&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;;font-variant:normal; line-height:normal;&#34;&gt;○&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt; font-weight:normal;;font-variant:normal; line-height:normal;&#34;&gt;&amp;#160;&amp;#160;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;Model elements may be associated with a concept reference in an external terminology using the &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt; font-weight:normal; color:#000000;&#34;&gt;«about» Abstraction&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;, which includes term bindings for ADL 2.0 &amp;quot;id&amp;quot; codes&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;font-family:Times New Roman,serif;margin-right:0in;margin-left:1.0in;text-indent:-.25in;margin-top:0in;margin-bottom:.0001pt;font-size:10.0pt;&#34;&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;;font-variant:normal; line-height:normal;&#34;&gt;○&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt; font-weight:normal;;font-variant:normal; line-height:normal;&#34;&gt;&amp;#160;&amp;#160;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;Enumerations may be associated with a value set and optional definition that identifies the list of possible &amp;quot;meanings&amp;quot; that can be associated with the owned enumeration literals, which includes term bindings for ADL &amp;quot;ac&amp;quot; codes&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;font-family:Times New Roman,serif;margin-right:0in;margin-left:1.0in;text-indent:-.25in;margin-top:0in;margin-bottom:.0001pt;font-size:10.0pt;&#34;&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;;font-variant:normal; line-height:normal;&#34;&gt;○&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt; font-weight:normal;;font-variant:normal; line-height:normal;&#34;&gt;&amp;#160;&amp;#160;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;Enumeration literals may be associated concept references in an external terminology that define the intended meaning of the enumeration literal in the context of the containing enumeration which includes term bindings for ADL &amp;quot;at&amp;quot; codes&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;font-family:Times New Roman,serif;margin-top:0in;margin-bottom:0in;margin-left:0in;font-size:10.0pt;margin-right:0in;&#34;&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;The Terminology Binding profile draws on the ISO 11179-3 model for the identification, designation, definition and value / meaning binding aspects and on the OMG Common Terminology Services 2 [CTS2] specification for the model of Concept, Code System, Code System Version, Value Set and Value Set Definition references.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+				<annotatedElement xmi:idref="_Data-TerminologyProfile"/>
+			</ownedComment>
+			<packageImport xmi:type="uml:PackageImport" xmi:id="_Data-TerminologyProfile-packageImport">
+				<importedPackage href="http://www.omg.org/spec/UML/20131001/UML.xmi#_0">
+					
+				</importedPackage>
+			</packageImport>
+			
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="_Data-TerminologyProfile-IdentifiedItem" name="IdentifiedItem">
+				
+				<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-IdentifiedItem-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;An &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«IdentifiedItem» is a NamedElement which may reference definition identifiers. &amp;#160;A definition identifier (&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;ArchetypeTerm&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;») &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;enables natural language terminology definitions, technology bindings, and value sets to be specified independently from the Archetype definition. &amp;#160;&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+					<annotatedElement xmi:idref="_Data-TerminologyProfile-IdentifiedItem"/>
+				</ownedComment>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-IdentifiedItem-uniqueScopes" name="uniqueScopes">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-IdentifiedItem"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-IdentifiedItem-uniqueScopes-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;Every id must belong to a unique Enumeration. &amp;#160;An identified Item cannot have two or more identifiers drawn from the same Enumeration.&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-IdentifiedItem-uniqueScopes"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-IdentifiedItem-uniqueScopes-specification">
+						<body>self.id-&gt;forAll(l1 | self.id-&gt;forAll(l2 | l1.oclAsType(EnumerationLiteral).namespace = l2.oclAsType(EnumerationLiteral).namespace implies l1 = l2))</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-IdentifiedItem-base_NamedElement" name="base_NamedElement" visibility="private" association="_Data-TerminologyProfile-packagedElement-2">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement">
+						
+					</type>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-IdentifiedItem-id" name="id" visibility="public">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-IdentifiedItem-id-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;The id tag references one or more &lt;span style=&#34;font-family:TimesNewRomanPSMT,serif; font-size:9.0pt;&#34;&gt;«ArchetypeTerm» EnumerationLiterals as the definition identifiers for the Archetype element.&amp;#160; The referenced «ArchetypeTerm»s enable multiple language terminology definitions, technology bindings, and value set composition.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-IdentifiedItem-id"/>
+					</ownedComment>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-IdentifiedItem-id-lowerValue"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Data-TerminologyProfile-IdentifiedItem-id-upperValue" value="*"/>
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="_Data-TerminologyProfile-packagedElement-2">
+				<memberEnd xmi:idref="_Data-TerminologyProfile-IdentifiedItem-base_NamedElement"/>
+				<memberEnd xmi:idref="_Data-TerminologyProfile-packagedElement-2-extension_"/>
+				<navigableOwnedEnd xmi:idref="_Data-TerminologyProfile-packagedElement-2-extension_"/>
+				<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Data-TerminologyProfile-packagedElement-2-extension_" name="extension_" visibility="private" aggregation="composite" type="_Data-TerminologyProfile-IdentifiedItem" association="_Data-TerminologyProfile-packagedElement-2">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-packagedElement-2-extension_-lowerValue"/>
+					
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="_Data-TerminologyProfile-PermissibleValue" name="PermissibleValue">
+				<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-PermissibleValue-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;A &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«PermissibleValue» EnumerationLiteral models a &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;possible value in a data record.&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;A permissible value may be a context specific code (e.g. 0, 1, &amp;quot;M&amp;quot;, &amp;quot;A&amp;quot;, etc.) a concept identifier (e.g. &amp;quot;74400008&amp;quot;, &amp;quot;16285-9&amp;quot;), a URI or, in the case of [ADL], an &amp;quot;at&amp;quot; code.&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;Note that the meaning of the permissible value is assigned by its meaning.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+					<annotatedElement xmi:idref="_Data-TerminologyProfile-PermissibleValue"/>
+				</ownedComment>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-PermissibleValue-mustBeConceptReference" name="mustBeConceptReference">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-PermissibleValue-meaning"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-PermissibleValue-mustBeConceptReference-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;Meaning, if present, must reference an EnumerationLiteral that is stereotyped by ConceptReference&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-PermissibleValue-mustBeConceptReference"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-PermissibleValue-mustBeConceptReference-specification">
+						<body>not(self.meaning.oclIsUndefined())
+implies
+self.meaning.stereotypedBy('ConceptReference')
+</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<generalization xmi:type="uml:Generalization" xmi:id="_Data-TerminologyProfile-PermissibleValue-generalization" general="_Data-TerminologyProfile-IdentifiedItem"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-PermissibleValue-base_EnumerationLiteral" name="base_EnumerationLiteral" visibility="private" association="_Data-TerminologyProfile-packagedElement-4">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-PermissibleValue-meaning" name="meaning" visibility="public">
+					
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-PermissibleValue-meaning-ownedComment" body="The ConceptReference that provides the meaning for the permissible value">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-PermissibleValue-meaning"/>
+					</ownedComment>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-PermissibleValue-meaning-lowerValue"/>
+					
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="_Data-TerminologyProfile-packagedElement-4">
+				<memberEnd xmi:idref="_Data-TerminologyProfile-PermissibleValue-base_EnumerationLiteral"/>
+				<memberEnd xmi:idref="_Data-TerminologyProfile-packagedElement-4-extension_"/>
+				<navigableOwnedEnd xmi:idref="_Data-TerminologyProfile-packagedElement-4-extension_"/>
+				<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Data-TerminologyProfile-packagedElement-4-extension_" name="extension_" visibility="private" aggregation="composite" type="_Data-TerminologyProfile-PermissibleValue" association="_Data-TerminologyProfile-packagedElement-4">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-packagedElement-4-extension_-lowerValue"/>
+					
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="_Data-TerminologyProfile-ScopedIdentifier" name="ScopedIdentifier">
+				<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ScopedIdentifier-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The ScopedIdentifier stereotype models both the ISO 11179-3 namespace, &amp;quot;... a set of designations and/or scoped identifiers for a particular business need&amp;quot; and Scoped_Identifier, &amp;quot;the identifier of an identified item within a specified namespace&amp;quot;.&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;ScopedIdentifier extends Enumeration, where Enumeration plays the role of the scoping namespace and the owned EnumerationLiterals the contained identifiers.&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;A ScopedIdentifier may include an optional URI that identifies the scoping namespace and, if necessary, a uri pattern that defines how uri's for the contained identifiers are constructed.&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;margin-top:0in;margin-right:0in;margin-bottom:0in;font-family:Times New Roman,serif;font-size:10.0pt;margin-left:0in;&#34;&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;&amp;#160;&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;margin-top:0in;margin-right:0in;margin-bottom:0in;font-family:Times New Roman,serif;font-size:10.0pt;margin-left:0in;&#34;&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;As an example, the SNOMED CT identifier namespace would have a uri of &amp;quot;http://snomed.info/id/&amp;quot;, indicating that an EnumerationLiteral named 74400008 would be represented as &amp;quot;http://snomed.info/id/74400008&amp;quot;.&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;&amp;#160; &lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+					<annotatedElement xmi:idref="_Data-TerminologyProfile-ScopedIdentifier"/>
+				</ownedComment>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-ScopedIdentifier-uri" name="uri" visibility="public">
+					<type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String">
+						
+					</type>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ScopedIdentifier-uri-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;The uri tag specifies the URI of the namespace.&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;As an example, one might have a ScopedIdentifier named &amp;quot;owl&amp;quot; with a URI of &amp;quot;http://www.w3.org/2002/07/owl#&amp;quot;.&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;&amp;#160; &lt;/span&gt;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ScopedIdentifier-uri"/>
+					</ownedComment>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-ScopedIdentifier-uri-lowerValue"/>
+					
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-ScopedIdentifier-identifierURIPattern" name="identifierURIPattern" visibility="public">
+					<type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String">
+						
+					</type>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ScopedIdentifier-identifierURIPattern-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;The identifierURIPattern tag models a URI substitution pattern, where &amp;quot;$1&amp;quot; indicates where the name of an owned EnumerationLiteral would be substituted to create a URI.&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;Example:&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;http://loinc.org/id/$1.&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;If no URI substitution pattern is supplied, URI's are assumed to be constructed by concatenating the name of an enumeration literal onto the value of the &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;&lt;i&gt;uri&lt;/i&gt;&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt; attribute.&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;&amp;#160; &lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ScopedIdentifier-identifierURIPattern"/>
+					</ownedComment>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-ScopedIdentifier-identifierURIPattern-lowerValue"/>
+					
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-ScopedIdentifier-base_Enumeration" name="base_Enumeration" visibility="private" association="_Data-TerminologyProfile-packagedElement-14">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Enumeration">
+						
+					</type>
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="_Data-TerminologyProfile-EnumeratedValueDomain" name="EnumeratedValueDomain">
+				
+				<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-EnumeratedValueDomain-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;The EnumeratedValueDomain stereotype represents a discrete set of possible values (PermissibleValues) for a particular field or data element. Each PermissibleValue identifies a unique value and (optionally) its intended meaning. &amp;#160;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;&amp;#160;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;An EnumeratedValueDomain may reference a value set or value set definition via the valueSetBinding tag. &amp;#160;Implementations may use the tag value to validate the PermissibleValue meaning links, populate the permissible values in the EnumeratedValueDomain, or provide selection lists for existing mappings.&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;&amp;#160;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;&amp;#160;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+					<annotatedElement xmi:idref="_Data-TerminologyProfile-EnumeratedValueDomain"/>
+				</ownedComment>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-EnumeratedValueDomain-permissibleValues" name="permissibleValues">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-EnumeratedValueDomain"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-EnumeratedValueDomain-permissibleValues-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;All ownedLiterals must be stereotyped by PermissibleValue.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-EnumeratedValueDomain-permissibleValues"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-EnumeratedValueDomain-permissibleValues-specification">
+						<body> self.base_Enumeration.ownedLiteral-&gt;forAll(x:EnumerationLiteral|x.stereotypedBy('PermissibleValue'))</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-EnumeratedValueDomain-bindingIsValueSetOrDefinition" name="bindingIsValueSetOrDefinition">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-EnumeratedValueDomain"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-EnumeratedValueDomain-bindingIsValueSetOrDefinition-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The valueSetBinding tag value, if present, must reference an EnumerationLiteral that is stereotyped by &amp;quot;ValueSetReference&amp;quot; or &amp;quot;ValueSetDefinitionReference&amp;quot;&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-EnumeratedValueDomain-bindingIsValueSetOrDefinition"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-EnumeratedValueDomain-bindingIsValueSetOrDefinition-specification">
+						<body>not(self.valueSetBinding.oclIsUndefined())
+implies(
+self.valueSetBinding.stereotypedBy('ValueSetReference')
+or self.valueSetBinding.stereotypedBy('ValueSetDefinitionReference')
+)
+
+
+</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<generalization xmi:type="uml:Generalization" xmi:id="_Data-TerminologyProfile-EnumeratedValueDomain-generalization" general="_Data-TerminologyProfile-IdentifiedItem"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-EnumeratedValueDomain-base_Enumeration" name="base_Enumeration" visibility="private" association="_Data-TerminologyProfile-packagedElement-7">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Enumeration">
+						
+					</type>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-EnumeratedValueDomain-valueSetBinding" name="valueSetBinding" visibility="public">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-EnumeratedValueDomain-valueSetBinding-ownedComment" body="The identifier of the value set or value set definition whose resolution defines the set of possible value meanings for this set of permissible values.">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-EnumeratedValueDomain-valueSetBinding"/>
+					</ownedComment>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-EnumeratedValueDomain-valueSetBinding-lowerValue"/>
+					
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="_Data-TerminologyProfile-packagedElement-7">
+				<memberEnd xmi:idref="_Data-TerminologyProfile-EnumeratedValueDomain-base_Enumeration"/>
+				<memberEnd xmi:idref="_Data-TerminologyProfile-packagedElement-7-extension_"/>
+				<navigableOwnedEnd xmi:idref="_Data-TerminologyProfile-packagedElement-7-extension_"/>
+				<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Data-TerminologyProfile-packagedElement-7-extension_" name="extension_" visibility="private" aggregation="composite" type="_Data-TerminologyProfile-EnumeratedValueDomain" association="_Data-TerminologyProfile-packagedElement-7">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-packagedElement-7-extension_-lowerValue"/>
+					
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="_Data-TerminologyProfile-ResourceReference" name="ResourceReference" isAbstract="true">
+				<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ResourceReference-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;ResourceReference couples a local identifier with an optional URI which references the target resource.&lt;span&gt;&amp;#160; &lt;/span&gt;ResourceReference models the [CTS2] NameAndMeaningReference data type, where the domain is determined by the specializing stereotype and the name by the name of the base EnumerationLiteral. The [CTS2] href attribute is not part of ResourceReference as it is an aspect of a service instance, not a model.&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+					<annotatedElement xmi:idref="_Data-TerminologyProfile-ResourceReference"/>
+				</ownedComment>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-ResourceReference-uri" name="uri" visibility="public">
+					<type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String">
+						
+					</type>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ResourceReference-uri-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The uri tag specifies the URI of the referenced resource.&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;This tag definition is similar to the [CTS2] specification which defines the concept as &amp;quot;A globally unique URI that identifies the intended meaning of the identifier.&amp;quot; &lt;/span&gt;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ResourceReference-uri"/>
+					</ownedComment>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-ResourceReference-uri-lowerValue"/>
+					
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-ResourceReference-base_EnumerationLiteral" name="base_EnumerationLiteral" visibility="private" association="_Data-TerminologyProfile-packagedElement-27">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="_Data-TerminologyProfile-CodeSystemReference" name="CodeSystemReference">
+				<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-CodeSystemReference-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-family:TimesNewRomanPSMT,serif; font-size:9.0pt;&#34;&gt;«CodeSystemReference» is used to model a&lt;/span&gt; reference to a code system (aka. &amp;quot;Terminology&amp;quot;, &amp;quot;Classification scheme&amp;quot;, &lt;span&gt;&amp;#160;&lt;/span&gt;or &amp;quot;ontology&amp;quot;).&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+					<annotatedElement xmi:idref="_Data-TerminologyProfile-CodeSystemReference"/>
+				</ownedComment>
+				<generalization xmi:type="uml:Generalization" xmi:id="_Data-TerminologyProfile-CodeSystemReference-generalization" general="_Data-TerminologyProfile-ResourceReference"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-CodeSystemReference-base_EnumerationLiteral" name="base_EnumerationLiteral" visibility="private" association="_Data-TerminologyProfile-packagedElement-18">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="_Data-TerminologyProfile-CodeSystemVersionReference" name="CodeSystemVersionReference">
+				<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-CodeSystemVersionReference-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:9.0pt; font-family:TimesNewRomanPSMT,serif;&#34;&gt;«CodeSystemVersionReference» is used to model a&lt;/span&gt; reference to a specific version of a code system and, if known, the code system which it is a version of. [CTS2]&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+					<annotatedElement xmi:idref="_Data-TerminologyProfile-CodeSystemVersionReference"/>
+				</ownedComment>
+				<generalization xmi:type="uml:Generalization" xmi:id="_Data-TerminologyProfile-CodeSystemVersionReference-generalization" general="_Data-TerminologyProfile-ResourceReference"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-CodeSystemVersionReference-base_EnumerationLiteral" name="base_EnumerationLiteral" visibility="private" association="_Data-TerminologyProfile-packagedElement-19">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-CodeSystemVersionReference-codeSystem" name="codeSystem" visibility="public">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-CodeSystemVersionReference-codeSystem-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;The codeSystem tag is a reference to the code system. The codeSystem tag is used in situations where the code system itself has a well-known URI but the referenced version does not. In this case the version URI can be omitted and the reference used in its place.&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-CodeSystemVersionReference-codeSystem"/>
+					</ownedComment>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-CodeSystemVersionReference-codeSystem-lowerValue"/>
+					
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="_Data-TerminologyProfile-ConceptReference" name="ConceptReference">
+				
+				<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ConceptReference-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;ConceptReference is the scoped identifier of a concept.&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The name of the base EnumerationLiteral is the code (for example &amp;quot;id&amp;quot;, &amp;quot;label&amp;quot;, and in the case of [CTS2], &amp;quot;name&amp;quot;) of the target concept.&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The scoping namespace is supplied by the owning ScopedIdentifier.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+					<annotatedElement xmi:idref="_Data-TerminologyProfile-ConceptReference"/>
+				</ownedComment>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-ConceptReference-mustBeScopedIdentifier" name="mustBeScopedIdentifier">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-ConceptReference"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ConceptReference-mustBeScopedIdentifier-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;The owning enumeration must be stereotyped with ScopedIdentifier&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ConceptReference-mustBeScopedIdentifier"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-ConceptReference-mustBeScopedIdentifier-specification">
+						<body>self.base_EnumerationLiteral.namespace.stereotypedBy('ScopedIdentifier')</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<generalization xmi:type="uml:Generalization" xmi:id="_Data-TerminologyProfile-ConceptReference-generalization" general="_Data-TerminologyProfile-ResourceReference"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-ConceptReference-base_EnumerationLiteral" name="base_EnumerationLiteral" visibility="private" association="_Data-TerminologyProfile-packagedElement-22">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-ConceptReference-designation" name="designation" visibility="public">
+					<type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String">
+						
+					</type>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ConceptReference-designation-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;The designation tag models a contextually appropriate name or signifier for the referenced concept.&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ConceptReference-designation"/>
+					</ownedComment>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-ConceptReference-designation-lowerValue"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Data-TerminologyProfile-ConceptReference-designation-upperValue" value="*"/>
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="_Data-TerminologyProfile-ValueSetDefinitionReference" name="ValueSetDefinitionReference">
+				<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ValueSetDefinitionReference-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;A &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«ValueSetDefinitionReference» EnumerationLiteral represents the [CTS2] concept of &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;a reference to a set of rules for constructing a value set along with the corresponding value set if known. &lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+					<annotatedElement xmi:idref="_Data-TerminologyProfile-ValueSetDefinitionReference"/>
+				</ownedComment>
+				<generalization xmi:type="uml:Generalization" xmi:id="_Data-TerminologyProfile-ValueSetDefinitionReference-generalization" general="_Data-TerminologyProfile-ResourceReference"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-ValueSetDefinitionReference-base_EnumerationLiteral" name="base_EnumerationLiteral" visibility="private" association="_Data-TerminologyProfile-packagedElement-20">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-ValueSetDefinitionReference-valueSet" name="valueSet" visibility="public">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ValueSetDefinitionReference-valueSet-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;The reference to the value set that is defined by this value set definition. &amp;#160;This tag reduces the requirement to assign unique uri's to each value set definition. &amp;#160;If the definition itself has a uri, the valueSet tag link can provide sufficient information to get a known definition without having to generate a new uri.&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ValueSetDefinitionReference-valueSet"/>
+					</ownedComment>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-ValueSetDefinitionReference-valueSet-lowerValue"/>
+					
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="_Data-TerminologyProfile-ValueSetReference" name="ValueSetReference">
+				
+				<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ValueSetReference-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&amp;quot;A reference to a named set of entity references.&amp;quot; [CTS2]&lt;span&gt;&amp;#160; &lt;/span&gt;ValueSetReference references a set of ValueSetDefinitionReferences.&lt;span&gt;&amp;#160; &lt;/span&gt;The members of the set can vary over time and context and depend on (a) the particular value set definition (aka. version) of the value set and (b) the particular version of the code system(s) that are used to resolve the rules in the value set definition.&lt;span&gt;&amp;#160;&amp;#160; &lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+					<annotatedElement xmi:idref="_Data-TerminologyProfile-ValueSetReference"/>
+				</ownedComment>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-ValueSetReference-definition" name="definition">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-ValueSetReference"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ValueSetReference-definition-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;Each member of valueSetDefinition must be a &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«ValueSetDefinitionReference» EnumerationLiteral.&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;&amp;#160;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ValueSetReference-definition"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-ValueSetReference-definition-specification">
+						<body>self.valueSetDefinition-&gt;forAll(d|d.stereotypedBy('ValueSetDefinitionReference'))</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<generalization xmi:type="uml:Generalization" xmi:id="_Data-TerminologyProfile-ValueSetReference-generalization" general="_Data-TerminologyProfile-ResourceReference"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-ValueSetReference-base_EnumerationLiteral" name="base_EnumerationLiteral" visibility="private" association="_Data-TerminologyProfile-packagedElement-21">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-ValueSetReference-valueSetDefinition" name="valueSetDefinition" visibility="public">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ValueSetReference-valueSetDefinition-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The value of this tag is a set of references to value set definition references. &amp;#160;Each element of this set must be a &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«ValueSetDefinitionReference».&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ValueSetReference-valueSetDefinition"/>
+					</ownedComment>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-ValueSetReference-valueSetDefinition-lowerValue"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Data-TerminologyProfile-ValueSetReference-valueSetDefinition-upperValue" value="*"/>
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="_Data-TerminologyProfile-packagedElement-14">
+				<memberEnd xmi:idref="_Data-TerminologyProfile-ScopedIdentifier-base_Enumeration"/>
+				<memberEnd xmi:idref="_Data-TerminologyProfile-packagedElement-14-extension_ScopedIdentifier"/>
+				<navigableOwnedEnd xmi:idref="_Data-TerminologyProfile-packagedElement-14-extension_ScopedIdentifier"/>
+				<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Data-TerminologyProfile-packagedElement-14-extension_ScopedIdentifier" name="extension_ScopedIdentifier" visibility="private" aggregation="composite" type="_Data-TerminologyProfile-ScopedIdentifier" association="_Data-TerminologyProfile-packagedElement-14">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-packagedElement-14-extension_ScopedIdentifier-lowerValue"/>
+					
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Enumeration" xmi:id="_Data-TerminologyProfile-ArchetypeType" name="ArchetypeType">
+				<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeType-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman;&#34;&gt;The &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«ArchetypeType» Enumeration specifies&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman;&#34;&gt; the structural type of an Archetype.&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman;&#34;&gt;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman;&#34;&gt;The ArchetypeType is mapped to the structural variants described by [AOM] ARCHETYPE/is_template and &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman;&#34;&gt;ARCHETYPE/&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman;&#34;&gt;is_overlay attributes.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+					<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeType"/>
+				</ownedComment>
+				<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Data-TerminologyProfile-ArchetypeType-archetype" name="archetype">
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeType-archetype-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;This literal specifies that t&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;he Archetype is structured as a source Archetype.&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;margin-right:0in;margin-top:0in;margin-bottom:0in;font-family:Times New Roman,serif;font-size:10.0pt;margin-left:0in;&#34;&gt;&#xA;&lt;span style=&#34;font-size:10pt; color:black; font-family:Times New Roman;&#34;&gt;Source archetypes can be specialized, in which case their definition structure is a partial overlay on the flat parent, or ‘top-level’, in which case the definition structure is complete. &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«ArchetypeRoot» &lt;/span&gt;&lt;span style=&#34;font-size:10pt; color:black; font-family:Times New Roman;&#34;&gt;instances may only be used to represent external references to other Archetypes.&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;margin-right:0in;margin-top:0in;margin-bottom:0in;font-family:Times New Roman,serif;font-size:10.0pt;margin-left:0in;&#34;&gt;&#xA;&lt;span style=&#34;font-size:10pt; color:black; font-family:Times New Roman;&#34;&gt;An &amp;quot;archetype&amp;quot; maps to an [AOM] ARCHETYPE in which both ARCHETYPE/is_template and ARCHETYPE/is_overlay are false.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeType-archetype"/>
+					</ownedComment>
+				</ownedLiteral>
+				<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Data-TerminologyProfile-ArchetypeType-template" name="template">
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeType-template-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;This literal specifies that t&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;he Archetype is structured as a &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;Template.&amp;#160;&amp;#160;&amp;#160;&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p align=&#34;left&#34; style=&#34;margin-top:0px;margin-bottom:0px;margin-left:0.0px;&#34;&gt;&#xA;&lt;span style=&#34;font-weight:normal; font-family:Times New Roman; font-size:10pt; color:#000000;&#34;&gt;A source template is an Archetype containing &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;«ArchetypeRoot»&lt;/span&gt;&lt;span style=&#34;font-weight:normal; font-family:Times New Roman; font-size:10pt; color:#000000;&#34;&gt; elements&lt;/span&gt;&lt;span style=&#34;font-weight:normal; font-family:Times New Roman; font-size:10pt; color:#000000;&#34;&gt; representing slot fillers - each referring to an external Archetype or template, or potentially an &lt;/span&gt;&lt;span style=&#34;font-weight:normal; font-family:Times New Roman; font-size:10pt; color:#000000;&#34;&gt;overlay archetype. &amp;#160;&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p align=&#34;left&#34; style=&#34;margin-top:0px;margin-bottom:0px;margin-left:0.0px;&#34;&gt;&#xA;&lt;span style=&#34;font-weight:normal; font-family:Times New Roman; font-size:10pt; color:#000000;&#34;&gt;An Archetype template c&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;orresponds to an [AOM] ARCHETYPE/is_template attribute having value=True.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeType-template"/>
+					</ownedComment>
+				</ownedLiteral>
+				<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Data-TerminologyProfile-ArchetypeType-template_overlay" name="template_overlay">
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeType-template_overlay-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;This literal specifies that t&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;he Archetype is &lt;/span&gt;structured as a template overlay.&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;margin-top:0in;margin-right:0in;margin-bottom:0in;font-family:Times New Roman,serif;font-size:10.0pt;margin-left:0in;&#34;&gt;&#xA;&lt;span style=&#34;color:black;&#34;&gt;These are purely local components of templates, and include only the definition and terminology. The definition structure is always a specialized overlay on something else, and may not contain any slot fillers or external references, i.e. no &lt;/span&gt;«ArchetypeRoot»&lt;span style=&#34;color:black;&#34;&gt; objects. &lt;/span&gt;No identifier, &lt;span&gt;adl_version&lt;/span&gt;, &lt;span&gt;languages &lt;/span&gt;or &lt;span&gt;description&lt;i&gt; &lt;/i&gt;&lt;/span&gt;are required, as they are considered to be propagated from the owning root template.&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;margin-top:0in;margin-right:0in;margin-bottom:0in;font-family:Times New Roman,serif;font-size:10.0pt;margin-left:0in;&#34;&gt;&#xA;&lt;span style=&#34;color:black;&#34;&gt;Accordingly, template overlays act like a simplified specialized archetype. Template overlays can be thought of as being similar to ‘anonymous’ or ‘inner’ classes in some object-oriented programming languages.&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;margin-top:0in;margin-right:0in;margin-bottom:0in;font-family:Times New Roman,serif;font-size:10.0pt;margin-left:0in;&#34;&gt;&#xA;&lt;span style=&#34;color:black;&#34;&gt;A template_overlay is mapped to an [AOM] ARCHETYPE with both ARCHETYPE/is_template and ARCHETYPE.is_overlay set to true.&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p align=&#34;left&#34; style=&#34;margin-top:0px;margin-bottom:0px;margin-left:0.0px;&#34;&gt;&#xA;&amp;#160;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeType-template_overlay"/>
+					</ownedComment>
+				</ownedLiteral>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="_Data-TerminologyProfile-ArchetypeTerm" name="ArchetypeTerm">
+				
+				<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;An &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«ArchetypeTerm» EnumerationLiteral is used to model a definition identifier.&amp;#160; A definition identifier is used to isolate an Archetype model element from its definition in a specific natural language, technology binding, or value set grouping.&amp;#160; An «IdentifiedItem» element within an Archetype specifies an «ArchetypeTerm» as the language-neutral identification of a term.&amp;#160; Language-specific terminology names and definitions are specified by «IdEntry» EnumerationLiterals, each of which has an id whose value is an «ArchetypeTerm» EnumerationLiteral.&amp;#160; The natural language associated with an «IdEntry» EnumerationLiteral is in the containing «ResourceTranslation» Enumeration, which defines all the meta-data associated with a given natural language.&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;margin-top:0in;margin-right:0in;margin-bottom:0in;font-family:Times New Roman,serif;font-size:10.0pt;margin-left:0in;&#34;&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;An &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«ArchetypeTerm» EnumerationLiteral may be used to represent the [AOM] concepts of “id”, “ac”, or “at” codes, all of which have natural language translations.&amp;#160; An “at” code represents value term codes within a terminology and may be used as possible values on terminological constraints.&amp;#160; An “ac” code represents a value set, which is a set of “at” codes.&amp;#160; The “id” codes are used to provide identification for other element nodes within an Archetype.&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;margin-top:0in;margin-right:0in;margin-bottom:0in;font-family:Times New Roman,serif;font-size:10.0pt;margin-left:0in;&#34;&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The term_binding tag within an «ArchetypeTerm» is used to specify technology bindings for “at” codes.&amp;#160; Each “at” code may be bound to many «ResourceReference» EnumerationLiterals, each of which may specify a uri as its technology-specific identifier.&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;margin-top:0in;margin-right:0in;margin-bottom:0in;font-family:Times New Roman,serif;font-size:10.0pt;margin-left:0in;&#34;&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The value_set_members tag within an «ArchetypeTerm» is used to specify value set membership for an “ac” code.&amp;#160; The members of the value set are sibling «ArchetypeTerm»s, each of which represent an “at” code.&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;&amp;#160;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+					<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm"/>
+				</ownedComment>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTLC-_language_consistency" name="[AOM] VTLC- language consistency">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTLC-_language_consistency-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;Every code must exist in all languages.&amp;#160;&amp;#160;In AML, every Archetype Term must be referenced by a definitional IdEntry in each of the language-specific Resource Translations.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTLC-_language_consistency"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTLC-_language_consistency-specification">
+						<body>self.base_EnumerationLiteral.namespace.oclAsType(Enumeration).namespace.oclAsType(Package).ownedType
+	-&gt;select(t|t.stereotypedBy('ResourceTranslation')).oclAsType(Enumeration)
+	-&gt;forAll(sibling|sibling.ownedLiteral-&gt;exists(ol|ol.appliedStereotype('IdEntry').oclAsType(IdEntry).ref=self.base_EnumerationLiteral))             
+
+</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTVSID-_value-set_id_defined" name="[AOM] VTVSID- value-set id defined">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTVSID-_value-set_id_defined-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The identifying code of a value set must be defined in the term definitions of the terminology of the current archetype.&amp;#160;&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTVSID-_value-set_id_defined"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTVSID-_value-set_id_defined-specification">
+						<body>This [AOM] Validity Rule is inherently satisfied by AML since the identifying code of a value set is only defined by the identification definition EnumerationLiteral. 
+
+</body>
+						<language>English</language>
+					</specification>
+				</ownedRule>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTVSUQ-_value-set_members_unique" name="[AOM] VTVSUQ- value-set members unique">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTVSUQ-_value-set_members_unique-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The member codes of a value set must be unique within the value set.&amp;#160;&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The member codes of a value set must be from the same Enumeration as this ArchetypeTerm.&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;Note that the value_set_members &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;tag definition &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;is declared to be unique.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTVSUQ-_value-set_members_unique"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTVSUQ-_value-set_members_unique-specification">
+						<body>self.value_set_members-&gt;forAll(member|member.namespace=self.base_EnumerationLiteral.namespace)
+</body>
+						<language>English</language>
+					</specification>
+				</ownedRule>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTVSMD-_value-set_members_defined" name="[AOM] VTVSMD- value-set members defined">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTVSMD-_value-set_members_defined-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The member codes of a value set must be defined in the term definitions of the current archetype.&amp;#160;&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;Note that in AML, this is equivalent to requiring that value_set_members are in the same Enumeration as this ArchetypeTerm.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTVSMD-_value-set_members_defined"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTVSMD-_value-set_members_defined-specification">
+						<body>self.value_set_members-&gt;forAll(member|member.namespace=self.base_EnumerationLiteral.namespace)
+</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VATDF-_value_code_validity" name="[AOM] VATDF- value code validity">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VATDF-_value_code_validity-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;Each value code (at-code) used in a term constraint in the archetype definition must be defined in the term_definitions part of the terminology of the flattened form of the current archetype.&amp;#160;&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;Note that in AML, that the only possible term constraint reference is to a ArchetypeTerm.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VATDF-_value_code_validity"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VATDF-_value_code_validity-specification">
+						<body>This [AOM] validity rule is satisfied since the only permissible term constraint in AML is a ArchetypeTerm.
+</body>
+						<language>English</language>
+					</specification>
+				</ownedRule>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_ARCHETYPE_TERM_Invariant_code_valid_code" name="[AOM] ARCHETYPE_TERM:Invariant:code_valid_code">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_ARCHETYPE_TERM_Invariant_code_valid_code-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;The name of the base_EnumerationLiteral&amp;#160;must be defined.&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p align=&#34;left&#34; style=&#34;margin-top:0px;margin-left:0.0px;margin-bottom:0px;&#34;&gt;&#xA;&amp;#160;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;&amp;#160;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_ARCHETYPE_TERM_Invariant_code_valid_code"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_ARCHETYPE_TERM_Invariant_code_valid_code-specification">
+						<body>not(self.base_EnumerationLiteral.name.oclIsUndefined())
+and(self.base_EnumerationLiteral.name&lt;&gt;'')</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VALUE_SET_Invariant_Id_valid" name="[AOM] VALUE_SET:Invariant:Id_valid">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VALUE_SET_Invariant_Id_valid-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;An [AOM] VALUE_SET maps to an AML &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;«ArchetypeTerm» &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;which has values in the value_set_members tag. &amp;#160;&amp;#160;The [AOM] VALUE_SET/id must be a valid value set code.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VALUE_SET_Invariant_Id_valid"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VALUE_SET_Invariant_Id_valid-specification">
+						<body>In AML, the [AOM] Constraint is definitional; the ArchetypeTerm name is an Identifier Definition id as well as the Value Set definition.</body>
+						<language>English</language>
+					</specification>
+				</ownedRule>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VALUE_SET_Invariant_Members_valid" name="[AOM] VALUE_SET:Invariant:Members_valid">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VALUE_SET_Invariant_Members_valid-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;An [AOM] VALUE_SET maps to an AML &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;«ArchetypeTerm» &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;which has values in the value_set_members tag. &amp;#160;Each member of value_set_members must be a sibling &lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;«ArchetypeTerm»&lt;/span&gt;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt; within the same Enumeration.&amp;#160;&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VALUE_SET_Invariant_Members_valid"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VALUE_SET_Invariant_Members_valid-specification">
+						<body>self.value_set_members-&gt;forAll(m|m.namespace=self.base_EnumerationLiteral.namespace)
+</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_ARCHETYPE_TERMINOLOGY_Invariant_term_bindings_validity" name="[AOM] ARCHETYPE_TERMINOLOGY:Invariant:term_bindings_validity">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_ARCHETYPE_TERMINOLOGY_Invariant_term_bindings_validity-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The individual term definition entries may be referenced by ArchetypeTerm EnumerationLiterals. &amp;#160;&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The presence of a term_bindings element within any ArchetypeTerm establishes the existence of term bindings for the entire Archetype Package.&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;&amp;#160;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_ARCHETYPE_TERMINOLOGY_Invariant_term_bindings_validity"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_ARCHETYPE_TERMINOLOGY_Invariant_term_bindings_validity-specification">
+						<body> The individual term definitions may be referenced by «ArchetypeTerm» EnumerationLiterals.  
+The presence of a term_bindings within any «ArchetypeTerm»  establishes the existence of term bindings for the «Archetype».
+</body>
+						<language>English</language>
+					</specification>
+				</ownedRule>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VETDF-_external_term_validity" name="[AOM] VETDF- external term validity">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VETDF-_external_term_validity-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;Each external term used within the archetype definition must exist in the relevant terminology.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VETDF-_external_term_validity"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VETDF-_external_term_validity-specification">
+						<body>self.term_bindings-&gt;forEach(b|b.namespace.namespace.name='term_bindings')
+</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTCBK-_terminology_constraint_binding_key_valid" name="[AOM] VTCBK- terminology constraint binding key valid">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTCBK-_terminology_constraint_binding_key_valid-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;Every constraint binding must be to a defined archetype constraint code (‘ac-code’).&amp;#160;&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTCBK-_terminology_constraint_binding_key_valid"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTCBK-_terminology_constraint_binding_key_valid-specification">
+						<body>self.term_bindings-&gt;forAll(b|b.namespace.namespace.name='term_bindings')</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTSD-_specialisation_level_of_codes" name="[AOM] VTSD- specialisation level of codes">
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTSD-_specialisation_level_of_codes-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;Term or constraint code defined in archetype terminology must be of the same or a less specialized level then the specialization level of the Archetype.&amp;#160;&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTSD-_specialisation_level_of_codes"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTSD-_specialisation_level_of_codes-specification">
+						<body>Term or constraint code defined in archetype terminology must be of the same or a less specialized level then the specialization level of the Archetype. </body>
+						<language>English</language>
+					</specification>
+				</ownedRule>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTTBK-_terminology_term_binding_key_valid" name="[AOM] VTTBK- terminology term binding key valid">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTTBK-_terminology_term_binding_key_valid-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;Every term binding must be to a defined archetype term (‘at-code’).&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTTBK-_terminology_term_binding_key_valid"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-[AOM]_VTTBK-_terminology_term_binding_key_valid-specification">
+						<body>self.term_bindings-&gt;forEach(b|b.namespace.namespace.name='term_bindings')
+</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<generalization xmi:type="uml:Generalization" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-generalization" general="_Data-TerminologyProfile-PermissibleValue"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-base_EnumerationLiteral" name="base_EnumerationLiteral" visibility="private" association="_Data-TerminologyProfile-packagedElement-17">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-value_set_members" name="value_set_members" visibility="public">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-value_set_members-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;When the &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«ArchetypeTerm» &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;corresponds to an [AOM] “ac” code, the value_set_members tag is used to identify the sibling &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«ArchetypeTerm» “at” codes logically contained in the “ac” value set&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;All of the “at” codes must be in the same Enumeration as the “ac” code.&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;font-family:Times New Roman,serif;margin-top:0in;margin-bottom:0in;font-size:10.0pt;margin-left:0in;margin-right:0in;&#34;&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;This tag encapsulates the [AOM] concept of VALUE_SET.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm-value_set_members"/>
+					</ownedComment>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-value_set_members-lowerValue"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-value_set_members-upperValue" value="*"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-term_bindings" name="term_bindings" visibility="public">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-term_bindings-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;When the &lt;span style=&#34;font-size:9.0pt; font-family:TimesNewRomanPSMT,serif;&#34;&gt;«ArchetypeTerm» &lt;/span&gt;corresponds to an [AOM] “at” code, the term_bindings tag is used to identify the list of &lt;span style=&#34;font-size:9.0pt; font-family:TimesNewRomanPSMT,serif;&#34;&gt;«ResourceReference» EnumerationLiterals to be associated with the “at” code.&amp;#160; &lt;/span&gt;A term binding may be used to specify the &amp;quot;meaning&amp;quot; of the &lt;span style=&#34;font-size:9.0pt; font-family:TimesNewRomanPSMT,serif;&#34;&gt;«ArchetypeTerm»&lt;/span&gt;, either in the ISO 11179 sense or as a reference to a terminology definition provided by an external service.&lt;span&gt;&amp;#160; &lt;/span&gt;In either case, each term_binding member is a &amp;lt;&amp;lt;ConceptReference&amp;gt;&amp;gt; within an Enumeration representing the [AOM] concept of term_binding.&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm-term_bindings"/>
+					</ownedComment>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-term_bindings-lowerValue"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Data-TerminologyProfile-ArchetypeTerm-term_bindings-upperValue" value="*"/>
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="_Data-TerminologyProfile-packagedElement-17">
+				<memberEnd xmi:idref="_Data-TerminologyProfile-ArchetypeTerm-base_EnumerationLiteral"/>
+				<memberEnd xmi:idref="_Data-TerminologyProfile-packagedElement-17-extension_"/>
+				<navigableOwnedEnd xmi:idref="_Data-TerminologyProfile-packagedElement-17-extension_"/>
+				<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Data-TerminologyProfile-packagedElement-17-extension_" name="extension_" visibility="private" aggregation="composite" type="_Data-TerminologyProfile-ArchetypeTerm" association="_Data-TerminologyProfile-packagedElement-17">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-packagedElement-17-extension_-lowerValue"/>
+					
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="_Data-TerminologyProfile-packagedElement-18">
+				<memberEnd xmi:idref="_Data-TerminologyProfile-CodeSystemReference-base_EnumerationLiteral"/>
+				<memberEnd xmi:idref="_Data-TerminologyProfile-packagedElement-18-extension_CodeSystemReference"/>
+				<navigableOwnedEnd xmi:idref="_Data-TerminologyProfile-packagedElement-18-extension_CodeSystemReference"/>
+				<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Data-TerminologyProfile-packagedElement-18-extension_CodeSystemReference" name="extension_CodeSystemReference" visibility="private" aggregation="composite" type="_Data-TerminologyProfile-CodeSystemReference" association="_Data-TerminologyProfile-packagedElement-18">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-packagedElement-18-extension_CodeSystemReference-lowerValue"/>
+					
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="_Data-TerminologyProfile-packagedElement-19">
+				<memberEnd xmi:idref="_Data-TerminologyProfile-CodeSystemVersionReference-base_EnumerationLiteral"/>
+				<memberEnd xmi:idref="_Data-TerminologyProfile-packagedElement-19-extension_CodeSystemVersionReference"/>
+				<navigableOwnedEnd xmi:idref="_Data-TerminologyProfile-packagedElement-19-extension_CodeSystemVersionReference"/>
+				<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Data-TerminologyProfile-packagedElement-19-extension_CodeSystemVersionReference" name="extension_CodeSystemVersionReference" visibility="private" aggregation="composite" type="_Data-TerminologyProfile-CodeSystemVersionReference" association="_Data-TerminologyProfile-packagedElement-19">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-packagedElement-19-extension_CodeSystemVersionReference-lowerValue"/>
+					
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="_Data-TerminologyProfile-packagedElement-20">
+				<memberEnd xmi:idref="_Data-TerminologyProfile-ValueSetDefinitionReference-base_EnumerationLiteral"/>
+				<memberEnd xmi:idref="_Data-TerminologyProfile-packagedElement-20-extension_ValueSetDefinitionReference"/>
+				<navigableOwnedEnd xmi:idref="_Data-TerminologyProfile-packagedElement-20-extension_ValueSetDefinitionReference"/>
+				<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Data-TerminologyProfile-packagedElement-20-extension_ValueSetDefinitionReference" name="extension_ValueSetDefinitionReference" visibility="private" aggregation="composite" type="_Data-TerminologyProfile-ValueSetDefinitionReference" association="_Data-TerminologyProfile-packagedElement-20">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-packagedElement-20-extension_ValueSetDefinitionReference-lowerValue"/>
+					
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="_Data-TerminologyProfile-packagedElement-21">
+				<memberEnd xmi:idref="_Data-TerminologyProfile-ValueSetReference-base_EnumerationLiteral"/>
+				<memberEnd xmi:idref="_Data-TerminologyProfile-packagedElement-21-extension_ValueSetReference"/>
+				<navigableOwnedEnd xmi:idref="_Data-TerminologyProfile-packagedElement-21-extension_ValueSetReference"/>
+				<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Data-TerminologyProfile-packagedElement-21-extension_ValueSetReference" name="extension_ValueSetReference" visibility="private" aggregation="composite" type="_Data-TerminologyProfile-ValueSetReference" association="_Data-TerminologyProfile-packagedElement-21">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-packagedElement-21-extension_ValueSetReference-lowerValue"/>
+					
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="_Data-TerminologyProfile-packagedElement-22">
+				<memberEnd xmi:idref="_Data-TerminologyProfile-ConceptReference-base_EnumerationLiteral"/>
+				<memberEnd xmi:idref="_Data-TerminologyProfile-packagedElement-22-extension_ConceptReference"/>
+				<navigableOwnedEnd xmi:idref="_Data-TerminologyProfile-packagedElement-22-extension_ConceptReference"/>
+				<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Data-TerminologyProfile-packagedElement-22-extension_ConceptReference" name="extension_ConceptReference" visibility="private" aggregation="composite" type="_Data-TerminologyProfile-ConceptReference" association="_Data-TerminologyProfile-packagedElement-22">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-packagedElement-22-extension_ConceptReference-lowerValue"/>
+					
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="_Data-TerminologyProfile-TermResourceTranslation" name="TermResourceTranslation">
+				
+				<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-TermResourceTranslation-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;TermResourceTranslation is a collection of designations and descriptions/definitions in a target language. TermResourceTranslation represents a refactoring of the ISO 11179-3 Designatable_Item, where Designation sign is represented as the name of the extended EnumerationLiteral and the Definition text as the associated comment(s). The language attribute is represented by the language tag.&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+					<annotatedElement xmi:idref="_Data-TerminologyProfile-TermResourceTranslation"/>
+				</ownedComment>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-TermResourceTranslation-translationEntries" name="translationEntries">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-TermResourceTranslation"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-TermResourceTranslation-translationEntries-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;All of the ownedLiterals must be stereotyped by Entry.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-TermResourceTranslation-translationEntries"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-TermResourceTranslation-translationEntries-specification">
+						<body>self.base_Enumeration.ownedLiteral-&gt;forAll(ol|ol.stereotypedBy('Entry'))
+</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-TermResourceTranslation-base_Enumeration" name="base_Enumeration" visibility="private" association="_Data-TerminologyProfile-packagedElement-24">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Enumeration">
+						
+					</type>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-TermResourceTranslation-language" name="language" visibility="public">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-TermResourceTranslation-language-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;The language tag identifies the target language.&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-TermResourceTranslation-language"/>
+					</ownedComment>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-TermResourceTranslation-language-lowerValue"/>
+					
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="_Data-TerminologyProfile-packagedElement-24">
+				<memberEnd xmi:idref="_Data-TerminologyProfile-TermResourceTranslation-base_Enumeration"/>
+				<memberEnd xmi:idref="_Data-TerminologyProfile-packagedElement-24-extension_ResourceTranslation"/>
+				<navigableOwnedEnd xmi:idref="_Data-TerminologyProfile-packagedElement-24-extension_ResourceTranslation"/>
+				<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Data-TerminologyProfile-packagedElement-24-extension_ResourceTranslation" name="extension_ResourceTranslation" visibility="private" aggregation="composite" type="_Data-TerminologyProfile-TermResourceTranslation" association="_Data-TerminologyProfile-packagedElement-24">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-packagedElement-24-extension_ResourceTranslation-lowerValue"/>
+					
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="_Data-TerminologyProfile-IdEntry" name="IdEntry">
+				
+				<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-IdEntry-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;An &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«IdEntry» EnumerationLiteral models a language-specific &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;term / description representation for the definition identifier (&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«ArchetypeTerm»&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;) specified in the ref tag.&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;&amp;#160; &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;An &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«IdEntry» is contained by a «ResourceTranslation», which provides meta-data about the language &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;translation used in the context of a particular Archetype.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+					<annotatedElement xmi:idref="_Data-TerminologyProfile-IdEntry"/>
+				</ownedComment>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-IdEntry-[AOM]_ARCHETYPE_TERM_Invariant_description_valid" name="[AOM] ARCHETYPE_TERM:Invariant:description_valid">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-IdEntry"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-IdEntry-[AOM]_ARCHETYPE_TERM_Invariant_description_valid-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;Every term definition must have a description.&lt;/span&gt;&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;&amp;#160;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-IdEntry-[AOM]_ARCHETYPE_TERM_Invariant_description_valid"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-IdEntry-[AOM]_ARCHETYPE_TERM_Invariant_description_valid-specification">
+						<body>self.base_EnumerationLiteral.ownedComment.body-&gt;exists(b|not(b.oclIsUndefined()))
+</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<generalization xmi:type="uml:Generalization" xmi:id="_Data-TerminologyProfile-IdEntry-generalization" general="_Data-TerminologyProfile-Entry"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-IdEntry-ref" name="ref" visibility="public">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-IdEntry-ref-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The ref tag references an &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«ArchetypeTerm», which is the language-independent definition identifier for an Archetype.&amp;#160; The referenced «ArchetypeTerm» serves as a binding from the Archetype constraint model to multiple terminology definition languages.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-IdEntry-ref"/>
+					</ownedComment>
+					
+					
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-IdEntry-base_EnumerationLiteral" name="base_EnumerationLiteral" visibility="private" association="_Data-TerminologyProfile-packagedElement-26">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="_Data-TerminologyProfile-packagedElement-26">
+				<memberEnd xmi:idref="_Data-TerminologyProfile-IdEntry-base_EnumerationLiteral"/>
+				<memberEnd xmi:idref="_Data-TerminologyProfile-packagedElement-26-extension_Entry"/>
+				<navigableOwnedEnd xmi:idref="_Data-TerminologyProfile-packagedElement-26-extension_Entry"/>
+				<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Data-TerminologyProfile-packagedElement-26-extension_Entry" name="extension_Entry" visibility="private" aggregation="composite" type="_Data-TerminologyProfile-IdEntry" association="_Data-TerminologyProfile-packagedElement-26">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-packagedElement-26-extension_Entry-lowerValue"/>
+					
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="_Data-TerminologyProfile-packagedElement-27">
+				<memberEnd xmi:idref="_Data-TerminologyProfile-ResourceReference-base_EnumerationLiteral"/>
+				<memberEnd xmi:idref="_Data-TerminologyProfile-packagedElement-27-extension_ResourceReference"/>
+				<navigableOwnedEnd xmi:idref="_Data-TerminologyProfile-packagedElement-27-extension_ResourceReference"/>
+				<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Data-TerminologyProfile-packagedElement-27-extension_ResourceReference" name="extension_ResourceReference" visibility="private" aggregation="composite" type="_Data-TerminologyProfile-ResourceReference" association="_Data-TerminologyProfile-packagedElement-27">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-packagedElement-27-extension_ResourceReference-lowerValue"/>
+					
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="_Data-TerminologyProfile-Entry" name="Entry">
+				<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-Entry-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:9.0pt; font-family:TimesNewRomanPSMT,serif;&#34;&gt;An «Entry» EnumerationLiteral models &lt;/span&gt;a language specific name (text) and optional description. &amp;#160;The description of an Entry is provided in the ownedComment.body of the EnumeraitonLiteral. &amp;#160;The name (text) of the Entry is defined in the required text tag.&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+					<annotatedElement xmi:idref="_Data-TerminologyProfile-Entry"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-Entry-ownedComment-ownedComment" body="The reference to the named element being translated">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-Entry-ownedComment"/>
+					</ownedComment>
+				</ownedComment>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-Entry-[AOM]_ARCHETYPE_TERM_Invariant_text_valid" name="[AOM] ARCHETYPE_TERM:Invariant:text_valid">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-ArchetypeTerm"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-Entry-[AOM]_ARCHETYPE_TERM_Invariant_text_valid-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;The text tag must have a value.&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;&amp;#160;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-Entry-[AOM]_ARCHETYPE_TERM_Invariant_text_valid"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-Entry-[AOM]_ARCHETYPE_TERM_Invariant_text_valid-specification">
+						<body>The [AOM] Invariant is enforced by the UML semantic for the required text tag.
+</body>
+						<language>English</language>
+					</specification>
+				</ownedRule>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-Entry-text" name="text" visibility="public" aggregation="composite">
+					<type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String">
+						
+					</type>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-Entry-text-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;The text tag models the language specific name of a terminology definition.&#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;font-size:10.0pt;margin-bottom:0in;margin-top:0in;margin-right:0in;font-family:Times New Roman,serif;margin-left:0in;&#34;&gt;&#xA;Note that the same name may be used more than once in a language-specific terminology definition (for example, “cold” may be a medical condition or a temperature).&lt;span&gt;&amp;#160; &lt;/span&gt;Since UML does not allow multiple EnumerationLiterals to have the same name, the terminology definition name is placed in this tag rather than as the name of the EnumerationLiteral.&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-Entry-text"/>
+					</ownedComment>
+					
+					
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-Entry-base_NamedElement" name="base_NamedElement" visibility="private" association="_Data-TerminologyProfile-packagedElement-33">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#NamedElement">
+						
+					</type>
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="_Data-TerminologyProfile-DescribedIdentifier" name="DescribedIdentifier">
+				
+				<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-DescribedIdentifier-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;The DescribedIdentifier stereotype is a ScopedIdentifier whose ownedLiterals are concept references. DescribedIdentifier includes an optional definingCodeSystem tag that can reference the code system or code system version that describes the owned concept references. The definingCodeSystem of an owned concept reference can be overridden on the concept reference level.&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+					<annotatedElement xmi:idref="_Data-TerminologyProfile-DescribedIdentifier"/>
+				</ownedComment>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-DescribedIdentifier-membersMustBeConceptReference" name="membersMustBeConceptReference">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-DescribedIdentifier"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-DescribedIdentifier-membersMustBeConceptReference-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;All of the member EnumerationLiterals must be stereotyped by ConceptReference.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-DescribedIdentifier-membersMustBeConceptReference"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-DescribedIdentifier-membersMustBeConceptReference-specification">
+						<body>self.base_Enumeration.ownedLiteral-&gt;forAll(ol|ol.stereotypedBy('ConceptReference'))</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-DescribedIdentifier-ownedRule-2" name="definingCodeSystem">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-DescribedIdentifier"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-DescribedIdentifier-ownedRule-2-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;definingCodeSystem, if present, must reference an enumeration literal stereotyped by CodeSystemReference or CodeSystemVersionReference&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-DescribedIdentifier-ownedRule-2"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-DescribedIdentifier-ownedRule-2-specification">
+						<body>not(self.definingCodeSystem.oclIsUndefined())
+implies(
+self.definingCodeSystem.stereotypedBy('CodeSystemReference')
+or self.definingCodeSystem.stereotypedBy('CodeSystemVersionReference')
+)
+</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<generalization xmi:type="uml:Generalization" xmi:id="_Data-TerminologyProfile-DescribedIdentifier-generalization" general="_Data-TerminologyProfile-ScopedIdentifier"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-DescribedIdentifier-base_Enumeration" name="base_Enumeration" visibility="private" association="_Data-TerminologyProfile-packagedElement-30">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Enumeration">
+						
+					</type>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-DescribedIdentifier-ownedAttribute__from_Class-2" name="definingCodeSystem" visibility="public">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#EnumerationLiteral">
+						
+					</type>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-DescribedIdentifier-ownedAttribute__from_Class-2-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-family:Times New Roman; font-size:10pt;&#34;&gt;The definingCodeSystem tag specifies the default Code System for the owned ConceptReferences.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-DescribedIdentifier-ownedAttribute__from_Class-2"/>
+					</ownedComment>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-DescribedIdentifier-ownedAttribute__from_Class-2-lowerValue"/>
+					
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="_Data-TerminologyProfile-packagedElement-30">
+				<memberEnd xmi:idref="_Data-TerminologyProfile-DescribedIdentifier-base_Enumeration"/>
+				<memberEnd xmi:idref="_Data-TerminologyProfile-packagedElement-30-extension_DescriptionInCodeSystem"/>
+				<navigableOwnedEnd xmi:idref="_Data-TerminologyProfile-packagedElement-30-extension_DescriptionInCodeSystem"/>
+				<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Data-TerminologyProfile-packagedElement-30-extension_DescriptionInCodeSystem" name="extension_DescriptionInCodeSystem" visibility="private" aggregation="composite" type="_Data-TerminologyProfile-DescribedIdentifier" association="_Data-TerminologyProfile-packagedElement-30">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-packagedElement-30-extension_DescriptionInCodeSystem-lowerValue"/>
+					
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Stereotype" xmi:id="_Data-TerminologyProfile-about" name="about">
+				
+				<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-about-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«about»&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt; Abstraction specifies an ontoligical meaning for an AML model element. The about stereotype is used to model the ISO 11179-3 &amp;quot;meaning&amp;quot; association between a Data Element and a Data Element Concept or between a Value Domain and a Conceptual Domain.&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+					<annotatedElement xmi:idref="_Data-TerminologyProfile-about"/>
+				</ownedComment>
+				<ownedRule xmi:type="uml:Constraint" xmi:id="_Data-TerminologyProfile-about-isConceptReference" name="isConceptReference">
+					<constrainedElement xmi:idref="_Data-TerminologyProfile-about"/>
+					<ownedComment xmi:type="uml:Comment" xmi:id="_Data-TerminologyProfile-about-isConceptReference-ownedComment" body="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;&#x9;&#x9;&lt;style&gt;&#xA;&#x9;&#x9;&#x9;p {padding:0px; margin:0px;}&#xA;&#x9;&#x9;&lt;/style&gt;&#xA;&#x9;&lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;&#xA;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;The supplier (target) of an &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«about»&lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt; Abstraction must be a &lt;/span&gt;&lt;span style=&#34;font-size:10pt; font-family:Times New Roman;&#34;&gt;«ConceptReference».&lt;/span&gt;&#xA;&#xA;    &lt;/p&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;">
+						<annotatedElement xmi:idref="_Data-TerminologyProfile-about-isConceptReference"/>
+					</ownedComment>
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="_Data-TerminologyProfile-about-isConceptReference-specification">
+						<body>self.base_Abstraction.supplier-&gt;select(c|c.stereotypedBy('ConceptReference'))-&gt;size()=1</body>
+						<language>OCL</language>
+					</specification>
+				</ownedRule>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="_Data-TerminologyProfile-about-base_Abstraction" name="base_Abstraction" visibility="private" association="_Data-TerminologyProfile-packagedElement-32">
+					<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Abstraction">
+						
+					</type>
+				</ownedAttribute>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="_Data-TerminologyProfile-packagedElement-32">
+				<memberEnd xmi:idref="_Data-TerminologyProfile-about-base_Abstraction"/>
+				<memberEnd xmi:idref="_Data-TerminologyProfile-packagedElement-32-extension_about"/>
+				<navigableOwnedEnd xmi:idref="_Data-TerminologyProfile-packagedElement-32-extension_about"/>
+				<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Data-TerminologyProfile-packagedElement-32-extension_about" name="extension_about" visibility="private" aggregation="composite" type="_Data-TerminologyProfile-about" association="_Data-TerminologyProfile-packagedElement-32">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-packagedElement-32-extension_about-lowerValue"/>
+					
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Extension" xmi:id="_Data-TerminologyProfile-packagedElement-33">
+				<memberEnd xmi:idref="_Data-TerminologyProfile-Entry-base_NamedElement"/>
+				<memberEnd xmi:idref="_Data-TerminologyProfile-packagedElement-33-extension_Entry"/>
+				<navigableOwnedEnd xmi:idref="_Data-TerminologyProfile-packagedElement-33-extension_Entry"/>
+				<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Data-TerminologyProfile-packagedElement-33-extension_Entry" name="extension_Entry" visibility="private" aggregation="composite" type="_Data-TerminologyProfile-Entry" association="_Data-TerminologyProfile-packagedElement-33">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Data-TerminologyProfile-packagedElement-33-extension_Entry-lowerValue"/>
+					
+				</ownedEnd>
+			</packagedElement>
+		</packagedElement>
+	</uml:Model>
+
+
+
+
+</xmi:XMI>
