@@ -1,0 +1,13 @@
+import uml2adl;
+//modeltype UML uses 'http://www.nomagic.com/magicdraw/UML/2.5';
+modeltype UML uses 'http://www.omg.org/spec/UML/20131001';
+modeltype CMOF  uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype ADL  uses 'http://schemas.openehr.org/v1';
+
+transformation uml2adl(in pimUml:UML,out adl:ADL,inout blackboxAdapter:CMOF)
+	extends transformation uml2adl()
+		;
+	main() {
+	blackboxHook:=blackboxAdapter.objectsOfType(CMOF::EPackage)->asSequence()->first();
+	uml2adl_run();
+}	

@@ -1,0 +1,807 @@
+import AMLGlobals;
+modeltype UML uses 'http://www.omg.org/spec/UML/20131001'; // OMG UML 2.5
+modeltype XSD  uses 'http://www.eclipse.org/xsd/2002/XSD';// XSD Meta-model as used in MOF XMI
+modeltype ADL  uses 'http://schemas.openehr.org/v1';		// The Archetype Object Model as a MOF Model
+modeltype XMLType uses 'http://www.eclipse.org/emf/2003/XMLType';//  The xml type library as a MOF Model
+
+transformation AMLplatformBinding;  // transformation containing common helpers plus platform-specific implementations
+	main() {}
+///////////////common helpers
+//  apply specified Profile to this Package
+helper UML::Package::applyProfile(profile : UML::Profile){
+        var profileApplication: UML::ProfileApplication=new UML::ProfileApplication();
+        profileApplication.applyingPackage:=self;
+        profileApplication.appliedProfile:=profile;
+        return;
+}
+// initialize all properties
+helper UML::Model::initializeProfileGlobals(){
+	// initialize profile and stereotype reference properties; search all Profiles included in model
+	self.subobjectsOfKind(UML::Profile).oclAsType(UML::Profile)->forEach(profile){
+		// Constraint Profile reference
+		if(profile.name='ConstraintProfile')then{profile.initializeConstraintProfile();}endif;
+		// ReferenceModel Profile reference
+		if(profile.name='ReferenceModelProfile')then{profile.initializeReferenceModelProfile();}endif;
+		// Terminology Profile reference
+		if(profile.name='TerminologyProfile')then{profile.initializeTerminologyProfile();}endif;
+	};
+	// initialize type library references
+	self.allSubobjectsOfKind(UML::Package).oclAsType(UML::Package)->forEach(profile){
+		// UML Primitive Types library reference
+		if(profile.name=UMLPrimitiveTypesPackageName)then{umlLibrary:=profile;}endif;
+		// NIEM-UML XML Primitive Types library reference
+		if(profile.name=XMLPrimitiveTypesPackageName)then{umlXmlLibrary:=profile;}endif;
+	};
+}
+// get a type owned by this Package which has the given name
+query UML::Package::getOwnedType(stereotypeName:String):UML::Type{
+    var stereotype:UML::Type=self.ownedType->select(s|s.name=stereotypeName)->asSequence()->first();
+    if(stereotype.oclIsUndefined())then{
+            log('ERROR: type '+stereotypeName+' not found in package '+self.name);
+
+    }else{}endif;
+    return stereotype;
+}
+//	initialize the Constraint Profile property references
+helper UML::Profile::initializeConstraintProfile(){
+	// profile reference
+	ConstraintProfile:=self;
+	ArchetypeStereotype:=self.getOwnedType('Archetype').oclAsType(UML::Stereotype);
+	ArchetypeDefinitionStereotype:=self.getOwnedType('ArchetypeDefinition').oclAsType(UML::Stereotype);
+	ArchetypeLibraryStereotype:=self.getOwnedType('ArchetypeLibrary').oclAsType(UML::Stereotype);
+	C_ARCHETYPE_ROOTStereotype:=self.getOwnedType('ArchetypeRoot').oclAsType(UML::Stereotype);
+	ARCHETYPE_SLOTStereotype:=self.getOwnedType('ArchetypeSlot').oclAsType(UML::Stereotype);
+	AuthoredResourceStereotype:=self.getOwnedType('AuthoredResource').oclAsType(UML::Stereotype);
+	ComplexObjectConstraintStereotype:=self.getOwnedType('ComplexObjectConstraint').oclAsType(UML::Stereotype);
+	ConstrainsStereotype:=self.getOwnedType('Constrains').oclAsType(UML::Stereotype);
+	ObjectConstraintStereotype:=self.getOwnedType('ObjectConstraint').oclAsType(UML::Stereotype);
+	ResourceAnnotationNodeItemStereotype:=self.getOwnedType('ResourceAnnotationNodeItem').oclAsType(UML::Stereotype);
+	ResourceTranslationStereotype:=self.getOwnedType('ResourceTranslation').oclAsType(UML::Stereotype);
+	return;
+}
+//	initialize the ReferenceModel Profile property references
+helper UML::Profile::initializeReferenceModelProfile(){
+	// profile reference
+	ReferenceModelProfile:=self;
+	InfrastructureStereotype:=self.getOwnedType('Infrastructure').oclAsType(UML::Stereotype);
+	MappedDataTypeStereotype:=self.getOwnedType('MappedDataType').oclAsType(UML::Stereotype);
+	ReferenceModelReferenceModelStereotype:=self.getOwnedType('ReferenceModel').oclAsType(UML::Stereotype);
+	RuntimeStereotype:=self.getOwnedType('Runtime').oclAsType(UML::Stereotype);
+	return;
+}
+//	initialize the Terminology Profile property references
+helper UML::Profile::initializeTerminologyProfile(){
+	// profile reference
+	TerminologyProfile:=self;
+	ArchetypeTypeEnueration:=self.getOwnedType('ArchetypeType').oclAsType(UML::Enumeration);
+	ARCHETYPE_TERMStereotype:=self.getOwnedType('ArchetypeTerm').oclAsType(UML::Stereotype);
+	CodeSystemReferenceStereotype:=self.getOwnedType('CodeSystemReference').oclAsType(UML::Stereotype);
+	CodeSystemVersionReferenceStereotype:=self.getOwnedType('CodeSystemVersionReference').oclAsType(UML::Stereotype);
+	ConceptReferenceStereotype:=self.getOwnedType('ConceptReference').oclAsType(UML::Stereotype);
+	EnumerationValueDomainStereotype:=self.getOwnedType('EnumeratedValueDomain').oclAsType(UML::Stereotype);
+	IdentifiedItemStereotype:=self.getOwnedType('IdentifiedItem').oclAsType(UML::Stereotype);
+	IdEntryStereotype:=self.getOwnedType('IdEntry').oclAsType(UML::Stereotype);
+	PermissibleValueStereotype:=self.getOwnedType('PermissibleValue').oclAsType(UML::Stereotype);
+	PossibleValueStereotype:=self.getOwnedType('PossibleValue').oclAsType(UML::Stereotype);
+	ResourceReferenceStereotype:=self.getOwnedType('ResourceReference').oclAsType(UML::Stereotype);
+	ScopedIdentifierStereotype:=self.getOwnedType('ScopedIdentifier').oclAsType(UML::Stereotype);
+	ValueSetDefinitionReferenceStereotype:=self.getOwnedType('ValueSetDefinitionReference').oclAsType(UML::Stereotype);
+	ValueSetReferenceStereotype:=self.getOwnedType('ValueSetReference').oclAsType(UML::Stereotype);
+	return;
+}
+	
+//////////////////////////////////////////
+// query returns true if self is directly or indirectly a subtype of given Classifier
+query UML::Classifier::isSubtypeOf(stereotype:UML::Classifier):Boolean=
+        (self=stereotype) or (self.name=stereotype.name)
+        or self.allParents()->select(g|(stereotype=g) or (stereotype.name=g.name))->notEmpty()
+        ;
+// query returns set of Classifiers which are directly or indirectly the parents of self
+query UML::Classifier::allParents():OrderedSet(UML::Classifier)=
+        self.general->select(g|(g<>self) and (g<>null)and not(g.oclIsUndefined()))
+        ->union(self.general->select(g|(g<>self) and (g<>null)and not(g.oclIsUndefined())).allParents())->asOrderedSet();
+//  set the 'archetypeName' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setArchetypeName(value:String){
+	self.setTagValueConditionally('archetypeName',value);
+}
+//  set the 'archetype_ref' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setArchetype_ref(value:String){
+	self.setTagValueConditionally('archetype_ref',value);
+}
+//  set the 'custodian_namespace' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setCustodian_namespace(value:String){
+	self.setTagValueConditionally('custodian_namespace',value);
+}
+//  set the 'has_aom_ids' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setHas_aom_ids(value:Boolean){
+	self.setTagValueConditionally('has_aom_ids',value);
+}
+
+//  set the 'original_namespace' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setOriginal_namespace(value:String){
+	self.setTagValueConditionally('original_namespace',value);
+}
+//  set the 'original_publisher' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setOriginal_publisher(value:String){
+	self.setTagValueConditionally('original_publisher',value);
+}
+//  set the 'custodian_organisation' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setCustodian_organisation(value:String){
+	self.setTagValueConditionally('custodian_organisation',value);
+}
+//  set the 'licence' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setLicence(value:String){
+	self.setTagValueConditionally('licence',value);
+}
+
+//  set the 'archetype_id' tag value of this stereotype instance to the provided value		
+//helper Stdlib::Element::setArchetype_id(value:String){
+//	self.setTagValueConditionally('archetype_id',value);
+//}
+//  set the 'rm_package' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setRm_package(value:String){
+	self.setTagValueConditionally('rm_package',value);
+}
+//  set the 'rm_package' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setRelease_version(value:String){
+	self.setTagValueConditionally('release_version',value);
+}
+//  set the 'version_status' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setVersion_status(value:String){
+	self.setTagEnumerationValueConditionally('version_status',value);
+}
+//  set the 'build_count' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setBuild_count(value:Integer){
+	self.setTagValueConditionally('build_count',value);
+}
+
+
+//  set the 'lifecycle_state' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setLifecycleState(value:String){
+	self.setTagEnumerationValueConditionally('lifecycle_state',value);
+}
+//  set the 'resource_package_uri' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setResourcePackageUri(value:String){
+	self.setTagValueConditionally('resource_package_uri',value);
+}
+//  set the 'uid' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setUid(value:String){
+	self.setTagValueConditionally('uid',value);
+}
+
+//  set the 'is_deprecated' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setIs_deprecated(value:Boolean){
+	self.setTagValueConditionally('is_deprecated',value);
+}
+//  set the 'parentResource' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setParentResource(value:String){
+	self.setTagValueConditionally('parentResource',value);
+}
+
+//  set the value of tag named tagName, on this Stereotype instance, to a list of String 		
+helper Stdlib::Element::setValue(tagName:String,anyObject:Sequence(String)){
+        return self.setTagValueConditionally(tagName,anyObject);
+}
+//  set the 'original_author' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setOriginalAuthor(value:Sequence(String)){
+	self.setValue('original_author',value);
+}
+//  set the 'other_contributors' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setOtherContributors(value:Sequence(String)){
+	self.setValue('other_contributors',value);
+}
+//  set the 'otherDetails' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setOtherDetails(value:Sequence(String)){
+	self.setValue('otherDetails',value);
+}
+//  set the 'references' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setReferences(value:Sequence(String)){
+	self.setValue('references',value);
+}
+//  set the 'ip_acknowledgements' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setIp_acknowledgements(value:Sequence(String)){
+	self.setValue('ip_acknowledgements',value);
+}
+//  set the 'otherDetails_id' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setOtherDetails_id(value:Sequence(String)){
+	self.setValue('otherDetails_id',value);
+}
+//  set the 'references_id' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setReferences_id(value:Sequence(String)){
+	self.setValue('references_id',value);
+}
+//  set the 'ip_acknowledgements_id' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setIp_acknowledgements_id(value:Sequence(String)){
+	self.setValue('ip_acknowledgements_id',value);
+}
+
+//  set the 'other_details' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setOther_details(value:Sequence(String)){
+	self.setValue('other_details',value);
+}
+//  set the 'other_translation_details' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setOther_translation_details(value:Sequence(String)){
+	self.setValue('other_translation_details',value);
+}
+//  set the 'other_translation_details' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setOther_translation_details_id(value:Sequence(String)){
+	self.setValue('other_translation_details_id',value);
+}
+//  set the 'original_resource_uri' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setOriginal_resource_uri(value:Sequence(String)){
+	self.setValue('original_resource_uri',value);
+}
+//  set the 'keywords' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setKeywords(value:Sequence(String)){
+	self.setValue('keywords',value);
+}
+//  set the 'use' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setUse(value:String){
+	self.setTagValueConditionally('use',value);
+}
+//  set the 'text' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setText(value:String){
+	self.setTagValueConditionally('text',value);
+}
+
+//  set the 'misuse' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setMisuse(value:String){
+	self.setTagValueConditionally('misuse',value);
+}
+//  set the 'copyright' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setCopyright(value:String){
+	self.setTagValueConditionally('copyright',value);
+}
+//  set the 'purpose' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setPurpose(value:String){
+	self.setTagValueConditionally('purpose',value);
+}
+//  set the 'accreditation' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setAccreditation(value:String){
+	self.setTagValueConditionally('accreditation',value);
+}
+//  set the 'accreditation' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setVersion_last_translated(value:String){
+	self.setTagValueConditionally('version_last_translated',value);
+}
+
+//  set the 'value' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setValue(value:Integer){
+	self.setTagValueConditionally('value',value);
+}
+//  set the 'uri' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setURI(value:String){
+	self.setTagValueConditionally('uri',value);
+}
+//  set the 'annotationNodeId' tag value of this stereotype instance to the provided value		
+//helper Stdlib::Element::setAnnotationNodeId(value:String){
+//	self.setTagValueConditionally('annotationNodeId',value);
+//}
+	
+
+//  set the 'archetypeType' tag value of this stereotype instance to the provided value		
+helper Stdlib::Element::setArchetypeType(value:String){
+	self.setTagEnumerationValueConditionally('archetypeType',value);
+}
+
+
+//  get the 'resource_package_uri' tag value of the stereotype instance applied to this UML Element
+helper UML::Element::getResourcePackageUri():String=
+	self.getStringValue(AuthoredResourceStereotype,'resource_package_uri');
+//  get the 'rmPublisher' tag value of the stereotype instance applied to this UML Element
+helper UML::Element::getRmPublisher():String=
+	self.getStringValue(ReferenceModelReferenceModelStereotype,'rmPublisher');
+//  get the 'rmVersion' tag value of the stereotype instance applied to this UML Element
+helper UML::Element::getRmVersion():String=
+	self.getStringValue(ReferenceModelReferenceModelStereotype,'rmVersion');
+//  get the 'rm_package' tag value of the stereotype instance applied to this UML Element
+helper UML::Element::getRm_package():String=
+	self.getStringValue(ArchetypeLibraryStereotype,'rm_package');
+
+//  get the 'other_contributors' tag value of the stereotype instance applied to this UML Element
+helper UML::Element::getOtherContributors():Sequence(String)=
+	self.getStringValues(AuthoredResourceStereotype,'other_contributors');
+//  get the 'amlVersion' tag value of the stereotype instance applied to this UML Element
+query UML::Element::getAdlVersion():String=
+	self.getStringValue(ArchetypeStereotype,'amlVersion');
+
+// in context of Archetype Package: navigate to ArchetypeLibrary, and get rmVersion from imported <<ReferenceModel>>, 
+query UML::Package::getRm_release():String=
+	self.nestingPackage.packageImport.importedPackage->select(p|p.stereotypedBy('ReferenceModel'))
+	->asSequence()->first().getRmVersion();
+//  get the 'is_deprecated' tag value of the <<ObjectConstraint>> stereotype instance applied to this UML Element
+query UML::Element::getIs_deprecated():Boolean=
+	self.getBooleanValue(ObjectConstraintStereotype,'is_deprecated');
+	
+//  get the 'is_controlled' tag value of the <<Archetype>> stereotype instance applied to this UML Element
+query UML::Element::getIs_controlled():Boolean=
+	self.getBooleanValue(ArchetypeStereotype,'is_controlled');
+//  get the 'is_generated' tag value of the <<Archetype>> stereotype instance applied to this UML Element
+query UML::Element::getIs_generated():Boolean=
+	self.getBooleanValue(ArchetypeStereotype,'is_generated');
+//  get the 'build_count' tag value of the <<Archetype>> stereotype instance applied to this UML Element
+query UML::Element::getBuild_count():Integer=
+	self.getIntegerValue(ArchetypeStereotype,'build_count');
+//  get the 'release_version' tag value of the <<Archetype>> stereotype instance applied to this UML Element
+query UML::Element::getRrelease_version():String=
+	self.getStringValue(ArchetypeStereotype,'release_version');
+//  get the 'uri' tag value of the <<ConceptReference>> stereotype instance applied to this UML Element
+query UML::Element::getUri():String=
+	self.getStringValue(ConceptReferenceStereotype,'uri');
+//  get the 'version_status' tag value of the <<Archetype>> stereotype instance applied to this UML Element
+query UML::Element::getVersion_status():UML::EnumerationLiteral=
+	self.getInstanceValue(ArchetypeStereotype,'version_status').oclAsType(UML::EnumerationLiteral);
+//  get the 'ref' tag value of the <<IdEntry>> stereotype instance applied to this UML Element
+query UML::Element::getRef():String=
+	self.getInstanceValue(IdEntryStereotype,'ref').oclAsType(UML::EnumerationLiteral).name;
+	
+//  get the 'concept' tag value of the <<Archetype>> stereotype instance applied to this UML Element
+query UML::Element::getConcept():UML::EnumerationLiteral=
+	self.getInstanceValue(ArchetypeStereotype,'').oclAsType(UML::EnumerationLiteral);
+
+//  get the 'current_revision' tag value of the <<AuthoredResource>> stereotype instance applied to this UML Element
+query UML::Element::getCurrent_revision():String=
+	self.getStringValue(AuthoredResourceStereotype,'current_revision');
+//  get the 'uid' tag value of the <<AuthoredResource>> stereotype instance applied to this UML Element
+query UML::Element::getUid():String=
+	self.getStringValue(AuthoredResourceStereotype,'uid');
+
+//  get the 'annotationNodeId' tag value of the <<ResourceAnnotationNodeItem>> stereotype instance applied to this UML Element
+//query UML::Element::getAnnotationNodeId():String=
+//	self.getStringValue(ResourceAnnotationNodeItemStereotype,'annotationNodeId');
+
+
+//  get the 'text' tag value of the <<IdEntry>> stereotype instance applied to this UML Element
+query UML::Element::getText():String=
+	self.getStringValue(IdEntryStereotype,'text');
+//  get the <<ResourceTranslation>> Enumeration (which is the natural language) used by this element (via a Usage whose name is the same as provided name)
+//	used to locate the original language
+query UML::Element::getLanguage(name:String):UML::Enumeration=
+	self.oclAsType(UML::NamedElement).clientDependency->select(d|d.oclIsKindOf(UML::Usage)and (d.name=name)).supplier
+	->select(s|s.stereotypedBy('ResourceTranslation')).oclAsType(UML::Enumeration)
+	->asSequence()->first();
+//  get the <<ResourceTranslation>> Enumeration which is the Original Language of an <<Archetype>>
+query UML::Element::getOriginalLanguage():UML::Enumeration=self.getLanguage('original_language');
+//  get the <<ResourceTranslation>> Enumeration which is the Terminology Original Language of an <<Archetype>>
+query UML::Element::getTerminologyOriginalLanguage():UML::Enumeration=self.getLanguage('terminology_original_language');
+//  get all the attributes of this Classifiers, including all attributes in transitive closure of parents
+query UML::Classifier::getAllAttributes():OrderedSet(UML::Property){
+                var properties:OrderedSet(UML::Property)=self.attribute->asOrderedSet();
+                properties+=self.allParents().attribute;
+                return properties;
+        }
+// true if this Element has an applied stereotype of the given name        
+query UML::Element::stereotypedBy(name:String):Boolean{
+        self.getAppliedStereotypes()->forEach(s){if(s.isStereotypeMatch(name))then {return true;}else{}endif;};
+        return false;
+}
+// true if this Classifier matches the given name, or this element's qualified name matchi the given name, or it any of the parents of this Classifier matches the name
+query UML::Classifier::isStereotypeMatch(name:String):Boolean{
+        if(
+                (self.name=name)
+                or (self.qualifiedName=name)
+                )then {return true;}else{}endif;
+        self.general->select(g|(g<>null)and not(g.oclIsUndefined()))->forEach(g){if(g.isStereotypeMatch(name))then{return true;}else{}endif;};
+        return false;
+}
+// true if this element has the given stereotype applied
+query UML::Element::isStereotypeApplied(stereotype:UML::Stereotype):Boolean=
+        self.stereotypedBy(stereotype.name);
+// get the nearest package which transitively contains this element
+query UML::Element::getNearestPackage():UML::Package=
+	if(self.oclIsKindOf(UML::Package))then{return self.oclAsType(UML::Package);}
+	else {
+        if(self.oclIsUndefined() or self.owner.oclIsUndefined()) then {return null;}else{
+        	return self.owner.getNearestPackage();
+        }endif;
+	}endif;
+// returns a UML PrimitiveType from either the UML Library or the NIEM-UML XML Library which matches this String
+query String::libraryPrimitiveKind():UML::PrimitiveType{
+	if(self.toUpper()='DOUBLE')then{
+		umlLibrary.ownedType->select(t|t.name='Real').oclAsType(UML::PrimitiveType)->forEach(type){return type;};
+	}endif;
+	umlLibrary.ownedType->select(t|t.name.toUpper()=self.toUpper()).oclAsType(UML::PrimitiveType)->forEach(type){return type;};
+	return umlXmlLibrary.ownedType->select(t|t.name.toUpper()=self.toUpper()).oclAsType(UML::PrimitiveType)->asSequence()->first();
+}
+// create an ADL StringDictionaryItem with the indicated value and id
+constructor ADL::StringDictionaryItem::StringDictionaryItem(valueIn:String,idIn:String){
+	id:=idIn;
+	value:=valueIn;
+}
+/////////////////////////////////////////////////////platform binding : no abstract counterparts
+modeltype CMOF  uses 'http://www.eclipse.org/emf/2002/Ecore';
+
+property blackboxHook:CMOF::EPackage=null;
+
+helper String::setAnnotationDetail(inout annotation:CMOF::EAnnotation,value:String){
+        var parametermap:CMOF::EStringToStringMapEntry=new CMOF::EStringToStringMapEntry();
+        parametermap.key:=self;
+        parametermap.value:=value;
+        annotation.details+=parametermap;
+        return;
+}
+constructor CMOF::EAnnotation::EAnnotation(sourceIn:String){
+        result.source:=sourceIn;
+}
+query UML::InstanceSpecification::getStringValue(tagName:String):String=self.getStringValues(tagName)->asSequence()->first();
+query UML::InstanceSpecification::getStringValues(tagName:String):Sequence(String)=self.getSlot(tagName).value.oclAsType(UML::LiteralString).value;
+// get the List of Instance values of the tag named tagName for the specified stereotype applied to this Element
+query UML::Element::getInstanceValues(stereotype:UML::Stereotype,tagName:String):Sequence(InstanceSpecification)=
+        self.getValues(stereotype,tagName).oclAsType(UML::InstanceValue).instance;
+// get the Value Specification for the tag value named tagName for the specified stereotype applied to this Element
+query UML::Element::getValue(stereotype:UML::Stereotype,tagName:String):UML::ValueSpecification=
+        self.getValues(stereotype,tagName)->first();
+// get the list of the Value Specifications for the tag value named tagName for the specified stereotype applied to this Element
+query UML::Element::getValues(stereotype:UML::Stereotype,tagName:String):Sequence(UML::ValueSpecification)=
+        self.appliedStereotypeInstance.slot
+        ->select(s|(s.definingFeature.name=tagName)
+                and (stereotype.isSubtypeOf(s.definingFeature.owner.oclAsType(UML::Classifier)))
+        ).value->asSequence();
+
+query UML::InstanceSpecification::getPurpose():String=
+	self.getSlot('purpose').getSlotStringValue();
+query Stdlib::Element::getAccreditation():String=self.oclAsType(UML::InstanceSpecification).getAccreditation();
+query UML::InstanceSpecification::getAccreditation():String=
+	self.getSlot('accreditation').getSlotStringValue();
+query Stdlib::Element::getUse():String=self.oclAsType(UML::InstanceSpecification).getUse();
+query UML::InstanceSpecification::getUse():String=
+	self.getSlot('use').getSlotStringValue();
+query Stdlib::Element::getMisuse():String=self.oclAsType(UML::InstanceSpecification).getMisuse();
+query UML::InstanceSpecification::getMisuse():String=
+	self.getSlot('misuse').getSlotStringValue();
+	
+query UML::InstanceSpecification::getCopyright():String=
+	self.getSlot('copyright').getSlotStringValue();
+	
+query UML::InstanceSpecification::getOriginal_resource_uri():String=
+	self.getSlot('original_resource_uri').getSlotStringValue();
+query UML::InstanceSpecification::getRDIOtherDetails():String=
+	self.getSlot('other_details').getSlotStringValue();
+	
+query UML::InstanceSpecification::getKeywords():Sequence(String)=
+	self.getSlot('keywords').getSlotStringValues();
+	
+	
+	
+query UML::Slot::getSlotStringValues():Sequence(String)=
+	self.value.oclAsType(UML::LiteralString).value;	
+		
+query UML::Slot::getSlotStringValue():String=
+	self.getSlotValue().oclAsType(UML::LiteralString).value;	
+query UML::Slot::getSlotValue():ValueSpecification=
+	self.value->asSequence()->first();	
+//
+helper UML::InstanceSpecification::setEnumerationValue(tagName:String,anyObject:String){
+        var slot:UML::Slot=self.getSlot(tagName);
+        var enumeration:UML::Enumeration=slot.definingFeature.type.oclAsType(UML::Enumeration);
+        tagName.clearValue(slot);
+        slot.createInstanceValue(enumeration).instance:=enumeration.ownedLiteral->select(l|l.name=anyObject)->asSequence()->first();
+        return;
+}
+helper UML::InstanceSpecification::addEnumerationValue(tagName:String,anyObject:UML::EnumerationLiteral){
+        var slot:UML::Slot=self.getSlot(tagName);
+        slot.createInstanceValue(anyObject).instance:=anyObject;
+        return;
+}
+
+
+helper UML::Slot::createInstanceValue(in type:UML::Type):UML::InstanceValue{
+        var newValue:UML::InstanceValue=new UML::InstanceValue();
+        newValue.type:=type;
+        newValue.owningSlot:=self;
+        return newValue;
+}
+helper UML::Slot::createInstanceValue(in type:UML::EnumerationLiteral):UML::InstanceValue{
+        var newValue:UML::InstanceValue=new UML::InstanceValue();
+        newValue.type:=type.enumeration;
+        newValue.owningSlot:=self;
+        return newValue;
+}
+helper UML::InstanceSpecification::setValue(tagName:String,anyObject:Sequence(String)){
+        var slot:UML::Slot=self.getSlot(tagName);
+        tagName.clearValue(slot);
+        anyObject->forEach(a){tagName.createLiteralString(slot).value:=a;};
+        return;
+}
+
+helper UML::InstanceSpecification::setValue(tagName:String,anyObject:String){
+        var slot:UML::Slot=self.getSlot(tagName);
+        tagName.clearValue(slot);
+        tagName.createLiteralString(slot).value:=anyObject;
+        return;
+}
+helper UML::InstanceSpecification::setValue(tagName:String,anyObject:Boolean){
+        var slot:UML::Slot=self.getSlot(tagName);
+        tagName.clearValue(slot);
+        tagName.createLiteralBoolean(slot).value:=anyObject;
+        return;
+}
+helper UML::InstanceSpecification::setValue(tagName:String,anyObject:Integer){
+        var slot:UML::Slot=self.getSlot(tagName);
+        tagName.clearValue(slot);
+        tagName.createLiteralInteger(slot).value:=anyObject;
+        return;
+}
+helper String::clearValue(inout slot: UML::Slot){
+        slot.value:=Sequence{};
+        return;
+}
+helper String::enableSlotValue(inout slot: UML::Slot){
+		if((slot.value=null)or slot.value->isEmpty())then{
+        	slot.value:=Sequence{};
+        }endif;
+        return;
+}
+helper String::createLiteralString(inout slot: UML::Slot):UML::LiteralString{
+        var newValue:UML::LiteralString=new UML::LiteralString();
+        slot.value+=newValue;
+        return newValue;
+}
+helper String::createLiteralBoolean(inout slot: UML::Slot):UML::LiteralBoolean{
+        var newValue:UML::LiteralBoolean=new UML::LiteralBoolean();
+        slot.value+=newValue;
+        return newValue;
+}
+helper String::createLiteralInteger(inout slot: UML::Slot):UML::LiteralInteger{
+        var newValue:UML::LiteralInteger=new UML::LiteralInteger();
+        slot.value+=newValue;
+        return newValue;
+}
+
+helper UML::InstanceSpecification::getSlot(tagName:String):UML::Slot{
+        var slot:UML::Slot=self.slot->select(s|not(s.definingFeature.oclIsUndefined())and (s.definingFeature.name=tagName))->asSequence()->first();
+        if(slot.oclIsUndefined())then{
+                slot:=new UML::Slot();
+                slot.owningInstance:=self;//.getStereotypeApplication();
+                var definingProperty:UML::Property=self.classifier.getAllAttributes()->select(a|a.name=tagName)->asSequence()->first();
+                if(not(definingProperty.oclIsUndefined()))then{
+	                slot.definingFeature:=definingProperty;
+                }endif;
+        }else{}endif;
+        return slot;
+}
+// get the value of the 'copyright' tag on this applied Stereotype	
+query Stdlib::Element::getCopyright():String=self.oclAsType(UML::InstanceSpecification).getCopyright();
+// from this list of detail key/value pairs, get the values corresponding to the provided key
+query OclAny::getDetail(key:String):String=self.oclAsType(CMOF::EAnnotation).details->select(d|d.key=key).value->asSequence()->first();
+//  get the first integer value of an operand named 'value' from this expression
+query UML::Expression::getValue():Integer=
+	self.operand
+	->select(o|(o.name='value')and o.oclIsKindOf(UML::LiteralInteger)).oclAsType(UML::LiteralInteger).value
+	->asSequence()->first();
+
+helper UML::InstanceSpecification::addValue(tagName:String,anyObject:UML::InstanceSpecification){
+        var slot:UML::Slot=self.findSlot(tagName);
+        //clearValue(slot);// TODO: temporarily enable: this makes "details" work for one value, otherwise slot is there but empty
+        slot.createInstanceValue().instance:=anyObject;
+        return;
+}
+helper UML::InstanceSpecification::findSlot(tagName:String):UML::Slot{
+        var slot:UML::Slot=self.slot->select(s|not(s.definingFeature.oclIsUndefined())and (s.definingFeature.name=tagName))->asSequence()->first();
+        if(slot.oclIsUndefined())then{
+                slot:=new UML::Slot();
+                slot.owningInstance:=self;//.getStereotypeApplication();
+                var definingProperty:UML::Property=self.classifier.getAllAttributes()->select(a|a.name=tagName)->asSequence()->first();
+                if(not(definingProperty.oclIsUndefined()))then{
+	                slot.definingFeature:=definingProperty;
+                }endif;
+        }else{}endif;
+        return slot;
+}
+	
+helper Stdlib::Element::setConcept(value:InstanceSpecification){
+	self.oclAsType(UML::InstanceSpecification).setValue('concept',value);
+}
+
+helper UML::Slot::createInstanceValue():UML::InstanceValue{
+        var newValue:UML::InstanceValue=new UML::InstanceValue();
+        newValue.owningSlot:=self;
+        return newValue;
+}
+helper UML::InstanceSpecification::setValue(tagName:String,anyObject:UML::InstanceSpecification){
+        var slot:UML::Slot=self.getSlot(tagName);
+        tagName.clearValue(slot);
+        slot.createInstanceValue().instance:=anyObject;
+        return;
+}
+
+///////////////// following may be declared abstract
+// get the Set of EnumerationLiterals which are defined by the value_set_members tag of applied Stereotype <<ArchetypeTerm>> on this EnumerationLiteral
+query UML::EnumerationLiteral::getValue_set_members():Set(UML::EnumerationLiteral){
+	return self.getInstanceValues(ARCHETYPE_TERMStereotype,'value_set_members').oclAsType(UML::EnumerationLiteral)->asSet();
+}
+	
+// get the set of EnumerationLiterals for the tag named 'term_bindings" on the applied stereotype <<ArchetypeTerm>>  of this EnumerationLiteral
+query UML::EnumerationLiteral::getTerm_bindings():Set(UML::EnumerationLiteral){
+	return self.getInstanceValues(ARCHETYPE_TERMStereotype,'term_bindings').oclAsType(UML::EnumerationLiteral)->asSet();
+}
+// get the value of the 'purpose' tag on this applied Stereotype	
+query Stdlib::Element::getPurpose():String=self.oclAsType(UML::InstanceSpecification).getPurpose();
+	
+	
+// get the value of the 'keywords' tag on this applied Stereotype	
+query Stdlib::Element::getKeywords():Sequence(String)=self.oclAsType(UML::InstanceSpecification).getKeywords();
+  	
+// set the value of the tag named tagName on this applied Stereotype	to the provided value
+helper Stdlib::Element::setTagEnumerationValueConditionally(tagName:String,anyObject:String){
+                self.oclAsType(UML::InstanceSpecification).setEnumerationValue(tagName,anyObject);
+}
+
+// add the provided EnumerationLiteral to the 'value_set_members' tag value on the applied Stereotype <<ArchetypeTerm>> of this EnumerationLiteral
+helper UML::EnumerationLiteral::addValue_set_members(value:UML::EnumerationLiteral){
+	var instance:UML::InstanceSpecification=self.applyStereotype(ARCHETYPE_TERMStereotype).oclAsType(UML::InstanceSpecification);
+	instance.addEnumerationValue('value_set_members',value);
+}
+// add the provided EnumerationLiteral to the 'term_bindings' tag value on the applied Stereotype <<ArchetypeTerm>> of this EnumerationLiteral
+helper UML::EnumerationLiteral::addTerm_bindings(value:UML::EnumerationLiteral){
+	var instance:UML::InstanceSpecification=self.applyStereotype(ARCHETYPE_TERMStereotype).oclAsType(UML::InstanceSpecification);
+	instance.addEnumerationValue('term_bindings',value);
+}
+
+// set the value of the tag named tagName on this applied Stereotype Instance to the provided String value
+helper Stdlib::Element::setTagValueConditionally(tagName:String,anyObject:String){
+        if((anyObject=null)or(anyObject.oclIsInvalid())or(anyObject.oclIsUndefined()))then{}else{
+                self.oclAsType(UML::InstanceSpecification).setValue(tagName,anyObject);
+        }endif;
+}
+// set the value of the tag named tagName on this applied Stereotype Instance to the provided Boolean value
+helper Stdlib::Element::setTagValueConditionally(tagName:String,anyObject:Boolean){
+        if((anyObject=null)or(anyObject.oclIsInvalid())or(anyObject.oclIsUndefined()))then{}else{
+                self.oclAsType(UML::InstanceSpecification).setValue(tagName,anyObject);
+        }endif;
+}
+// set the value of the tag named tagName on this applied Stereotype Instance to the provided Integer value
+helper Stdlib::Element::setTagValueConditionally(tagName:String,anyObject:Integer){
+        if((anyObject=null)or(anyObject.oclIsInvalid())or(anyObject.oclIsUndefined()))then{}else{
+                self.oclAsType(UML::InstanceSpecification).setValue(tagName,anyObject);
+        }endif;
+}
+
+// set the value of the tag named tagName on this applied Stereotype Instance to the provided Sequence of Strings value
+helper Stdlib::Element::setTagValueConditionally(tagName:String,anyObject:Sequence(String)){
+                self.oclAsType(UML::InstanceSpecification).setValue(tagName,anyObject);
+}
+
+// get the set of Stereotypes which have been applied to this Element
+query UML::Element::getAppliedStereotypes():Set(UML::Stereotype){
+        if((self.appliedStereotypeInstance=null) or self.appliedStereotypeInstance.oclIsUndefined())then{return Set{};}else{}endif;
+        var stereotypes:Set(UML::Stereotype)=self.appliedStereotypeInstance.classifier
+        ->select(c|(c<>null) and not(c.oclIsUndefined()) and c.oclIsKindOf(UML::Stereotype)).oclAsType(UML::Stereotype)
+        ->asSet();
+        return stereotypes;
+        }
+// returns a UML PrimitiveType from either the UML Library or the NIEM-UML XML Library which matches this String
+helper Stdlib::Element::StringDictionaryItems(name:String):Sequence(ADL::StringDictionaryItem){
+	return self.oclAsType(UML::InstanceSpecification).StringDictionaryItems(name);
+}
+	
+// get a list of name/value pairs corresponding to the given name (and name+'Id'), instantiate and return a list of StringDictionaryItems corresponding to that list of name/value pairs
+helper UML::InstanceSpecification::StringDictionaryItems(name:String):Sequence(ADL::StringDictionaryItem){
+	var ids:Sequence(String)=self.getStringValues(name+'Id');
+	var values:Sequence(String)=self.getStringValues(name);
+	var items:Sequence(ADL::StringDictionaryItem);
+	ids->forEach(id){
+		var value:String=values->at(ids->indexOf(id));
+		items+=new StringDictionaryItem(value,id);
+	};
+	return items;	
+}
+// set the text value of this mixed XML Element to the provided value
+helper Stdlib::Element::setMixedText(text:String){
+        var annotation:CMOF::EAnnotation=new CMOF::EAnnotation('setMixedText');
+        annotation._references+=self.oclAsType(CMOF::EObject);
+         "text".setAnnotationDetail(annotation,text);
+        blackboxHook.eAnnotations+=annotation;
+        return;
+        }
+
+// get the text value of this mixed XML Element 
+helper Stdlib::Element::getMixedText():String{
+        var annotation:CMOF::EAnnotation=new CMOF::EAnnotation('getMixedText');
+        annotation._references+=self.oclAsType(CMOF::EObject);
+        blackboxHook.eAnnotations+=annotation;
+        return annotation.getDetail('text');
+        }
+// set the value of the "item" property of the provided ADL::EXPRLEAF to this
+helper Stdlib::Element::setItem(inout leaf:ADL::EXPRLEAF){
+	leaf.item:= self.oclAsType(CMOF::EObject);
+	return;
+}
+        
+// get the instance of an applied Stereotype corresponding to the provided stereotype
+query UML::Element::appliedStereotype(stereotype:UML::Stereotype):Stdlib::Element=self.appliedStereotypeInstance;
+// apply the provided stereotype to this Element and return an instance of the applied Stereotype
+helper UML::Element::applyStereotype(stereotype:UML::Stereotype):Stdlib::Element{
+        var instanceSpecification: UML::InstanceSpecification=self.appliedStereotypeInstance;
+        if(instanceSpecification.oclIsUndefined())then{
+                instanceSpecification:=new UML::InstanceSpecification();
+                instanceSpecification.stereotypedElement:=self;
+        }else{}endif;
+        if(instanceSpecification.classifier->select(s|s.isSubtypeOf(stereotype))->isEmpty())then{
+                instanceSpecification.classifier+=stereotype;
+        }else{}endif;
+        return instanceSpecification;
+};
+//  get the 'lifecycle_state' tag value of the stereotype instance applied to this UML Element
+helper UML::Element::getLifecycleState():String=
+	self.getInstanceValue(AuthoredResourceStereotype,'lifecycle_state').oclAsType(UML::EnumerationLiteral).name;
+//  get the 'archetypeType' tag value of the stereotype instance applied to this UML Element
+query UML::Element::getArchetypeType():UML::EnumerationLiteral=
+	self.getInstanceValue(ArchetypeStereotype,'archetypeType').oclAsType(UML::EnumerationLiteral);
+	
+	
+//  get the 'ip_acknowledgements_id' tag value of the <<AuthoredResource>> stereotype instance applied to this UML Element
+query UML::Element::getIpAcknowledgements_id():Sequence(String)=
+	self.getValues(AuthoredResourceStereotype,'ip_acknowledgements_id').oclAsType(UML::LiteralString).value;
+//  get the 'ip_acknowledgements' tag value of the <<AuthoredResource>> stereotype instance applied to this UML Element
+query UML::Element::getIpAcknowledgements():Sequence(String)=
+	self.getValues(AuthoredResourceStereotype,'ip_acknowledgements').oclAsType(UML::LiteralString).value;
+//  get the 'references_id' tag value of the <<AuthoredResource>> stereotype instance applied to this UML Element
+query UML::Element::getReferences_id():Sequence(String)=
+	self.getValues(AuthoredResourceStereotype,'references_id').oclAsType(UML::LiteralString).value;
+//  get the 'references' tag value of the <<AuthoredResource>> stereotype instance applied to this UML Element
+query UML::Element::getReferences():Sequence(String)=
+	self.getValues(AuthoredResourceStereotype,'references').oclAsType(UML::LiteralString).value;
+//  get the 'otherDetails_id' tag value of the <<AuthoredResource>> stereotype instance applied to this UML Element
+query UML::Element::getOtherDetails_id():Sequence(String)=
+	self.getValues(AuthoredResourceStereotype,'otherDetails_id').oclAsType(UML::LiteralString).value;
+//  get the 'otherDetails' tag value of the <<AuthoredResource>> stereotype instance applied to this UML Element
+query UML::Element::getOtherDetails():Sequence(String)=
+	self.getValues(AuthoredResourceStereotype,'otherDetails').oclAsType(UML::LiteralString).value;
+
+
+
+//  get the 'other_metadata_id' tag value of the <<AuthoredResource>> stereotype instance applied to this UML Element
+query UML::Element::getOther_metadata_id():Sequence(String)=
+	self.getValues(ArchetypeStereotype,'other_metadata_id').oclAsType(UML::LiteralString).value;
+//  get the 'other_metadata' tag value of the <<AuthoredResource>> stereotype instance applied to this UML Element
+query UML::Element::getOther_metadata():Sequence(String)=
+	self.getValues(ArchetypeStereotype,'other_metadata').oclAsType(UML::LiteralString).value;
+
+//  get the 'id' tag value of the <<IdentifiedItem>> stereotype instance applied to this UML Element
+query UML::Element::getNodeId():Sequence(String)=
+	self.getInstanceValues(IdentifiedItemStereotype,'id').oclAsType(UML::EnumerationLiteral).name;
+// get the Integer value of the tag value named tagName for the specified stereotype applied to this Element
+query UML::Element::getIntegerValue(stereotype:UML::Stereotype,tagName:String):Integer=
+        self.getValue(stereotype,tagName).oclAsType(UML::LiteralInteger).value;
+
+// get the Boolean value of the tag value named tagName for the specified stereotype applied to this Element
+query UML::Element::getBooleanValue(stereotype:UML::Stereotype,tagName:String):Boolean=
+        self.getValue(stereotype,tagName).oclAsType(UML::LiteralBoolean).value;
+// get the String value of the tag value named tagName for the specified stereotype applied to this Element
+query UML::Element::getStringValue(stereotype:UML::Stereotype,tagName:String):String=
+        self.getValue(stereotype,tagName).oclAsType(UML::LiteralString).value;
+// get the List of String values of the tag named tagName for the specified stereotype applied to this Element
+query UML::Element::getStringValues(stereotype:UML::Stereotype,tagName:String):Sequence(String)=
+        self.getValues(stereotype,tagName).oclAsType(UML::LiteralString).value;
+// get the String Value the tag named tagName on this stereotype instance
+query Stdlib::Element::getStringValue(tagName:String):String=self.oclAsType(UML::InstanceSpecification).getStringValue(tagName);
+// get the list of String Values for the tag named tagName on this stereotype instance
+query Stdlib::Element::getStringValues(tagName:String):Sequence(String)=self.oclAsType(UML::InstanceSpecification).getStringValues(tagName);
+
+// get the Instance value of the tag value named tagName for the specified stereotype applied to this Element
+query UML::Element::getInstanceValue(stereotype:UML::Stereotype,tagName:String):InstanceSpecification=
+        self.getValue(stereotype,tagName).oclAsType(UML::InstanceValue).instance;
+        
+// set the value of tag named tagName within this applied Stereotype instance to the value represented by anyObject         
+helper Stdlib::Element::addTagValueConditionally(tagName:String,anyObject:Stdlib::Element){
+        if((anyObject=null)or(anyObject.oclIsInvalid())or(anyObject.oclIsUndefined()))then{}else{
+                self.oclAsType(UML::InstanceSpecification).addValue(tagName,anyObject.oclAsType(UML::InstanceSpecification));
+        }endif;
+}
+// set the 'ref' tag of this applied Stereotype instance to the specified value
+helper Stdlib::Element::setRef(value:InstanceSpecification){
+	self.oclAsType(UML::InstanceSpecification).setValue('ref',value);
+}
+// add the provided value to the 'id' tag of this applied Stereotype instance
+helper Stdlib::Element::addNodeId(value:InstanceSpecification){
+	self.oclAsType(UML::InstanceSpecification).addValue('id',value);
+}
+// find Property which is referencing the owning Classifier of this Property  
+query UML::Property::findReferencingProperty():UML::Property{
+	self.namespace.oclAsType(UML::Type)._typedElementOfType
+		->select(e|e.oclIsKindOf(UML::Property) and e.oclAsType(UML::Property).isComposite).oclAsType(UML::Property)
+		->forEach(p){return p;};
+	return null;	
+}
+        

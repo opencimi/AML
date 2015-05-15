@@ -1,0 +1,1777 @@
+import AMLplatformBinding;
+// also suppressing:
+// siblingOrder; defining_code; magnitude id99992; action_archetype_id
+
+modeltype CMOF  uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype XSD  uses 'http://www.eclipse.org/xsd/2002/XSD';
+modeltype XMLType uses 'http://www.eclipse.org/emf/2003/XMLType';
+modeltype ADL  uses 'http://schemas.openehr.org/v1';
+
+
+
+transformation adlcompare(in adlSource:ADL,in adlTarget:ADL,inout blackboxAdapter:CMOF)
+	extends transformation AMLplatformBinding()
+		;
+	main() {
+	adlcompare_run();
+}	
+property SUPPRESS_KNOWN_PROBLEMS:Boolean=true;
+	
+helper adlcompare_run() {
+		log('adlcompare_run starting now '+adlSource.repr());
+        blackboxHook:=blackboxAdapter.objectsOfType(CMOF::EPackage)->asSequence()->first();
+		// gather source and target archetype documents, verify that there is a one-for-one match
+		var archetypesSource:Set(ADL::PAUTHOREDARCHETYPE)=adlSource.objectsOfType(ADL::DocumentRoot).archetype->asSet();
+		var archetypesTarget:Set(ADL::PAUTHOREDARCHETYPE)=adlTarget.objectsOfType(ADL::DocumentRoot).archetype->asSet();
+		if(archetypesSource->size()<>archetypesTarget->size())then{
+			log('source/target size mismatch source='+archetypesSource->size().repr()+', target='+archetypesTarget->size().repr());
+		}endif;
+		
+		archetypesSource->forEach(source){
+			var sourceMatch:Set(ADL::PAUTHOREDARCHETYPE)=archetypesTarget->select(t|t.archetypeId.physicalId->asSequence()->first()=source.archetypeId.physicalId->asSequence()->first())->asSet();
+			if(sourceMatch->size()<>1)then{
+				log('target mismatch for source='+source.archetypeId.physicalId->asSequence()->first()+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		archetypesTarget->forEach(target){
+			var targetMatch:Set(ADL::PAUTHOREDARCHETYPE)=archetypesSource->select(t|t.archetypeId.physicalId->asSequence()->first()=target.archetypeId.physicalId->asSequence()->first())->asSet();
+			if(targetMatch->size()<>1)then{
+				log('source mismatch for target='+target.archetypeId.physicalId->asSequence()->first()+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching archetypes
+		archetypesSource->forEach(source){
+			var sourceId:String=source.archetypeId.physicalId->asSequence()->first();
+			var target:ADL::PAUTHOREDARCHETYPE=archetypesTarget
+				->select(t|t.archetypeId.physicalId->asSequence()->first().startsWith(sourceId) or sourceId.startsWith(t.archetypeId.physicalId->asSequence()->first()))
+				->asSequence()->first();
+			if(not(target.oclIsUndefined()))then{
+				source.ARCHETYPE(target,target.archetypeId.physicalId->asSequence()->first());
+			}endif;
+		};
+		log('adlcompare_run end ');
+	}
+		
+
+/*
+	<xs:complexType name="P_AUTHORED_ARCHETYPE">
+		<xs:choice maxOccurs="unbounded">
+			<xs:group ref="P_AUTHORED_RESOURCE"/>
+			<xs:group ref="pArchetypeElements"/>
+			<xs:element name="other_metadata" type="StringDictionaryItem" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:choice>
+		<xs:attributeGroup ref="pArchetypeAttributes"/>
+		<xs:attribute name="rm_release" type="xs:string"/>
+		<xs:attribute name="adl_version" type="xs:string"/>
+	</xs:complexType>
+	<xs:group name="pArchetypeElements">
+		<xs:choice>
+			<xs:element name="artefact_type" type="xs:string"/>
+			<xs:element name="archetype_id" type="P_ARCHETYPE_HRID"/>
+			<xs:element name="parent_archetype_id" type="xs:string" minOccurs="0"/>
+			<xs:element name="definition" type="P_C_COMPLEX_OBJECT"/>
+			<xs:element name="rules" type="RULE_STATEMENT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="terminology" type="P_ARCHETYPE_TERMINOLOGY"/>
+		</xs:choice>
+	</xs:group>
+	<xs:attributeGroup name="pArchetypeAttributes">
+		<xs:attribute name="is_generated" type="xs:boolean" use="optional"/>
+	</xs:attributeGroup>
+
+*/		
+helper ADL::PAUTHOREDARCHETYPE::ARCHETYPE(target:ADL::PAUTHOREDARCHETYPE,qname:String)
+{
+	//log('ARCHETYPE '+self.archetypeId.physicalId+', target:'+target.archetypeId.physicalId);
+	/*
+	if(self.uid.oclIsUndefined())then{
+		if(target.uid.oclIsUndefined())then{}else{
+			log(qname+'==>ARCHETYPE.uid undefined on source, but defined on target '+target.uid.repr());
+		}endif;
+	}else{
+		self.uid.HIER_OBJECT_ID(target.uid,qname+'::uid');
+	}endif;
+	*/
+	if(self.artefactType<>target.artefactType)then{
+		log(qname+'==>ARCHETYPE.adlVersion mismatch source='+self.artefactType->asSequence()->first()+', target='+target.artefactType->asSequence()->first());
+	}endif;
+	/*
+	if(self.artefactObjectType<>target.artefactObjectType)then{
+		log(qname+'==>ARCHETYPE.artefactObjectType mismatch source='+self.artefactObjectType->asSequence()->first()+', target='+target.artefactObjectType->asSequence()->first());
+	}endif;
+	*/
+	if(self.archetypeId->asSequence()->first().oclIsUndefined())then{
+		if(target.archetypeId->asSequence()->first().oclIsUndefined())then{}else{
+			log(qname+'==>ARCHETYPE.archetypeId undefined on source, but defined on target '+target.archetypeId.repr()->asSequence()->first());
+		}endif;
+	}else{
+		self.archetypeId.P_ARCHETYPE_HRID(target.archetypeId->asSequence()->first(),qname+'::archetypeId');
+	}endif;
+
+	if(self.definition->asSequence()->first().oclIsUndefined())then{
+		if(target.definition->asSequence()->first().oclIsUndefined())then{}else{
+			log(qname+'==>ARCHETYPE.definition undefined on source, but defined on target '+target.definition.repr()->asSequence()->first());
+		}endif;
+	}else{
+	
+		self.definition.C_COMPLEX_OBJECT(target.definition->asSequence()->first(),qname+'::definition');
+		
+	}endif;
+	if(self.terminology->asSequence()->first().oclIsUndefined())then{
+		if(target.terminology->asSequence()->first().oclIsUndefined())then{}else{
+			log(qname+'==>ARCHETYPE.terminology undefined on source, but defined on target '+target.terminology.repr()->asSequence()->first());
+		}endif;
+	}else{
+		self.terminology.ARCHETYPE_ONTOLOGY(target.terminology->asSequence()->first(),qname+':terminology');
+	}endif;
+
+	
+	if(self.adlVersion<>target.adlVersion)then{
+		log(qname+'==>ARCHETYPE.adlVersion mismatch source='+self.adlVersion+', target='+target.adlVersion);
+	}endif;
+	if(self.rmRelease<>target.rmRelease)then{
+		log(qname+'==>ARCHETYPE.rmRelease mismatch source='+self.rmRelease+', target='+target.rmRelease);
+	}endif;
+	
+	/*
+	if(self.concept<>target.concept)then{
+		log('ARCHETYPE.concept mismatch source='+self.concept+', target='+target.concept);
+	}endif;
+	*/
+	if(self.parentArchetypeId->asSequence()->first().oclIsUndefined())then{
+		if(target.parentArchetypeId->asSequence()->first().oclIsUndefined())then{}else{
+			log(qname+'==>ARCHETYPE.parentArchetypeId undefined on source, but defined on target '+target.parentArchetypeId.repr()->asSequence()->first());
+		}endif;
+	}else{
+		if(self.parentArchetypeId->asSequence()->first()<>target.parentArchetypeId->asSequence()->first())then{
+			log(qname+'==>ARCHETYPE.parentArchetypeId mismatch source='+self.parentArchetypeId->asSequence()->first()+', target='+target.parentArchetypeId->asSequence()->first());
+		}endif;
+	}endif;
+
+
+		var invariantSources:OrderedSet(ADL::ASSERTION)=self.rules->select(a|a.oclIsKindOf(ADL::ASSERTION)).oclAsType(ADL::ASSERTION)->asOrderedSet();
+		var invariantTargets:OrderedSet(ADL::ASSERTION)=target.rules->select(a|a.oclIsKindOf(ADL::ASSERTION)).oclAsType(ADL::ASSERTION)->asOrderedSet();
+		if(invariantSources->size()<>invariantTargets->size())then{
+			log(qname+'==>source/target invariants size mismatch source='+invariantSources->size().repr()+', target='+invariantTargets->size().repr());
+		}endif;
+		
+		invariantSources->forEach(source){
+			var sourceMatch:Set(ADL::ASSERTION)=invariantTargets->select(t|t._tag=source._tag)->asSet();
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>invariant target mismatch for source='+source._tag+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		invariantTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::ASSERTION)=invariantSources->select(t|t._tag=invtarget._tag)->asSet();
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>invariant source mismatch for target='+invtarget._tag+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching invariants
+		invariantSources->forEach(source){
+			var invtarget:ADL::ASSERTION=invariantTargets->select(t|t._tag=source._tag)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.ASSERTION(invtarget,qname+'::invariants::'+source._tag);
+			}endif;
+		};
+	if(self.isControlled<>target.isControlled)then{
+		log(qname+'==>ARCHETYPE.isControlled mismatch source='+self.isControlled.repr()->asSequence()->first()+', target='+target.isControlled.repr()->asSequence()->first());
+	}endif;
+	if(self.isGenerated<>target.isGenerated)then{
+		log(qname+'==>ARCHETYPE.isGenerated mismatch source='+self.isGenerated.repr()+', target='+target.isGenerated.repr());
+	}endif;
+	if(self.rmRelease<>target.rmRelease)then{
+		log('ARCHETYPE.rmRelease mismatch source='+self.rmRelease.repr()+', target='+target.rmRelease.repr());
+	}endif;
+	
+	
+	self.AUTHORED_RESOURCE(target,qname);	
+}
+/*
+	<xs:group name="P_AUTHORED_RESOURCE">
+		<xs:choice>
+			<xs:element name="uid" type="xs:string" minOccurs="0"/>
+			<xs:element name="original_language" type="xs:string"/>
+			<xs:element name="is_controlled" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="description" type="RESOURCE_DESCRIPTION" minOccurs="0"/>
+			<xs:element name="translations" type="TRANSLATION_DETAILS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="annotations" type="RESOURCE_ANNOTATIONS" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:choice>
+	</xs:group>
+
+*/
+mapping ADL::PAUTHOREDARCHETYPE::AUTHORED_RESOURCE(target:ADL::PAUTHOREDARCHETYPE,qname:String)
+{
+	if(self.originalLanguage->asSequence()->first()<>target.originalLanguage->asSequence()->first())then{
+		log(qname+'==>PAUTHOREDARCHETYPE.originalLanguage mismatch source='+self.originalLanguage->asSequence()->first()+', target='+target.originalLanguage->asSequence()->first());
+	}endif;
+	/*
+	if(self.isControlled.oclIsUndefined())then{
+		if(target.isControlled.oclIsUndefined())then{}else{
+			log(qname+'==>AUTHORED_RESOURCE.is_controlled undefined on source, but defined on target '+target.isControlled.repr());
+		}endif;
+	}else{
+		if(self.isControlled<>target.isControlled)then{
+			log(qname+'==>AUTHORED_RESOURCE.is_controlled unmatched, source='+self.isControlled.repr()+',target='+target.isControlled.repr());
+		}endif;
+	}endif;
+	*/
+	if(self.description->asSequence()->first().oclIsUndefined())then{
+		if(target.description->asSequence()->first().oclIsUndefined())then{}else{
+			log(qname+'==>AUTHORED_RESOURCE.description undefined on source, but defined on target '+target.description.repr()->asSequence()->first());
+		}endif;
+	}else{
+		self.description->asSequence()->first().RESOURCE_DESCRIPTION(target.description->asSequence()->first(),qname+'::description');
+	}endif;
+	
+		var translationSources:OrderedSet(ADL::TRANSLATIONDETAILS)=self.translations;
+		var translationTargets:OrderedSet(ADL::TRANSLATIONDETAILS)=target.translations;
+		if(translationSources->size()<>translationTargets->size())then{
+			if(not(SUPPRESS_KNOWN_PROBLEMS))then{
+			log(qname+'==>translations size mismatch source='+translationSources->size().repr()+', target='+translationTargets->size().repr());
+			}endif;
+		}endif;
+		
+		translationSources->forEach(source){
+			var sourceMatch:Set(ADL::TRANSLATIONDETAILS)=translationTargets->select(t|t.language=source.language)->asSet();
+			if(sourceMatch->size()<>1)then{
+			if(not(SUPPRESS_KNOWN_PROBLEMS))then{
+				log(qname+'==>translations target mismatch for source='+source.language->asSequence()->first()+', target count='+sourceMatch->size().repr());
+			}endif;
+			}endif;
+		};
+		translationTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::TRANSLATIONDETAILS)=translationSources->select(t|t.language=invtarget.language)->asSet();
+			if(targetMatch->size()<>1)then{
+			if(not(SUPPRESS_KNOWN_PROBLEMS))then{
+				log(qname+'==>translations source mismatch for target='+invtarget.language->asSequence()->first()+', source count='+targetMatch->size().repr());
+			}endif;
+			}endif;
+		};
+		// do compare of matching invariants
+		translationSources->forEach(source){
+			var invtarget:ADL::TRANSLATIONDETAILS=translationTargets->select(t|t.language=source.language)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.TRANSLATION_DETAILS(invtarget,qname+'::translations::'+source.language->asSequence()->first());
+			}endif;
+		};
+	
+	
+
+}
+
+/*
+	<xs:complexType name="P_ARCHETYPE_HRID" >
+				<xs:sequence>
+					<xs:element name="physical_id" type="xs:string"/>
+					<xs:element name="rm_publisher" type="xs:string"/>
+					<xs:element name="rm_package" type="xs:string"/>
+					<xs:element name="rm_class" type="xs:string"/>
+					<xs:element name="concept_id" type="xs:string"/>
+					<xs:element name="release_version" type="xs:string"/>
+					<xs:element name="version_status" type="xs:string"/>
+					<xs:element name="build_count" type="xs:string"/>
+				</xs:sequence>
+	</xs:complexType>
+
+*/
+helper ADL::PARCHETYPEHRID::P_ARCHETYPE_HRID(target:ADL::PARCHETYPEHRID,qname:String)
+{
+//log('P_ARCHETYPE_HRID ');
+	if(self.physicalId<>target.physicalId)then{
+		log(qname+'==>P_ARCHETYPE_HRID.physicalId mismatch source='+self.physicalId+', target='+target.physicalId);
+	}endif;
+	if(self.rmPublisher<>target.rmPublisher)then{
+		log(qname+'==>P_ARCHETYPE_HRID.rmPublisher mismatch source='+self.rmPublisher+', target='+target.rmPublisher);
+	}endif;
+	if(self.rmPackage<>target.rmPackage)then{
+		log(qname+'==>P_ARCHETYPE_HRID.rmPackage mismatch source='+self.rmPackage+', target='+target.rmPackage);
+	}endif;
+	if(self.rmClass<>target.rmClass)then{
+		log(qname+'==>P_ARCHETYPE_HRID.rmClass mismatch source='+self.rmClass+', target='+target.rmClass);
+	}endif;
+	if(self.conceptId<>target.conceptId)then{
+		log(qname+'==>P_ARCHETYPE_HRID.conceptId mismatch source='+self.conceptId+', target='+target.conceptId);
+	}endif;
+	if(self.releaseVersion<>target.releaseVersion)then{
+		log(qname+'==>P_ARCHETYPE_HRID.releaseVersion mismatch source='+self.releaseVersion+', target='+target.releaseVersion);
+	}endif;
+	if(self.versionStatus<>target.versionStatus)then{
+		log(qname+'==>P_ARCHETYPE_HRID.versionStatus mismatch source='+self.versionStatus.repr()+', target='+target.versionStatus.repr());
+	}endif;
+	if(self.buildCount<>target.buildCount)then{
+		log(qname+'==>P_ARCHETYPE_HRID.buildCount mismatch source='+self.buildCount.repr()+', target='+target.buildCount.repr());
+	}endif;
+}
+/*
+	<xs:complexType name="ASSERTION">
+		<xs:sequence>
+			<xs:element name="tag" type="xs:string" minOccurs="0"/>
+			<xs:element name="string_expression" type="xs:string" minOccurs="0"/>
+			<xs:element name="expression" type="EXPR_ITEM"/>
+			<xs:element name="variables" type="ASSERTION_VARIABLE" minOccurs="0"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ASSERTION">
+		<xs:sequence>
+			<xs:element name="tag" type="xs:string" minOccurs="0"/>
+			<xs:element name="type" type="xs:string"/>
+			<xs:element name="expression" type="EXPR_ITEM"/>
+			<xs:element name="variables" type="ASSERTION_VARIABLE" minOccurs="0"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+*/
+helper ADL::ASSERTION::ASSERTION(target:ADL::ASSERTION,qname:String)
+{
+	if(self._tag<>target._tag)then{
+//		if(not(SUPPRESS_KNOWN_PROBLEMS))then{
+			log(qname+'==>ASSERTION.tag mismatch source='+self._tag+', target='+target._tag);
+//		}endif;
+	}endif;
+	if(self.type<>target.type)then{
+		log(qname+'==>ASSERTION.type mismatch source='+self.type+', target='+target.type);
+	}endif;
+	/*
+	if(self.stringExpression<>target.stringExpression)then{
+		log('ASSERTION.stringExpression mismatch source='+self.stringExpression+', target='+target.stringExpression);
+	}endif;
+*/
+	if(self.expression.oclIsUndefined())then{
+		if(target.expression.oclIsUndefined())then{}else{
+			log(qname+'==>ASSERTION.expression undefined on source, but defined on target '+target.expression.repr());
+		}endif;
+	}else{
+		self.expression.EXPR_ITEMAbstract(target.expression,qname+"::expression");
+	}endif;
+
+		var variableSources:OrderedSet(ADL::ASSERTIONVARIABLE)=self.variables;
+		var variableTargets:OrderedSet(ADL::ASSERTIONVARIABLE)=target.variables;
+		if(variableSources->size()<>variableTargets->size())then{
+			log(qname+'==>source/target variables size mismatch source='+variableSources->size().repr()+', target='+variableTargets->size().repr());
+		}endif;
+		
+		variableSources->forEach(source){
+			var sourceMatch:Set(ADL::ASSERTIONVARIABLE)=variableTargets->select(t|t.name=source.name)->asSet();
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>invariant target mismatch for source='+source.name+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		variableTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::ASSERTIONVARIABLE)=variableSources->select(t|t.name=invtarget.name)->asSet();
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>variable source mismatch for target='+invtarget.name+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching invariants
+		variableSources->forEach(source){
+			var invtarget:ADL::ASSERTIONVARIABLE=variableTargets->select(t|t.name=source.name)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.ASSERTION_VARIABLE(invtarget,qname+'::variables::'+source.name);
+			}endif;
+		};
+
+
+	return null;	
+}
+/*
+	<xs:complexType name="EXPR_ITEM" abstract="true">
+		<xs:sequence>
+			<xs:element name="type" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+*/
+helper ADL::EXPRITEM::EXPR_ITEM(target:ADL::EXPRITEM,qname:String)
+{
+	if(self.type<>target.type)then{
+		log(qname+'==>EXPRITEM.type unmatched types '+self.type+', target='+target.type);
+		return;
+	}endif;
+	return;
+}
+helper ADL::EXPRITEM::EXPR_ITEMAbstract(target:ADL::EXPRITEM,qname:String)
+{
+	if(self.oclAsType(CMOF::EObject).eClass()<>target.oclAsType(CMOF::EObject).eClass())then{
+		log(qname+'==>EXPRITEM unmatched types '+self.repr()+', target='+target.repr());
+		return;
+	}endif;
+	switch{
+		case(self.oclIsKindOf(ADL::EXPRLEAF)){self.oclAsType(ADL::EXPRLEAF).EXPR_LEAF(target.oclAsType(ADL::EXPRLEAF),qname);};
+		case(self.oclIsKindOf(ADL::EXPRUNARYOPERATOR)){self.oclAsType(ADL::EXPRUNARYOPERATOR).EXPR_UNARY_OPERATOR(target.oclAsType(ADL::EXPRUNARYOPERATOR),qname);};
+		case(self.oclIsKindOf(ADL::EXPRBINARYOPERATOR)){self.oclAsType(ADL::EXPRBINARYOPERATOR).EXPR_BINARY_OPERATOR(target.oclAsType(ADL::EXPRBINARYOPERATOR),qname);};
+	};
+	return;
+}
+/*
+	<xs:complexType name="EXPR_UNARY_OPERATOR">
+		<xs:complexContent>
+			<xs:extension base="EXPR_OPERATOR">
+				<xs:sequence>
+					<xs:element name="operand" type="EXPR_ITEM"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+*/		
+
+helper ADL::EXPRUNARYOPERATOR::EXPR_UNARY_OPERATOR(target:ADL::EXPRUNARYOPERATOR,qname:String)
+{
+	
+	if(self.operand.oclIsUndefined())then{
+		if(target.operand.oclIsUndefined())then{}else{
+			log(qname+'==>EXPRUNARYOPERATOR.operand undefined on source, but defined on target '+target.operand.repr());
+		}endif;
+	}else{
+		self.operand.EXPR_ITEMAbstract(target.operand,qname+'::operand');
+	}endif;
+	self.EXPR_OPERATOR(target,qname);
+	return;
+}
+/*	
+	<xs:complexType name="EXPR_BINARY_OPERATOR">
+		<xs:complexContent>
+			<xs:extension base="EXPR_OPERATOR">
+				<xs:sequence>
+					<xs:element name="left_operand" type="EXPR_ITEM"/>
+					<xs:element name="right_operand" type="EXPR_ITEM"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+helper ADL::EXPRBINARYOPERATOR::EXPR_BINARY_OPERATOR(target:ADL::EXPRBINARYOPERATOR,qname:String)
+{
+	if(self.leftOperand.oclIsUndefined())then{
+		if(target.leftOperand.oclIsUndefined())then{}else{
+			log(qname+'==>EXPRBINARYOPERATOR.leftOperand undefined on source, but defined on target '+target.leftOperand.repr());
+		}endif;
+	}else{
+		self.leftOperand.EXPR_ITEMAbstract(target.leftOperand,qname+'::leftOperand');
+	}endif;
+	if(self.rightOperand.oclIsUndefined())then{
+		if(target.rightOperand.oclIsUndefined())then{}else{
+			log(qname+'==>EXPRBINARYOPERATOR.rightOperand undefined on source, but defined on target '+target.rightOperand.repr());
+		}endif;
+	}else{
+		self.rightOperand.EXPR_ITEMAbstract(target.rightOperand,qname+'::rightOperand');
+	}endif;
+	self.EXPR_OPERATOR(target,qname);
+	return;
+}	
+	/*
+		<xs:complexType name="EXPR_OPERATOR" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="EXPR_ITEM">
+				<xs:sequence>
+					<xs:element name="operator" type="OPERATOR_KIND"/>
+					<xs:element name="precedence_overridden" type="xs:boolean"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="EXPR_OPERATOR" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="EXPR_ITEM">
+				<xs:sequence>
+					<xs:element name="operator" type="OPERATOR"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	*/
+helper ADL::EXPROPERATOR::EXPR_OPERATOR(target:ADL::EXPROPERATOR,qname:String)
+{
+	if(self.operator.value1<>target.operator.value1)then{
+		log(qname+'==>EXPR_OPERATOR.operator mismatch source='+self.operator.repr()+', target='+target.operator.repr());
+	}endif;
+	
+	/*
+	if(self.precedenceOverridden<>target.precedenceOverridden)then{
+		log('EXPR_OPERATOR.precedenceOverridden mismatch source='+self.precedenceOverridden.repr()+', target='+target.precedenceOverridden.repr());
+	}endif;
+*/
+	self.EXPR_ITEM(target,qname);
+}
+	/*
+	<xs:complexType name="EXPR_LEAF">
+		<xs:complexContent>
+			<xs:extension base="EXPR_ITEM">
+				<xs:sequence>
+					<xs:element name="item" type="xs:anyType"/>
+					<xs:element name="reference_type" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	*/
+helper ADL::EXPRLEAF::EXPR_LEAF(target:ADL::EXPRLEAF,qname:String)
+{
+/*	
+	if(self.item<>target.item)then{
+		log('EXPR_LEAF.item mismatch source='+self.item.repr()+', target='+target.item.repr());
+	}endif;
+	*/
+	if(self.referenceType<>target.referenceType)then{
+//if(SUPPRESS_KNOWN_PROBLEMS)then{}else{	
+		log(qname+'==>EXPR_LEAF.referenceType mismatch source='+self.referenceType+', target='+target.referenceType);
+//}endif;		
+	}endif;
+	//self.item.oclAsType(XMLType::AnyType).mixed.
+	
+//	self.item.oclAsType(XMLType::AnyType).mixed->select(f|f.eStructuralFeature.type.name='text').value->forEach(v){v;};
+//	self.item.oclAsType(XMLType::AnyType).mixed->select(f|f.eStructuralFeature.type.name='text').value->forEach(v){v;};
+	var sourceItemMixedText:String= self.item.oclAsType(Stdlib::Element).getMixedText();
+	var targetItemMixedText:String= target.item.oclAsType(Stdlib::Element).getMixedText();
+	if(sourceItemMixedText<>targetItemMixedText)then{
+//if(SUPPRESS_KNOWN_PROBLEMS)then{}else{	
+		log(qname+'==>EXPR_LEAF.item mismatch source='+sourceItemMixedText.repr()+', target='+targetItemMixedText.repr());
+		/*
+		self.item.oclAsType(Stdlib::Element).getMixedText()
+		//self.item.oclAsType(XMLType::AnyType).mixed
+//		->select(m|m.key='text')
+		->forEach(v){
+			log(qname+'==>EXPR_LEAF.item mismatch mixed source='+v.repr()+', target='+target.item.repr());
+		};
+		*/
+		/*
+		self.item.oclAsType(XMLType::AnyType).
+		self.item.oclAsType(XMLType::AnyType).mixed.getValue(0);
+		*/
+		/*
+		self.item.oclAsType(XMLType::AnyType).mixed.oclAsType(CMOF::EObject).eClass()
+		->forEach(ec){
+				log(qname+'==>EXPR_LEAF.item mismatch class='+ec.name);
+			ec.eAllStructuralFeatures
+			->forEach(v){
+				log(qname+'==>EXPR_LEAF.item mismatch feature source='+v.name+', class='+ec.name);
+			};
+			ec.eAllOperations
+			->forEach(v){
+				log(qname+'==>EXPR_LEAF.item mismatch operation source='+v.name+', class='+ec.name);
+			};
+		};
+		*/
+//}endif;		
+	}endif;
+	self.EXPR_ITEM(target,qname);
+}
+
+/*
+	<xs:complexType name="ASSERTION_VARIABLE">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="definition" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+*/
+helper ADL::ASSERTIONVARIABLE::ASSERTION_VARIABLE(target:ADL::ASSERTIONVARIABLE,qname:String)
+{
+	if(self.name<>target.name)then{
+		log(qname+'==>ASSERTION_VARIABLE.name mismatch source='+self.name+', target='+target.name);
+	}endif;
+	if(self.definition<>target.definition)then{
+		log(qname+'==>ASSERTION_VARIABLE.definition mismatch source='+self.definition+', target='+target.definition);
+	}endif;
+}
+
+/*
+	<xs:complexType name="TRANSLATION_DETAILS">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="language" type="xs:string"/>
+			<xs:element name="author" type="StringDictionaryItem" minOccurs="1"	maxOccurs="unbounded"/>
+			<xs:element name="accreditation" type="xs:string" minOccurs="0"/>
+			<xs:element name="other_details" type="StringDictionaryItem" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="version_last_translated" type="xs:string" minOccurs="0"/>
+		</xs:choice>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+	</xs:complexType>
+	
+*/
+helper ADL::TRANSLATIONDETAILS::TRANSLATION_DETAILS(target:ADL::TRANSLATIONDETAILS,qname:String)
+{
+	if(self.language->asSequence()->first()<>target.language->asSequence()->first())then{
+		log(qname+'==>TRANSLATION_DETAILS.language mismatch source='+self.language->asSequence()->first().repr()+', target='+target.language->asSequence()->first().repr());
+	}endif;
+
+		var authorSources:OrderedSet(ADL::StringDictionaryItem)=self.author;
+		var authorTargets:OrderedSet(ADL::StringDictionaryItem)=target.author;
+		if(authorSources->size()<>authorTargets->size())then{
+			log(qname+'==>TRANSLATION_DETAILS.author source/target size mismatch source='+authorSources->size().repr()+', target='+authorTargets->size().repr());
+		}endif;
+		
+		authorSources->forEach(source){
+			var sourceId:String=source.id;
+			var sourceMatch:OrderedSet(ADL::StringDictionaryItem)=authorTargets->select(t|t.id=sourceId)->asOrderedSet();
+			if(not((sourceMatch->size()=1)or((source.value='')and (sourceMatch->size()=0))))then{
+				log(qname+'==>TRANSLATION_DETAILS.author target mismatch for source='+sourceId+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		authorTargets->forEach(invtarget){
+			var targetId:String=invtarget.id;
+			var targetMatch:OrderedSet(ADL::StringDictionaryItem)=authorSources->select(t|t.id=targetId)->asOrderedSet();
+			if(not((targetMatch->size()=1)or((invtarget.value='')and (targetMatch->size()=0))))then{
+				log(qname+'==>TRANSLATION_DETAILS.author source mismatch for target='+targetId+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching invariants
+		/*
+		authorSources->forEach(source){
+			var invtarget:String=authorTargets->select(t|t.id=source.id)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.StringDictionaryItem(invtarget);
+			}endif;
+		};
+		*/
+	if(self.accreditation<>target.accreditation)then{
+		log(qname+'==>TRANSLATION_DETAILS.accreditation mismatch source='+self.accreditation->asSequence()->first().repr()+', target='+target.accreditation->asSequence()->first().repr());
+	}endif;
+
+		var otherDetailsSources:OrderedSet(ADL::StringDictionaryItem)=self.otherDetails;
+		var otherDetailsTargets:OrderedSet(ADL::StringDictionaryItem)=target.otherDetails;
+		if(otherDetailsSources->size()<>otherDetailsTargets->size())then{
+			log(qname+'==>TRANSLATION_DETAILS.otherDetails source/target size mismatch source='+otherDetailsSources->size().repr()+', target='+otherDetailsTargets->size().repr());
+		}endif;
+		
+		otherDetailsSources->forEach(source){
+			var sourceMatch:OrderedSet(ADL::StringDictionaryItem)=otherDetailsTargets->select(t|t=source)->asOrderedSet();
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>TRANSLATION_DETAILS.otherDetails target mismatch for source='+source->asSequence()->first().repr()+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		otherDetailsTargets->forEach(invtarget){
+			var targetMatch:OrderedSet(ADL::StringDictionaryItem)=otherDetailsSources->select(t|t=invtarget)->asOrderedSet();
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>TRANSLATION_DETAILS.otherDetails source mismatch for target='+invtarget->asSequence()->first().repr()+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching invariants
+		/*
+		otherDetailsSources->forEach(source){
+			var invtarget:String=otherDetailsTargets->select(t|t=source)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.StringDictionaryItem(invtarget);
+			}endif;
+		};
+*/
+}
+/*
+	<xs:complexType name="StringDictionaryItem">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="id" type="xs:string" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+*/
+helper ADL::StringDictionaryItem::StringDictionaryItem(target:ADL::StringDictionaryItem,qname:String){
+	if(self.id<>target.id)then{
+		log(qname+'==>StringDictionaryItem.id mismatch source='+self.id+', target='+target.id);
+	}endif;
+	if(self.value<>target.value)then{
+		log(qname+'==>StringDictionaryItem.value mismatch source='+self.value+', target='+target.value);
+	}endif;
+}
+/*
+	<xs:complexType name="RESOURCE_DESCRIPTION">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="lifecycle_state" type="xs:string"/>
+			<xs:element name="custodian_namespace" type="xs:string" minOccurs="0"/>
+			<xs:element name="custodian_organisation" type="xs:string" minOccurs="0"/>
+			<xs:element name="original_author" type="StringDictionaryItem" maxOccurs="unbounded"/>
+			<xs:element name="original_namespace" type="xs:string" minOccurs="0"/>
+			<xs:element name="original_publisher" type="xs:string" minOccurs="0"/>
+			<xs:element name="other_contributors" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="copyright" type="xs:string" minOccurs="0"/>
+			<xs:element name="licence" type="xs:string" minOccurs="0"/>
+			<xs:element name="ip_acknowledgements" type="StringDictionaryItem" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="resource_package_uri" type="xs:string" minOccurs="0"/>
+			<xs:element name="references" type="StringDictionaryItem" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="other_details" type="StringDictionaryItem" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="details" type="RESOURCE_DESCRIPTION_ITEM" maxOccurs="unbounded"/>
+		</xs:choice>
+	</xs:complexType>
+*/
+helper ADL::RESOURCEDESCRIPTION::RESOURCE_DESCRIPTION(target:ADL::RESOURCEDESCRIPTION,qname:String)
+{
+
+		var originalAuthorSources:OrderedSet(StringDictionaryItem)=self.originalAuthor;
+		var originalAuthorTargets:OrderedSet(StringDictionaryItem)=target.originalAuthor;
+		if(originalAuthorSources->size()<>originalAuthorTargets->size())then{
+			log(qname+'==>RESOURCE_DESCRIPTION.originalAuthor source/target size mismatch source='+originalAuthorSources->size().repr()+', target='+originalAuthorTargets->size().repr());
+		}endif;
+		
+		originalAuthorSources->forEach(source){
+			var sourceId:String=source.id;
+			if(sourceId='organisation')then{sourceId:='organization';}endif;
+			if(sourceId='submission')then{sourceId:='date';}endif;
+			
+//			var sourceMatch:OrderedSet(StringDictionaryItem)=originalAuthorTargets->select(t|t.id=sourceId)->asOrderedSet();
+			var sourceMatch:OrderedSet(StringDictionaryItem)=OrderedSet{};
+			originalAuthorTargets->forEach(t){
+				var targetId:String=t.id;
+				if(targetId='organisation')then{targetId:='organization';}endif;
+				if(targetId='submission')then{targetId:='date';}endif;
+				if(sourceId=targetId)then{
+					sourceMatch+=t;
+				}endif;
+			};	
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>RESOURCE_DESCRIPTION.originalAuthor target mismatch for source='+sourceId+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		originalAuthorTargets->forEach(invtarget){
+			var targetId:String=invtarget.id;
+			if(targetId='organisation')then{targetId:='organization';}endif;
+			if(targetId='submission')then{targetId:='date';}endif;
+//			var targetMatch:OrderedSet(StringDictionaryItem)=originalAuthorSources->select(t|t.id=targetId)->asOrderedSet();
+			var targetMatch:OrderedSet(StringDictionaryItem)=OrderedSet{};
+			originalAuthorSources->forEach(t){
+				var sourceId:String=t.id;
+				if(sourceId='organisation')then{sourceId:='organization';}endif;
+				if(sourceId='submission')then{sourceId:='date';}endif;
+				if(sourceId=targetId)then{
+					targetMatch+=t;
+				}endif;
+			};	
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>RESOURCE_DESCRIPTION.originalAuthor source mismatch for target='+invtarget.id.repr()+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching invariants
+		/*
+		originalAuthorSources->forEach(source){
+			var invtarget:ADL::StringDictionaryItem=originalAuthorTargets->select(t|t.id=source.id)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.StringDictionaryItem(invtarget);
+			}endif;
+		};
+*/
+		var otherContributorsSources:Sequence(String)=self.otherContributors;
+		var otherContributorsTargets:Sequence(String)=target.otherContributors;
+		if(otherContributorsSources->size()<>otherContributorsTargets->size())then{
+			log(qname+'==>RESOURCE_DESCRIPTION.otherContributors source/target size mismatch source='+otherContributorsSources->size().repr()+', target='+otherContributorsTargets->size().repr());
+		}endif;
+		
+		otherContributorsSources->forEach(source){
+			var sourceMatch:Set(String)=otherContributorsTargets->select(t|t=source)->asSet();
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>RESOURCE_DESCRIPTION.otherContributors target mismatch for source='+source+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		otherContributorsTargets->forEach(invtarget){
+			var targetMatch:Set(String)=otherContributorsSources->select(t|t=invtarget)->asSet();
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>RESOURCE_DESCRIPTION.otherContributors source mismatch for target='+invtarget+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+
+	if(self.copyright->asSequence()->first()<>target.copyright->asSequence()->first())then{
+		log(qname+'==>RESOURCE_DESCRIPTION.copyright mismatch source='+self.copyright->asSequence()->first()+', target='+target.copyright->asSequence()->first());
+	}endif;
+	if(self.lifecycleState->asSequence()->first()<>target.lifecycleState->asSequence()->first())then{
+		log(qname+'==>RESOURCE_DESCRIPTION.lifecycleState mismatch source='+self.lifecycleState->asSequence()->first()+', target='+target.lifecycleState->asSequence()->first());
+	}endif;
+	if(self.resourcePackageUri->asSequence()->first()<>target.resourcePackageUri->asSequence()->first())then{
+		log(qname+'==>RESOURCE_DESCRIPTION.resourcePackageUri mismatch source='+self.resourcePackageUri->asSequence()->first()+', target='+target.resourcePackageUri->asSequence()->first());
+	}endif;
+
+		var otherDetailsSources:OrderedSet(StringDictionaryItem)=self.otherDetails;
+		var otherDetailsTargets:OrderedSet(StringDictionaryItem)=target.otherDetails;
+		if(otherDetailsSources->size()<>otherDetailsTargets->size())then{
+			log(qname+'==>RESOURCE_DESCRIPTION.otherDetails source/target size mismatch source='+otherDetailsSources->size().repr()+', target='+otherDetailsTargets->size().repr());
+		}endif;
+		
+		otherDetailsSources->forEach(source){
+			var sourceMatch:OrderedSet(StringDictionaryItem)=otherDetailsTargets->select(t|t.id=source.id)->asOrderedSet();
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>RESOURCE_DESCRIPTION.otherDetails target mismatch for source='+source.id->asSequence()->first().repr()+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		otherDetailsTargets->forEach(invtarget){
+			var targetMatch:OrderedSet(StringDictionaryItem)=otherDetailsSources->select(t|t.id=invtarget.id)->asOrderedSet();
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>RESOURCE_DESCRIPTION.otherDetails source mismatch for target='+invtarget.id->asSequence()->first().repr()+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching invariants
+		/*
+		originalAuthorSources->forEach(source){
+			var invtarget:ADL::StringDictionaryItem=originalAuthorTargets->select(t|t=source)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.StringDictionaryItem(invtarget);
+			}endif;
+		};
+*/
+		var detailsSources:OrderedSet(ADL::RESOURCEDESCRIPTIONITEM)=self.details;
+		var detailsTargets:OrderedSet(ADL::RESOURCEDESCRIPTIONITEM)=target.details;
+		if(detailsSources->size()<>detailsTargets->size())then{
+//			if(not(SUPPRESS_KNOWN_PROBLEMS))then{
+			log(qname+'==>RESOURCE_DESCRIPTION.details source/target size mismatch source='+detailsSources->size().repr()+', target='+detailsTargets->size().repr());
+//			}endif;
+		}endif;
+		
+		detailsSources->forEach(source){
+			var sourceMatch:Set(ADL::RESOURCEDESCRIPTIONITEM)=detailsTargets->select(t|t.language=source.language)->asSet();
+			if(sourceMatch->size()<>1)then{
+//				if(not(SUPPRESS_KNOWN_PROBLEMS))then{
+					log(qname+'==>RESOURCE_DESCRIPTION.details target mismatch for source='+source.language->asSequence()->first()+', target count='+sourceMatch->size().repr());
+//				}endif;
+			}endif;
+		};
+		detailsTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::RESOURCEDESCRIPTIONITEM)=detailsSources->select(t|t.language=invtarget.language)->asSet();
+			if(targetMatch->size()<>1)then{
+//				if(not(SUPPRESS_KNOWN_PROBLEMS))then{
+				log(qname+'==>RESOURCE_DESCRIPTION.details source mismatch for target='+invtarget.language->asSequence()->first()+', source count='+targetMatch->size().repr());
+//				}endif;
+			}endif;
+		};
+		// do compare of matching invariants
+		detailsSources->forEach(source){
+			var invtarget:ADL::RESOURCEDESCRIPTIONITEM=detailsTargets->select(t|t.language=source.language)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.RESOURCE_DESCRIPTION_ITEM(invtarget,qname+'::details::'+source.language->asSequence()->first());
+			}endif;
+		};
+/*
+	if(self.parentResource.oclIsUndefined())then{
+		if(target.parentResource.oclIsUndefined())then{}else{
+			log(qname+'==>RESOURCE_DESCRIPTION.parentResource undefined on source, but defined on target '+target.parentResource.repr());
+		}endif;
+	}else{
+		self.parentResource.AUTHORED_RESOURCE(target.parentResource,qname+'::parentResource');
+	}endif;
+*/
+}
+/*
+	<xs:complexType name="RESOURCE_DESCRIPTION_ITEM">
+		<xs:choice  maxOccurs="unbounded">
+			<xs:element name="language" type="xs:string"/>
+			<xs:element name="purpose" type="xs:string"/>
+			<xs:element name="use" type="xs:string" minOccurs="0"/>
+			<xs:element name="misuse" type="xs:string" minOccurs="0"/>
+			<xs:element name="keywords" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="original_resource_uri" type="StringDictionaryItem" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="other_details" type="StringDictionaryItem" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:choice>
+		<xs:attribute name="id" type="xs:string"/>
+	</xs:complexType>
+*/
+helper ADL::RESOURCEDESCRIPTIONITEM::RESOURCE_DESCRIPTION_ITEM(target:ADL::RESOURCEDESCRIPTIONITEM,qname:String)
+{
+	if(self.language->asSequence()->first()<>target.language->asSequence()->first())then{
+		log(qname+'==>RESOURCE_DESCRIPTION_ITEM.language mismatch source='+self.language->asSequence()->first().repr()+', target='+target.language->asSequence()->first().repr());
+	}endif;
+	if(self.purpose->asSequence()->first()<>target.purpose->asSequence()->first())then{
+		log(qname+'==>RESOURCE_DESCRIPTION_ITEM.purpose mismatch source='+self.purpose->asSequence()->first().repr()+', target='+target.purpose->asSequence()->first().repr());
+	}endif;
+
+		var keywordsSources:Sequence(String)=self.keywords;
+		var keywordsTargets:Sequence(String)=target.keywords;
+		if(keywordsSources->size()<>keywordsTargets->size())then{
+			log(qname+'==>RESOURCE_DESCRIPTION_ITEM.keywords source/target size mismatch source='+keywordsSources->size().repr()+', target='+keywordsTargets->size().repr());
+		}endif;
+		
+		keywordsSources->forEach(source){
+			var sourceMatch:Set(String)=keywordsTargets->select(t|t=source)->asSet();
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>RESOURCE_DESCRIPTION_ITEM.keywords target mismatch for source='+source+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		keywordsTargets->forEach(invtarget){
+			var targetMatch:Set(String)=keywordsTargets->select(t|t=invtarget)->asSet();
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>RESOURCE_DESCRIPTION_ITEM.keywords t source mismatch for target='+invtarget+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+	if(self.use->asSequence()->first()<>target.use->asSequence()->first())then{
+		log(qname+'==>RESOURCE_DESCRIPTION_ITEM.use mismatch source='+self.use->asSequence()->first()+', target='+target.use->asSequence()->first());
+	}endif;
+	if(self.misuse->asSequence()->first()<>target.misuse->asSequence()->first())then{
+		log(qname+'==>RESOURCE_DESCRIPTION_ITEM.misuse mismatch source='+self.misuse->asSequence()->first()+', target='+target.misuse->asSequence()->first());
+	}endif;
+	/*
+	if(self.copyright<>target.copyright)then{
+		log(qname+'==>RESOURCE_DESCRIPTION_ITEM.copyright mismatch source='+self.copyright+', target='+target.copyright);
+	}endif;
+	*/
+/*	
+		var originalSources:OrderedSet(ADL::StringDictionaryItem)=self.originalResourceUri;
+		var originalTargets:OrderedSet(ADL::StringDictionaryItem)=target.originalResourceUri;
+		if(originalSources->size()<>originalTargets->size())then{
+			log(qname+'==>RESOURCE_DESCRIPTION.original_resource_uri source/target size mismatch source='+originalSources->size().repr()+', target='+originalTargets->size().repr());
+		}endif;
+		
+		originalSources->forEach(source){
+			var sourceMatch:Set(ADL::StringDictionaryItem)=originalTargets->select(t|t.id=source.id)->asSet();
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>RESOURCE_DESCRIPTION.original_resource_uri target mismatch for source='+source.id+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		originalTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::StringDictionaryItem)=originalSources->select(t|t.id=invtarget.id)->asSet();
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>RESOURCE_DESCRIPTION.original_resource_uri source mismatch for target='+invtarget.id+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching invariants
+		originalSources->forEach(source){
+			var invtarget:ADL::StringDictionaryItem=originalTargets->select(t|t.id=source.id)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.StringDictionaryItem(invtarget,qname+'::originalResourceUri::'+source.id);
+			}endif;
+		};
+		var otherDetailsSources:OrderedSet(ADL::StringDictionaryItem)=self.otherDetails;
+		var otherDetailsTargets:OrderedSet(ADL::StringDictionaryItem)=target.otherDetails;
+		if(otherDetailsSources->size()<>otherDetailsTargets->size())then{
+			log(qname+'==>TRANSLATION_DETAILS.otherDetails source/target size mismatch source='+otherDetailsSources->size().repr()+', target='+otherDetailsTargets->size().repr());
+		}endif;
+		
+		otherDetailsSources->forEach(source){
+			var sourceMatch:Set(ADL::StringDictionaryItem)=otherDetailsTargets->select(t|t.id=source.id)->asSet();
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>TRANSLATION_DETAILS.otherDetails target mismatch for source='+source.id+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		otherDetailsTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::StringDictionaryItem)=otherDetailsSources->select(t|t.id=invtarget.id)->asSet();
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>TRANSLATION_DETAILS.otherDetails source mismatch for target='+invtarget.id+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching invariants
+		otherDetailsSources->forEach(source){
+			var invtarget:ADL::StringDictionaryItem=otherDetailsTargets->select(t|t.id=source.id)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.StringDictionaryItem(invtarget,qname+'::otherDetails::'+source.id);
+			}endif;
+		};
+*/
+		var originalSources:OrderedSet(ADL::StringDictionaryItem)=self.originalResourceUri;
+		var originalTargets:OrderedSet(ADL::StringDictionaryItem)=target.originalResourceUri;
+		if(originalSources->size()<>originalTargets->size())then{
+if(SUPPRESS_KNOWN_PROBLEMS)then{}else{		
+			log(qname+'==>RESOURCE_DESCRIPTION.original_resource_uri source/target size mismatch source='+originalSources->size().repr()+', target='+originalTargets->size().repr());
+}endif;			
+		}endif;
+		
+		originalSources->forEach(source){
+			var sourceMatch:Set(ADL::StringDictionaryItem)=originalTargets->select(t|t.value=source.value)->asSet();
+			if(sourceMatch->size()<>1)then{
+if(SUPPRESS_KNOWN_PROBLEMS)then{}else{		
+				log(qname+'==>RESOURCE_DESCRIPTION.original_resource_uri target mismatch for source='+source.value+', target count='+sourceMatch->size().repr());
+}endif;			
+			}endif;
+		};
+		originalTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::StringDictionaryItem)=originalSources->select(t|t.value=invtarget.value)->asSet();
+			if(targetMatch->size()<>1)then{
+if(SUPPRESS_KNOWN_PROBLEMS)then{}else{		
+				log(qname+'==>RESOURCE_DESCRIPTION.original_resource_uri source mismatch for target='+invtarget.value+', source count='+targetMatch->size().repr());
+}endif;			
+			}endif;
+		};
+		
+		var otherDetailsSources:OrderedSet(ADL::StringDictionaryItem)=self.otherDetails;
+		var otherDetailsTargets:OrderedSet(ADL::StringDictionaryItem)=target.otherDetails;
+		if(otherDetailsSources->size()<>otherDetailsTargets->size())then{
+			log(qname+'==>TRANSLATION_DETAILS.otherDetails source/target size mismatch source='+otherDetailsSources->size().repr()+', target='+otherDetailsTargets->size().repr());
+		}endif;
+		
+		otherDetailsSources->forEach(source){
+			var sourceMatch:Set(ADL::StringDictionaryItem)=otherDetailsTargets->select(t|t.value=source.value)->asSet();
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>TRANSLATION_DETAILS.otherDetails target mismatch for source='+source.value+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		otherDetailsTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::StringDictionaryItem)=otherDetailsSources->select(t|t.value=invtarget.value)->asSet();
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>TRANSLATION_DETAILS.otherDetails source mismatch for target='+invtarget.value+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+	
+}
+/*
+	<xs:complexType name="P_C_COMPLEX_OBJECT">
+		<xs:complexContent mixed="true">
+			<xs:extension base="C_DEFINED_OBJECT">
+				<xs:sequence>
+					<xs:element name="attributes" type="P_C_ATTRIBUTE" minOccurs="0"
+						maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+helper ADL::PCCOMPLEXOBJECT::C_COMPLEX_OBJECT(target:ADL::PCCOMPLEXOBJECT,qname:String)
+{
+		var attributeSources:OrderedSet(ADL::PCATTRIBUTE)=self.attributes;
+		var attributeTargets:OrderedSet(ADL::PCATTRIBUTE)=target.attributes;
+		if(attributeSources->size()<>attributeTargets->size())then{
+			log(qname+'==>attributes size mismatch source='+attributeSources->size().repr()+', target='+attributeTargets->size().repr());
+		}endif;
+		
+		attributeSources->forEach(source){
+			var sourceMatch:Set(ADL::PCATTRIBUTE)=attributeTargets->select(t|t.rmAttributeName=source.rmAttributeName)->asSet();
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>attributes target mismatch for source='+source.rmAttributeName+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		attributeTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::PCATTRIBUTE)=attributeSources->select(t|t.rmAttributeName=invtarget.rmAttributeName)->asSet();
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>attributes source mismatch for target='+invtarget.rmAttributeName+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching invariants
+		attributeSources->forEach(source){
+			var invtarget:ADL::PCATTRIBUTE=attributeTargets->select(t|t.rmAttributeName=source.rmAttributeName)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.C_ATTRIBUTE(invtarget,qname+'::attributes::'+source.rmAttributeName);
+			}endif;
+		};
+		self.C_DEFINED_OBJECT(target,qname);
+}
+/*
+	<xs:complexType name="P_C_ATTRIBUTE">
+		<xs:complexContent>
+			<xs:extension base="P_ARCHETYPE_CONSTRAINT">
+				<xs:sequence>
+					<xs:element name="differential_path" type="xs:string" minOccurs="0"/>
+					<xs:element name="children" type="P_C_OBJECT" minOccurs="0"
+						maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="rm_attribute_name" type="xs:string"/>
+				<xs:attribute name="existence" type="xs:string" use="optional"/>
+				<xs:attribute name="cardinality" type="xs:string" use="optional"/>
+				<xs:attribute name="is_multiple" type="xs:boolean"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+helper ADL::PCATTRIBUTE::C_ATTRIBUTE(target:ADL::PCATTRIBUTE,qname:String)
+{
+	if(self.rmAttributeName<>target.rmAttributeName)then{
+		log(qname+'==>C_ATTRIBUTE.rmAttributeName mismatch source='+self.rmAttributeName+', target='+target.rmAttributeName);
+	}endif;
+	if(self.isMultiple<>target.isMultiple)then{
+		log(qname+'==>C_ATTRIBUTE.isMultiple mismatch source='+self.isMultiple.repr()+', target='+target.isMultiple.repr());
+	}endif;
+	if(self.existence<>target.existence)then{
+		log(qname+'==>C_ATTRIBUTE.existence mismatch source='+self.existence+', target='+target.existence);
+	}endif;
+	if(self.cardinality<>target.cardinality)then{
+if(SUPPRESS_KNOWN_PROBLEMS)then{}else{	
+		log(qname+'==>C_ATTRIBUTE.cardinality mismatch source='+self.cardinality+', target='+target.cardinality);
+}endif;		
+	}endif;
+	/*
+	if(self.existence.oclIsUndefined())then{
+		if(target.existence.oclIsUndefined())then{}else{
+			log('CATTRIBUTE.existence undefined on source, but defined on target '+target.existence.repr());
+		}endif;
+	}else{
+		self.existence.IntervalOfInteger(target.existence);
+	}endif;
+	*/
+		var childrenSources:OrderedSet(ADL::PCOBJECT)=self.children;
+		var childrenTargets:OrderedSet(ADL::PCOBJECT)=target.children;
+		var isAction_archetype_id:Boolean=childrenSources->select(s|s.nodeId='action_archetype_id')->notEmpty()
+			or childrenTargets->select(s|s.nodeId='action_archetype_id')->notEmpty()
+			or childrenSources->select(s|s.nodeId='defining_code')->notEmpty()
+			or childrenTargets->select(s|s.nodeId='defining_code')->notEmpty()
+			or childrenSources->select(s|s.nodeId='media_type')->notEmpty()
+			or childrenTargets->select(s|s.nodeId='media_type')->notEmpty()
+			or (self.rmAttributeName='magnitude')
+			or (self.rmAttributeName='units')
+			or (self.rmAttributeName='precision')
+			;
+		if(not(SUPPRESS_KNOWN_PROBLEMS and isAction_archetype_id))then{
+			if(childrenSources->size()<>childrenTargets->size())then{
+				log(qname+'==>CATTRIBUTE source/target attributes size mismatch source='+childrenSources->size().repr()+', target='+childrenTargets->size().repr());
+			}endif;
+		}endif;
+		
+		childrenSources->forEach(source){
+			var sourceMatch:Set(ADL::PCOBJECT)=childrenTargets
+				->select(t|(t.nodeId=source.nodeId)or t.nodeId.oclIsUndefined() or source.nodeId.oclIsUndefined())
+				->asSet();
+			if(sourceMatch->size()<>1)then{
+				if(not(SUPPRESS_KNOWN_PROBLEMS and isAction_archetype_id))then{
+				log(qname+'==>CATTRIBUTE attributes target mismatch for source='+source.nodeId+', target count='+sourceMatch->size().repr());
+				}endif;
+			}endif;
+		};
+		childrenTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::PCOBJECT)=childrenSources
+				->select(t|(t.nodeId=invtarget.nodeId)or t.nodeId.oclIsUndefined() or invtarget.nodeId.oclIsUndefined())
+				->asSet();
+			if(targetMatch->size()<>1)then{
+				if(not(SUPPRESS_KNOWN_PROBLEMS and isAction_archetype_id))then{
+				log(qname+'==>CATTRIBUTE attributes source mismatch for target='+invtarget.nodeId+', source count='+targetMatch->size().repr());
+				}endif;
+			}endif;
+		};
+		// do compare of matching invariants
+		childrenSources->forEach(source){
+			var invtarget:ADL::PCOBJECT=childrenTargets
+				// allow match if one side is null in order to complete comparison
+				->select(t|(t.nodeId=source.nodeId)or t.nodeId.oclIsUndefined() or source.nodeId.oclIsUndefined())
+				->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+//				source.C_OBJECT(invtarget,qname+'::children::'+source.nodeId);
+				source.C_OBJECTAbstract(invtarget,qname+'::children::'+source.nodeId);
+			}endif;
+		};
+		
+	self.ARCHETYPE_CONSTRAINT(target,qname);
+}
+/*
+	<xs:complexType name="P_ARCHETYPE_CONSTRAINT" abstract="true">
+		<xs:sequence/>
+	</xs:complexType>
+*/
+helper ADL::PARCHETYPECONSTRAINT::ARCHETYPE_CONSTRAINT(target:ADL::PARCHETYPECONSTRAINT,qname:String)
+{
+}
+
+/*
+	<xs:complexType name="IntervalOfInteger">
+		<xs:complexContent>
+			<xs:extension base="Interval">
+				<xs:sequence>
+					<xs:element name="lower" type="xs:int" minOccurs="0"/>
+					<xs:element name="upper" type="xs:int" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+helper ADL::IntervalOfInteger::IntervalOfInteger(target:ADL::IntervalOfInteger,qname:String)
+{
+	if(self.lower<>target.lower)then{
+		log(qname+'==>IntervalOfInteger.lower mismatch source='+self.lower.repr()+', target='+target.lower.repr());
+	}endif;
+	if(self.upper<>target.upper)then{
+		log(qname+'==>IntervalOfInteger.upper mismatch source='+self.upper.repr()+', target='+target.upper.repr());
+	}endif;
+	
+	self.Interval(target,qname);
+}
+/*
+	<xs:complexType name="Interval" abstract="true">
+		<xs:sequence>
+			<xs:element name="lower_included" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="upper_included" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="lower_unbounded" type="xs:boolean"/>
+			<xs:element name="upper_unbounded" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Interval" abstract="true">
+		<xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+	
+*/
+helper ADL::Interval::Interval(target:ADL::Interval,qname:String)
+{
+/*
+	if(self.lowerIncluded<>target.lowerIncluded)then{
+		log('Interval.lowerIncluded mismatch source='+self.lowerIncluded.repr()+', target='+target.lowerIncluded.repr());
+	}endif;
+	if(self.upperIncluded<>target.upperIncluded)then{
+		log('Interval.upperIncluded mismatch source='+self.upperIncluded.repr()+', target='+target.upperIncluded.repr());
+	}endif;
+	if(self.lowerUnbounded<>target.lowerUnbounded)then{
+		log('Interval.lowerUnbounded mismatch source='+self.lowerUnbounded.repr()+', target='+target.lowerUnbounded.repr());
+	}endif;
+	if(self.upperUnbounded<>target.upperUnbounded)then{
+		log('Interval.upperUnbounded mismatch source='+self.upperUnbounded.repr()+', target='+target.upperUnbounded.repr());
+	}endif;
+	*/
+}
+
+/*
+	<xs:complexType name="P_C_DEFINED_OBJECT">
+		<xs:complexContent>
+			<xs:extension base="P_C_OBJECT">
+				<xs:attribute name="is_frozen" type="xs:boolean" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+helper ADL::PCDEFINEDOBJECT::C_DEFINED_OBJECT(target:ADL::PCDEFINEDOBJECT,qname:String)
+{
+	if(self.isFrozen<>target.isFrozen)then{
+		log(qname+'==>C_DEFINED_OBJECT.isFrozen mismatch source='+self.isFrozen.repr()+', target='+target.isFrozen.repr());
+	}endif;
+		self.C_OBJECT(target,qname);
+}
+/*
+	<xs:complexType name="P_C_OBJECT" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="P_ARCHETYPE_CONSTRAINT">
+				<xs:sequence>
+					<xs:element name="sibling_order" type="SIBLING_ORDER" minOccurs="0"
+						maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="occurrences" type="xs:string" use="optional"/>
+				<xs:attribute name="is_deprecated" type="xs:boolean" use="optional"/>
+				<xs:attribute name="node_id" type="xs:string" use="optional"/>
+				<xs:attribute name="rm_type_name" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/	
+	
+helper ADL::PCOBJECT::C_OBJECT(target:ADL::PCOBJECT,qname:String)
+{
+	if(self.rmTypeName.replace('<T>','')<>target.rmTypeName.replace('<T>',''))then{
+		log(qname+'==>C_OBJECT.rmTypeName mismatch source='+self.rmTypeName+', target='+target.rmTypeName+';');
+	}endif;
+	if(self.isDeprecated<>target.isDeprecated)then{
+		log(qname+'==>C_OBJECT.isDeprecated mismatch source='+self.isDeprecated.repr()+', target='+target.isDeprecated.repr());
+	}endif;
+	var occurrencesIsMisMatched:Boolean=self.occurrences<>target.occurrences;
+	if(occurrencesIsMisMatched)then{
+		if(
+			(self.occurrences.oclIsUndefined()or (self.occurrences='1..1')or (self.occurrences='1'))
+			and
+			(target.occurrences.oclIsUndefined()or (target.occurrences='1..1')or (target.occurrences='1'))
+		)then{
+			occurrencesIsMisMatched:=false;
+		}endif;
+	}endif;
+	if(occurrencesIsMisMatched)then{
+		log(qname+'==>C_OBJECT.occurrences mismatch source='+self.occurrences+', target='+target.occurrences);
+	}endif;
+	if(self.nodeId<>target.nodeId)then{
+			log(qname+'==>C_OBJECT.nodeId mismatch source='+self.nodeId+', target='+target.nodeId);
+	}endif;
+		var childrenSources:OrderedSet(ADL::SIBLINGORDER)=self.siblingOrder;
+		var childrenTargets:OrderedSet(ADL::SIBLINGORDER)=target.siblingOrder;
+		if(not(SUPPRESS_KNOWN_PROBLEMS))then{
+		if(childrenSources->size()<>childrenTargets->size())then{
+			log(qname+'==>C_OBJECT.siblingOrder source/target attributes size mismatch source='+childrenSources->size().repr()+', target='+childrenTargets->size().repr());
+		}endif;
+		}endif;
+		if(not(SUPPRESS_KNOWN_PROBLEMS))then{
+		childrenSources->forEach(source){
+			var sourceMatch:Set(ADL::SIBLINGORDER)=childrenTargets->select(t|t.siblingNodeId=source.siblingNodeId)->asSet();
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>C_OBJECT siblingOrder target mismatch for source='+source.siblingNodeId+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		}endif;
+		if(not(SUPPRESS_KNOWN_PROBLEMS))then{
+		childrenTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::SIBLINGORDER)=childrenSources->select(t|t.siblingNodeId=invtarget.siblingNodeId)->asSet();
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>C_OBJECT siblingOrder source mismatch for target='+invtarget.siblingNodeId+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		}endif;
+		// do compare of matching invariants
+		childrenSources->forEach(source){
+			var invtarget:ADL::SIBLINGORDER=childrenTargets->select(t|t.siblingNodeId=source.siblingNodeId)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.SIBLING_ORDER(invtarget,qname+'::siblingOrder::'+source.siblingNodeId);
+			}endif;
+		};
+	
+	self.ARCHETYPE_CONSTRAINT(target,qname);
+}
+/*
+	<xs:complexType name="SIBLING_ORDER" >
+				<xs:sequence>
+					<xs:element name="sibling_node_id" type="xs:string"/>
+					<xs:element name="is_before" type="xs:boolean"/>
+				</xs:sequence>
+	</xs:complexType>
+
+*/
+helper ADL::SIBLINGORDER::SIBLING_ORDER(target:ADL::SIBLINGORDER,qname:String)
+{
+	if(self.siblingNodeId<>target.siblingNodeId)then{
+		log(qname+'==>SIBLING_ORDER.siblingNodeId mismatch source='+self.siblingNodeId+', target='+target.siblingNodeId);
+	}endif;
+	if(self.isBefore<>target.isBefore)then{
+		log(qname+'==>SIBLING_ORDER.sibliisBeforengNodeId mismatch source='+self.isBefore.repr()+', target='+target.isBefore.repr());
+	}endif;
+}
+helper ADL::PCOBJECT::C_OBJECTAbstract(target:ADL::PCOBJECT,qname:String)
+{
+	switch{
+		case(self.oclIsKindOf(ADL::PCDEFINEDOBJECT))self.oclAsType(ADL::PCDEFINEDOBJECT).C_DEFINED_OBJECT(target.oclAsType(ADL::PCDEFINEDOBJECT),qname);
+		case(self.oclIsKindOf(ADL::PARCHETYPESLOT))self.oclAsType(ADL::PARCHETYPESLOT).ARCHETYPE_SLOT(target.oclAsType(ADL::PARCHETYPESLOT),qname);
+		case(self.oclIsKindOf(ADL::PCCOMPLEXOBJECTPROXY))self.oclAsType(ADL::PCCOMPLEXOBJECTPROXY).C_COMPLEX_OBJECT_PROXY(target.oclAsType(ADL::PCCOMPLEXOBJECTPROXY),qname);
+		case(self.oclIsKindOf(ADL::PCCOMPLEXOBJECT))self.oclAsType(ADL::PCCOMPLEXOBJECT).C_COMPLEX_OBJECT(target.oclAsType(ADL::PCCOMPLEXOBJECT),qname);
+	};
+}
+/*
+	<xs:complexType name="P_C_COMPLEX_OBJECT_PROXY">
+		<xs:complexContent>
+			<xs:extension base="P_C_OBJECT">
+				<xs:sequence>
+					<xs:element name="target_path" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+helper ADL::PCCOMPLEXOBJECTPROXY::C_COMPLEX_OBJECT_PROXY(target:ADL::PCCOMPLEXOBJECTPROXY,qname:String)
+{
+	if(self.targetPath<>target.targetPath)then{
+		log(qname+'==>C_COMPLEX_OBJECT_PROXY.targetPath mismatch source='+self.targetPath+', target='+target.targetPath);
+	}endif;
+	self.C_OBJECT(target,qname);
+}
+
+/*
+	<xs:complexType name="P_ARCHETYPE_SLOT">
+		<xs:complexContent>
+			<xs:extension base="P_C_OBJECT">
+				<xs:sequence>
+					<xs:element name="includes" type="ASSERTION" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="excludes" type="ASSERTION" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="is_closed" type="xs:boolean" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+
+helper ADL::PARCHETYPESLOT::ARCHETYPE_SLOT(target:ADL::PARCHETYPESLOT,qname:String)
+{
+		var includesSources:OrderedSet(ADL::ASSERTION)=self.includes;
+		var includesTargets:OrderedSet(ADL::ASSERTION)=target.includes;
+		if(includesSources->size()<>includesTargets->size())then{
+			log(qname+'==>ARCHETYPE_SLOT.include source/target attributes size mismatch source='+includesSources->size().repr()+', target='+includesTargets->size().repr());
+		}else{
+			includesSources->forEach(source){
+				var invtarget:ADL::ASSERTION=includesTargets->at(includesSources->indexOf(source));
+				if(not(invtarget.oclIsUndefined()))then{
+					source.ASSERTION(invtarget,qname+'::includes::'+source._tag);
+				}endif;
+			};
+		}endif;
+		var excludesSources:OrderedSet(ADL::ASSERTION)=self.excludes;
+		var excludesTargets:OrderedSet(ADL::ASSERTION)=target.excludes;
+		if(excludesSources->size()<>excludesTargets->size())then{
+			log(qname+'==>ARCHETYPE_SLOT.excludes source/target attributes size mismatch source='+excludesSources->size().repr()+', target='+excludesTargets->size().repr());
+		}endif;
+		
+		excludesSources->forEach(source){
+			var sourceMatch:Set(ADL::ASSERTION)=excludesTargets
+				->select(t|(t._tag=source._tag)or t._tag.oclIsUndefined() or source._tag.oclIsUndefined())
+					->asSet();
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>ARCHETYPE_SLOT.excludes target mismatch for source='+source._tag+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		excludesTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::ASSERTION)=excludesSources
+				->select(t|(t._tag=invtarget._tag)or t._tag.oclIsUndefined() or invtarget._tag.oclIsUndefined())
+				->asSet();
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>ARCHETYPE_SLOT.excludes source mismatch for target='+invtarget._tag+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching invariants
+		excludesSources->forEach(source){
+			var invtarget:ADL::ASSERTION=excludesTargets
+				->select(t|(t._tag=source._tag)or t._tag.oclIsUndefined() or source._tag.oclIsUndefined())
+				->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.ASSERTION(invtarget,qname+'::excludes::'+source._tag);
+			}endif;
+		};
+	if(self.isClosed<>target.isClosed)then{
+				log(qname+'==>ARCHETYPE_SLOT.isClosed source mismatch for target='+target.isClosed.repr()+', source='+self.isClosed.repr());
+	}endif;
+
+	self.C_OBJECT(target,qname);
+}
+
+
+/*
+	<xs:complexType name="ARCHETYPE_ONTOLOGY">
+		<xs:sequence>
+			<xs:element name="term_definitions" type="CodeDefinitionSet" maxOccurs="unbounded"/>
+			<xs:element name="constraint_definitions" type="CodeDefinitionSet" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element name="term_bindings" type="TermBindingSet" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element name="constraint_bindings" type="ConstraintBindingSet" minOccurs="0"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	*/
+helper ADL::PARCHETYPETERMINOLOGY::ARCHETYPE_ONTOLOGY(target:ADL::PARCHETYPETERMINOLOGY,qname:String)
+{
+		var termDefinitionsSources:OrderedSet(ADL::CodeDefinitionSet)=self.termDefinitions;
+		var termDefinitionsTargets:OrderedSet(ADL::CodeDefinitionSet)=target.termDefinitions;
+		if(termDefinitionsSources->size()<>termDefinitionsTargets->size())then{
+			log(qname+'==>ARCHETYPE_ONTOLOGY.termDefinitions source/target attributes size mismatch source='+termDefinitionsSources->size().repr()+', target='+termDefinitionsTargets->size().repr());
+		}endif;
+		
+		termDefinitionsSources->forEach(source){
+			var sourceMatch:Set(ADL::CodeDefinitionSet)=termDefinitionsTargets->select(t|t.id=source.id)->asSet();
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>ARCHETYPE_ONTOLOGY.termDefinitions attributes target mismatch for source='+source.id+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		termDefinitionsTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::CodeDefinitionSet)=termDefinitionsSources->select(t|t.id=invtarget.id)->asSet();
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>ARCHETYPE_ONTOLOGY.termDefinitions attributes source mismatch for target='+invtarget.id+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching invariants
+		termDefinitionsSources->forEach(source){
+			var invtarget:ADL::CodeDefinitionSet=termDefinitionsTargets->select(t|t.id=source.id)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.CodeDefinitionSet(invtarget,qname+'::termDefinitions::'+source.id);
+			}endif;
+		};
+		/*
+		var constraintDefinitionsSources:OrderedSet(ADL::CodeDefinitionSet)=self.constraintDefinitions;
+		var constraintDefinitionsTargets:OrderedSet(ADL::CodeDefinitionSet)=target.constraintDefinitions;
+		if(constraintDefinitionsSources->size()<>constraintDefinitionsTargets->size())then{
+			log(qname+'==>ARCHETYPE_ONTOLOGY source/target attributes size mismatch source='+constraintDefinitionsSources->size().repr()+', target='+constraintDefinitionsTargets->size().repr());
+		}endif;
+		
+		constraintDefinitionsSources->forEach(source){
+			var sourceMatch:Set(ADL::CodeDefinitionSet)=constraintDefinitionsTargets->select(t|t.id=source.id)->asSet();
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>ARCHETYPE_ONTOLOGY attributes target mismatch for source='+source.id+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		constraintDefinitionsTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::CodeDefinitionSet)=constraintDefinitionsSources->select(t|t.id=invtarget.id)->asSet();
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>ARCHETYPE_ONTOLOGY attributes source mismatch for target='+invtarget.id+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching invariants
+		constraintDefinitionsSources->forEach(source){
+			var invtarget:ADL::CodeDefinitionSet=constraintDefinitionsTargets->select(t|t.id=source.id)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.CodeDefinitionSet(invtarget,qname+'::constraintDefinitions::'+source.id);
+			}endif;
+		};
+		*/
+		var termBindingsSources:OrderedSet(ADL::TermBindingSet)=self.termBindings;
+		var termBindingsTargets:OrderedSet(ADL::TermBindingSet)=target.termBindings;
+		if(termBindingsSources->size()<>termBindingsTargets->size())then{
+			log(qname+'==>ARCHETYPE_ONTOLOGY.termBindings source/target attributes size mismatch source='+termBindingsSources->size().repr()+', target='+termBindingsTargets->size().repr());
+		}endif;
+		
+		termBindingsSources->forEach(source){
+			var sourceMatch:Set(ADL::TermBindingSet)=termBindingsTargets->select(t|t.id=source.id)->asSet();
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>ARCHETYPE_ONTOLOGY.termBindings attributes target mismatch for source='+source.id+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		termBindingsTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::TermBindingSet)=termBindingsSources->select(t|t.id=invtarget.id)->asSet();
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>ARCHETYPE_ONTOLOGY.termBindings attributes source mismatch for target='+invtarget.id+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching invariants
+		termBindingsSources->forEach(source){
+			var invtarget:ADL::TermBindingSet=termBindingsTargets->select(t|t.id=source.id)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.TermBindingSet(invtarget,qname+'::termBindings::'+source.id);
+			}endif;
+		};
+		/*
+		var constraintBindingsSources:OrderedSet(ADL::ConstraintBindingSet)=self.constraintBindings;
+		var constraintBindingsTargets:OrderedSet(ADL::ConstraintBindingSet)=target.constraintBindings;
+		if(constraintBindingsSources->size()<>constraintBindingsTargets->size())then{
+			log(qname+'==>ARCHETYPE_ONTOLOGY source/target attributes size mismatch source='+constraintBindingsSources->size().repr()+', target='+constraintBindingsTargets->size().repr());
+		}endif;
+		
+		constraintBindingsSources->forEach(source){
+			var sourceMatch:Set(ADL::ConstraintBindingSet)=constraintBindingsTargets->select(t|t.terminology=source.terminology)->asSet();
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>ARCHETYPE_ONTOLOGY attributes target mismatch for source='+source.terminology+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		constraintBindingsTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::ConstraintBindingSet)=constraintBindingsSources->select(t|t.terminology=invtarget.terminology)->asSet();
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>ARCHETYPE_ONTOLOGY attributes source mismatch for target='+invtarget.terminology+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching invariants
+		constraintBindingsSources->forEach(source){
+			var invtarget:ADL::ConstraintBindingSet=constraintBindingsTargets->select(t|t.terminology=source.terminology)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.ConstraintBindingSet(invtarget,qname+'::constraintBindings::'+source.terminology);
+			}endif;
+		};
+*/
+}
+/*
+	<xs:complexType name="TermBindingSet">
+		<xs:sequence>
+			<xs:element name="items" type="StringDictionaryItem" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+	</xs:complexType>
+*/	
+helper ADL::TermBindingSet::TermBindingSet(target:ADL::TermBindingSet,qname:String)
+{
+		var itemsSources:OrderedSet(ADL::StringDictionaryItem)=self.items;
+		var itemsTargets:OrderedSet(ADL::StringDictionaryItem)=target.items;
+		if(itemsSources->size()<>itemsTargets->size())then{
+			log(qname+'==>TermBindingSet source/target attributes size mismatch source='+itemsSources->size().repr()+', target='+itemsTargets->size().repr());
+		}endif;
+		
+		itemsSources->forEach(source){
+			var sourceMatch:Set(ADL::StringDictionaryItem)=itemsTargets->select(t|t.value=source.value)->asSet();
+			if(sourceMatch->size()<1)then{
+				log(qname+'==>TermBindingSet attributes target mismatch for source='+source.value+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		itemsTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::StringDictionaryItem)=itemsSources->select(t|t.value=invtarget.value)->asSet();
+			if(targetMatch->size()<1)then{
+				log(qname+'==>TermBindingSet attributes source mismatch for target='+invtarget.value+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching invariants
+		itemsSources->forEach(source){
+//			var invtarget:ADL::StringDictionaryItem=itemsTargets->select(t|t.value=source.value)->asSequence()->first();
+			var invtarget:ADL::StringDictionaryItem=itemsTargets->select(t|t.id=source.id)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.StringDictionaryItem(invtarget,qname+'::items::'+source.id);
+			}endif;
+		};
+	if(self.id<>target.id)then{
+		log('TermBindingSet.terminology mismatch source='+self.id+', target='+target.id);
+	}endif;
+}
+
+	/*
+	
+	<xs:complexType name="CodeDefinitionSet">
+		<xs:sequence>
+			<xs:element name="items" type="ARCHETYPE_TERM" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+	</xs:complexType>
+	
+	*/
+
+helper ADL::CodeDefinitionSet::CodeDefinitionSet(target:ADL::CodeDefinitionSet,qname:String)
+{
+		var itemsSources:OrderedSet(ADL::ARCHETYPETERM)=self.items;
+		var itemsTargets:OrderedSet(ADL::ARCHETYPETERM)=target.items;
+		if(itemsSources->size()<>itemsTargets->size())then{
+			log(qname+'==>CodeDefinitionSet source/target attributes size mismatch source='+itemsSources->size().repr()+', target='+itemsTargets->size().repr());
+		}endif;
+		
+		itemsSources->forEach(source){
+			var sourceMatch:Set(ADL::ARCHETYPETERM)=itemsTargets->select(t|t.id=source.id)->asSet();
+			if(sourceMatch->size()<>1)then{
+				log(qname+'==>CodeDefinitionSet attributes target mismatch for source='+source.id+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		itemsTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::ARCHETYPETERM)=itemsSources->select(t|t.id=invtarget.id)->asSet();
+			if(targetMatch->size()<>1)then{
+				log(qname+'==>CodeDefinitionSet attributes source mismatch for target='+invtarget.id+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching invariants
+		itemsSources->forEach(source){
+			var invtarget:ADL::ARCHETYPETERM=itemsTargets->select(t|t.id=source.id)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.ARCHETYPE_TERM(invtarget,qname+'::items::'+source.id);
+			}endif;
+		};
+
+	if(self.id<>target.id)then{
+		log(qname+'==>CodeDefinitionSet.language mismatch source='+self.id+', target='+target.id);
+	}endif;
+}
+	/*
+	<xs:complexType name="ARCHETYPE_TERM">
+		<xs:sequence>
+			<xs:element name="items" type="StringDictionaryItem" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="code" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="ARCHETYPE_TERM">
+		<xs:sequence>
+			<xs:element name="text" type="xs:string" />
+			<xs:element name="description" type="xs:string" />
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+	</xs:complexType>
+	
+*/
+helper ADL::ARCHETYPETERM::ARCHETYPE_TERM(target:ADL::ARCHETYPETERM,qname:String)
+{
+	if(self.text<>target.text)then{
+		log(qname+'==>ARCHETYPE_TERM.text mismatch source='+self.text+', target='+target.text);
+	}endif;
+	if(self.description<>target.description)then{
+		log(qname+'==>ARCHETYPE_TERM.description mismatch source='+self.description+', target='+target.description);
+	}endif;
+	if(self.id<>target.id)then{
+		log(qname+'==>ARCHETYPE_TERM.id mismatch source='+self.id+', target='+target.id);
+	}endif;
+	/*
+		var itemsSources:OrderedSet(ADL::StringDictionaryItem)=self.items;
+		var itemsTargets:OrderedSet(ADL::StringDictionaryItem)=target.items;
+		if(itemsSources->size()<>itemsTargets->size())then{
+			log('ARCHETYPETERM source/target attributes size mismatch source='+itemsSources->size().repr()+', target='+itemsTargets->size().repr());
+		}endif;
+		
+		itemsSources->forEach(source){
+			var sourceMatch:Set(ADL::StringDictionaryItem)=itemsTargets->select(t|t.id=source.id)->asSet();
+			if(sourceMatch->size()<>1)then{
+				log('ARCHETYPETERM attributes target mismatch for source='+source.id+', target count='+sourceMatch->size().repr());
+			}endif;
+		};
+		itemsTargets->forEach(invtarget){
+			var targetMatch:Set(ADL::StringDictionaryItem)=itemsSources->select(t|t.id=invtarget.id)->asSet();
+			if(targetMatch->size()<>1)then{
+				log('ARCHETYPETERM attributes source mismatch for target='+invtarget.id+', source count='+targetMatch->size().repr());
+			}endif;
+		};
+		// do compare of matching invariants
+		itemsSources->forEach(source){
+			var invtarget:ADL::StringDictionaryItem=itemsTargets->select(t|t.id=source.id)->asSequence()->first();
+			if(not(invtarget.oclIsUndefined()))then{
+				source.StringDictionaryItem(invtarget);
+			}endif;
+		};
+	if(self.code<>target.code)then{
+		log('ARCHETYPE_TERM.code mismatch source='+self.code+', target='+target.code);
+	}endif;
+	*/
+}
+/*
+	<xs:complexType name="IntervalOfReal">
+		<xs:complexContent>
+			<xs:extension base="Interval">
+				<xs:sequence>
+					<xs:element name="lower" type="xs:float" minOccurs="0"/>
+					<xs:element name="upper" type="xs:float" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+helper ADL::IntervalOfReal::IntervalOfReal(target:ADL::IntervalOfReal,qname:String)
+{
+	if(self.lower<>target.lower)then{
+		log(qname+'==>DV_QUANTITY.lower mismatch source='+self.lower.repr()+', target='+target.lower.repr());
+	}endif;
+	if(self.upper<>target.upper)then{
+		log(qname+'==>DV_QUANTITY.upper mismatch source='+self.upper.repr()+', target='+target.upper.repr());
+	}endif;
+	
+	self.Interval(target,qname);
+}
+
+/*
+	<xs:complexType name="IntervalOfDuration">
+		<xs:complexContent>
+			<xs:extension base="Interval">
+				<xs:sequence>
+					<xs:element name="lower" type="Iso8601Duration" minOccurs="0"/>
+					<xs:element name="upper" type="Iso8601Duration" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+*/
+helper ADL::IntervalOfDuration::IntervalOfDuration(target:ADL::IntervalOfDuration,qname:String)
+{
+	if(self.lower<>target.lower)then{
+		log(qname+'==>IntervalOfDuration.lower mismatch source='+self.lower.repr()+', target='+target.lower.repr());
+	}endif;
+	if(self.upper<>target.upper)then{
+		log(qname+'==>IntervalOfDuration.upper mismatch source='+self.upper.repr()+', target='+target.upper.repr());
+	}endif;
+	
+	self.Interval(target,qname);
+}
+/*
+	<xs:complexType name="IntervalOfTime">
+		<xs:complexContent>
+			<xs:extension base="Interval">
+				<xs:sequence>
+					<xs:element name="lower" type="Iso8601Time" minOccurs="0"/>
+					<xs:element name="upper" type="Iso8601Time" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	*/
+helper ADL::IntervalOfTime::IntervalOfTime(target:ADL::IntervalOfTime,qname:String)
+{
+	if(self.lower<>target.lower)then{
+		log(qname+'==>IntervalOfTime.lower mismatch source='+self.lower.repr()+', target='+target.lower.repr());
+	}endif;
+	if(self.upper<>target.upper)then{
+		log(qname+'==>IntervalOfTime.upper mismatch source='+self.upper.repr()+', target='+target.upper.repr());
+	}endif;
+	
+	self.Interval(target,qname);
+}
+	/*
+	<xs:complexType name="IntervalOfDateTime">
+		<xs:complexContent>
+			<xs:extension base="Interval">
+				<xs:sequence>
+					<xs:element name="lower" type="Iso8601DateTime" minOccurs="0"/>
+					<xs:element name="upper" type="Iso8601DateTime" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+*/
+helper ADL::IntervalOfDate::IntervalOfDate(target:ADL::IntervalOfDate,qname:String)
+{
+	if(self.lower<>target.lower)then{
+		log(qname+'==>IntervalOfDate.lower mismatch source='+self.lower.repr()+', target='+target.lower.repr());
+	}endif;
+	if(self.upper<>target.upper)then{
+		log(qname+'==>IntervalOfDate.upper mismatch source='+self.upper.repr()+', target='+target.upper.repr());
+	}endif;
+	
+	self.Interval(target,qname);
+}
+helper ADL::IntervalOfDateTime::IntervalOfDateTime(target:ADL::IntervalOfDateTime,qname:String)
+{
+	if(self.lower<>target.lower)then{
+		log(qname+'==>IntervalOfDateTime.lower mismatch source='+self.lower.repr()+', target='+target.lower.repr());
+	}endif;
+	if(self.upper<>target.upper)then{
+		log(qname+'==>IntervalOfDateTime.upper mismatch source='+self.upper.repr()+', target='+target.upper.repr());
+	}endif;
+	
+	self.Interval(target,qname);
+}
+
+helper ADL::PCATTRIBUTE::C_ATTRIBUTEAbstract(target:ADL::PCATTRIBUTE,qname:String)
+{
+	self.C_ATTRIBUTE(target,qname);
+}

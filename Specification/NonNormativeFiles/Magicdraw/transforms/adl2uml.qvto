@@ -1,0 +1,2503 @@
+import AMLplatformBinding;
+modeltype UML uses 'http://www.omg.org/spec/UML/20131001'; // OMG UML 2.5
+modeltype XSD  uses 'http://www.eclipse.org/xsd/2002/XSD';// XSD Meta-model as used in MOF XMI
+modeltype ADL  uses 'http://schemas.openehr.org/v1';		// The Archetype Object Model as a MOF Model
+modeltype XMLType uses 'http://www.eclipse.org/emf/2003/XMLType';//  The xml type library as a MOF Model
+
+transformation adl2uml(in adl:ADL,inout pimUml:UML)// transformation from AOM to AML
+	extends transformation AMLplatformBinding()
+		;
+	main() {
+	adl2uml_run();
+}	
+property referenceModelPackage:UML::Package=null;// the <<ReferenceModel>> Package correspond to this singular <<ArchetypeLibrary>>	
+property amlRootPackage:UML::Model=null; // the Top-Level Model for the UML Project
+property archetypeLibrary:UML::Package=null;// the <<ArchetypeLibrary>> used for this transformation
+property allArchetypes:Set(ADL::PAUTHOREDARCHETYPE)=Set{};// The set of all <<Archetype>>s for this model.
+// run transformation
+helper adl2uml_run() {
+		log('adl2uml starting now '+pimUml.repr());
+		// amlRootPackage is the single top level Model
+        amlRootPackage:=
+                pimUml.rootObjects()
+                ->select(r|r.oclIsKindOf(UML::Model)).oclAsType(UML::Model)
+                ->asSequence()->first();
+        // initialize profiles based on content of the skeletal base model      
+        amlRootPackage.oclAsType(UML::Model).initializeProfileGlobals();
+
+		// get all archetypes within the import library for this transformation        
+		var allArchetypesSet:Set(ADL::PAUTHOREDARCHETYPE):=adl.objectsOfType(ADL::DocumentRoot).archetype
+			->select(a|a.oclIsKindOf(ADL::PAUTHOREDARCHETYPE)).oclAsType(ADL::PAUTHOREDARCHETYPE)->asSet();
+		// find candidate rmPublisher, rmVersion
+		var soughtRmVersion:String=allArchetypesSet.rmRelease->asSequence()->first();
+		var soughtRmPublisher:String=allArchetypesSet.archetypeId.rmPublisher->asSequence()->first();
+		// get all <<ReferenceModel>> Package
+        var referenceModelPackages:Set(UML::Package):=amlRootPackage.allSubobjectsOfKind(UML::Package).oclAsType(UML::Package)->select(p|p.isReferenceModelPackage())->asSet();
+		log('adl2uml soughtRmVersion '+soughtRmVersion+', '+soughtRmPublisher+', '+referenceModelPackages->size().repr());
+		// find specific <<ReferenceModel>> associated with this <<ArchetypeLibrary>>
+        referenceModelPackage:=referenceModelPackages
+        	->select(p|(p.getRmPublisher()=soughtRmPublisher)and(p.getRmVersion()=soughtRmVersion)
+//        			and(p.name=soughtRmPackage)
+        			)
+        	->asSequence()->first();
+        // if no matching <<ReferenceModel>> found, then arbitrarily pick an available one	
+        if(referenceModelPackage.oclIsUndefined())then{
+        	referenceModelPackage:=amlRootPackage.nestedPackage.nestedPackage->select(p|p.isReferenceModelPackage())->asSequence()->first();
+        }endif;
+        // find the optional libraryRootPackage
+//        libraryRootPackage:=referenceModelPackage.nestedPackage->select(p|p.isLibraryRootPackage())->asSequence()->first();
+        // find the optional CodePhraseRoot
+//        CodePhraseRoot:=libraryRootPackage.ownedType->select(p|p.isCodePhraseRoot()).oclAsType(UML::Enumeration)->asSequence()->first();
+        // map the <<ArchetypeLibrary>>  to a nested package of the root package
+        amlRootPackage.map ArchetypeLibrary();
+		log('adl2uml end ');
+	}
+	// true if this subpackage of <<ReferenceModel>> represents a LibraryRoot
+query UML::Package::isLibraryRootPackage():Boolean=
+	self.name='LibraryRoot';
+	// true if this ownedType of LibraryRootPackage represents a CodePhraseRoot
+query UML::Type::isCodePhraseRoot():Boolean=	self.name='CodePhraseRoot';
+	// true if this package represents a <<ReferenceModel>>.
+query UML::Package::isReferenceModelPackage():Boolean=
+	self.stereotypedBy('ReferenceModel');
+// map the top level model to a  <<ArchetypeLibrary>> nested within that top level model		
+mapping UML::Model::ArchetypeLibrary():UML::Package@pimUml
+{
+	archetypeLibrary:=result;
+	// this is an <<ArchetypeLibrary>>, contains <<Archetype>> for each instance document;
+	var topModel:UML::Model=self;
+	topModel.packagedElement+=result;
+	// apply profiles to the <<ArchetypeLibrary>>
+	result.applyProfile(ConstraintProfile);
+	result.applyProfile(ReferenceModelProfile);
+	result.applyProfile(TerminologyProfile);
+	// apply <<ArchetypeLibrary>> Stereotype
+	var archetypeLibraryInstance:Stdlib::Element=result.applyStereotype(ArchetypeLibraryStereotype);
+	// default name for library; name adjusted below if we can locate the <<ReferenceModel>>
+	name:='MyArchetypeLibrary';
+	// locate all the XML Instances of AUTHORED_ARCHETYPE in the set of incoming XML Documents 
+	allArchetypes+=adl.objectsOfType(ADL::DocumentRoot).archetype
+		->select(a|a.oclIsKindOf(ADL::PAUTHOREDARCHETYPE)).oclAsType(ADL::PAUTHOREDARCHETYPE)->asSet();
+	// all archetypes should have same ReferenceModel Package, get one of them	
+	var rm_package:String=allArchetypes.archetypeId.rmPackage->asSequence()->first();
+	// use the <<ReferenceModel>> Package determined during transformation startup for importing into and naming of this <<ArchetypeLibrary>> 
+	if(not(referenceModelPackage.oclIsUndefined()))then{
+		var packageImport:UML::PackageImport=new UML::PackageImport@pimUml();
+		packageImport.importingNamespace:=result;
+		packageImport.importedPackage:=referenceModelPackage;
+		name:=referenceModelPackage.getRmPublisher()+'-'+rm_package;
+	}endif;
+	// set value of rm_package tag in <<ArchetypeLibrary>>
+	archetypeLibraryInstance.setRm_package(rm_package);
+	// map each incoming AUTHORED_ARCHETYPE to <<Archetype>> Package
+	allArchetypes.map P_AUTHORED_ARCHETYPE(result);		
+}
+/*
+	Map the AUTHROED_ARCHETYPE and related components; schema representation:
+	<xs:complexType name="P_AUTHORED_ARCHETYPE">
+		<xs:complexContent>
+			<xs:extension base="P_AUTHORED_RESOURCE">
+				<xs:sequence>
+					<xs:group ref="pArchetypeElements"/>
+					<xs:element name="other_metadata" type="StringDictionaryItem" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attributeGroup ref="pArchetypeAttributes"/>
+				<xs:attribute name="rm_release" type="xs:string"/>
+				<xs:attribute name="adl_version" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:attributeGroup name="pArchetypeAttributes">
+		<xs:attribute name="is_generated" type="xs:boolean" use="optional"/>
+	</xs:attributeGroup>
+	<xs:group name="pArchetypeElements">
+		<xs:sequence>
+			<xs:element name="archetype_id" type="P_ARCHETYPE_HRID"/>
+			<xs:element name="parent_archetype_id" type="xs:string" minOccurs="0"/>
+			<xs:element name="artefact_type" type="xs:string"/>
+			<xs:element name="definition" type="P_C_COMPLEX_OBJECT"/>
+			<xs:element name="rules" type="RULE_STATEMENT" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="terminology" type="P_ARCHETYPE_TERMINOLOGY"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="P_ARCHETYPE_HRID">
+		<xs:sequence>
+			<xs:element name="concept_id" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="namespace" type="xs:string" use="optional"/>
+		<xs:attribute name="rm_publisher" type="xs:string"/>
+		<xs:attribute name="rm_package" type="xs:string"/>
+		<xs:attribute name="rm_class" type="xs:string"/>
+		<xs:attribute name="release_version" type="xs:string" use="optional"/>
+		<xs:attribute name="version_status" type="xs:integer" use="optional"/>
+		<xs:attribute name="build_count" type="xs:integer" use="optional"/>
+		<xs:attribute name="physical_id" type="xs:string"/>
+	</xs:complexType>
+	
+*/
+// map P_AUTHORED_ARCHETYPE to <<Archetype>>
+mapping ADL::PAUTHOREDARCHETYPE::P_AUTHORED_ARCHETYPE(inout context:UML::Package):UML::Package@pimUml
+{
+	// ontology used to init model elements
+	// see findConstraint_definitions
+	context.packagedElement+=result;
+	// apply <<Archetype>> Stereotype to result Package
+	var archetype:Stdlib::Element=result.applyStereotype(ArchetypeStereotype);
+	// initialize terminology before refs made by Authored Resource to original languages
+	// map terminology to the ontology Package
+	self.terminology.map ARCHETYPE_ONTOLOGY(result,archetype,self);
+	// find the Enumeration representing the "original_language" specified in the incoming XML AUTHORED_ARCHETYPE
+	var originalLanguage:UML::Enumeration=self.originalLanguage.ArchetypeLanguage(result)->first();
+	// if original language defined, then create the Usage to it from <<Archetype>>
+	if(not(originalLanguage.oclIsUndefined()))then{
+		originalLanguage.original_language('original_language',result);		
+	}endif;
+	// set value of <<Archetype>> tag 'uid'
+	archetype.setUid(self.uid->first());
+	// map incoming AUTHORED_ARCHETYPE description as part of <<Archetype>> 
+	self.description.mapRESOURCE_DESCRIPTION(result,archetype);
+	// set value of <<Archetype>> tag 'archetypeType' to incoming AUTHORED_ARCHETYPE artefact_type
+	var archetypeTypeName:String=self.artefactType->first();
+	archetype.setArchetypeType(archetypeTypeName);
+	// use incoming AUTHORED_ARCHETYPE archetypeId to set various identification information into <<Archetype>>
+	self.archetypeId->forEach(aid){
+		/*
+The physical_id of an Archetype is derived from the [rm_publisher], [rm_closure], [rm_class], [concept_id], [release_version], [version_status], and [build_count] as follows:
+ 
+[rm_publisher]-[rm_closure]-[rm_class].[concept_id].v[release_version]-[version_status].[build_count]
+ 
+where :
+rm_publisher.  This is derived from the <<ReferenceModel>> rmPublisher tag, where <<ReferenceModel>> is imported by the containing <<ArchetypeLibrary>>.
+rm_closure.   Name of the package in whose reachability graph the rm_class class is found (there can be more than one possibility in many reference
+models).
+rm_class.  Name of the root class of this archetype.  Derived from the reference model class extended by the definition (<<ArchetypeDefinition>>) of this <<Archetype>>.
+concept_id.   The short concept name of the archetype as used in the multi-axial archetype_hrid.  Derived from the name of the underlying Package.
+release_version.  The full numeric version of this archetype consisting
+of 3 parts, e.g. 1.8.2. The archetype_hrid feature includes only the major
+version.
+version_status.  The status of the version.
+build_content.  The build count since last increment of any version part.
+*/
+		// the name of the <<Archetype>> Package is the incoming concept_id
+		name:=aid.conceptId;
+		// rm_publisher is derived from tag in <<ReferenceModel>>;
+		// rm_package is derived from tag in <<ArchetypeLibrary>> 
+		var release_version:String=aid.releaseVersion;
+		var release_status:Integer=aid.versionStatus;
+		// set version_status to the name of the VERSION_STATUS EnumerationLiteral, based on the incoming release_status (which is an Integer). 
+		var version_status:String='released';
+		switch{
+			case(release_status=-30)version_status:='alpha';
+			case(release_status=-20)version_status:='beta';
+			case(release_status=-10)version_status:='release_candidate';
+			case(release_status=0)version_status:='released';
+			case(release_status=1)version_status:='build';
+		};
+		var build_count:Integer=aid.buildCount;
+		// set value of <<Archetype>> release_version to incoming AUTHORED_ARCHETYPE release_version
+		archetype.setRelease_version(release_version);		
+		// set value of <<Archetype>> version_status to EnumerationLiteral computed from incoming AUTHORED_ARCHETYPE release_status
+		archetype.setVersion_status(version_status);	
+		// set value of <<Archetype>> build_count to incoming AUTHORED_ARCHETYPE build_count
+		archetype.setBuild_count(build_count);		
+		// set value of <<Archetype>> Package URI to incoming AUTHORED_ARCHETYPE namespace
+		URI:=aid.namespace;
+	};
+	
+	// must do parentArchetype now, before mapping definition
+	if(not(self.parentArchetypeId->isEmpty()))then{
+		var parentId:String=self.parentArchetypeId->first();
+		if(not(parentId.oclIsUndefined()))then{
+			// a parent_archetype_id was specified in incoming AUTHORED_ARCHETYPE, find which incoming AUTHORED_ARCHETYPE matches that reference
+			allArchetypes
+			->select(a|
+				not(a.archetypeId->isEmpty()) 
+				and not(a.archetypeId.physicalId->isEmpty()) 
+				and a.archetypeId.physicalId->first().startsWith(parentId))
+			->forEach(parentArchetype){
+				// map the parent AUTHORED_ARCHETYPE to an <<Archetype>>
+				var parentArchetypePackage:UML::Package=parentArchetype.map P_AUTHORED_ARCHETYPE(context);
+				if(parentArchetypePackage.oclIsUndefined())then{
+					parentArchetypePackage:=archetypeLibrary.nestedPackage->select(p|p.name.startsWith(parentId))->asSequence()->first();
+				}endif;
+				// create a PackageImport from the <<Archetype>> result to the referenced parent <<Archetype>> 
+				if(not(parentArchetypePackage.oclIsUndefined()))then{
+					parentArchetypePackage.map ParentArchetype(result);
+				}endif;
+			};					
+		}endif;
+	}endif;	
+	
+	// get the Terminology Definition package for the <<Archetype>> result.
+	var termDefinitionPackage:UML::Package=result.getTermDefinitionLanguagePackage();
+	// get the "IdentifierDefinition" Enumeration used for the <<Archetype>> result
+	var identifierDefinition:UML::Enumeration=termDefinitionPackage.ownedType->select(t|t.name='IdentifierDefinition').oclAsType(UML::Enumeration)->asSequence()->first();
+	// map the top level AUTHORED_ARCHETYPE definition to an <<ArchetypeDefinition>> Usage from the <<Archetype>> result to a <<ComplexObjectConstraint>>
+	var archetypeVersionUsage:UML::Usage=self.definition->first().map ArchetypeDefinition(result,self,identifierDefinition);
+	// set the value of the <<Archetype>> tag 'adlVersion'
+	archetype.setAdlVersion(self.adlVersion);
+	// get the <<ComplexObjectConstraint>> which is the definition of the <<Archetype>> result
+	var archetypeVersion:UML::Class=archetypeVersionUsage.supplier.oclAsType(UML::Class)->asSequence()->first();
+	// for each incoming AUTHORED_ARCHETYPE rule, create a UML Constraint which constraint the definition <<ComlexObjectConstraint>>
+	self.rules->forEach(invariant){
+		if(invariant.oclIsKindOf(ADL::ASSERTION))then{
+			var constraint:UML::Constraint=new UML::Constraint@pimUml();
+			ownedRule+=constraint;
+			constraint.constrainedElement+=archetypeVersion;
+			// name of the constraint set to the ASSERTION tag
+			constraint.name:=invariant.oclAsType(ADL::ASSERTION)._tag;
+			// map the Assertion to the specification for the UML Constraint
+			constraint.specification:=invariant.oclAsType(ADL::ASSERTION).mapAssertion(result);
+		}else{
+			// VARIABLE_DECLARATION does not yet exist
+			//packagedElement+=invariant.oclAsType(ADL::VARIABLEDECLARATION).mapVARIABLE_DECLARATION('invariants');
+			
+		}endif;
+	};
+	// set the value of the <<Archetype>> is_controlled tag to the incoming AUTHORED_ARCHETYPE is_controlled
+	archetype.setIs_controlled(self.isControlled->first());
+	// set the value of the <<Archetype>> is_generated tag to the incoming AUTHORED_ARCHETYPE is_generated
+	archetype.setIs_generated(self.isGenerated);
+}
+// create a Usage between an <<Archetype>> and an Enumeration for a Terminology Definition language.  Name of the usage is supplied as an argument.
+mapping UML::Enumeration::original_language(usageName:String,inout archetype:UML::Package):UML::Usage@pimUml
+{
+		var usage:UML::Usage=result;
+		archetype.packagedElement+=usage;
+		usage.client+=archetype;
+		usage.supplier+=self;
+		usage.name:=usageName;
+	
+
+}
+/*
+	Map the P_ARCHETYPE_TERMINOLOGY and related components; schema representation:
+	<xs:complexType name="P_ARCHETYPE_TERMINOLOGY">
+		<xs:sequence>
+			<xs:element name="term_definitions" type="CodeDefinitionSet" maxOccurs="unbounded"/>
+			<xs:element name="terminology_extracts" type="CodeDefinitionSet" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="term_bindings" type="TermBindingSet" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="value_sets" type="VALUE_SET" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="original_language" type="xs:string"/>
+	</xs:complexType>
+
+	<xs:complexType name="TERMINOLOGY_CODE">
+		<xs:sequence>
+			<xs:element name="terminology_id" type="xs:string"/>
+			<xs:element name="code_string" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+*/
+// map a P_ARCHETYPE_TERMINOLOGY to the ontology Package, which is nested in the <<Archetype>> Package
+mapping ADL::PARCHETYPETERMINOLOGY::ARCHETYPE_ONTOLOGY(inout context:UML::Package,archetype:Stdlib::Element,at1:ADL::PAUTHOREDARCHETYPE):UML::Package@pimUml
+{
+	context.packagedElement+=result;
+	name:='ontology';
+	// map this P_ARCHETYPE_TERMINOLOGY to the terminology bindings package
+	var term_bindings_package:UML::Package=self.map term_bindings(result);
+	// for each language terminology identifier in either the 'translations' or 'description/details', map to a language   
+	at1.translations.language.terminologyId()
+		->union(at1.description.details.language.terminologyId())
+		->asSet().map LanguagePackage(result,at1,self,term_bindings_package);
+
+	// map the ARCHETYPE_TERMINOLOGY original_language to a Usage from <<Archetype>> to the language Enumeration.  The Usage is named 'terminology_original_language'	
+	var originalLanguage:UML::Enumeration=self.originalLanguage.ArchetypeLanguage(context);
+	if(not(originalLanguage.oclIsUndefined()))then{
+		originalLanguage.original_language('terminology_original_language',context);		
+	}endif;
+	
+	// map the ARCHETYPE_TERMINOLOGY to the terminology_extracts Package
+	self.map terminology_extracts(result);
+}
+// for the given value of 'language', return the terminology id component
+query String::terminologyId():String=self.substringBefore('::');
+// for the given value of 'language', return the code string component
+query String::codeString():String=self.substringAfter('::');
+
+
+// map the language terminology identifier to a language package nested within the ontology Package.  Example of language terminology identifier is ISO_639-1   
+mapping String::LanguagePackage(inout context:UML::Package,at2:ADL::PAUTHOREDARCHETYPE,inout archetypeTerminology:ADL::PARCHETYPETERMINOLOGY,inout term_bindings_package:UML::Package):UML::Package@pimUml
+{
+	context.packagedElement+=result;
+	// name of the Package is the language terminology identifier
+	name:=self;
+	// terminology language enumerations
+	// identifierEnum is the identifier definition enumeration for an <<Archetype>>; will contain all defined node ids 
+	// make an identifier enumeration, define valueSets and termBindingSets for it, link up with languages
+	var identifierEnum:UML::Enumeration=null;
+	// the identifer definition is initialized based on some language-specific terminology definition; arbitrarily select a terminology definition:
+	archetypeTerminology.termDefinitions->asSequence()->first()->forEach(termDefinition){
+		// map the Terminology Definition to the Identified Definition Enumeration
+		identifierEnum:=termDefinition.map IdentifierDefinitionSet(result);
+		// for each ARCHETYPE_TERMINOLOGY valueSet:
+		archetypeTerminology.valueSets->forEach(valueSet){
+			// find the EnumerationLiteral in the Identified Definition which has the same node id
+			identifierEnum.ownedLiteral->select(ol|ol.name=valueSet.id)->forEach(ac){
+				// for each member of the incoming value set
+				valueSet.members->forEach(member){
+						// find the EnumerationLiteral in the Identified Definition which has the same node id
+						identifierEnum.ownedLiteral->select(tb|tb.name=member)->forEach(at){
+						/*
+							<xs:complexType name="VALUE_SET">
+								<xs:sequence>
+									<xs:element name="members" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+								</xs:sequence>
+								<xs:attribute name="id" type="xs:string" use="required"/>
+							</xs:complexType>
+						*/
+						// add the Identified Definition EnumerationLiteral to the value of tag  'value_set_members' within the <<ArchetypeTerm>> representing the value set		
+						ac.addValue_set_members(at);
+					};
+				};
+			};
+		};
+		// check term_bindings, add <<ConceptReferenceInstance>> abastraction from termDefinition to termBinding
+		archetypeTerminology.termBindings.map TermBindingSet(archetypeTerminology,term_bindings_package).ownedLiteral
+		->forEach(conceptReference){
+			// find the EnumerationLiteral in the Identified Definition which has the same node id
+			identifierEnum.ownedLiteral->select(ol|ol.name=conceptReference.name)->forEach(at){
+				// add the terminology binding EnumerationLiteral to the value of tag  'term_bindings' within the <<ArchetypeTerm>> representing the term being bound	
+				at.addTerm_bindings(conceptReference);
+			};
+		};
+			
+	};
+	// map all languages expressed in this terminology identifier (both in the archetype translations and the description details) to a language-specific Enumeration 
+	at2.translations.language->select(l|l.terminologyId()=self)
+		->union(at2.description.details.language->select(l|l.terminologyId()=self))
+		->asSet().map LanguageEnumeration(result,at2,identifierEnum);
+
+	// map each incoming term_definition to a terminology binding Enumeration
+	archetypeTerminology.termDefinitions->forEach(termDefinition){
+		var termBindingEnum:UML::Enumeration=termDefinition.mapCodeDefinitionSet(result,identifierEnum);
+	};
+		
+}
+// map the incoming 'author'' Dictionary Items to explicit tags within this Stereotype Instance
+helper Stdlib::Element::setAuthor(value:OrderedSet(ADL::StringDictionaryItem)){
+	self.setTagValueConditionally('author_name','name'.getStringDictionaryItem(value));
+	
+	var organization:String='organization'.getStringDictionaryItem(value);
+	if(organization.oclIsUndefined())then{organization:='organisation'.getStringDictionaryItem(value);}endif;
+	self.setTagValueConditionally('author_organization',organization);
+	
+	
+	self.setTagValueConditionally('author_email','email'.getStringDictionaryItem(value));
+	self.setTagValueConditionally('author_date','date'.getStringDictionaryItem(value));
+}
+// get the value of the StringDictionaryItem which is keyed by this identifier
+query String::getStringDictionaryItem(value:OrderedSet(ADL::StringDictionaryItem)):String{
+		value->select(i|i.id=self)->forEach(item){return item.value;};
+		return null;
+	}
+// set the value of the tag 'other_translation_details' on this Applied Stereotype Instance to the list of String values within the given list of StringDictionaryItems 	
+helper Stdlib::Element::setOther_translation_details(value:OrderedSet(ADL::StringDictionaryItem)){
+	self.setOther_translation_details(value.value);
+	self.setOther_translation_details_id(value.id);
+
+//	self.setOther_translation_details(value.value);
+}
+
+// map the given language name to a <<ResourceTranslation>> Enumeration owned by the language's terminology identifier
+mapping String::LanguageEnumeration(inout context:UML::Package,at:ADL::PAUTHOREDARCHETYPE,identifierDefinition:UML::Enumeration):UML::Enumeration@pimUml
+{
+	context.packagedElement+=result;
+	// name of the Enumeration is the language name
+	name:=self.codeString();
+	// apply <<ResourceTranslation>> Stereotype
+	var resourceTranslation:Stdlib::Element=result.applyStereotype(ResourceTranslationStereotype);
+	// add language-specific information coming from the translations to <<ResourceTranslation>>
+	at.translations->select(l|l.language->first()=self)->forEach(translation){
+		resourceTranslation.setAuthor(translation.author);
+		resourceTranslation.setAccreditation(translation.accreditation->first());
+		resourceTranslation.setOther_translation_details(translation.otherDetails);
+		resourceTranslation.setVersion_last_translated(translation.versionLastTranslated->first());
+		
+	};
+	// add language-specific information coming from the description/details to <<ResourceTranslation>>
+	at.description.details->select(l|l.language->first()=self)->forEach(detail){
+		resourceTranslation.	setPurpose(detail.purpose->first());	
+		resourceTranslation.	setKeywords(detail.keywords);	
+		resourceTranslation.	setUse(detail.use->first());	
+		resourceTranslation.	setMisuse(detail.misuse->first());	
+		resourceTranslation.	setOriginal_resource_uri(detail.originalResourceUri.value);	
+		resourceTranslation.	setOther_details(detail.otherDetails.value);
+	};
+	/*
+	<xs:complexType name="RESOURCE_ANNOTATIONS">
+		<xs:sequence>
+			<xs:element name="documentation" type="AnnotationLangSet" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="AnnotationLangSet">
+		<xs:sequence>
+			<xs:element name="items" type="AnnotationPathSet" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="AnnotationPathSet">
+		<xs:sequence>
+			<xs:element name="items" type="StringDictionaryItem" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+	</xs:complexType>
+*/	
+	// for each AUTHORED_ARCHETYPE annotation, add a <<ResourceAnnotationNodeItem>> Comment owned by <<ResultTranslation>> Enumeration which annotates a model element somewhere
+	at.annotations.documentation->select(a|a.id=name).items->forEach(annotationPathSet){
+		var alsId:String=annotationPathSet.id;
+		annotationPathSet.items.map ResourceAnnotationNodeItem(alsId,result,identifierDefinition);
+	};
+}
+// map this StringDictionaryItem to a <<ResourceAnnotationNodeItem>> Comment, annotating some UML ModelElement associated with the StringDictionaryItem id
+mapping ADL::StringDictionaryItem::ResourceAnnotationNodeItem(location:String,inout language:UML::Enumeration,identifierDefinition:UML::Enumeration):UML::Comment@pimUml{
+	// <<ResourceAnnotationNodeItem>> Comment is owned by a <<ResourceTranslation>> Enumeration
+	language.ownedComment+=result;
+	// Comment body is the value of this StringDictionaryItem
+	body:=self.value;
+	// apply <<ResourceAnnotationNodeItem>> Stereotype to result Comment
+	var resourceAnnotationNodeItem:Stdlib::Element=result.applyStereotype(ResourceAnnotationNodeItemStereotype);
+	// set tag 'annotationNodeId' on <<ResourceAnnotationNodeItem>> to this StringDictionaryItem@id
+	//resourceAnnotationNodeItem.setAnnotationNodeId(self.id);
+	// <<ResourceAnnotationNodeItem>> annotates a model element specified by this StringDictionaryItem@id
+	result.annotatedElement+=self.id.findTarget(language.getNearestPackage().nestingPackage.nestingPackage,identifierDefinition);
+	
+}
+// map P_ARCHETYPE_TERMINOLOGY to a terminology_extracts Package
+mapping ADL::PARCHETYPETERMINOLOGY::terminology_extracts(inout context:UML::Package):UML::Package@pimUml
+{
+	context.packagedElement+=result;
+	name:='terminology_extracts';
+	// find the sibling terminology definitions package
+	var termDefinitionPackage:UML::Package=context.getNestedTermDefinitionLanguagePackage();
+	// find the IdentifierDefinition Enumeration within the same <<Archetype>>
+	var identifierDefinition:UML::Enumeration=termDefinitionPackage.ownedType->select(t|t.name='IdentifierDefinition').oclAsType(UML::Enumeration)->asSequence()->first();
+	// map each incoming terminologyExtract to an Enumeration owned by result Package
+	self.terminologyExtracts->forEach(termDefinition){
+		var termBindingEnum:UML::Enumeration=termDefinition.map CodeDefinitionSet(result,identifierDefinition);
+	};
+}
+// true if thie Enumeration was declared an original_language for the ARCHETYPE terminology 
+query UML::Enumeration::isOriginalTerminologyLanguage():Boolean{
+	return self.supplierDependency->exists(d|d.name='terminology_original_language');
+}
+// get the terminology definition package nested in this ontology Package
+query UML::Package::getNestedTermDefinitionLanguagePackage():UML::Package=self.nestedPackage->select(p|p.ownedType->exists(t|t.stereotypedBy('ResourceTranslation')))->asSequence()->first();
+// get the terminology binding Package nested in this <<Archetype>> Package
+query UML::Package::getTermBindingPackage():UML::Package=self.getOntologyPackage().nestedPackage->select(p|p.name='term_bindings')->asSequence()->first();
+
+// get the terminology definition Package nested in this <<Archetype>> Package
+query UML::Package::getTermDefinitionLanguagePackage():UML::Package=self.getOntologyPackage().getNestedTermDefinitionLanguagePackage();
+// get the ontology Package nested in this <<Archetype>> Package
+query UML::Package::getOntologyPackage():UML::Package=self.nestedPackage->select(p|p.name='ontology')->asSequence()->first();
+// map a P_ARCHETYPE_TERMINOLOGY to a terminology bindings Package owned by the context ontology Package.
+mapping ADL::PARCHETYPETERMINOLOGY::term_bindings(inout context:UML::Package):UML::Package@pimUml
+{
+	context.packagedElement+=result;
+	// name by convention is 'term_bindings'
+	name:='term_bindings';
+	// map each termBinding to a <<ValueSetDefinitionReference>> Enumeration owned by result Package
+	self.termBindings.map TermBindingSet(self,result);
+}
+/*
+	<xs:complexType name="TermBindingSet">
+		<xs:sequence>
+			<xs:element name="items" type="TermBindingItem" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="terminology" type="xs:string" use="required"/>
+	</xs:complexType>
+*/
+// map a TermBindingSet to a <<ValueSetDefinitionReference>> Enumeration owned by the terminology binding Package context.
+mapping ADL::TermBindingSet::TermBindingSet(archetypeTerminology:ADL::PARCHETYPETERMINOLOGY,inout context:UML::Package):UML::Enumeration@pimUml
+{
+	context.packagedElement+=result;
+	// name of the <<ValueSetDefinitionReference>> Package is the TermBindingSet@id
+	name:=self.id;
+	// apply the <<ValueSetDefinitionReference>> Stereotype
+	//result.applyStereotype(ValueSetDefinitionReferenceStereotype);
+	// map each item in the TermBindingSet to a <<ConceptReference>> EnumerationLiteral
+	self.items.map TERM_BINDING_ITEM(archetypeTerminology,result);
+}
+/*
+	<xs:complexType name="TermBindingItem">
+		<xs:sequence>
+			<xs:element name="value" type="TERMINOLOGY_CODE"/>
+		</xs:sequence>
+		<xs:attribute name="code" type="xs:string" use="required"/>
+	</xs:complexType>
+*/
+// map incoming StringDictionaryItem to a <<ConceptReference>> EnumerationLiteral owned by given <<ValueSetDefinitionReference>> Enumeration context
+mapping ADL::StringDictionaryItem::TERM_BINDING_ITEM(archetypeTerminology:ADL::PARCHETYPETERMINOLOGY,inout context:UML::Enumeration):UML::EnumerationLiteral@pimUml
+{
+	context.ownedLiteral+=result;
+	// the name of the <<ConceptReference>> ENumeration 
+	name:=self.id;
+	// apply the <<ConceptReference>> Stereotype to the EnumerationLiteral Result
+	var conceptReference:Stdlib::Element=result.applyStereotype(ConceptReferenceStereotype);
+	// set the value of tag 'uri' in <<ConceptReference>> to this StringDictionaryItem @value
+	conceptReference.setURI(self.value);
+}
+/*
+	<xs:complexType name="CodeDefinitionSet">
+		<xs:sequence>
+			<xs:element name="items" type="ARCHETYPE_TERM" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="language" type="xs:string" use="required"/>
+	</xs:complexType>
+*/
+// map the items of the incoming CodeDefinitionSet to <<ArchetypeTerm>> EnumerationLiterals in the corresponding language-specific <<ResourceTranslation>> Enumeration
+helper ADL::CodeDefinitionSet::mapCodeDefinitionSet(inout context:UML::Package,identifierEnum:UML::Enumeration):UML::Enumeration
+{
+	context.nestingPackage.nestedPackage.ownedType
+		->select(t|t.stereotypedBy('ResourceTranslation')and (t.name=self.id)).oclAsType(UML::Enumeration)
+		->asSequence()->first()->forEach(baseLanguage){
+			self.items.map ARCHETYPE_TERM(baseLanguage,identifierEnum);
+			return baseLanguage;
+		};
+	return null;
+}
+// map this CodeDefinitionSet to Enumeration owned by Package context
+mapping ADL::CodeDefinitionSet::CodeDefinitionSet(inout context:UML::Package,identifierEnum:UML::Enumeration):UML::Enumeration@pimUml
+{
+	context.packagedElement+=result;
+	// the name of the Enumeration is the CodeDefinitionSet@id
+	name:=self.id;
+	// map each CodeDefinitionSet@items to an <<ArchetypeTerm>> EnumerationLiteral	
+	self.items.map ARCHETYPE_TERM(result,identifierEnum);
+}
+// map this CodeDefinitionSet to the 'IdentifierDefinition' Enumeration whose owner is the terminology Id Package
+mapping ADL::CodeDefinitionSet::IdentifierDefinitionSet(inout context:UML::Package):UML::Enumeration@pimUml
+{
+	context.packagedElement+=result;
+	// Name of the Enumeration is IdentifierDefinition
+	name:='IdentifierDefinition';
+	// apply <<EnumerationValueDomain>> Stereotype
+	result.applyStereotype(EnumerationValueDomainStereotype);
+	// map each CodeDefinitionSet@items to an <<ArchetypeTerm>> EnumerationLiteral.
+	self.items.map IDENTIFIER_TERM(result);
+}
+/*
+	<xs:complexType name="ARCHETYPE_TERM">
+		<xs:sequence>
+			<xs:element name="items" type="StringDictionaryItem" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="code" type="xs:string" use="required"/>
+	</xs:complexType>
+*/
+// map this ARCHETYPE_TERM to a <<IdEntry>> EnumerationLiteral whose owner is the Enumeration context
+mapping ADL::ARCHETYPETERM::ARCHETYPE_TERM(inout context:UML::Enumeration,identifierEnum:UML::Enumeration):UML::EnumerationLiteral@pimUml
+{
+	context.ownedLiteral+=result;
+	// no name since names are not unique
+	name:='';
+	// apply <<IdEntry>> Stereotype
+	var term:Stdlib::Element=result.applyStereotype(IdEntryStereotype);
+	// set value of 'text' tag in <<IdEntry>> to ARCHETYPE_TERM@text
+	term.setText(self.text);
+	// add an ownedComment whose body is ARCHETYPE_TERM@description
+	var comment:UML::Comment=new UML::Comment@pimUml();
+	result.ownedComment+=comment;
+	comment.annotatedElement+=result;
+	comment.body:=self.description;
+	// set <<IdEntry>> Tag 'ref' to EnumerationLiteral from IdentifierDefinition which corresponds to ARCHETYPE_TERM@id 
+	var id:UML::EnumerationLiteral=identifierEnum.ownedLiteral->select(ol|ol.name=self.id)->asSequence()->first();
+	term.setRef(id);
+}
+
+// map this ARCHETYPE_TERM to a <<ArchetypeTerm>> EnumerationLiteral whose owner is the Enumeration context
+mapping ADL::ARCHETYPETERM::IDENTIFIER_TERM(inout context:UML::Enumeration):UML::EnumerationLiteral@pimUml
+{
+	context.ownedLiteral+=result;
+	// name of result is this ARCHETYPE_TERM@id
+	name:=self.id;
+	var term:Stdlib::Element=result.applyStereotype(ARCHETYPE_TERMStereotype);
+}
+// create a PackageImport whose importingNamespace is the <<Archetype>> context and whose importedPackage is this <<Archetype>> Package. 
+mapping UML::Package::ParentArchetype(inout context:UML::Package):UML::PackageImport@pimUml
+{
+	context.packageImport+=result;
+	importingNamespace:=context;
+	importedPackage:=self;	
+}
+// set value of 'is_controlled' tag on this <<Archetype>> to provided value
+helper Stdlib::Element::setIs_controlled(value:Boolean){
+	self.setTagValueConditionally('is_controlled',value);
+}
+	
+// set value of 'is_generated' tag on this <<Archetype>> to provided value
+helper Stdlib::Element::setIs_generated(value:Boolean){
+	self.setTagValueConditionally('is_generated',value);
+}
+
+	
+// set value of 'amlVersion' tag on this <<Archetype>> to provided value
+helper Stdlib::Element::setAdlVersion(value:String){
+	self.setTagValueConditionally('amlVersion',value);
+}
+// set value of 'current_revision' tag on this <<AuthoredResource>> to provided value
+helper Stdlib::Element::setCurrent_revision(value:String){
+	self.setTagValueConditionally('current_revision',value);
+}
+
+/*
+	<xs:complexType name="AUTHORED_RESOURCE" abstract="true">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="original_language" type="TERMINOLOGY_CODE"/>
+			<xs:element name="is_controlled" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="description" type="RESOURCE_DESCRIPTION" minOccurs="0"/>
+			<xs:element name="translations" type="TRANSLATION_DETAILS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="uid" type="Uid" minOccurs="0"/>
+			<xs:element name="annotations" type="RESOURCE_ANNOTATIONS" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="AnnotationSet">
+		<xs:sequence>
+			<xs:element name="items" type="StringDictionaryItem" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+	</xs:complexType>
+*/
+// map the incoming 'original_author'' Dictionary Items to explicit tags within this Stereotype Instance
+
+helper Stdlib::Element::setOriginalAuthor(value:OrderedSet(ADL::StringDictionaryItem)){
+	self.setTagValueConditionally('original_author_name','name'.getStringDictionaryItem(value));
+	var organization:String='organization'.getStringDictionaryItem(value);
+	if(organization.oclIsUndefined())then{organization:='organisation'.getStringDictionaryItem(value);}endif;
+	self.setTagValueConditionally('original_author_organization',organization);
+	self.setTagValueConditionally('original_author_email','email'.getStringDictionaryItem(value));
+	var date:String='date'.getStringDictionaryItem(value);
+	if(date.oclIsUndefined())then{date:='submission'.getStringDictionaryItem(value);}endif;
+	self.setTagValueConditionally('original_author_date',date);
+}
+// map the incoming 'other_details'' Dictionary Items to explicit tags within this Stereotype Instance
+helper Stdlib::Element::setOtherDetails(value:OrderedSet(ADL::StringDictionaryItem)){
+	self.setOtherDetails(value.value);
+	self.setOtherDetails_id(value.id);
+	
+}
+// map the incoming 'references' Dictionary Items to explicit tags within this Stereotype Instance
+helper Stdlib::Element::setReferences(value:OrderedSet(ADL::StringDictionaryItem)){
+	self.setReferences(value.value);
+	self.setReferences_id(value.id);
+}
+
+// map the incoming 'ip_acknowledgements' Dictionary Items to explicit tags within this Stereotype Instance
+helper Stdlib::Element::setIp_acknowledgements(value:OrderedSet(ADL::StringDictionaryItem)){
+	self.setIp_acknowledgements(value.value);
+	self.setIp_acknowledgements_id(value.id);
+}
+/*
+	<xs:complexType name="RESOURCE_DESCRIPTION">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="lifecycle_state" type="xs:string"/>
+			<xs:element name="custodian_namespace" type="xs:string" minOccurs="0"/>
+			<xs:element name="custodian_organisation" type="xs:string" minOccurs="0"/>
+			<xs:element name="original_author" type="StringDictionaryItem" maxOccurs="unbounded"/>
+			<xs:element name="original_namespace" type="xs:string" minOccurs="0"/>
+			<xs:element name="original_publisher" type="xs:string" minOccurs="0"/>
+			<xs:element name="other_contributors" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="copyright" type="xs:string" minOccurs="0"/>
+			<xs:element name="licence" type="xs:string" minOccurs="0"/>
+			<xs:element name="ip_acknowledgements" type="StringDictionaryItem" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="resource_package_uri" type="xs:string" minOccurs="0"/>
+			<xs:element name="references" type="StringDictionaryItem" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="other_details" type="StringDictionaryItem" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="details" type="RESOURCE_DESCRIPTION_ITEM" maxOccurs="unbounded"/>
+		</xs:choice>
+	</xs:complexType>
+*/
+// map the incoming 'RESOURCE_DESCRIPTION'  to tags within the <<Archetype>> Stereotype Instance
+helper ADL::RESOURCEDESCRIPTION::mapRESOURCE_DESCRIPTION(inout context:UML::Package,archetype:Stdlib::Element)
+{
+	archetype.setCustodian_namespace(self.custodianNamespace->first());
+	archetype.setCustodian_organisation(self.custodianOrganisation->first());
+	archetype.setOriginalAuthor(self.originalAuthor);
+	archetype.setOriginal_namespace(self.originalNamespace->first());
+	archetype.setOriginal_publisher(self.originalPublisher->first());
+	archetype.setOtherContributors(self.otherContributors);
+	if(not(self.lifecycleState->isEmpty()))then{archetype.setLifecycleState(self.lifecycleState->first());}endif;
+	archetype.setCopyright(self.copyright->first());
+	archetype.setLicence(self.licence->first());
+	archetype.setIp_acknowledgements(self.ipAcknowledgements);
+	
+	if(not(self.resourcePackageUri->isEmpty()))then{archetype.setResourcePackageUri(self.resourcePackageUri->first());}endif;
+	archetype.setReferences(self._references);
+	archetype.setOtherDetails(self.otherDetails);
+	return;
+}
+// find EnumerationLiteral 	
+// find the EnumerationLiteral within the IdentifierDefinition Enumeration which matches the code string component of this String (i.e., match for nodeId)
+helper String::CODE_PHRASE(identifierEnum:UML::Enumeration):UML::EnumerationLiteral{
+	var terminologyId:String=self.terminologyId();
+	var codeString:String=self.codeString();
+	// assume that enumeration is a subtype of CodePhraseRoot
+	if(terminologyId.oclIsUndefined())then{return null;}endif;
+	
+//	var terminology:UML::Enumeration=terminologyId.findTerminology(CodePhraseRoot);
+	var terminology:UML::Enumeration=identifierEnum;
+	if(terminology.oclIsUndefined() or codeString.oclIsUndefined())then{return null;}endif;
+	return codeString.findCodeString(terminology);
+}
+// find the landuage-specific Enumeration within the <<Archetype>> Package context which matches this language value
+helper String::ArchetypeLanguage(context:UML::Package):UML::Enumeration{
+	var terminologyId:String=self.terminologyId();
+	var codeString:String=self.codeString();
+	// assume that enumeration is a subtype of CodePhraseRoot
+	if(terminologyId.oclIsUndefined())then{return null;}endif;
+	var terminology:UML::Package=context.getOntologyPackage().nestedPackage->select(p|p.name=terminologyId)->asSequence()->first();
+	
+	if(terminology.oclIsUndefined() or codeString.oclIsUndefined())then{return null;}endif;
+	return terminology.ownedType->select(t|t.oclIsKindOf(Enumeration)and (t.name=codeString)).oclAsType(UML::Enumeration)->asSequence()->first();
+}
+/*
+query String::findTerminology(codePhraseRoot:UML::Enumeration):UML::Enumeration=
+	codePhraseRoot.getSpecializations().oclAsType(UML::Enumeration)->select(e|e.name=self)->asSequence()->first();
+query UML::Classifier::getSpecializations():Set(UML::Classifier)=
+	self._classifierOfGeneral;
+*/
+// find the EnumerationLiteral within the supplied terminology Enumeration which matches this code string
+query String::findCodeString(terminology:UML::Enumeration):UML::EnumerationLiteral=
+	terminology.ownedLiteral->select(e|e.name=self)->asSequence()->first();
+
+// map this P_C_COMPLEX_OBJECT to a <<ArchetypeDefinition>> Usage from <<Archetype>> to the definition <<ComplexObjectConstraint>>	
+mapping ADL::PCCOMPLEXOBJECT::ArchetypeDefinition(inout context:UML::Package,ontology:ADL::PAUTHOREDARCHETYPE,identifierDefinition:UML::Enumeration):UML::Usage@pimUml
+{
+		// apply <<ArchetypeDefinition>> Stereotype
+		var archetype:Stdlib::Element=result.applyStereotype(ArchetypeDefinitionStereotype);
+		context.packagedElement+=result;
+		client+=context;
+		// map P_C_COMPLEX_OBJECT to <<ComplexObjectConstraint>> and make it supplier of the <<ArchetypeDefinition>> Usage
+		supplier+=self.map C_COMPLEX_OBJECTAbstract(context,ontology,identifierDefinition
+			);
+}
+/*
+	<xs:complexType name="P_C_COMPLEX_OBJECT">
+		<xs:complexContent>
+			<xs:extension base="P_C_DEFINED_OBJECT">
+				<xs:sequence>
+					<xs:element name="attributes" type="P_C_ATTRIBUTE" minOccurs="0"
+						maxOccurs="unbounded"/>
+					<xs:element name="attribute_tuples" type="P_C_ATTRIBUTE_TUPLE" minOccurs="0"
+						maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// map this P_C_COMPLEX_OBJECT to a <<ComplexObjectConstraint>> Class
+mapping ADL::PCCOMPLEXOBJECT::C_COMPLEX_OBJECT(inout context:UML::NamedElement,ontology:ADL::PAUTHOREDARCHETYPE,identifierDefinition:UML::Enumeration
+	):UML::Class@pimUml
+	inherits ADL::PCCOMPLEXOBJECT::C_COMPLEX_OBJECTClassifier
+{
+	// map each incoming P_C_COMPLEX_OBJECT@attribute_typles to a Nested Class
+	self.attributeTuples.map C_ATTRIBUTE_TUPLE(result);
+}
+// true if this P_C_COMPLEX_OBJECT is referenced as a proxy anywhere within the P_AUTHORED_ARCHETYPE
+query ADL::PCCOMPLEXOBJECT::isProxied(authoredArchetype:ADL::PAUTHOREDARCHETYPE):Boolean{
+	var nodeId:String=self.nodeId;
+	// true if any of the Archetype/definition/attributes are proxied
+	return authoredArchetype.definition.attributes->exists(a|a.isProxied(nodeId));
+}
+// true if any children of this P_C_ATTRIBUTE references the provided note_id as a Proxy
+query ADL::PCATTRIBUTE::isProxied(nodeId:String):Boolean{
+	return self.children->exists(a|a.isProxied(nodeId));
+}
+// false; abstract P_C_OBJECT is not proxied
+query ADL::PCOBJECT::isProxied(nodeId:String):Boolean{
+	return false;
+}
+// true if any attributes of this P_C_COMPLEX_OBJECT is proxied
+query ADL::PCCOMPLEXOBJECT::isProxied(nodeId:String):Boolean{
+	return self.attributes->exists(a|a.isProxied(nodeId));
+}
+// true if thie P_C_COMPLEX_OBJECT_PROXY references provided nodeId
+query ADL::PCCOMPLEXOBJECTPROXY::isProxied(nodeId:String):Boolean{
+	return self.targetPath.indexOf('['+nodeId+']')>=0;
+}
+/*
+	<xs:complexType name="P_C_ATTRIBUTE_TUPLE">
+		<xs:sequence>
+			<xs:element name="members" type="xs:string" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+*/
+// maps this P_C_ATTRIBUTE_TUPLE to a Nested Class of supplied <<ComlexObjectConstraint>> Class
+mapping ADL::PCATTRIBUTETUPLE::C_ATTRIBUTE_TUPLE(inout context:UML::Class):UML::Class@pimUml
+{
+	// the tuple is nested inside its Complex Object,  inherits that Complex Object, and subsets/redefines properties
+	context.nestedClassifier+=result;
+	// The general of Class result is this <<ComplexObjectConstraint>> Class
+	result.C_ATTRIBUTE_TUPLE_GENERALIZATION(context);
+	// unnamed for now
+	// each member is a usage to a Property
+	// each member is an attribute subsetting/redefining a property in the context
+	self.members->forEach(member){
+		// find the property in the <<ComplexObjectConstraint>> context which match the P_C_ATTRIBUTE_TUPLE/members
+		context.attribute->select(a|a.matchesAttributeTupleMember(member))
+		->forEach(a){
+			// create a UML Property as an ownedAttribute of the Result Class
+			a.C_ATTRIBUTE_TUPLE_MEMBER(result);
+		};
+	};	
+}
+// true if the UML Property matches the given PC_ATTRIBUTE_TUPLE_NAME/members
+query UML::Property::matchesAttributeTupleMember(nameIn:String):Boolean{
+	return self.name=nameIn;
+}
+// create a Generalization from this Attribute Tuple Class to the provided <<ComplexObjectConstraint>> context 
+mapping UML::Class::C_ATTRIBUTE_TUPLE_GENERALIZATION(inout context:UML::Class):UML::Generalization@pimUml
+{
+	specific:=self;
+	general:=context;
+}
+// create a Property owned by the tuplceConstraint Class from a <<ComplexObjectConstraint>> Property
+mapping UML::Property::C_ATTRIBUTE_TUPLE_MEMBER(inout tupleConstraint:UML::Class):UML::Property@pimUml
+{
+	tupleConstraint.ownedAttribute+=result;
+	// initialize Property from this <<ComplexObjectConstraint>> Property
+	name:=self.name;
+	aggregation:=self.aggregation;
+	isID:=self.isID;
+	visibility:=self.visibility;
+	result.setLower(self.lower);
+	result.setUpper(self.upper);
+	result.isLeaf:=self.isLeaf;
+	result.isStatic:=isStatic;
+	result.type:=self.type;
+	result.isOrdered:=self.isOrdered;
+	result.isUnique:=self.isUnique;
+	result.isReadOnly:=self.isReadOnly;
+	result.isDerived:=self.isDerived;
+	result.isDerivedUnion:=self.isDerivedUnion;
+	result.redefinedProperty+=self;
+}
+/*
+	<xs:complexType name="P_C_ARCHETYPE_ROOT">
+		<xs:complexContent>
+			<xs:extension base="P_C_COMPLEX_OBJECT">
+				<xs:sequence>
+					<xs:element name="archetype_ref" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// map a P_C_ARCHETYPE_ROOT to a <<ArchetypeRoot>> Class
+mapping ADL::PCARCHETYPEROOT::P_C_ARCHETYPE_ROOT(inout context:UML::NamedElement,ontology:ADL::PAUTHOREDARCHETYPE,identifierDefinition:UML::Enumeration):UML::Class@pimUml
+	inherits ADL::PCCOMPLEXOBJECT::C_COMPLEX_OBJECTClassifier
+{
+	var complexObject:Stdlib::Element=result.applyStereotype(C_ARCHETYPE_ROOTStereotype);
+}
+// map a P_C_COMPLEXT_OBJECT to a <<ComplexObjectConstraint>> DataType when there are attributes and the ReferenceModel type is a DataType 
+mapping ADL::PCCOMPLEXOBJECT::C_COMPLEX_OBJECTDataType(inout context:UML::NamedElement,ontology:ADL::PAUTHOREDARCHETYPE,identifierDefinition:UML::Enumeration
+	):UML::DataType@pimUml
+	inherits ADL::PCCOMPLEXOBJECT::C_COMPLEX_OBJECTClassifier
+	when{self.attributes->notEmpty() 
+		and not(self.rmTypeName.oclIsUndefined())
+		and not(self.rmTypeName.findRMClass().oclIsUndefined())
+		and self.rmTypeName.findRMClass().oclIsKindOf(UML::DataType)}
+	
+{
+}
+
+// map a P_C_COMPLEXT_OBJECT to a <<ComplexObjectConstraint>> or <<ArchetypeRoot>> Classifier 
+mapping ADL::PCCOMPLEXOBJECT::C_COMPLEX_OBJECTClassifier(inout context:UML::NamedElement,ontology:ADL::PAUTHOREDARCHETYPE,identifierDefinition:UML::Enumeration
+	):UML::Classifier@pimUml
+	inherits ADL::PCDEFINEDOBJECT::C_DEFINED_OBJECT
+{
+	init{
+		var complexObject:Stdlib::Element=null;
+		if(self.oclIsKindOf(ADL::PCARCHETYPEROOT))then{
+			 complexObject:=result.applyStereotype(C_ARCHETYPE_ROOTStereotype);
+		}else{
+			 complexObject:=result.applyStereotype(ComplexObjectConstraintStereotype);
+		}endif;
+
+	}
+	
+	if((self.rmTypeName=null)or self.rmTypeName.oclIsUndefined())then{log('unexpected C_COMPLEX_OBJECT rm_type '+self.rmTypeName+' at '+self.repr());}endif;
+	
+	
+	// find the rm class and inherit from it
+	var rmClass:UML::Classifier=self.rmTypeName.findRMClass();
+	// constrain the archetype root reference instead of rm when this is a P_C_ARCHETYPE_ROOT			
+	if(self.oclIsKindOf(ADL::PCARCHETYPEROOT))then{
+		var archetypeId:String=self.oclAsType(ADL::PCARCHETYPEROOT).archetypeRef;
+		var rootClass:UML::Classifier=archetypeId.findArchetypeRootClass();
+		if(not(rootClass.oclIsUndefined()))then{
+			rmClass:=rootClass;
+		}endif;
+	}endif;
+	
+	// if we found a class to constrain, then map a <<Constraints>> Generalization between <<ComplexObjectConstraint>> and the resolved supertype
+	if(not(rmClass.oclIsUndefined()))then{
+		result.map constrains(rmClass);
+	}else{
+		log('Failed to locate reference model class '+self.rmTypeName);
+	}endif;
+	// map each attribute 
+	self.attributes->forEach(attribute){
+		// map each child of an attribute
+		attribute.children->forEach(child){
+			// map the child/attribute combination of a P_C_COMPLEX_OBJECT  
+			attribute.map P_C_ATTRIBUTE(result,ontology,child,identifierDefinition);
+		};
+		// if there were no children of the attribute, map a childless attribute
+		if(attribute.children->isEmpty())then{
+			attribute.map childlessP_C_ATTRIBUTE(result,ontology);
+		}endif;
+	};
+}
+// map this Classifier to a Generalization where the specific is this Classifier and the general is the congiven generalClassifier 
+mapping UML::Classifier::constrains(generalClassifier:UML::Classifier):UML::Generalization{
+	specific:=self;
+	general:=generalClassifier;
+	var constrains:Stdlib::Element=result.applyStereotype(ConstrainsStereotype);
+}
+// find a <<ComplexObjectConstraint>> which is the <<ArchetypeDefinition>> for an <<Archetype>> matching this physical identifier.
+// may not be resolvable until we have loaded required top level, so force resolution of the archetype if required 
+query String::findArchetypeRootClass():UML::Classifier{
+	
+	// make sure appropriate archetype has been loaded
+	allArchetypes
+		->select(a|not(a.archetypeId->isEmpty()) and not(a.archetypeId.physicalId->isEmpty())and a.archetypeId.physicalId->first().startsWith(self)).map 
+		P_AUTHORED_ARCHETYPE(archetypeLibrary);		
+		// search for match on an <<Archetype>> which matches the conceptId of this physicalId
+	var conceptId:String=self.substringAfter('-').substringAfter('-').substringAfter('.').substringBefore('.');
+	archetypeLibrary.nestedPackage
+		->select(p|p.name=conceptId).clientDependency
+		->select(d|d.stereotypedBy('ArchetypeDefinition')).supplier
+		->select(s|s.oclIsKindOf(UML::Classifier)).oclAsType(UML::Classifier)
+		->forEach(c){return c;};
+	return null;	
+}
+// find a <<ObjectConstraint>> in the imported parent <<Archetype>> Package which corresponds to this node_id 
+query String::findArchetypeSlotRootClass(context:UML::NamedElement):UML::Classifier{
+	return context.getNearestPackage().packageImport.importedPackage->select(p|p.stereotypedBy('Archetype')).ownedType
+	->select(t|t.stereotypedBy('ObjectConstraint') and (t.getNodeId()->first()=self)).oclAsType(UML::Classifier)
+	->asSequence()->first();
+}
+/*
+	<xs:complexType name="P_C_DEFINED_OBJECT">
+		<xs:complexContent>
+			<xs:extension base="P_C_OBJECT">
+				<xs:attribute name="is_frozen" type="xs:boolean" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// map this (abstract) P_C_DEFINED_OBJECT 
+mapping ADL::PCDEFINEDOBJECT::C_DEFINED_OBJECT(inout context:UML::NamedElement,ontology:ADL::PAUTHOREDARCHETYPE,identifierDefinition:UML::Enumeration
+	):UML::PackageableElement@pimUml
+	inherits ADL::PCOBJECT::C_OBJECT
+{
+	init{}
+	// if the result is a RedefinableElement, then propagate the P_C_DEFINED_OBJECT/@isFrozen indicator to the UML isLeaf attribute.
+	if(result.oclIsKindOf(UML::RedefinableElement))then{
+		result.oclAsType(UML::RedefinableElement).isLeaf:=self.isFrozen;
+	}endif;
+}
+//  map a Property to an Association;  this is primarily for graphical visualization in diagrams
+mapping UML::Property::Association():UML::Association@pimUml{
+	// Association is owned by an <<Archetype>> Package
+	self.getNearestPackage().packagedElement+=result;
+	memberEnd+=self;
+	// the inverse, non-navigable Property
+	var nonNavigable:UML::Property=new UML::Property@pimUml();
+	nonNavigable.type:=self.owner.oclAsType(UML::Type);
+	nonNavigable.name:=nonNavigable.type.name;
+	nonNavigable.visibility:=UML::VisibilityKind::public;
+	nonNavigable.aggregation:=UML::AggregationKind::none;
+	var lv:UML::LiteralInteger=new UML::LiteralInteger();
+	var uv:UML::LiteralUnlimitedNatural=new UML::LiteralUnlimitedNatural();
+	lv.value:=0;
+	uv.value:=1;
+	nonNavigable.lowerValue:=lv;
+	nonNavigable.upperValue:=uv;
+	ownedEnd+=nonNavigable;
+}
+// map the P_C_OBJECT to an existing or new NamedElement
+// self is the C_OBJECT contained by the context Property	
+helper ADL::PCOBJECT::mapC_OBJECTAbstract(inout context:UML::Property,ontology:ADL::PAUTHOREDARCHETYPE,owningAttribute:ADL::PCATTRIBUTE,identifierDefinition:UML::Enumeration):UML::NamedElement{
+	var originalContextName:String=context.name;
+	// track back to rm attribute and do a redefinedProperty to it (or maybe subsetted?)
+	var rmClass:UML::Classifier=context.namespace->select(c|c.oclIsKindOf(UML::Classifier)).oclAsType(UML::Classifier).general.oclAsType(UML::Classifier)->asSequence()->first();
+	// if we located the reference model class
+	if(not(rmClass.oclIsUndefined()))then{
+		// find reference model property having same name
+		var rmProperty:UML::Property=rmClass.getAllAttributes()->select(a|a.name=originalContextName)->asSequence()->first();
+		if(not(rmProperty.oclIsUndefined()))then{
+			// we should do a subsettedProperty under many conditions, including
+			//		when the rmProperty is a collection or required
+			if((rmProperty.upper<>1)or((rmProperty.lower=1)and(context.lower=0)))then{
+				context.subsettedProperty+=rmProperty;
+			}else{
+				context.redefinedProperty+=rmProperty;
+			}endif;
+			var objectType:UML::NamedElement=null;
+			var archetypeType:UML::Classifier=null;
+			
+			// should be no new objectType for C_DV_QUANTITY
+			if(self.oclIsKindOf(ADL::PCCOMPLEXOBJECTPROXY))then{
+				// find the existing type
+				var internalRef:ADL::PCCOMPLEXOBJECTPROXY=self.oclAsType(ADL::PCCOMPLEXOBJECTPROXY);
+				objectType:=internalRef.mapP_C_COMPLEX_OBJECT_PROXY(context,ontology,identifierDefinition);
+			}else{
+				objectType:=self.map C_OBJECTAbstract(context,ontology,identifierDefinition)->asSequence()->first();
+			}endif;		
+			// if we found a C_OBJECT, and it is a UML::Classifier, then set archetypeType
+			if(not(objectType.oclIsUndefined()))then{
+				archetypeType:=objectType->select(at|at.oclIsKindOf(UML::Classifier)).oclAsType(UML::Classifier)->asSequence()->first();
+			}endif;
+			// if we did not find a C_OBJECT Classifier
+			if(archetypeType.oclIsUndefined())then{
+				// could it be that there is still some kind of rm classifier?
+				// find the rm class and inherit from it
+				// adjust property cardinality
+				var occurrences:String='1..1';
+				if(not(self.occurrences.oclIsUndefined()) and (self.occurrences<>''))then{
+					occurrences:=self.occurrences;
+				}endif;
+				occurrences.setOccurrenceBoundaries(context);
+				// force subsettedProperty if necessary
+				if(((rmProperty.lower=1)and(context.lower=0)))then{
+					context.redefinedProperty:=Sequence{};
+					context.subsettedProperty+=rmProperty;
+				}endif;
+
+				var rmTypeClass:UML::Classifier=self.rmTypeName.findRMClass();
+				// if this is a P_C_ARCHETYPE_ROOT, then resolve object via the archetype_id;
+				//	this may require scanning all archetypes, comparing with physical_id (with or without version)
+				// we then make that the type of the property 
+				if(self.oclIsKindOf(ADL::PCARCHETYPEROOT))then{
+					var archetypeId:String=self.oclAsType(ADL::PCARCHETYPEROOT).archetypeRef;
+					var rootClass:UML::Classifier=archetypeId.findArchetypeRootClass();
+					if(not(rootClass.oclIsUndefined()))then{
+						rmTypeClass:=rootClass;
+					}endif;
+				}endif;
+			
+				// if RM type is not resolved, or this is a primitive constraint, then just use the RM Property type.  In particular, avoid extending Integer with a Class
+				 if(rmTypeClass.oclIsUndefined()or self.oclIsKindOf(ADL::PCPRIMITIVEOBJECT))then{
+				 	// default back to type of rm property
+					context.type:=rmProperty.type;
+					// double check if name is ok
+						// use original name if there is only one attribute child , otherwise nodeId
+						// also use nodeId when this was a "subsets"
+						if(
+							(not(owningAttribute.oclIsUndefined())and owningAttribute.children->size()>1)
+							or context.subsettedProperty->notEmpty()	
+							)then{
+								
+							context.name:=originalContextName+'_'+self.nodeId;	
+							
+						}endif;
+				}else{
+					// use the rm type
+					context.type:=rmTypeClass;
+					// the rmTypeClass.name is probably not  unique; if node_id is available, resolve it for better name
+					if(self.nodeId.oclIsUndefined()or (self.nodeId=''))then{
+						// use some variant of rm_type_name then
+						if(context.namespace->select(c|c.oclIsKindOf(UML::Classifier)).oclAsType(UML::Classifier).attribute
+							->select(a|(a<>context) and (a.name=originalContextName))->notEmpty())then{
+							context.name:=originalContextName+'_'+rmTypeClass.name;
+						}else{	
+							context.name:=originalContextName;
+						}endif;
+					}else{
+						// use original name if there is only one attribute child , otherwise nodeId
+						// also use nodeId when this was a "subsets"
+						if(
+							(not(owningAttribute.oclIsUndefined())and owningAttribute.children->size()>1)
+							or context.subsettedProperty->notEmpty()	
+							)then{
+							context.name:=self.nodeId;	
+						}endif;
+						self.nodeId.setTermDefinition(context,ontology.terminology->asSequence()->first(),identifierDefinition);
+						// if context Property does not have nodeId, then force context name to nodeId
+						var nodeIdTest:String=context.getNodeId()->first();
+						if(nodeIdTest.oclIsUndefined()and not(self.oclIsKindOf(ADL::PCPRIMITIVEOBJECT)))then{
+							context.name:=self.nodeId;// use nodeId if we need to preserved the nodeId value, but it was not in terminology
+						}endif;
+						 
+					}endif;
+					
+				}	endif;
+				// force stereotype on Property and set isDeprecated, if C_OBJECT is_deprecated
+				if(self.isDeprecated)then{
+					var objectConstraintStereotype:Stdlib::Element=context.applyStereotype(ObjectConstraintStereotype);
+					objectConstraintStereotype.setIs_deprecated(self.isDeprecated);
+					
+				}endif;
+			}else{
+				// we created an archetype Classifier, it becomes the type of the context Property
+				
+				context.type:=archetypeType;
+				
+				// does not result in setting nodeId, even though logged
+				//self.nodeId.setTermDefinition(archetypeType,ontology);// this should have already been set, but try again here 
+				
+				// set name to type name, unless it duplicates existing name, in which case concatenate with original attribute name
+				if(context.namespace->select(c|c.oclIsKindOf(UML::Classifier)).oclAsType(UML::Classifier).attribute
+					->select(a|(a<>context) and (a.name=archetypeType.name))->notEmpty())then{
+					context.name:=archetypeType.name+'_'+originalContextName;
+				}else{	
+					context.name:=archetypeType.name;
+				}endif;
+			}endif;
+			if(self.oclIsKindOf(ADL::PCPRIMITIVEOBJECT))then{
+				self.oclAsType(ADL::PCPRIMITIVEOBJECT).mapC_PRIMITIVE_OBJECT(context.oclAsType(UML::Property),ontology,owningAttribute,identifierDefinition);
+			}endif;
+			return archetypeType;
+		}endif;
+	}endif;
+	if(self.oclIsKindOf(ADL::PCPRIMITIVEOBJECT))then{
+		return self.oclAsType(ADL::PCPRIMITIVEOBJECT).mapC_PRIMITIVE_OBJECT(context.oclAsType(UML::Property),ontology,owningAttribute,identifierDefinition);
+	}endif;
+	return self.map C_OBJECTAbstract(context,ontology,identifierDefinition);// unlikely to get this far
+}
+/*
+	<xs:complexType name="P_C_COMPLEX_OBJECT_PROXY">
+		<xs:complexContent>
+			<xs:extension base="P_C_OBJECT">
+				<xs:sequence>
+					<xs:element name="target_path" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// find a <<ComplexObjectConstraint>> which is proxied via the P_C_COMPLEX_OBJECT_PROXY.  A proxy reference changes the aggregation of the referencing Property to 'none'.
+helper ADL::PCCOMPLEXOBJECTPROXY::mapP_C_COMPLEX_OBJECT_PROXY(inout context:UML::Property,ontology:ADL::PAUTHOREDARCHETYPE,identifierDefinition:UML::Enumeration):UML::Class
+{
+	// find the target, update property type and aggregation
+	context.aggregation:=UML::AggregationKind::none;
+	self.occurrences.setOccurrenceBoundaries(context);
+	// seems like these need to be subsettedProperty
+	var rmProperty:UML::Property=context.redefinedProperty->asSequence()->first();
+			
+	if(not(rmProperty.oclIsUndefined()))then{
+		context.redefinedProperty:=Sequence{};
+		context.subsettedProperty+=rmProperty;
+	}endif;
+	
+	var internalRef:UML::Class=null;
+	var targetPath:String=self.targetPath;
+	//  /items[at0003]
+	//       <target_path>/contacts[id6]/addresses[id7]</target_path>
+	// note that the target id may not show up on a Classifier, it may be on a property whose type is in a RM or some other package.   
+	// There will always be a property whose type is that pseudo type and the id should always be on either the property or its type
+	// also, this logic does not handle forward references
+	// targetPath could be reconstructed based on node_id of Property type, or, alternatively, node_id of Property containing the type - then again NO
+	// it is ambiguous if a RM class used; we either need a specific archetype class or a node_id
+	// perhaps it is best to force a archetype class if there are any proxy refs to it
+	var start:Integer=targetPath.rfind('[');
+	
+	var targetNodeId:String=targetPath.substring(start+1,targetPath.size()).substringBefore(']');
+	
+	var contextPackage:UML::Package=context.namespace.namespace.oclAsType(UML::Package);
+	internalRef:=contextPackage.ownedType->select(t|t.oclIsKindOf(UML::Class) and t.getNodeId()->includes(targetNodeId)).oclAsType(UML::Class)->asSequence()->first();
+	// set context Property node id
+	identifierDefinition.ownedLiteral
+		->select(l|l.name=self.nodeId)->forEach(node){
+			if(context.getNodeId()->includes(self.nodeId))then{}else{
+				var objectConstraintStereotype:Stdlib::Element=context.applyStereotype(ObjectConstraintStereotype);
+				objectConstraintStereotype.addNodeId(node);
+			}endif;
+
+		}; 
+	return internalRef;
+}
+// for this targetPath, resolve and return the IdentifierDefinition EnumerationLiteral corresponding to the last node_id reference
+helper String::findTarget(inout archetypePackage:UML::Package,identifierDefinition:UML::Enumeration):UML::Element
+{
+	var targetPath:String=self;
+	//  /items[at0003]
+	//       <target_path>/contacts[id6]/addresses[id7]</target_path>
+	// note that the target id may not show up on a Classifier, it may be on a property whose type is in a RM or some other package.   
+	// There will always be a property whose type is that pseudo type and the id should always be on either the property or its type
+	// also, this logic does not handle forward references
+	// targetPath could be reconstructed based on node_id of Property type, or, alternatively, node_id of Property containing the type
+	var start:Integer=targetPath.rfind('[');
+	var targetNodeId:String=targetPath.substring(start,targetPath.size()).substringBefore(']');
+	// find context Property node id
+	return identifierDefinition.ownedLiteral->select(l|l.name=targetNodeId)->asSequence()->first();
+}
+// for an ADL Property which has no children, use the redefined/subsetted ReferenceModel Property information, including type, directly	
+helper UML::Property::mapChildlessAttribute(ontology:ADL::PAUTHOREDARCHETYPE){
+	var context:UML::Property=self;
+	var originalContextName:String=context.name;
+	// track back to rm attribute and do a redefinedProperty to it (or maybe subsetted?)
+	var rmClass:UML::Classifier=context.namespace->select(c|c.oclIsKindOf(UML::Classifier)).oclAsType(UML::Classifier).general.oclAsType(UML::Classifier)->asSequence()->first();
+	// if we located the reference model class
+	if(not(rmClass.oclIsUndefined()))then{
+		// find reference model property having same name
+		var rmProperty:UML::Property=rmClass.getAllAttributes()->select(a|a.name=originalContextName)->asSequence()->first();
+		if(not(rmProperty.oclIsUndefined()))then{
+				// find the rm class and inherit from it
+				// adjust property cardinality
+				var occurrences:String='1..1';
+				occurrences.setOccurrenceBoundaries(context);
+			// we should do a subsettedProperty under many conditions, including
+			//		when the rmProperty is a collection
+			if((rmProperty.upper<>1)or((rmProperty.lower=1)and(context.lower=0)))then{
+				context.subsettedProperty+=rmProperty;
+			}else{
+				context.redefinedProperty+=rmProperty;
+			}endif;
+				 	// default back to type of rm property
+					context.type:=rmProperty.type;
+		}endif;
+	}endif;
+	return;
+}
+/*
+	<xs:complexType name="Interval" abstract="true">
+		<xs:sequence>
+			<xs:element name="lower_included" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="upper_included" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="lower_unbounded" type="xs:boolean"/>
+			<xs:element name="upper_unbounded" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+*/
+// map ADL Interval to UML Interval (this abstract mapping does nothing)
+mapping ADL::Interval::Interval(inout context:UML::Property,nameIn:String):UML::Interval
+{
+	
+}
+/*
+	<xs:complexType name="IntervalOfInteger">
+		<xs:complexContent>
+			<xs:extension base="Interval">
+				<xs:sequence>
+					<xs:element name="lower" type="xs:int" minOccurs="0"/>
+					<xs:element name="upper" type="xs:int" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+*/
+// map ADL Interval_of_integer to UML Interval with LiteralInteger upper/lower values
+mapping ADL::IntervalOfInteger::IntervalOfInteger(inout context:UML::Property,nameIn:String):UML::Interval
+	inherits ADL::Interval::Interval
+{
+	name:='IntervalOfInteger';
+		var upper_included:Boolean=self.upperIncluded;
+		
+		if(upper_included.oclIsUndefined() or not(self.isSetUpper()))then{upper_included:=true;}endif;
+		var upper_unbounded:Boolean=self.upperUnbounded;
+		var lower:Integer=self.lower;
+		var upper:Integer=self.upper;
+		if(lower.oclIsUndefined())then{lower:=1;}endif;
+		
+		if(not(upper_included) and (upper>0))then{
+			upper:=upper-1;
+		}endif;
+	var lowerLiteral:UML::LiteralInteger=lower.map LiteralInteger(result,'lower');
+	var upperLiteral:UML::LiteralSpecification=null;
+	if(upper.oclIsUndefined())then{upperLiteral:=new LiteralNull@pimUml();}else{upperLiteral:=upper.map LiteralInteger(result,'upper');}endif;
+	
+	self.Interval(context,'IntervalOfInteger',result,lowerLiteral,upperLiteral);
+}
+// map ADL Interval_of_real to UML Interval with LiteralReal upper/lower values
+mapping ADL::IntervalOfReal::IntervalOfReal(inout context:UML::Property,nameIn:String):UML::Interval
+	inherits ADL::Interval::Interval
+	
+{
+	var lower:Real=self.lower;
+	var upper:Real=self.upper;
+	var lowerLiteral:UML::LiteralReal=lower.map LiteralReal(result,'lower');
+
+	var upperLiteral:UML::LiteralSpecification=null;
+	if(upper.oclIsUndefined())then{upperLiteral:=new LiteralNull@pimUml();}else{upperLiteral:=upper.map LiteralReal(result,'upper');}endif;
+	self.Interval(context,'IntervalOfReal',result,lowerLiteral,upperLiteral);
+}
+// map ADL Interval_of_duration to UML Interval with Duration upper/lower values
+mapping ADL::IntervalOfDuration::IntervalOfDuration(inout context:UML::Property,nameIn:String):UML::DurationInterval
+	inherits ADL::Interval::Interval
+	
+{
+	var lower:String=self.lower;
+	var upper:String=self.upper;
+	if(lower.oclIsUndefined())then{lower:='';}endif;
+	if(upper.oclIsUndefined()or(upper=0))then{upper:='';}endif;
+	var lowerLiteral:UML::Duration=new Duration@pimUml(lower.repr(),'lower');
+	var upperLiteral:UML::Duration=new Duration@pimUml(upper.repr(),'upper');
+	self.Interval(context,'IntervalOfDuration',result,lowerLiteral,upperLiteral);
+}
+// map ADL Interval_of_time to UML TimeInterval with TImeExpression upper/lower values and typed as XML time PrimitiveTYpe
+mapping ADL::IntervalOfTime::IntervalOfTime(inout context:UML::Property,nameIn:String):UML::TimeInterval
+	inherits ADL::Interval::Interval
+	
+{
+	self.TimeInterval(context,'IntervalOfTime',result,self.lower,self.upper,getTimePrimitiveType());
+}
+// map ADL Interval_of_date to UML TimeInterval with TImeExpression upper/lower values and typed as XML date PrimitiveTYpe
+mapping ADL::IntervalOfDate::IntervalOfDate(inout context:UML::Property,nameIn:String):UML::TimeInterval
+	inherits ADL::Interval::Interval
+	
+{
+	self.TimeInterval(context,'IntervalOfDate',result,self.lower,self.upper,getDatePrimitiveType());
+}
+// map ADL Interval_of_dateTime to UML TimeInterval with TImeExpression upper/lower values  and typed as XML dateTime PrimitiveTYpe
+mapping ADL::IntervalOfDateTime::IntervalOfDateTime(inout context:UML::Property,nameIn:String):UML::TimeInterval
+	inherits ADL::Interval::Interval
+	
+{
+	self.TimeInterval(context,'IntervalOfDateTime',result,self.lower,self.upper,getDateTimePrimitiveType());
+}
+
+// create lower TimeExpression, upper TImeExpression and set them in provided timeInterval 
+helper ADL::Interval::TimeInterval(inout context:UML::Property,nameIn:String,inout timeInterval:UML::TimeInterval,inout lowerIn:String,inout upperIn:String,typeIn:UML::Type)
+{
+	var lower:String=lowerIn;
+	var upper:String=upperIn;
+	if(lower.oclIsUndefined())then{lower:='';}endif;
+	if(upper.oclIsUndefined()or(upper=0))then{upper:='';}endif;
+	var lowerLiteral:UML::TimeExpression=new TimeExpression@pimUml(lower.repr(),'lower',typeIn);
+	var upperLiteral:UML::TimeExpression=new TimeExpression@pimUml(upper.repr(),'upper',typeIn);
+	self.Interval(context,nameIn,timeInterval,lowerLiteral,upperLiteral);
+	return;
+}
+// set owners for lowerLiteral, upperLiteral; set timeInterval min, max; 
+helper ADL::Interval::Interval(inout context:UML::Property,nameIn:String,inout timeInterval:UML::Interval,lowerLiteral:UML::ValueSpecification,upperLiteral:UML::ValueSpecification)
+{
+	timeInterval.name:=nameIn;
+	var packageContext:UML::Package=context.getNearestPackage();
+	packageContext.packagedElement+=lowerLiteral;
+	packageContext.packagedElement+=upperLiteral;
+	timeInterval.min:=lowerLiteral;
+	timeInterval.max:=upperLiteral;
+	return;
+}
+/*
+	<xs:complexType name="P_C_ATTRIBUTE" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="P_ARCHETYPE_CONSTRAINT">
+				<xs:sequence>
+					<xs:element name="differential_path" type="xs:string" minOccurs="0"/>
+					<xs:element name="children" type="P_C_OBJECT" minOccurs="0"
+						maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="rm_attribute_name" type="xs:string"/>
+				<xs:attribute name="existence" type="xs:string" use="optional"/>
+				<xs:attribute name="cardinality" type="xs:string" use="optional"/>
+				<xs:attribute name="is_multiple" type="xs:boolean"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// map P_C_ATTRIBUTE to Property, which is owned by specified Classifier context
+mapping ADL::PCATTRIBUTE::P_C_ATTRIBUTE(inout context:UML::Classifier,ontology:ADL::PAUTHOREDARCHETYPE,child:ADL::PCOBJECT,identifierDefinition:UML::Enumeration):UML::Property
+	inherits ADL::PARCHETYPECONSTRAINT::ARCHETYPE_CONSTRAINT
+{
+	var myProperty:UML::Property=result;
+	// set owner of Property
+	if(context.oclIsKindOf(UML::Class))then{
+		context.oclAsType(UML::Class).ownedAttribute+=result;
+	}else{
+		context.oclAsType(UML::DataType).ownedAttribute+=result;
+	}endif;
+	// default name is the Reference Model attribute name
+	name:=self.rmAttributeName;
+	// default visibility is public
+	visibility:=UML::VisibilityKind::public;
+	// default aggregation is composite
+	aggregation:=UML::AggregationKind::composite;
+	// default cardinality is 1..1
+	result.setLower(1);
+	result.setUpper(1);
+	//  is_multiple: appears that this could be computed based on rm attribute max<>1
+	// cardinality ; in practical terms, multiplicity could be computed based on the children; by default it will be from the child C_OBJECT
+	//               we can also pick up is_ordered, is_unique
+	// differential_path should be derivable
+	// TODO: existence - for now assume is is derivable, if any property is required (lower>0)
+	// adjust Property attributes, and perform addition processing, depending upon child of Attribute 
+		child.mapC_OBJECTAbstract(myProperty,ontology,self,identifierDefinition);
+	// for graphical presentation purposes, add a one-way Association related to Property 	
+	myProperty.map Association();
+}
+// map a childless P_C_ATTRIBUTE to a Property
+mapping ADL::PCATTRIBUTE::childlessP_C_ATTRIBUTE(inout context:UML::Classifier,ontology:ADL::PAUTHOREDARCHETYPE):UML::Property
+{
+		var myProperty:UML::Property=result;
+	// set owner of Property	
+	if(context.oclIsKindOf(UML::Class))then{
+		context.oclAsType(UML::Class).ownedAttribute+=result;
+	}else{
+		context.oclAsType(UML::DataType).ownedAttribute+=result;
+	}endif;
+	// by default, set name to the Reference Model attribute name
+	name:=self.rmAttributeName;
+	// by default, set visiblity to public
+	visibility:=UML::VisibilityKind::public;
+	// by default, set aggregation to composite
+	aggregation:=UML::AggregationKind::composite;
+	// by default, set cardinality to 1..1
+	result.setLower(1);
+	result.setUpper(1);
+	// adjust Property attributes, and perform addition processing, depending upon child of Attribute 
+		myProperty.mapChildlessAttribute(ontology);
+	// for graphical presentation purposes, add a one-way Association related to Property 	
+	myProperty.map Association();
+}
+/*
+	<xs:complexType name="P_ARCHETYPE_CONSTRAINT" abstract="true">
+		<xs:sequence/>
+	</xs:complexType>
+
+*/
+// abstract map P_ARCHETYPE_CONSTRAINT to NamedElement
+mapping ADL::PARCHETYPECONSTRAINT::ARCHETYPE_CONSTRAINT(inout context:UML::NamedElement,ontology:ADL::PAUTHOREDARCHETYPE,child:ADL::PCOBJECT,identifierDefinition:UML::Enumeration):UML::NamedElement@pimUml
+{
+	init{}
+}
+// disjunctive map P_C_OBJECT to NamedElement
+mapping ADL::PCOBJECT::C_OBJECTAbstract(inout context:UML::NamedElement,ontology:ADL::PAUTHOREDARCHETYPE,identifierDefinition:UML::Enumeration
+	):UML::NamedElement
+	disjuncts 
+		ADL::PARCHETYPESLOT::ARCHETYPE_SLOT,
+		ADL::PCDEFINEDOBJECT::C_DEFINED_OBJECTAbstract
+	{}
+// disjunctive map P_C_DEFINED_OBJECT to NamedElement
+mapping ADL::PCDEFINEDOBJECT::C_DEFINED_OBJECTAbstract(inout context:UML::NamedElement,ontology:ADL::PAUTHOREDARCHETYPE,identifierDefinition:UML::Enumeration
+	):UML::NamedElement
+	disjuncts 
+		ADL::PCCOMPLEXOBJECT::C_COMPLEX_OBJECTAbstract
+	{}
+	
+// disjunctive map P_C_COMPLEXO_BJECT to NamedElement
+mapping ADL::PCCOMPLEXOBJECT::C_COMPLEX_OBJECTAbstract(inout context:UML::NamedElement,ontology:ADL::PAUTHOREDARCHETYPE,identifierDefinition:UML::Enumeration
+	):UML::NamedElement
+	disjuncts 
+		ADL::PCCOMPLEXOBJECT::C_COMPLEX_OBJECTDataType,
+		ADL::PCARCHETYPEROOT::P_C_ARCHETYPE_ROOT,
+		ADL::PCCOMPLEXOBJECT::C_COMPLEX_OBJECT
+	{}
+// adjust context name, applied Stereotype, Comment based on node_id/ default language definition 	
+helper String::setTermDefinition(inout context:UML::NamedElement,ontology:ADL::PARCHETYPETERMINOLOGY,inout identifierDefinition:UML::Enumeration){
+	// other levels have occurrences based on their wrapping attribute
+	// all term definition languages for this Arcehtype
+	var languages:Set(String)=ontology.findTerm_definitionLanguages();
+	var foundTerm:Boolean=false;
+	languages->forEach(language){
+		// the CodeDefinitionSet for this language
+		var codeDefinitionSet:ADL::CodeDefinitionSet=ontology.findTerm_definitions(language);
+		// the matchiing ARCHETYPE_TERM for this language
+		var archetypeTerm:ADL::ARCHETYPETERM=codeDefinitionSet.findARCHETYPE_TERM(self);
+		// the name of the archetype term
+		var textValue:String=archetypeTerm.text;
+		// the description of the archetype term
+		var descriptionValue:String=archetypeTerm.description;
+		if(not(textValue.oclIsUndefined()))then {
+			// find the corresponding EnumerationLiteral, apply stereotype, set nodeId to EnumeraitonLiteral
+				identifierDefinition.ownedLiteral
+					->select(l|l.name=self)->forEach(node){
+							foundTerm:=true;
+						if(context.getNodeId()->includes(self))then{}else{
+							// if not already defined, apply the <<ObjectConstraint>> Stereotype and set the node_id
+							var objectConstraintStereotype:Stdlib::Element=context.applyStereotype(ObjectConstraintStereotype);
+							objectConstraintStereotype.addNodeId(node);
+						}endif;
+
+					}; 
+			// if the name already exists, then use the id as well
+			//  however, that is also not sufficient, need to get an additional context
+			if(context.oclIsKindOf(UML::Type) and context.getNearestPackage().ownedType->exists(t|t.name=textValue))then{
+				context.name:=textValue+'_'+self;
+			}else{
+				if(context.oclIsKindOf(UML::Enumeration))then{
+					// do not propagate back in this case
+				}else{
+					if(context.oclIsKindOf(UML::Property))then{
+						// is there already that name used?
+						if(context.namespace.oclAsType(UML::Classifier).attribute->select(a|(a<>context)and(a.name=textValue))->notEmpty())then{
+							context.name:=textValue+'_'+self;
+						}else{
+							context.name:=textValue;
+						}endif;
+					}else{
+						context.name:=textValue;
+					}endif;
+				}endif;
+			}endif;
+			// if there is a description, add a Comment for the context and set its body to the description value
+			if(not(descriptionValue.oclIsUndefined()))then{
+				var comment:UML::Comment=new UML::Comment@pimUml();
+				context.ownedComment+=comment;
+				comment.annotatedElement+=context;
+				comment.body:=descriptionValue;
+			}endif;
+			break;
+		}endif;
+				
+	};
+	var isTermDefined:Boolean=identifierDefinition.ownedLiteral->select(ol|ol.name=self)->notEmpty();
+	if(not(foundTerm) and not(isTermDefined))then{
+		// if we did not yet see a match for node_id, then add the here-to-fore undefined node_id as an <<ArchetypeTerm>> EnumberationLiteral
+		var node:UML::EnumerationLiteral=new UML::EnumerationLiteral@pimUml();
+		identifierDefinition.ownedLiteral+=node;
+		// apply <<ArchetypeTerm>> Stereotype
+		node.applyStereotype(ARCHETYPE_TERMStereotype);
+		// set name to the node_id
+		node.name:=self;
+		// if context node-Id is not already set, apply <<ObjectConstraint>> Stereotype and set the node_id
+		if(context.getNodeId()->includes(self))then{}else{
+			var objectConstraintStereotype:Stdlib::Element=context.applyStereotype(ObjectConstraintStereotype);
+			objectConstraintStereotype.addNodeId(node);
+			foundTerm:=true;
+		}endif;
+	}endif;
+	// TODO: multiple language mappings
+	
+	return;
+}
+/*
+	<xs:complexType name="P_C_OBJECT" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="P_ARCHETYPE_CONSTRAINT">
+				<xs:sequence>
+					<xs:element name="sibling_order" type="SIBLING_ORDER" minOccurs="0"
+						maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="occurrences" type="xs:string" use="optional"/>
+				<xs:attribute name="is_deprecated" type="xs:boolean" use="optional"/>
+				<xs:attribute name="node_id" type="xs:string" use="optional"/>
+				<xs:attribute name="rm_type_name" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// P_C_OBJECT abstract mapping 
+mapping ADL::PCOBJECT::C_OBJECT(inout context:UML::NamedElement,ontology:ADL::PAUTHOREDARCHETYPE,identifierDefinition:UML::Enumeration
+	):UML::PackageableElement@pimUml
+{
+	init{}
+	// find referenced reference model type, make it the general of this type;
+	// change name to that defined by node_id
+	self.setC_OBJECT(context,ontology,result,identifierDefinition);
+	// set is_deprecated tag on <<ObjectConstraint>> Stereotype
+	if(self.isDeprecated)then{
+					var objectConstraintStereotype:Stdlib::Element=result.applyStereotype(ObjectConstraintStereotype);
+					objectConstraintStereotype.setIs_deprecated(self.isDeprecated);
+	}endif;
+}
+// for this P_ARCHETYPE_CONSTRAINT, map to UML result
+helper ADL::PARCHETYPECONSTRAINT::setARCHETYPE_CONSTRAINT(inout context:UML::NamedElement,ontology:ADL::PAUTHOREDARCHETYPE,inout pe:UML::PackageableElement)
+{
+}
+// for this P_C_OBJECT, map to  UML result
+helper ADL::PCOBJECT::setC_OBJECT(inout context:UML::NamedElement,ontology:ADL::PAUTHOREDARCHETYPE,inout pe:UML::PackageableElement,identifierDefinition:UML::Enumeration
+	)
+{
+	// map from P_ARCHETYPE_CONSTRAINT
+	self.setARCHETYPE_CONSTRAINT(context,ontology,pe);
+	// depending upon what pe is, we may need to change ownership
+	if(pe.oclIsKindOf(UML::Constraint))then{
+		context.namespace.ownedRule+=pe.oclAsType(UML::Constraint);
+	}else{
+		context.getNearestPackage().packagedElement+=pe;
+	}endif;	
+	// occurrences applied at attribute level;
+	// top level class assumed:
+	if(self.nodeId.oclIsUndefined()or (self.nodeId=''))then{
+		// no nodeId declared;
+		// use some variant of rm_type_name then
+		pe.name:=context.namespace.name+'_'+self.rmTypeName;
+		if(pe.oclIsKindOf(UML::Constraint))then{
+			pe.name:=context.name;
+		}endif;
+	}else{
+		// by default, use the nodeId as the name
+		pe.name:=self.nodeId;	
+		// adjust context name, applied Stereotype, Comment based on node_id/ default language definition 
+		self.nodeId.setTermDefinition(pe,ontology.terminology->asSequence()->first(),identifierDefinition);
+		// if result is Constraint, adjust context Property name or Constraint name to be unique in namespace
+		if(pe.oclIsKindOf(UML::Constraint)and context.oclIsKindOf(UML::Property))then{
+			if(not(self.nodeId.startsWith('id9999')))then{
+				context.name:=pe.name;
+			}else{
+				// avoid duplicates on constraint names for id9999...; use property name plus constraint
+				pe.name:=context.name+'_'+self.nodeId;
+			}endif;
+		}endif;
+		// if result is a Classifier, adjust the Classifier name, if necessary, to be unique
+		if(pe.oclIsKindOf(UML::Classifier)and context.oclIsKindOf(UML::Property))then{
+			// make sure name is unique; if not then concatenate with property owner
+			if(pe.namespace.oclAsType(UML::Package).ownedType->select(t|(t<>pe)and(pe.name=t.name))->notEmpty())then{
+				pe.name:=context.oclAsType(UML::Property).namespace.name+'_'+pe.name;
+			}endif;
+		}endif;
+	}endif;
+	
+	// if context is attribute, update multiplicity info as appropriate
+	if(context.oclIsKindOf(UML::Property))then{
+		var occurrences:String='1..1';
+		if(not(self.occurrences.oclIsUndefined()) and (self.occurrences<>''))then{
+			occurrences:=self.occurrences;
+		}endif;
+		var propertyContext:UML::Property=context.oclAsType(UML::Property);
+		occurrences.setOccurrenceBoundaries(propertyContext);
+
+		// if context Property was a redefinition, and the cardinality is 0..1 then change to being a subsettedProperty 
+		var rmProperty:UML::Property=propertyContext.redefinedProperty->asSequence()->first();
+				
+		if(not(rmProperty.oclIsUndefined())and((rmProperty.lower=1)and(propertyContext.lower=0)))then{
+			propertyContext.redefinedProperty:=Sequence{};
+			propertyContext.subsettedProperty+=rmProperty;
+		}endif;
+		
+	} else{
+	// if context is not a Property, the what TODO about cardinality?
+	}endif;
+}
+// set Property lower/upper according to this occurrences string	
+helper String::setOccurrenceBoundaries(inout propertyContext:UML::Property){
+		var lower:Integer=1;
+		var upper:Integer=1;
+		if(self.startsWith('0..'))then{lower:=0;}endif;
+		if(self.endsWith('..*'))then{upper:=-1;}else{
+			var upperTestString:String=self.substringAfter('..');
+			if((upperTestString<>null)and not(upperTestString=''))then{
+				upper:=upperTestString.toInteger();
+			}endif;	
+		}endif;
+		propertyContext.setLower(lower);
+		propertyContext.setUpper(upper);
+
+		// TODO: what are 'unbounded' ?
+}
+
+// qvt does not access whether or not it is set, for now assume it is not set so that we always result in at least an upper of 1
+query ADL::IntervalOfInteger::isSetUpper():Boolean=
+	false;
+// set this Property lowerValue to a LiteralInteger whose value is the given lower	
+helper UML::Property::setLower(lower:Integer){
+	var myProperty:UML::Property=self;
+	var IntegerValue:UML::LiteralInteger=new UML::LiteralInteger@pimUml();
+	IntegerValue.value:=lower;
+	myProperty.lowerValue:=IntegerValue;
+	return;
+}
+// set this Property upperValue to a LiteralUnlimitedNatural whose value is the given upper	
+helper UML::Property::setUpper(upper:Integer){
+	var myProperty:UML::Property=self;
+	var IntegerValue:UML::LiteralUnlimitedNatural=new UML::LiteralUnlimitedNatural@pimUml();
+	IntegerValue.value:=upper;
+	myProperty.upperValue:=IntegerValue;
+	return;
+}
+// return the EnumerationLiteral representing this node_id for the supplied context within an <<Archetype>>
+query String::findTermDefinitionItem(context:UML::NamedElement):UML::EnumerationLiteral{
+		var termDefinitionLanguagePackage:UML::Package=context.getNearestPackage().getTermDefinitionLanguagePackage();
+	
+		return termDefinitionLanguagePackage.ownedType
+			->select(t|t.oclIsKindOf(UML::Enumeration)).oclAsType(UML::Enumeration).ownedLiteral
+			->select(l|l.name=self)->asSequence()->first();
+}
+// return the CodeDefinitionSet within this P_ARCHETYPE_TERMINOLOGY which matches the provided itemLanguage	
+query ADL::PARCHETYPETERMINOLOGY::findTerm_definitions(itemLanguage:String):ADL::CodeDefinitionSet=
+	self.termDefinitions->select(i|i.id=itemLanguage)->asSequence()->first();
+// return the set of languages within this 	P_ARCHETYPE_TERMINOLOGY
+query ADL::PARCHETYPETERMINOLOGY::findTerm_definitionLanguages():Set(String)=
+	self.termDefinitions.id->asSet();
+// return the ARCHETYPE_TERM which matches the supplied itemCode within this CodeDefinitionSet	
+query ADL::CodeDefinitionSet::findARCHETYPE_TERM(itemCode:String):ADL::ARCHETYPETERM=
+	self.items->select(i|i.id=itemCode)->asSequence()->first();
+	
+/*
+	<xs:complexType name="P_ARCHETYPE_SLOT">
+		<xs:complexContent>
+			<xs:extension base="P_C_OBJECT">
+				<xs:sequence>
+					<xs:element name="includes" type="ASSERTION" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="excludes" type="ASSERTION" minOccurs="0" maxOccurs="unbounded"
+					/>
+				</xs:sequence>
+				<xs:attribute name="is_closed" type="xs:boolean" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// map a P_ARCHETYPE_SLOT to a <<ArchetypeSlot>> Class (this mapping initializes <<ArchetypeSlot>> Stereotype during initialization)
+mapping ADL::PARCHETYPESLOT::ARCHETYPE_SLOTinit(inout context:UML::Property,ontology:ADL::PAUTHOREDARCHETYPE,identifierDefinition:UML::Enumeration):UML::Class@pimUml
+	inherits ADL::PCOBJECT::C_OBJECT
+{
+	init{
+			 result.applyStereotype(ARCHETYPE_SLOTStereotype);
+	}
+	// locate the Reference Model Type being referenced and create a <<Constrains>> Generalization to it
+	var rmClass:UML::Classifier=self.rmTypeName.findRMClass();
+		var nodeId:String=self.oclAsType(ADL::PARCHETYPESLOT).nodeId;
+		var rootClass:UML::Classifier=nodeId.findArchetypeSlotRootClass(result);
+		if(not(rootClass.oclIsUndefined()))then{
+			rmClass:=rootClass;
+		}endif;
+	
+	
+	
+	if(not(rmClass.oclIsUndefined()))then{
+		result.map constrains(rmClass);
+	}else{
+		log('Failed to locate reference model class '+self.rmTypeName);
+	}endif;
+	
+}
+// map P_ARCHETYPE_SLOT to a <<ArchetypeSlot>> Class
+mapping ADL::PARCHETYPESLOT::ARCHETYPE_SLOT(inout context:UML::Property,ontology:ADL::PAUTHOREDARCHETYPE,identifierDefinition:UML::Enumeration):UML::Class@pimUml
+	inherits ADL::PARCHETYPESLOT::ARCHETYPE_SLOTinit
+{
+	// map the P_ARCHETYPE_SLOT/@isClosed to the <<ArchetypeSlot>> isLeaf attribute.
+	result.isLeaf:=self.isClosed;
+// and of includes, excludes unless only one of them
+	// create and populate a Constraint on <<ArchetypeSlot>> whose specification is an Expression representing the includes/excludes clauses from P_ARCHETYPE_SLOT 
+	var constraint:UML::Constraint=new UML::Constraint@pimUml();
+	ownedRule+=constraint;
+	var expression:UML::Expression=result.map Expression(constraint,'specification');
+	var archetypePackage:UML::Package=context.getNearestPackage();
+	// if clause contains both includes and excludes, then add an 'and' expression whose operands are the includes and the excludes 
+	if(self.includes->notEmpty() and self.excludes->notEmpty())then{
+		expression.symbol:='and';
+		var includesexpression:UML::Expression=new UML::Expression@pimUml();
+		var excludesexpression:UML::Expression=new UML::Expression@pimUml();
+		includesexpression.symbol:='includes';
+		excludesexpression.symbol:='excludes';
+		expression.operand+=includesexpression;
+		expression.operand+=excludesexpression;
+		includesexpression.operand+=self.includes.mapAssertion(archetypePackage);
+		excludesexpression.operand+=self.excludes.mapAssertion(archetypePackage);
+	}else{
+		// if the clause contains includes only, then the expression is an 'includes' with an operand for each includes Assertion
+		if(self.includes->notEmpty())then{
+			expression.symbol:='includes';
+			expression.operand+=self.includes.mapAssertion(archetypePackage);
+		}else{
+			// if the clause contains excludes only, then the expression is an 'excludes' with an operand for each excludes Assertion
+			expression.symbol:='excludes';
+			expression.operand+=self.excludes.mapAssertion(archetypePackage);
+		}endif;
+	}endif;
+	// if there is a node_id specified for this P_ARCHETYPE_SLOT, then it becomes the name of the <<ArchetypeSlot>> Class
+	if(not(self.nodeId.oclIsUndefined()))then{
+		name:=self.nodeId;
+	}endif;
+}
+// map an ASSERTION to a ValueSpecification
+helper ADL::ASSERTION::mapAssertion(inout archetypePackage:UML::Package):UML::ValueSpecification
+{
+	if(not(self.expression.oclIsUndefined()))then{
+		// map ASSERTION/expression to a ValueSpecification (via EXPR_ITEMAbstract)
+		var exp:UML::ValueSpecification=self.expression.map EXPR_ITEMAbstract('',archetypePackage);
+		// tag becomes name
+		
+		if(not(self._tag.oclIsUndefined()))then{
+			exp.name:=self._tag;
+		}endif;
+		
+		// TODO: type
+		return exp;
+	}endif;
+	return null;
+}
+// map abstract EXPR_ITEM to an Expression
+mapping ADL::EXPRITEM::EXPR_ITEMAbstract(nameIn:String,inout archetypePackage:UML::Package):UML::Expression@pimUml
+	disjuncts ADL::EXPRLEAF::EXPR_LEAFAbstract,
+		ADL::EXPROPERATOR::EXPR_OPERATORAbstract
+	{}
+// map abstract EXPROPERATOR to an Expression
+mapping ADL::EXPROPERATOR::EXPR_OPERATORAbstract(nameIn:String,inout archetypePackage:UML::Package):UML::Expression@pimUml
+	disjuncts ADL::EXPRUNARYOPERATOR::EXPR_UNARY_OPERATOR,
+		ADL::EXPRBINARYOPERATOR::EXPR_BINARY_OPERATOR
+	{}
+// map abstract EXPR_LEAF to an Expression
+mapping ADL::EXPRLEAF::EXPR_LEAFAbstract(nameIn:String,inout archetypePackage:UML::Package):UML::Expression@pimUml
+	disjuncts 
+		ADL::EXPRLEAF::EXPR_LEAF
+	{}
+/*
+	<xs:complexType name="EXPR_UNARY_OPERATOR">
+		<xs:complexContent>
+			<xs:extension base="EXPR_OPERATOR">
+				<xs:sequence>
+					<xs:element name="operand" type="EXPR_ITEM"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// map EXPR_UNARY_OPERATOR to Expression with a single Operand
+mapping ADL::EXPRUNARYOPERATOR::EXPR_UNARY_OPERATOR(nameIn:String,inout archetypePackage:UML::Package):UML::Expression@pimUml
+	inherits ADL::EXPROPERATOR::EXPR_OPERATOR
+{
+	if(not(self.operand.oclIsUndefined()))then{
+		operand+=self.operand.map EXPR_ITEMAbstract('operand',archetypePackage);
+	}else{operand+=new UML::LiteralNull@pimUml();}endif;
+}
+/*
+	<xs:complexType name="EXPR_BINARY_OPERATOR">
+		<xs:complexContent>
+			<xs:extension base="EXPR_OPERATOR">
+				<xs:sequence>
+					<xs:element name="left_operand" type="EXPR_ITEM"/>
+					<xs:element name="right_operand" type="EXPR_ITEM"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// map EXPR_BINARY_OPERATOR to Expression with a left Operand and a right Operand
+mapping ADL::EXPRBINARYOPERATOR::EXPR_BINARY_OPERATOR(nameIn:String,inout archetypePackage:UML::Package):UML::Expression@pimUml
+	inherits ADL::EXPROPERATOR::EXPR_OPERATOR
+{
+	if(not(self.leftOperand.oclIsUndefined()))then{
+		operand+=self.leftOperand.map EXPR_ITEMAbstract('left_operand',archetypePackage);
+	}else{operand+=new UML::LiteralNull@pimUml();}endif;
+	if(not(self.rightOperand.oclIsUndefined()))then{
+		operand+=self.rightOperand.map EXPR_ITEMAbstract('right_operand',archetypePackage);
+	}else{operand+=new UML::LiteralNull@pimUml();}endif;
+}
+/*
+	<xs:complexType name="EXPR_OPERATOR" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="EXPR_ITEM">
+				<xs:sequence>
+					<xs:element name="operator" type="OPERATOR_KIND"/>
+					<xs:element name="precedence_overridden" type="xs:boolean"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/	
+// map an EXPR_OPERATOR to an Expression with a symbol (operator) corresponding to the EXPR_OPERATOR/operator/value, which is Integer 'kind'
+mapping ADL::EXPROPERATOR::EXPR_OPERATOR(nameIn:String,inout archetypePackage:UML::Package):UML::Expression@pimUml
+	inherits ADL::EXPRITEM::EXPR_ITEM
+{
+	var kind:String=self.operator.value1.repr();
+	switch{
+		case (kind='2001')symbol:='=';
+		case (kind='2002')symbol:='<>';
+		case (kind='2003')symbol:='<=';
+		case (kind='2004')symbol:='<';
+		case (kind='2005')symbol:='>=';
+		case (kind='2006')symbol:='>';
+		case (kind='2007')symbol:='matches';
+		case (kind='2011')symbol:='and';
+		case (kind='2012')symbol:='or';
+		case (kind='2013')symbol:='xor';
+		case (kind='2014')symbol:='implies';
+		case (kind='2015')symbol:='for_all';
+		case (kind='2016')symbol:='exists';
+		case (kind='2020')symbol:='+';
+		case (kind='2021')symbol:='-';
+		case (kind='2022')symbol:='*';
+		case (kind='2023')symbol:='/';
+		case (kind='2024')symbol:='^';
+		else symbol:='unknownExprOperator';
+	};
+}
+/*
+	<xs:complexType name="EXPR_LEAF">
+		<xs:complexContent>
+			<xs:extension base="EXPR_ITEM">
+				<xs:sequence>
+					<xs:element name="item" type="xs:anyType"/>
+					<xs:element name="reference_type" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// map EXPR_LEAF to an Expression whose symbol is the EXPR_LEAF/refereneType, which also determines how Expression is mapped
+mapping ADL::EXPRLEAF::EXPR_LEAF(nameIn:String,inout archetypePackage:UML::Package):UML::Expression@pimUml
+	inherits ADL::EXPRITEM::EXPR_ITEM
+{
+		symbol:=self.referenceType;
+		var text:String=self.item.oclAsType(Stdlib::Element).getMixedText();
+		if(symbol='attribute')then{
+			// text is an xpath-like property navigation;  this will end up at a property
+			// we could start at the last occurrence of [] and navigate remainder from there
+			var start:Integer=text.rfind('[');
+			var tailText:String=text.substring(start+1,text.size());
+			var targetNodeId:String=tailText.substringBefore(']');
+			// try to find that node, then navigate from there
+			//log('EXPR_LEAF attribute '+text+', targetNodeId='+targetNodeId);
+			if(targetNodeId.oclIsUndefined())then{}else{
+				// find a type within containing <<Archetype>> which references parsed node_id
+				archetypePackage.ownedType
+						->select(t|t.oclIsKindOf(UML::Classifier) and (t.getNodeId()->asSequence()->first()=targetNodeId)).oclAsType(UML::Classifier)
+						->forEach(target){
+					//log('EXPR_LEAF target '+target.qualifiedName);
+					//    <item>/data[id2]/events[id7]/data[id4]/items[id1007]/value/magnitude</item>
+					// resolve the rest of the expression following the [node_id]
+					var tailTail:String=tailText.substringAfter(']');
+					var attributeTarget:UML::Property=tailTail.resolveAttribute(target);
+					//log('EXPR_LEAF attributeTarget '+attributeTarget.qualifiedName);
+					if(attributeTarget.oclIsUndefined())then{}else{
+						// add a Usage from the Expression to the referenced Property
+						var usage:UML::Usage=new UML::Usage@pimUml();
+						usage.supplier+=attributeTarget;
+						usage.client+=result;
+						archetypePackage.packagedElement+=usage;
+					}endif;
+				};
+			}endif;
+		}endif;
+}
+// return resolved Property reference by this XPath-like string in the context of provided Classifier 
+query String::resolveAttribute(context:UML::Classifier):UML::Property{
+	var xpath:String=self;
+	// strip leading '/'
+	if(xpath.startsWith('/'))then{
+		xpath:=self.substringAfter('/');
+	}endif;	
+	// next property name in this xpath
+	var propertyName:String=xpath.substringBefore('/');
+	// if last property, there is no trailing '/'
+	if(propertyName.oclIsUndefined())then{propertyName:=xpath;}endif;
+	// xpathTail is rest of xpath
+	var xpathTail:String=xpath.substringAfter('/');
+	if(xpathTail.oclIsUndefined())then{}else{
+	log('resolveAttribute propertyName='+propertyName+', xpathTail='+xpathTail.repr());
+	}endif;
+	// find the referenced property within the provided context, then continue resolution with rest of xpath
+	context.attribute
+		->select(a|((a.name=propertyName)or a.subsettedProperty->exists(b|b.name=propertyName) or a.redefinedProperty->exists(c|c.name=propertyName))and a.type.oclIsKindOf(UML::Classifier))
+		->forEach(attr){
+			if(xpathTail.oclIsUndefined())then{
+				return attr;
+			}endif;
+			return xpathTail.resolveAttribute(attr.type.oclAsType(UML::Classifier));
+	};
+	return null;
+}
+/*
+	<xs:complexType name="P_C_STRING">
+		<xs:complexContent>
+			<xs:extension base="P_C_PRIMITIVE_OBJECT">
+				<xs:sequence>
+					<xs:element name="assumed_value" type="xs:string" minOccurs="0"/>
+					<xs:element name="constraint" type="xs:string" maxOccurs="unbounded"/>
+					<xs:element name="default_value" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// map P_C_STRING to Expression with symbol 'or' and a LiteralString for each cconstraint in P_C_STRING
+mapping ADL::PCSTRING::ItemTypeCSTRING(nameIn:String):UML::Expression{
+	symbol:='or';
+	type:=getBooleanPrimitiveType();
+	self.constraint->forEach(constraintString){operand+=constraintString.map LiteralString(result,'');};
+}
+/*
+	<xs:complexType name="EXPR_ITEM" abstract="true">
+		<xs:sequence>
+			<xs:element name="type" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+*/
+// map EXPR_ITEM to Expression, typed according to EXPR_ITEM/type
+mapping ADL::EXPRITEM::EXPR_ITEM(nameIn:String,inout archetypePackage:UML::Package):UML::Expression@pimUml
+{
+	name:=nameIn;
+	if(not(self.type.oclIsUndefined()))then{
+		type:=self.type.getType();
+	}endif;
+	
+}
+// map P_C_PRIMITVE_OBJECT to Constraint on a Primitive
+helper ADL::PCPRIMITIVEOBJECT::mapC_PRIMITIVE_OBJECT(inout context:UML::Property,ontology:ADL::PAUTHOREDARCHETYPE,owningAttribute:ADL::PCATTRIBUTE,identifierDefinition:UML::Enumeration):UML::Constraint
+{
+	var selfItem:ADL::PCPRIMITIVEOBJECT=self;
+	// map P_C_PRIMITVE_OBJECT to Constraint via C_PRIMITIVEAbstract
+	var pe:UML::Constraint=selfItem.map C_PRIMITIVEAbstract(context,ontology.terminology->asSequence()->first(),identifierDefinition);
+	// common mapping for C_OBJECT
+	self.setC_OBJECT(context,ontology,pe,identifierDefinition);
+	return pe;
+}
+// abstract map P_C_PRIMITIVE_OBJECT to Constraint
+mapping ADL::PCPRIMITIVEOBJECT::C_PRIMITIVEAbstract(inout context:UML::Property,ontology:ADL::PARCHETYPETERMINOLOGY,identifierEnum:UML::Enumeration):UML::Constraint
+	disjuncts ADL::PCBOOLEAN::C_BOOLEAN,
+		ADL::PCSTRING::C_STRING,
+		ADL::PCREAL::C_REAL,
+		ADL::PCDATE::C_DATE,
+		ADL::PCDATETIME::C_DATE_TIME,
+		ADL::PCTIME::C_TIME,
+		ADL::PCDURATION::C_DURATION,
+		ADL::PCINTEGER::C_INTEGER,
+		ADL::PCTERMINOLOGYCODE::P_C_TERMINOLOGY_CODE
+		
+	{}
+	/*
+		<xs:complexType name="P_C_TERMINOLOGY_CODE">
+		<xs:complexContent>
+			<xs:extension base="P_C_PRIMITIVE_OBJECT">
+				<xs:sequence>
+					<xs:element name="assumed_value" type="xs:string" minOccurs="0"/>
+					<xs:element name="constraint" type="xs:string"/>
+					<xs:element name="default_value" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	*/
+	// map P_C_TERMINOLOGY_CODE to Constraint; constraint based on '=' symbol/operator on terminology codes/EnumerationLiterals
+mapping ADL::PCTERMINOLOGYCODE::P_C_TERMINOLOGY_CODE(inout context:UML::Property,ontology:ADL::PARCHETYPETERMINOLOGY,identifierEnum:UML::Enumeration):UML::Constraint@pimUml
+	inherits ADL::PCPRIMITIVEOBJECT::C_PRIMITIVE
+{
+	// create Expression as Constraint expression
+	var expression:UML::Expression=context.map Expression(result,'specification');
+	// Expression symbol/operator is '='
+	expression.symbol:='=';
+	// constraint type is a specific Terminology Definition EnumerationLiteral (a node_id) 
+	var constraintValue:String=self.constraint;
+	var constraintLiteral:UML::EnumerationLiteral=constraintValue.findTermDefinitionItem(context);
+	// the operand is an InstanceValue whose instance is that EnumeraitonLiteral
+	var ivconstraint:UML::InstanceValue:=new UML::InstanceValue@pimUml();
+	ivconstraint.instance:=constraintLiteral;
+	expression.operand+=ivconstraint;
+	// if there is an incoming assumedValue, map it to a Constraint whose specification is an Expression whose symbol is 'assumedValue' and whose operand value is the node_id EnumerationLiteral 
+	if(not(self.assumedValue.oclIsUndefined()))then{
+		var assumedValueConstraint:UML::Constraint=new UML::Constraint@pimUml();
+		var assumedValueExpression:UML::Expression=context.map Expression(assumedValueConstraint,'assumedValue');
+		assumedValueExpression.symbol:='assumedValue';
+		var ivLiteral:UML::EnumerationLiteral=self.assumedValue.CODE_PHRASE(identifierEnum);
+		var iv:UML::InstanceValue:=new UML::InstanceValue@pimUml();
+		iv.instance:=ivLiteral;
+		assumedValueExpression.operand+=iv;
+	}endif;	
+	// if there is an incoming defaultValue, map it to an InstanceValue whose is instance is the node_id EnumerationLiteral 
+	if(not(self.defaultValue.oclIsUndefined()))then{
+		var ivLiteral:UML::EnumerationLiteral=self.defaultValue.CODE_PHRASE(identifierEnum);
+		var iv:UML::InstanceValue:=new UML::InstanceValue@pimUml();
+		iv.instance:=ivLiteral;
+		context.defaultValue:=iv;
+	}endif;	
+}
+/*
+	<xs:complexType name="P_C_PRIMITIVE_OBJECT">
+		<xs:complexContent>
+			<xs:extension base="P_C_DEFINED_OBJECT">
+				<xs:attribute name="is_enumerated_type_constraint" type="xs:boolean" use="optional"
+				/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// abstract map P_C_PRIMITIVE_OBJECT to Constraint
+mapping ADL::PCPRIMITIVEOBJECT::C_PRIMITIVE(inout context:UML::Property,ontology:ADL::PARCHETYPETERMINOLOGY,identifierEnum:UML::Enumeration):UML::Constraint
+{
+ init{}
+ // is_enumerated_type_constraint; assume this is derivable
+ // inheritance from P_C_DEFINED_OBJECT:  place back into property
+}
+/*
+	<xs:complexType name="P_C_BOOLEAN">
+		<xs:complexContent>
+			<xs:extension base="P_C_PRIMITIVE_OBJECT">
+				<xs:sequence>
+					<xs:element name="assumed_value" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="constraint" type="xs:boolean" maxOccurs="2"/>
+					<xs:element name="default_value" type="xs:boolean" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// map P_C_BOOLEAN to a Constraint whose specification is an Expression with a LiteraBoolean operand
+mapping ADL::PCBOOLEAN::C_BOOLEAN(inout context:UML::Property,ontology:ADL::PARCHETYPETERMINOLOGY,identifierEnum:UML::Enumeration):UML::Constraint@pimUml
+	inherits ADL::PCPRIMITIVEOBJECT::C_PRIMITIVE
+{
+	// create the specification expression
+	var expression:UML::Expression=context.map Expression(result,'specification');
+	// add a LiteralBoolean operand for each incoming constraint
+	self.constraint->forEach(b){expression.operand+=b.map LiteralBoolean(expression,'');};
+	
+	// if there is an incoming assumedValue, map it to a Constraint whose specification is an Expression whose symbol is 'assumedValue' and whose operand value is the node_id EnumerationLiteral 
+	if(not(self.assumedValue.oclIsUndefined()))then{
+		var assumedValueConstraint:UML::Constraint=new UML::Constraint@pimUml();
+		var assumedValueExpression:UML::Expression=context.map Expression(assumedValueConstraint,'assumedValue');
+		assumedValueExpression.symbol:='assumedValue';
+		assumedValueExpression.operand+=self.assumedValue.map LiteralBoolean(assumedValueExpression,'');
+	}endif;	
+	// if there is an incoming defaultValue, map it to an InstanceValue whose is instance is the node_id EnumerationLiteral 
+	if(not(self.defaultValue.oclIsUndefined()))then{
+		context.defaultValue:=self.defaultValue.map LiteralBoolean(context,'assumedValue');
+	}endif;	
+}
+// map a boolean value to a LiteralBoolean, of type Primitive, and with provided name 
+mapping Boolean::LiteralBoolean(uniqueContext:UML::NamedElement,nameIn:String):UML::LiteralBoolean@pimUml{
+	result.value:=self;
+	result.name:=nameIn;
+	result.type:=getBooleanPrimitiveType();
+}
+// get the Boolean PrimitiveType from the UML Library
+query getBooleanPrimitiveType():UML::PrimitiveType='Boolean'.libraryPrimitiveKind();
+// get the Integer PrimitiveType from the UML Library
+query getIntegerPrimitiveType():UML::PrimitiveType='Integer'.libraryPrimitiveKind();
+// get the String PrimitiveType from the UML Library
+query getStringPrimitiveType():UML::PrimitiveType='String'.libraryPrimitiveKind();
+// get the Real PrimitiveType from the UML Library
+query getRealPrimitiveType():UML::PrimitiveType='Real'.libraryPrimitiveKind();
+// get the Date PrimitiveType from the XML Library
+query getDatePrimitiveType():UML::PrimitiveType='Date'.libraryPrimitiveKind();
+// map this String to a LiteralString of type String and with provided name
+mapping String::LiteralString(uniqueContext:UML::NamedElement,nameIn:String):UML::LiteralString@pimUml{
+	value:=self;
+	name:=nameIn;
+	type:=getStringPrimitiveType();
+}
+// map this Real to a LiteralReal of type Real and with provided name
+mapping Real::LiteralReal(uniqueContext:UML::NamedElement,nameIn:String):UML::LiteralReal@pimUml{
+	result.value:=self;
+	result.name:=nameIn;
+	result.type:=getRealPrimitiveType();
+}
+// map this Integer to a LiteralInteger of type Integer and with provided name
+mapping Integer::LiteralInteger(context:UML::NamedElement,nameIn:String):UML::LiteralInteger@pimUml{
+	result.value:=self;
+	result.name:=nameIn;
+	result.type:=getIntegerPrimitiveType();
+}
+// create a Duration of type Duration and with provided name	
+constructor UML::Duration::Duration(valueIn:String,nameIn:String){
+	result.expr:=valueIn.map LiteralString(result,'Duration');
+	result.name:=nameIn;
+	result.type:=getDurationPrimitiveType();
+}
+// create a TimeExpression of provided type and with provided name	
+constructor UML::TimeExpression::TimeExpression(valueIn:String,nameIn:String,typeIn:UML::Type){
+	result.expr:=valueIn.map LiteralString(result,'TimeExpression');
+	result.name:=nameIn;
+	result.type:=typeIn;
+}
+/*
+	<xs:complexType name="P_C_STRING">
+		<xs:complexContent>
+			<xs:extension base="P_C_PRIMITIVE_OBJECT">
+				<xs:sequence>
+					<xs:element name="assumed_value" type="xs:string" minOccurs="0"/>
+					<xs:element name="constraint" type="xs:string" maxOccurs="unbounded"/>
+					<xs:element name="default_value" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// map P_C_STRING to a Constraint whose specification is mapped via ItemTypeCSTRING and which constrains the Property context
+mapping ADL::PCSTRING::C_STRING(inout context:UML::Property,ontology:ADL::PARCHETYPETERMINOLOGY,identifierEnum:UML::Enumeration):UML::Constraint
+	inherits ADL::PCPRIMITIVEOBJECT::C_PRIMITIVE
+{
+	// specification mapped from ItemTypeCSTRING
+	result.specification:=self.map ItemTypeCSTRING('P_C_STRING');
+	// constrained element is the Property context
+	result.constrainedElement+=context;
+	// owned by the Classifier owning the Property
+	context.namespace.ownedRule+=result;
+	// if incoming assumedValue defined, create another Constraint whose specification is an 'assumedValue' Expression having operand which is a LiteralString
+	if(not(self.assumedValue.oclIsUndefined()))then{
+		var assumedValueConstraint:UML::Constraint=new UML::Constraint@pimUml();
+		var assumedValueExpression:UML::Expression=context.map Expression(assumedValueConstraint,'assumedValue');
+		assumedValueExpression.symbol:='assumedValue';
+		assumedValueExpression.operand+=self.assumedValue.map LiteralString(assumedValueExpression,'');
+	}endif;	
+	// if incoming defaultValue defined, Property defaultValue is a LiteralString
+	if(not(self.defaultValue.oclIsUndefined()))then{
+		context.defaultValue:=self.defaultValue.map LiteralString(context,'assumedValue');
+	}endif;	
+	
+}
+// map this Property to an Expression with symbol/operator 'or', having boolean type, is the specification of a Constraint constraining this Property 
+mapping UML::Property::Expression(inout constraint:UML::Constraint,nameIn:String):UML::Expression@pimUml {
+	name:=nameIn;
+	var contextNamespace:UML::Namespace=self.namespace;
+	contextNamespace.ownedRule+=constraint;
+	constraint.constrainedElement+=self;
+	var expression:UML::Expression=result;
+	expression.symbol:='or';
+	constraint.specification:=expression;
+	expression.type:=getBooleanPrimitiveType();
+}
+// map this Class to an Expression with symbol/operator 'or', having boolean type, is the specification of a Constraint constraining this Class 
+mapping UML::Class::Expression(inout constraint:UML::Constraint,nameIn:String):UML::Expression@pimUml {
+	name:=nameIn;
+	var contextNamespace:UML::Namespace=self;
+	contextNamespace.ownedRule+=constraint;
+	constraint.constrainedElement+=self;
+	var expression:UML::Expression=result;
+	expression.symbol:='or';
+	constraint.specification:=expression;
+	expression.type:=getBooleanPrimitiveType();
+}
+/*
+	<xs:complexType name="P_C_INTEGER">
+		<xs:complexContent>
+			<xs:extension base="P_C_PRIMITIVE_OBJECT">
+				<xs:sequence>
+					<xs:element name="assumed_value" type="xs:integer" minOccurs="0"/>
+					<xs:element name="constraint" type="IntervalOfInteger" maxOccurs="unbounded"/>
+					<xs:element name="default_value" type="xs:integer" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// map this P_C_INTEGER to a Constraint whose specification is an 'or' Expression with many Integer Interval operands
+mapping ADL::PCINTEGER::C_INTEGER(inout context:UML::Property,ontology:ADL::PARCHETYPETERMINOLOGY,identifierEnum:UML::Enumeration):UML::Constraint
+	inherits ADL::PCPRIMITIVEOBJECT::C_PRIMITIVE
+{
+	// specification is an 'or' Expression of type Boolean whose operands are Integer Intervals 
+	var expression:UML::Expression=new UML::Expression@pimUml();
+	expression.symbol:='or';
+	expression.type:=getBooleanPrimitiveType();
+	result.specification:=expression;
+	self.constraint->forEach(range){
+		expression.operand+=range.map IntervalOfInteger(context,'');
+	};
+	// the constrained element is the Property context
+	result.constrainedElement+=context;
+	// the owner is the Classifier owning the Property
+	context.namespace.ownedRule+=result;
+// if original RM type was not Integer, then create some form of reference to original rm type.  This can be done by simply typing some ValueSpecification with that type.
+	if(not(self.rmTypeName.oclIsUndefined()))then{
+		// resolve the Reference Model Class 
+		var rmClass:UML::Classifier=self.rmTypeName.findRMClass();
+		if(not(rmClass.oclIsUndefined())and not(rmClass.oclIsKindOf(UML::PrimitiveType)))then{
+			var originalValueConstraint:UML::Constraint=new UML::Constraint@pimUml();
+			var originalValueExpression:UML::Expression=context.map Expression(originalValueConstraint,'valueRestriction');
+			originalValueExpression.symbol:='valueRestriction';
+			originalValueExpression.operand+=self.assumedValue.map LiteralInteger(originalValueExpression,'');
+
+			var restriction:UML::Expression=new UML::Expression@pimUml();
+			originalValueExpression.operand+=restriction;
+			restriction.type:=rmClass;
+			
+		}endif;
+	}endif;
+	// if there is an incoming assumedValue, create a Constraint with a specification of an 'assumedValue' Expression having a LiteralInteger operand
+	if(not(self.assumedValue.oclIsUndefined()))then{
+			var assumedValueConstraint:UML::Constraint=new UML::Constraint@pimUml();
+			var assumedValueExpression:UML::Expression=context.map Expression(assumedValueConstraint,'assumedValue');
+			assumedValueExpression.symbol:='assumedValue';
+			assumedValueExpression.operand+=self.assumedValue.map LiteralInteger(assumedValueExpression,'');
+	}endif;	
+	// if there is an incoming defaultValue, set the Property defaultValue to a LiteralInteger having a value that is the incoming defaultValue 
+	if(not(self.defaultValue.oclIsUndefined()))then{
+		context.defaultValue:=self.defaultValue.map LiteralInteger(context,'assumedValue');
+	}endif;	
+	
+}
+/*
+	<xs:complexType name="P_C_REAL">
+		<xs:complexContent>
+			<xs:extension base="P_C_PRIMITIVE_OBJECT">
+				<xs:sequence>
+					<xs:element name="assumed_value" type="xs:float" minOccurs="0"/>
+					<xs:element name="constraint" type="IntervalOfReal" maxOccurs="unbounded"/>
+					<xs:element name="default_value" type="xs:float" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// map this P_C_REAL to a Constraint whose specification is an 'or' Expression with many Real Interval operand
+mapping ADL::PCREAL::C_REAL(inout context:UML::Property,ontology:ADL::PARCHETYPETERMINOLOGY,identifierEnum:UML::Enumeration):UML::Constraint
+	inherits ADL::PCPRIMITIVEOBJECT::C_PRIMITIVE
+{
+	// specification is an 'or' Expression of type Boolean whose operands are Real Intervals 
+	var expression:UML::Expression=context.map Expression(result,'specification');
+	expression.symbol:='or';
+	expression.type:=getBooleanPrimitiveType();
+	result.specification:=expression;
+	self.constraint->forEach(range){
+		expression.operand+=range.map IntervalOfReal(context,'');
+	};
+	
+	// the constrained element is the Property context
+	result.constrainedElement+=context;
+	// the owner is the Classifier owning the Property
+	context.namespace.ownedRule+=result;
+
+	// if there is an incoming assumedValue, create a Constraint with a specification of an 'assumedValue' Expression having a LiteralReal operand
+	if(not(self.assumedValue.oclIsUndefined()))then{
+		var assumedValueConstraint:UML::Constraint=new UML::Constraint@pimUml();
+		var assumedValueExpression:UML::Expression=context.map Expression(assumedValueConstraint,'assumedValue');
+		assumedValueExpression.symbol:='assumedValue';
+		assumedValueExpression.operand+=self.assumedValue.map LiteralReal(assumedValueExpression,'');
+	}endif;	
+	// if there is an incoming defaultValue, set the Property defaultValue to a LiteralReal having a value that is the incoming defaultValue 
+	if(not(self.defaultValue.oclIsUndefined()))then{
+		context.defaultValue:=self.defaultValue.map LiteralReal(context,'assumedValue');
+	}endif;	
+	
+}
+/*
+	<xs:complexType name="P_C_DATE">
+		<xs:complexContent>
+			<xs:extension base="P_C_TEMPORAL">
+				<xs:sequence>
+					<xs:element name="pattern_constraint" type="DateConstraintPattern" minOccurs="0"/>
+					<xs:element name="constraint" type="IntervalOfDate" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// map this P_C_DATE to a Constraint whose specification is an 'or' Expression with an optional pattern_constraint operand and multiple Date Interval operands
+mapping ADL::PCDATE::C_DATE(inout context:UML::Property,ontology:ADL::PARCHETYPETERMINOLOGY,identifierEnum:UML::Enumeration):UML::Constraint
+	inherits ADL::PCPRIMITIVEOBJECT::C_PRIMITIVE
+{
+	// specification is an 'or' Expression of type Boolean whose operands are Date Intervals 
+	var expression:UML::Expression=new UML::Expression@pimUml();
+	expression.symbol:='P_C_DATE';
+	expression.type:=getBooleanPrimitiveType();
+	result.specification:=expression;
+	if(not(self.patternConstraint.oclIsUndefined()))then{
+		expression.operand+=self.patternConstraint.map LiteralString(result,'pattern_constraint');
+	}endif;
+	self.constraint->forEach(range){
+		expression.operand+=range.map IntervalOfDate(context,'');
+	};
+	
+	// the constrained element is the Property context
+	result.constrainedElement+=context;
+	// the owner is the Classifier owning the Property
+	context.namespace.ownedRule+=result;
+}
+/*
+	<xs:complexType name="P_C_DATE_TIME">
+		<xs:complexContent>
+			<xs:extension base="P_C_TEMPORAL">
+				<xs:sequence>
+					<xs:element name="pattern_constraint" type="DateTimeConstraintPattern" minOccurs="0"/>
+					<xs:element name="constraint" type="IntervalOfDateTime" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// map this P_C_DATETIME to a Constraint whose specification is an 'or' Expression with an optional pattern_constraint operand and multiple DateTime Interval operands
+mapping ADL::PCDATETIME::C_DATE_TIME(inout context:UML::Property,ontology:ADL::PARCHETYPETERMINOLOGY,identifierEnum:UML::Enumeration):UML::Constraint
+	inherits ADL::PCPRIMITIVEOBJECT::C_PRIMITIVE
+{
+	// specification is an 'or' Expression of type Boolean whose operands are Date Intervals 
+	var expression:UML::Expression=new UML::Expression@pimUml();
+	expression.symbol:='C_DATE_TIME';
+	expression.type:=getBooleanPrimitiveType();
+	result.specification:=expression;
+	if(not(self.patternConstraint.oclIsUndefined()))then{
+		expression.operand+=self.patternConstraint.map LiteralString(result,'pattern_constraint');
+	}endif;
+	
+	self.constraint->forEach(range){
+		expression.operand+=range.map IntervalOfDateTime(context,'');
+	};
+	
+	// the constrained element is the Property context
+	result.constrainedElement+=context;
+	// the owner is the Classifier owning the Property
+	context.namespace.ownedRule+=result;
+}
+// return the DateTime PrimitiveType from the XML library
+query getDateTimePrimitiveType():UML::PrimitiveType='DateTime'.libraryPrimitiveKind();
+/*
+	<xs:complexType name="P_C_TIME">
+		<xs:complexContent>
+			<xs:extension base="P_C_TEMPORAL">
+				<xs:sequence>
+					<xs:element name="pattern_constraint" type="TimeConstraintPattern" minOccurs="0"/>
+					<xs:element name="constraint" type="IntervalOfTime" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// map this P_C_TIME to a Constraint whose specification is an 'or' Expression with an optional pattern_constraint operand and multiple Time Interval operands
+mapping ADL::PCTIME::C_TIME(inout context:UML::Property,ontology:ADL::PARCHETYPETERMINOLOGY,identifierEnum:UML::Enumeration):UML::Constraint
+	inherits ADL::PCPRIMITIVEOBJECT::C_PRIMITIVE
+{
+	var expression:UML::Expression=new UML::Expression@pimUml();
+	expression.symbol:='C_TIME';
+	expression.type:=getBooleanPrimitiveType();
+	result.specification:=expression;
+	if(not(self.patternConstraint.oclIsUndefined()))then{
+		expression.operand+=self.patternConstraint.map LiteralString(result,'pattern_constraint');
+	}endif;
+	self.constraint->forEach(range){
+		expression.operand+=range.map IntervalOfTime(context,'');
+	};
+	
+	// the constrained element is the Property context
+	result.constrainedElement+=context;
+	// the owner is the Classifier owning the Property
+	context.namespace.ownedRule+=result;
+}
+
+// return the Time PrimitiveType from the XML library
+query getTimePrimitiveType():UML::PrimitiveType='Time'.libraryPrimitiveKind();
+/*
+	<xs:complexType name="P_C_DURATION">
+		<xs:complexContent>
+			<xs:extension base="P_C_TEMPORAL">
+				<xs:sequence>
+					<xs:element name="pattern_constraint" type="DurationConstraintPattern" minOccurs="0"/>
+					<xs:element name="constraint" type="IntervalOfDuration" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+*/
+// map this P_C_DURATION to a Constraint whose specification is an 'or' Expression with an optional pattern_constraint operand and multiple Duration Interval operands
+mapping ADL::PCDURATION::C_DURATION(inout context:UML::Property,ontology:ADL::PARCHETYPETERMINOLOGY,identifierEnum:UML::Enumeration):UML::Constraint
+	inherits ADL::PCPRIMITIVEOBJECT::C_PRIMITIVE
+{
+	var expression:UML::Expression=new UML::Expression@pimUml();
+	expression.symbol:='C_DURATION';
+	expression.type:=getBooleanPrimitiveType();
+	result.specification:=expression;
+	if(not(self.patternConstraint.oclIsUndefined()))then{
+		expression.operand+=self.patternConstraint.map LiteralString(result,'pattern_constraint');
+	}endif;
+	
+	self.constraint->forEach(range){
+		expression.operand+=range.map IntervalOfDuration(context,'');
+	};
+	
+	// the constrained element is the Property context
+	result.constrainedElement+=context;
+	// the owner is the Classifier owning the Property
+	context.namespace.ownedRule+=result;
+}
+// return the Duration PrimitiveType from the XML library
+query getDurationPrimitiveType():UML::PrimitiveType='duration'.libraryPrimitiveKind();
+// return the Type inferred by this Name; will be either a library primitive kind or a Reference Model Type
+query String::getType():UML::Type{
+	var umlType:UML::Type=self.libraryPrimitiveKind();
+	if(umlType.oclIsUndefined())then{
+		umlType:=self.findRMClass();
+	}endif;
+	return umlType;
+}
+// return a Classifier inferred by this Name, which may be nested directly or indirectly within the current <<ReferenceModel>>
+query String::findRMClass():UML::Classifier{
+	if(referenceModelPackage.oclIsUndefined())then {return null;}endif;
+	return self.findRMClass(referenceModelPackage);
+}
+
+// return a Classifier inferred by this Name, which may be nested directly or indirectly within the specified <<ReferenceModel>> Package
+query String::findRMClass(p:UML::Package):UML::Classifier{
+	p.ownedType
+		->select(t|((t.name=self)or(t.name=(self+'<T>'))) and t.oclIsKindOf(UML::Classifier)).oclAsType(UML::Classifier)
+		->forEach(c){return c;};
+	p.nestedPackage->forEach(n){
+		var test:UML::Classifier=self.findRMClass(n);
+		if(not(test.oclIsUndefined()))then{return test;}endif;
+	};
+	return null;	
+}
+
+
