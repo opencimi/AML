@@ -100,6 +100,6 @@ This profile implements the ADL *terminology* section.
 ## Supporting resources
 * [AML-sample-archetypes](aml-sample-archetypes) -- The set of ADL 1.5.1 archetypes used to test the AML Object Model and corresponding stereotypes
 * [Images](images) -- Images used in the various customizations
-* [report](report) -- submission template
-* [archive](archive) -- historical relics and anciallary resources
+* [report](report) -- Submission template
+* [archive](archive) -- Historical relics and anciallary resources
 * [ReferenceDocuments](ReferenceDocuments) -- Copies of useful reference documents
